@@ -18,8 +18,8 @@
 //----------------------------------------------------------------------
 // Static Private Variables
 //----------------------------------------------------------------------
-const int Application::m_WindowWidth = 1600;
-const int Application::m_WindowHeight = 900;
+const int Application::m_WindowWidth = 1280;
+const int Application::m_WindowHeight = 720;
 const DWORD Application::m_WindowStyle = WS_OVERLAPPEDWINDOW & ~WS_THICKFRAME & ~WS_MAXIMIZEBOX | WS_VISIBLE;
 
 

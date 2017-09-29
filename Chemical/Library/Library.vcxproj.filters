@@ -194,6 +194,48 @@
     <Filter Include="Library\DirectX12">
       <UniqueIdentifier>{0d67f097-903b-494a-84d2-264d0c52e48e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Library\Debugger\ConsoleWindow">
+      <UniqueIdentifier>{ff1b47cd-8550-4bb0-9999-6a0bf64c5887}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\Debugger\DebugTimer">
+      <UniqueIdentifier>{32854926-d32e-4f00-88aa-e9e6bfaf518b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\DirectX12\CommandListManager">
+      <UniqueIdentifier>{7a088e50-9723-490c-9323-90c6f89c385c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\DirectX12\CommandListManager\CommandList">
+      <UniqueIdentifier>{75d71501-ab23-446c-8562-7c97021499a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\DirectX12\DescriptorManager">
+      <UniqueIdentifier>{8a302faf-bfe0-4422-ab34-61f1e43de953}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\DirectX12\CommandQueueManager">
+      <UniqueIdentifier>{212809f8-1130-4546-9c2d-2e2e431a4056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\DirectX12\CommandQueueManager\CommandQueue">
+      <UniqueIdentifier>{86aa859a-b3f1-43c7-b234-40795d751b42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\DirectX12\GraphicsDevice">
+      <UniqueIdentifier>{32a3bdef-746c-44ac-9560-32ac83441713}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\DirectX12\SwapChain">
+      <UniqueIdentifier>{d2979782-76b7-473d-b1fa-25fa069c42b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\DirectX12\PSOManager">
+      <UniqueIdentifier>{3550f2d6-1aa6-4176-8605-9a50ec095867}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\DirectX12\RootSignatureManager">
+      <UniqueIdentifier>{bc506966-a18a-4f78-b9b1-56aa7ded2bf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\TaskManager\TaskBase\DrawStartUpTask">
+      <UniqueIdentifier>{b11a2b3c-d8c9-43a0-985e-620250d1938d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\TaskManager\TaskBase\UpdateStartUpTask">
+      <UniqueIdentifier>{048f035f-e85f-467e-94c9-9a5f38c26492}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\Math\Matrix">
+      <UniqueIdentifier>{dd738579-f1b6-41aa-b943-f10c515132b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Library\Debugger\Debugger.cpp">
@@ -343,28 +385,60 @@
     <ClCompile Include="Library\DirectX11\VertexManager\Dx11VertexManager.cpp">
       <Filter>Library\DirectX11\VertexManager</Filter>
     </ClCompile>
-    <ClCompile Include="Library\DirectX12\GraphicsDevice\Dx12GraphicsDevice.cpp" />
-    <ClCompile Include="Library\DirectX12\CommandQueueManager\Dx12CommandQueueManager.cpp" />
-    <ClCompile Include="Library\DirectX12\SwapChain\Dx12SwapChain.cpp" />
-    <ClCompile Include="Library\DirectX12\CommandListManager\Dx12CommandListManager.cpp" />
     <ClCompile Include="Library\Math\Math.cpp">
       <Filter>Library\Math</Filter>
     </ClCompile>
-    <ClCompile Include="Library\Math\Matrix\Matrix.cpp" />
-    <ClCompile Include="Library\DirectX12\RootSignature\RootSignatureManager.cpp" />
-    <ClCompile Include="Library\DirectX12\PSOManager\PSOManager.cpp" />
-    <ClCompile Include="Library\DirectX12\DescriptorManager\DescriptorManager.cpp" />
-    <ClCompile Include="Library\DirectX12\CommandQueueManager\CommandQueue\Dx12CommandQueue.cpp" />
-    <ClCompile Include="Library\DirectX12\CommandListManager\CommandList\Dx12CommandList.cpp" />
-    <ClCompile Include="Library\TaskManager\TaskBase\DrawStartUpTask\DrawStartUpTask.cpp" />
-    <ClCompile Include="Library\TaskManager\TaskBase\UpdateStartUpTask\UpdateStartUpTask.cpp" />
-    <ClCompile Include="Library\Debugger\ConsoleWindow\ConsoleWindow.cpp" />
     <ClCompile Include="Library\EventManager\EventListener\EventListener.cpp">
       <Filter>Library\EventManagerBase\EventListenerBase</Filter>
     </ClCompile>
-    <ClCompile Include="Library\DirectX11\FbxFileManager\FbxLoader\Dx11FbxLoader.cpp" />
-    <ClCompile Include="Library\DirectX11\FbxFileManager\FbxModel\Dx11FbxModel.cpp" />
-    <ClCompile Include="Library\DirectX11\FbxFileManager\Dx11FbxFileManager.cpp" />
+    <ClCompile Include="Library\DirectX11\FbxFileManager\Dx11FbxFileManager.cpp">
+      <Filter>Library\DirectX11\FbxFileManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\DirectX11\FbxFileManager\FbxModel\Dx11FbxModel.cpp">
+      <Filter>Library\DirectX11\FbxFileManager\FbxModel</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\DirectX11\FbxFileManager\FbxLoader\Dx11FbxLoader.cpp">
+      <Filter>Library\DirectX11\FbxFileManager\FbxLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Debugger\ConsoleWindow\ConsoleWindow.cpp">
+      <Filter>Library\Debugger\ConsoleWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\DirectX12\CommandListManager\CommandList\Dx12CommandList.cpp">
+      <Filter>Library\DirectX12\CommandListManager\CommandList</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\DirectX12\CommandListManager\Dx12CommandListManager.cpp">
+      <Filter>Library\DirectX12\CommandListManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\DirectX12\DescriptorManager\DescriptorManager.cpp">
+      <Filter>Library\DirectX12\DescriptorManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\DirectX12\CommandQueueManager\CommandQueue\Dx12CommandQueue.cpp">
+      <Filter>Library\DirectX12\CommandQueueManager\CommandQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\DirectX12\CommandQueueManager\Dx12CommandQueueManager.cpp">
+      <Filter>Library\DirectX12\CommandQueueManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\DirectX12\GraphicsDevice\Dx12GraphicsDevice.cpp">
+      <Filter>Library\DirectX12\GraphicsDevice</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\DirectX12\SwapChain\Dx12SwapChain.cpp">
+      <Filter>Library\DirectX12\SwapChain</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\DirectX12\PSOManager\PSOManager.cpp">
+      <Filter>Library\DirectX12\PSOManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\DirectX12\RootSignature\RootSignatureManager.cpp">
+      <Filter>Library\DirectX12\RootSignatureManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\TaskManager\TaskBase\DrawStartUpTask\DrawStartUpTask.cpp">
+      <Filter>Library\TaskManager\TaskBase\DrawStartUpTask</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\TaskManager\TaskBase\UpdateStartUpTask\UpdateStartUpTask.cpp">
+      <Filter>Library\TaskManager\TaskBase\UpdateStartUpTask</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Math\Matrix\Matrix.cpp">
+      <Filter>Library\Math\Matrix</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Library\Debugger\Debugger.h">
@@ -520,29 +594,63 @@
     <ClInclude Include="Library\DirectX11\VertexManager\Dx11VertexManager.h">
       <Filter>Library\DirectX11\VertexManager</Filter>
     </ClInclude>
-    <ClInclude Include="Library\DirectX12\GraphicsDevice\Dx12GraphicsDevice.h" />
-    <ClInclude Include="Library\DirectX12\CommandQueueManager\Dx12CommandQueueManager.h" />
-    <ClInclude Include="Library\DirectX12\SwapChain\Dx12SwapChain.h" />
-    <ClInclude Include="Library\DirectX12\CommandListManager\Dx12CommandListManager.h" />
     <ClInclude Include="Library\Math\Math.h">
       <Filter>Library\Math</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Math\Matrix\Matrix.h" />
-    <ClInclude Include="Library\DirectX12\RootSignature\RootSignatureManager.h" />
-    <ClInclude Include="Library\DirectX12\PSOManager\PSOManager.h" />
-    <ClInclude Include="Library\DirectX12\DescriptorManager\DescriptorManager.h" />
-    <ClInclude Include="Library\DirectX12\CommandQueueManager\CommandQueue\Dx12CommandQueue.h" />
-    <ClInclude Include="Library\DirectX12\CommandListManager\CommandList\Dx12CommandList.h" />
-    <ClInclude Include="Library\TaskManager\TaskBase\DrawStartUpTask\DrawStartUpTask.h" />
-    <ClInclude Include="Library\TaskManager\TaskBase\UpdateStartUpTask\UpdateStartUpTask.h" />
-    <ClInclude Include="Library\Debugger\DebugTimer\DebugTimer.h" />
-    <ClInclude Include="Library\Debugger\ConsoleWindow\ConsoleWindow.h" />
     <ClInclude Include="Library\EventManager\EventListener\EventListener.h">
       <Filter>Library\EventManagerBase\EventListenerBase</Filter>
     </ClInclude>
-    <ClInclude Include="Library\DirectX11\FbxFileManager\FbxLoader\Dx11FbxLoader.h" />
-    <ClInclude Include="Library\DirectX11\FbxFileManager\FbxModel\Dx11FbxModel.h" />
-    <ClInclude Include="Library\DirectX11\FbxFileManager\Dx11FbxFileManager.h" />
+    <ClInclude Include="Library\DirectX11\FbxFileManager\Dx11FbxFileManager.h">
+      <Filter>Library\DirectX11\FbxFileManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\DirectX11\FbxFileManager\FbxModel\Dx11FbxModel.h">
+      <Filter>Library\DirectX11\FbxFileManager\FbxModel</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\DirectX11\FbxFileManager\FbxLoader\Dx11FbxLoader.h">
+      <Filter>Library\DirectX11\FbxFileManager\FbxLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Debugger\ConsoleWindow\ConsoleWindow.h">
+      <Filter>Library\Debugger\ConsoleWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Debugger\DebugTimer\DebugTimer.h">
+      <Filter>Library\Debugger\DebugTimer</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\DirectX12\CommandListManager\CommandList\Dx12CommandList.h">
+      <Filter>Library\DirectX12\CommandListManager\CommandList</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\DirectX12\CommandListManager\Dx12CommandListManager.h">
+      <Filter>Library\DirectX12\CommandListManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\DirectX12\DescriptorManager\DescriptorManager.h">
+      <Filter>Library\DirectX12\DescriptorManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\DirectX12\CommandQueueManager\CommandQueue\Dx12CommandQueue.h">
+      <Filter>Library\DirectX12\CommandQueueManager\CommandQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\DirectX12\CommandQueueManager\Dx12CommandQueueManager.h">
+      <Filter>Library\DirectX12\CommandQueueManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\DirectX12\GraphicsDevice\Dx12GraphicsDevice.h">
+      <Filter>Library\DirectX12\GraphicsDevice</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\DirectX12\SwapChain\Dx12SwapChain.h">
+      <Filter>Library\DirectX12\SwapChain</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\DirectX12\PSOManager\PSOManager.h">
+      <Filter>Library\DirectX12\PSOManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\DirectX12\RootSignature\RootSignatureManager.h">
+      <Filter>Library\DirectX12\RootSignatureManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\TaskManager\TaskBase\DrawStartUpTask\DrawStartUpTask.h">
+      <Filter>Library\TaskManager\TaskBase\DrawStartUpTask</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\TaskManager\TaskBase\UpdateStartUpTask\UpdateStartUpTask.h">
+      <Filter>Library\TaskManager\TaskBase\UpdateStartUpTask</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Math\Matrix\Matrix.h">
+      <Filter>Library\Math\Matrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Library\DirectX11\Vertex2D\Effect\Vertex2D.fx">
@@ -574,9 +682,17 @@
     <None Include="Library\GameDataManager\GameDataManager_private.inl">
       <Filter>Library\GameDataManager</Filter>
     </None>
-    <None Include="Library\TaskManager\TaskBase\DrawTask\DrawTask_private.inl" />
-    <None Include="Library\TaskManager\TaskBase\UpdateTask\UpdateTask_private.inl" />
-    <None Include="Library\TaskManager\TaskBase\DrawStartUpTask\DrawStartUpTask_private.inl" />
-    <None Include="Library\TaskManager\TaskBase\UpdateStartUpTask\UpdateStartUpTask_private.inl" />
+    <None Include="Library\TaskManager\TaskBase\DrawTask\DrawTask_private.inl">
+      <Filter>Library\TaskManager\TaskBase\DrawTask</Filter>
+    </None>
+    <None Include="Library\TaskManager\TaskBase\DrawStartUpTask\DrawStartUpTask_private.inl">
+      <Filter>Library\TaskManager\TaskBase\DrawStartUpTask</Filter>
+    </None>
+    <None Include="Library\TaskManager\TaskBase\UpdateStartUpTask\UpdateStartUpTask_private.inl">
+      <Filter>Library\TaskManager\TaskBase\UpdateStartUpTask</Filter>
+    </None>
+    <None Include="Library\TaskManager\TaskBase\UpdateTask\UpdateTask_private.inl">
+      <Filter>Library\TaskManager\TaskBase\UpdateTask</Filter>
+    </None>
   </ItemGroup>
 </Project>

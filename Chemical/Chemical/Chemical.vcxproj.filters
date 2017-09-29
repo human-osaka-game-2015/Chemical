@@ -8,14 +8,30 @@
     <Filter Include="Main">
       <UniqueIdentifier>{6b013872-dddc-4efc-9e9f-c031122fca30}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application">
+      <UniqueIdentifier>{48ccf93e-845c-4af8-832b-3a348cf6374c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene">
+      <UniqueIdentifier>{243c2058-d0af-4603-80f3-23c02d01e5fd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main\Main.cpp" />
-    <ClCompile Include="Main\Application\Application.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp" />
+    <ClCompile Include="Main\Main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Application.cpp">
+      <Filter>Main\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp">
+      <Filter>Main\Application\GameScene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Main\Application\Application.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameScene.h" />
+    <ClInclude Include="Main\Application\Application.h">
+      <Filter>Main\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameScene.h">
+      <Filter>Main\Application\GameScene</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
