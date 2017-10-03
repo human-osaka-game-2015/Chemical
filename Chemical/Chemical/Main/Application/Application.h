@@ -23,6 +23,16 @@ class Application
 {
 public:
 	/**
+	 * シーンのID列挙子
+	 */
+	enum SCENE_ID
+	{
+		TITLE_SCENE_ID,	//!< タイトルシーンID.
+		GAME_SCENE_ID,	//!< ゲームシーンID.
+		END_SCENE_ID	//!< 終了ID.
+	};
+
+	/**
 	 * コンストラクタ
 	 */
 	Application();
@@ -49,16 +59,6 @@ public:
 	void Run();
 
 private:
-	/**
-	 * シーンのID列挙子
-	 */
-	enum SCENE_ID
-	{
-		TITLE_SCENE_ID,	//!< タイトルシーンID.
-		GAME_SCENE_ID,	//!< ゲームシーンID.
-		END_SCENE_ID	//!< 終了ID.
-	};
-
 	static const int m_WindowWidth;		//!< ウィンドウの幅.
 	static const int m_WindowHeight;	//!< ウィンドウの高さ.
 	static const DWORD m_WindowStyle;	//!< ウィンドウのスタイル.
