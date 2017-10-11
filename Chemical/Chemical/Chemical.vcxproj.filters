@@ -25,6 +25,7 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp">
       <Filter>Main\Application\GameScene</Filter>
     </ClCompile>
+    <ClCompile Include="Main\Object2DBase\Object2DBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Application.h">
@@ -33,5 +34,6 @@
     <ClInclude Include="Main\Application\Scene\GameScene\GameScene.h">
       <Filter>Main\Application\GameScene</Filter>
     </ClInclude>
+    <ClInclude Include="Main\Object2DBase\Object2DBase.h" />
   </ItemGroup>
 </Project>

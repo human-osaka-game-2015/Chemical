@@ -77,10 +77,12 @@
     <ClCompile Include="Main\Application\Application.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Main\Main.cpp" />
+    <ClCompile Include="Main\Object2DBase\Object2DBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Application.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameScene.h" />
+    <ClInclude Include="Main\Object2DBase\Object2DBase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
