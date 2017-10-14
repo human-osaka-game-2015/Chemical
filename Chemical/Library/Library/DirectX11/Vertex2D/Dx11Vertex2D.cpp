@@ -176,6 +176,18 @@ namespace Lib
 			return false;
 		}
 
+		void Vertex2D::SetVertexPos(const D3DXVECTOR2* _pVertex)
+		{
+			m_pVertexData[0].Pos.x = _pVertex[0].x;
+			m_pVertexData[0].Pos.y = _pVertex[0].y;
+			m_pVertexData[1].Pos.x = _pVertex[1].x;
+			m_pVertexData[1].Pos.y = _pVertex[1].y;
+			m_pVertexData[2].Pos.x = _pVertex[2].x;
+			m_pVertexData[2].Pos.y = _pVertex[2].y;
+			m_pVertexData[3].Pos.x = _pVertex[3].x;
+			m_pVertexData[3].Pos.y = _pVertex[3].y;
+		}
+
 		void Vertex2D::SetVertex(const D3DXVECTOR2* _pSize)
 		{
 			m_pVertexData[0].Pos.x = -_pSize->x / 2;

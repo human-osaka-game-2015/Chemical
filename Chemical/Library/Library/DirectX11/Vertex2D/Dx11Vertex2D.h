@@ -75,27 +75,33 @@ namespace Lib
 			bool WriteVertexBuffer();
 
 			/**
-			 * 頂点座標をセットする
+			 * 頂点座標を直接指定する
+			 * @param[in] _pVertex 設定する頂点座標(指定順序は左上-右上-左下-右下)
+			 */
+			void SetVertexPos(const D3DXVECTOR2* _pVertex);
+
+			/**
+			 * 矩形情報から頂点座標を設定する
 			 * @param[in] _pSize 描画する2Dポリゴンの矩形サイズ
 			 */
 			void SetVertex(const D3DXVECTOR2* _pSize);
 
 			/**
-			 * 頂点座標をセットする(回転も行う)
+			 * 矩形情報と傾きから頂点座標を設定する
 			 * @param[in] _pSize 描画する2Dポリゴンの矩形サイズ
 			 * @param[in] _angle 矩形の角度
 			 */
 			void SetVertex(const D3DXVECTOR2* _pSize, float _angle);
 
 			/**
-			 * テクスチャ座標をセットする
+			 * テクスチャ座標を設定する
 			 * @param[in] _pMinUV UVの最小値
 			 * @param[in] _pMaxUV UVの最大値
 			 */
 			void SetUV(const D3DXVECTOR2* _pMinUV, const D3DXVECTOR2* _pMaxUV);
 
 			/**
-			 * カラー情報をセットする
+			 * カラー情報を設定する
 			 * @param[in] _pColor 描画するポリゴンの色
 			 */
 			void SetColor(const D3DXCOLOR* _pColor);
@@ -126,7 +132,7 @@ namespace Lib
 			 * 描画するテクスチャをセットする
 			 * @param[in] _pTexture テクスチャオブジェクト
 			 */
-			inline void SetTexture(ITexture* _pTexture)
+			void SetTexture(ITexture* _pTexture)
 			{
 				m_pTexture = _pTexture;
 			}
@@ -135,7 +141,7 @@ namespace Lib
 			 * 描画時のアニメーションをセットする
 			 * @param[in] _pAnimation アニメーションオブジェクト
 			 */
-			inline void SetAnimation(IAnimation* _pAnimation)
+			void SetAnimation(IAnimation* _pAnimation)
 			{
 				m_pAnimation = _pAnimation;
 			}
@@ -144,7 +150,7 @@ namespace Lib
 			 * 画像が反転しているのか設定
 			 * @param[in] _isInverse 画像が反転しているか(アニメーション使用時にしか影響しない)
 			 */
-			inline void SetInverse(bool _isInverse)
+			void SetInverse(bool _isInverse)
 			{
 				m_IsInverse = _isInverse;
 			}
@@ -153,7 +159,7 @@ namespace Lib
 			 * 深度ステンシルステートの設定
 			 * @param[in] _pState 画像が設定するステート
 			 */
-			inline void SetDepthStencilState(ID3D11DepthStencilState* _pState)
+			void SetDepthStencilState(ID3D11DepthStencilState* _pState)
 			{
 				m_pUserDepthStencilState = _pState;
 			}
