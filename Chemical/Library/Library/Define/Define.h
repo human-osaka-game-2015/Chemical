@@ -23,11 +23,20 @@
 //----------------------------------------------------------------------
 
 // コピー禁止マクロ.
-#define DISALLOW_COPY_AND_ASSIGN(Type)	Type(const Type&);			\
-										void operator=(const Type&)
+#define DISALLOW_COPY_AND_ASSIGN(_type)	_type(const _type&);			\
+										void operator=(const _type&)
 
 // インターフェースマクロ.
 #define interface struct
+
+// 文字列変換マクロ.
+#define TO_STRING(_str) (#_str)
+
+// SUCCEEDEDマクロ.
+#define IS_SUCCEEDED (_expression) (_expression)
+
+// FAILEDマクロ.
+#define IS_FAILED(_expression) (!(_expression))
 
 
 //----------------------------------------------------------------------
@@ -36,6 +45,7 @@
 template <typename Type>
 inline void SafeDelete(Type*& _type)
 {
+	// 不完全型のチェック.
 	typedef char TypeMustBeComplete[sizeof(Type) ? 1 : -1];
 	(void) sizeof(TypeMustBeComplete);
 
@@ -46,6 +56,7 @@ inline void SafeDelete(Type*& _type)
 template <typename Type>
 inline void SafeDeleteArray(Type*& _type)
 {
+	// 不完全型のチェック.
 	typedef char TypeMustBeComplete[sizeof(Type) ? 1 : -1];
 	(void) sizeof(TypeMustBeComplete);
 
@@ -87,7 +98,7 @@ struct DefaultCreate
 {
 public:
 	template <typename... Args>
-	Type* operator()(Args... _args) const
+	Type* operator()(Args... _args)
 	{
 		return new Type(_args...);
 	}

@@ -1,0 +1,199 @@
+﻿/**
+ * @file	TitleMenu.cpp
+ * @brief	タイトルメニュークラス実装
+ * @author	morimoto
+ */
+
+//----------------------------------------------------------------------
+// Include
+//----------------------------------------------------------------------
+#include "TitleMenu.h"
+
+#include "..\..\TitleDefine.h"
+#include "DirectX11\TextureManager\Dx11TextureManager.h"
+#include "InputDeviceManager\InputDeviceManager.h"
+#include "StartButton\StartButton.h"
+#include "OptionButton\OptionButton.h"
+#include "EndButton\EndButton.h"
+#include "StaffButton\StaffButton.h"
+#include "MenuCursorEvent\MenuCursorEvent.h"
+#include "EventManager\EventManager.h"
+
+
+namespace Title
+{
+	//----------------------------------------------------------------------
+	// Constructor	Destructor
+	//----------------------------------------------------------------------
+	Menu::Menu() :
+		m_pUpdateTask(new Lib::UpdateTask()),
+		m_pDrawTask(new Lib::Draw2DTask()),
+		m_pEvent(new MenuCursorEvent(TITLE_MENU_EVENT)),
+		m_IsMenuUp(false),
+		m_IsUp(false),
+		m_IsMenuDown(false),
+		m_IsDown(false)
+	{
+		m_pMenuButtons[0] = new EndButton();
+		m_pMenuButtons[1] = new StaffButton();
+		m_pMenuButtons[2] = new OptionButton();
+		m_pMenuButtons[3] = new StartButton();
+	}
+
+	Menu::~Menu()
+	{
+		for (int i = m_ItemMax - 1; i >= 0; i--)
+		{
+			SafeDelete(m_pMenuButtons[i]);
+		}
+
+		SafeDelete(m_pEvent);
+		SafeDelete(m_pDrawTask);
+		SafeDelete(m_pUpdateTask);
+	}
+
+
+	//----------------------------------------------------------------------
+	// Public Functions
+	//----------------------------------------------------------------------
+	bool Menu::Initialize()
+	{
+		m_pUpdateTask->SetObject(this);
+		m_pDrawTask->SetObject(this);
+
+		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->AddTask(m_pUpdateTask);
+		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->AddTask(m_pDrawTask);
+
+		for (int i = 0; i < m_ItemMax; i++)
+		{
+			if (!m_pMenuButtons[i]->Initialize())	return false;
+		}
+
+		return true;
+	}
+
+	void Menu::Finalize()
+	{
+		for (int i = 0; i < m_ItemMax; i++)
+		{
+			m_pMenuButtons[i]->Finalize();
+		}
+
+		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->RemoveTask(m_pDrawTask);
+		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->RemoveTask(m_pUpdateTask);
+	}
+
+	void Menu::Update()
+	{
+		if (SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState()[DIK_UP] ==
+			Lib::KeyDevice::KEY_ON &&
+			m_IsMenuUp == false &&
+			m_IsMenuDown == false)
+		{
+			m_IsMenuUp = true;
+			m_IsUp = true;
+		}
+		else if (SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState()[DIK_DOWN] ==
+			Lib::KeyDevice::KEY_ON &&
+			m_IsMenuUp == false &&
+			m_IsMenuDown == false)
+		{
+			m_IsMenuDown = true;
+			m_IsDown = true;
+		}
+
+		if (SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState()[DIK_SPACE] ==
+			Lib::KeyDevice::KEY_ON &&
+			m_IsMenuUp == false &&
+			m_IsMenuDown == false)
+		{
+			// 一番前方にあるアイテムからイベントを取得.
+			m_pEvent->SetEventType(m_pMenuButtons[3]->GetID());
+			SINGLETON_INSTANCE(Lib::EventManager)->SendEventMessage(
+				m_pEvent, 
+				TO_STRING(TITLE_MENU_GROUP));
+		}
+
+		if (m_IsMenuUp)		MenuUp();
+		if (m_IsMenuDown)	MenuDown();
+	}
+
+	void Menu::Draw()
+	{
+		for (int i = 0; i < m_ItemMax; i++)
+		{
+			m_pMenuButtons[i]->Draw();
+		}
+	}
+
+
+	//----------------------------------------------------------------------
+	// Private Functions
+	//----------------------------------------------------------------------
+	void Menu::MenuUp()
+	{
+		if (m_IsUp)
+		{
+			// 一番前方のアイテムを移動.
+			if (m_pMenuButtons[3]->MoveUp())
+			{
+				m_IsUp = false;
+				MenuButtonBase* pMenuButton = m_pMenuButtons[0];
+				m_pMenuButtons[0] = m_pMenuButtons[3];
+				m_pMenuButtons[3] = m_pMenuButtons[2];
+				m_pMenuButtons[2] = m_pMenuButtons[1];
+				m_pMenuButtons[1] = pMenuButton;
+			}
+		}
+		else
+		{
+			bool IsRightMoveEnd = m_pMenuButtons[0]->MoveRight();
+			bool IsRightCenterMoveEnd = m_pMenuButtons[1]->MoveRightCenter();
+			bool IsLeftCenterMoveEnd = m_pMenuButtons[2]->MoveLeftCenter();
+			bool IsLeftMoveEnd = m_pMenuButtons[3]->MoveLeft();
+
+			if (IsRightMoveEnd)
+			{
+				bool IsDownMoveEnd = m_pMenuButtons[0]->MoveDown();
+				if (IsDownMoveEnd && IsLeftCenterMoveEnd && IsRightCenterMoveEnd && IsLeftMoveEnd)
+				{
+					m_IsMenuUp = false;
+				}
+			}
+		}
+	}
+
+	void Menu::MenuDown()
+	{
+		if (m_IsDown)
+		{
+			// 一番後方のアイテムを移動.
+			if (m_pMenuButtons[0]->MoveUp())
+			{
+				m_IsDown = false;
+				MenuButtonBase* pMenuButton = m_pMenuButtons[0];
+				m_pMenuButtons[0] = m_pMenuButtons[1];
+				m_pMenuButtons[1] = m_pMenuButtons[2];
+				m_pMenuButtons[2] = m_pMenuButtons[3];
+				m_pMenuButtons[3] = pMenuButton;
+			}
+		}
+		else
+		{
+			bool IsRightMoveEnd = m_pMenuButtons[0]->MoveRight();
+			bool IsRightCenterMoveEnd = m_pMenuButtons[1]->MoveRightCenter();
+			bool IsLeftCenterMoveEnd = m_pMenuButtons[2]->MoveLeftCenter();
+			bool IsLeftMoveEnd = m_pMenuButtons[3]->MoveLeft();
+
+			if (IsLeftMoveEnd)
+			{
+				bool IsDownMoveEnd = m_pMenuButtons[3]->MoveDown();
+				if (IsDownMoveEnd && IsRightMoveEnd && IsRightCenterMoveEnd && IsLeftCenterMoveEnd)
+				{
+					m_IsMenuDown = false;
+				}
+			}
+		}
+	}
+}
+

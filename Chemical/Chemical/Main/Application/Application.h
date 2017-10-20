@@ -12,7 +12,10 @@
 #include "Window\Window.h"
 #include "SceneManager\SceneManager.h"
 
-
+namespace Title
+{
+	class TitleScene;
+}
 class GameScene;
 
 
@@ -110,7 +113,9 @@ private:
 
 	Lib::Window*		m_pMainWindow;		//!< メインウィンドウ.
 	Lib::SceneManager*	m_pSceneManager;	//!< シーン管理オブジェクト.
-	GameScene*			m_pGameScene;		//!< シーンオブジェクト.
+
+	Title::TitleScene*			m_pTitleScene;		//!< タイトルシーンオブジェクト.
+	GameScene*					m_pGameScene;		//!< シーンオブジェクト.
 };
 
 
