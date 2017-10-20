@@ -74,15 +74,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.cpp" />
     <ClCompile Include="Main\Application\Application.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Main\Main.cpp" />
     <ClCompile Include="Main\Object2DBase\Object2DBase.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleScene.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleObjectManager.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackground\TitleBackground.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenu.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackLogo\TitleBackLogo.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StartButton\StartButton.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\OptionButton\OptionButton.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\MenuCursorEvent\MenuCursorEvent.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenuItemBase\TitleMenuButtonBase.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StaffButton\StaffButton.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.h" />
     <ClInclude Include="Main\Application\Application.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameScene.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleDefine.h" />
     <ClInclude Include="Main\Object2DBase\Object2DBase.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleScene.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleObjectManager.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackground\TitleBackground.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenu.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackLogo\TitleBackLogo.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StartButton\StartButton.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\OptionButton\OptionButton.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\MenuCursorEvent\MenuCursorEvent.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenuItemBase\TitleMenuButtonBase.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StaffButton\StaffButton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

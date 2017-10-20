@@ -14,6 +14,21 @@
     <Filter Include="Main\Application\GameScene">
       <UniqueIdentifier>{243c2058-d0af-4603-80f3-23c02d01e5fd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\TitleScene">
+      <UniqueIdentifier>{e148ac9b-cc36-4462-aa07-1c92525478b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Object2DBase">
+      <UniqueIdentifier>{6d3f5088-84c0-4440-885e-e96922efc1c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\TitleScene\TitleObjectManager">
+      <UniqueIdentifier>{c7a523a8-0dc9-49c1-90b3-4da3a0b42c09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\TitleScene\TitleObjectManager\TitleBackground">
+      <UniqueIdentifier>{6963137b-5bda-45e3-a601-52abc37cd7b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\TitleScene\TitleObjectManager\TitleMenu">
+      <UniqueIdentifier>{139ff99d-5cc4-4a92-b221-235c36f1a371}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -25,7 +40,28 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp">
       <Filter>Main\Application\GameScene</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Object2DBase\Object2DBase.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleScene.cpp">
+      <Filter>Main\Application\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Object2DBase\Object2DBase.cpp">
+      <Filter>Main\Object2DBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenu.cpp">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackground\TitleBackground.cpp">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleBackground</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleObjectManager.cpp">
+      <Filter>Main\Application\TitleScene\TitleObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackLogo\TitleBackLogo.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StartButton\StartButton.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\OptionButton\OptionButton.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\MenuCursorEvent\MenuCursorEvent.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StaffButton\StaffButton.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenuItemBase\TitleMenuButtonBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Application.h">
@@ -34,6 +70,28 @@
     <ClInclude Include="Main\Application\Scene\GameScene\GameScene.h">
       <Filter>Main\Application\GameScene</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Object2DBase\Object2DBase.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleScene.h">
+      <Filter>Main\Application\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Object2DBase\Object2DBase.h">
+      <Filter>Main\Object2DBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenu.h">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackground\TitleBackground.h">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleBackground</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleObjectManager.h">
+      <Filter>Main\Application\TitleScene\TitleObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackLogo\TitleBackLogo.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StartButton\StartButton.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleDefine.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\OptionButton\OptionButton.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\MenuCursorEvent\MenuCursorEvent.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StaffButton\StaffButton.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenuItemBase\TitleMenuButtonBase.h" />
   </ItemGroup>
 </Project>
