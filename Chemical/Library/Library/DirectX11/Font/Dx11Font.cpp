@@ -38,13 +38,14 @@ namespace Lib
 			m_pConstantBuffer(nullptr),
 			m_pShaderResource(nullptr),
 			m_WindowWidth(0),
-			m_WindowHeight(0)
+			m_WindowHeight(0),
+			m_IsAlignmentRight(true),
+			m_pDrawFunc(&Font::AlignmentRightDraw)
 		{
 		}
 
 		Font::~Font()
 		{
-			Finalize();
 		}
 
 
@@ -158,65 +159,7 @@ namespace Lib
 
 		void Font::Draw(const D3DXVECTOR2* _pDrawPos, LPCTSTR _pStr)
 		{
-			m_pGraphicsDevice->GetDeviceContext()->VSSetShader(m_pVertexShader, nullptr, 0);
-			m_pGraphicsDevice->GetDeviceContext()->PSSetShader(m_pPixelShader, nullptr, 0);
-
-			m_pGraphicsDevice->GetDeviceContext()->VSSetConstantBuffers(0, 1, &m_pConstantBuffer);
-			m_pGraphicsDevice->GetDeviceContext()->PSSetConstantBuffers(0, 1, &m_pConstantBuffer);
-
-			m_pGraphicsDevice->GetDeviceContext()->IASetInputLayout(m_pVertexLayout);
-			m_pGraphicsDevice->GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-
-			m_pGraphicsDevice->GetDeviceContext()->PSSetSamplers(0, 1, &m_pSamplerState);
-			m_pGraphicsDevice->GetDeviceContext()->PSSetShaderResources(0, 1, &m_pShaderResource);
-
-			m_pGraphicsDevice->GetDeviceContext()->OMSetBlendState(m_pBlendState, nullptr, 0xffffffff);
-
-			UINT Stride = sizeof(FONT_VERTEX);
-			UINT Offset = 0;
-			m_pGraphicsDevice->GetDeviceContext()->IASetVertexBuffers(0, 1, &m_pVertexBuffer, &Stride, &Offset);
-
-
-			D3DXMATRIX MatWorld, MatTranslate, MatRotate;
-			D3DXMatrixIdentity(&MatWorld);
-			D3DXMatrixScaling(&MatWorld, 1.0f, 1.0f, 1.0f);
-			D3DXMatrixRotationZ(&MatRotate, 0.0f);
-			D3DXMatrixMultiply(&MatWorld, &MatWorld, &MatRotate);
-			D3DXMatrixTranslation(&MatTranslate, _pDrawPos->x, _pDrawPos->y, 0.0f);
-			D3DXMatrixMultiply(&MatWorld, &MatWorld, &MatTranslate);
-
-			for (int i = 0; i < static_cast<int>(strlen(_pStr)); i++)
-			{
-				D3D11_MAPPED_SUBRESOURCE MappedResource;
-				CONSTANT_BUFFER ConstantBuffer;
-				m_pGraphicsDevice->GetDeviceContext()->Map(m_pConstantBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &MappedResource);
-
-				ConstantBuffer.MatWorld = MatWorld;
-				D3DXMatrixTranspose(&ConstantBuffer.MatWorld, &ConstantBuffer.MatWorld);
-
-				ConstantBuffer.WindowSize.x = m_WindowWidth;
-				ConstantBuffer.WindowSize.y = m_WindowHeight;
-
-				ConstantBuffer.TexelOffset.x = static_cast<float>(_pStr[i] - m_SpaceAsciiCode) * m_FontTu;
-				ConstantBuffer.TexelOffset.y = 0.0f;
-				ConstantBuffer.TexelOffset.z = 0.0f;
-				ConstantBuffer.TexelOffset.w = 0.0f;
-
-				ConstantBuffer.PosOffset.x = i * m_FontSize.x;
-				ConstantBuffer.PosOffset.y = 0;
-				ConstantBuffer.PosOffset.z = 0;
-				ConstantBuffer.PosOffset.w = 0;
-
-				memcpy_s(
-					MappedResource.pData,
-					MappedResource.RowPitch,
-					reinterpret_cast<void*>(&ConstantBuffer),
-					sizeof(ConstantBuffer));
-
-				m_pGraphicsDevice->GetDeviceContext()->Unmap(m_pConstantBuffer, 0);
-
-				m_pGraphicsDevice->GetDeviceContext()->Draw(VERTEX_NUM, 0);
-			}
+			(this->*m_pDrawFunc)(_pDrawPos, _pStr);
 		}
 
 		//----------------------------------------------------------------------
@@ -440,6 +383,133 @@ namespace Lib
 		void Font::ReleaseResourceView()
 		{
 			SafeRelease(m_pShaderResource);
+		}
+
+		void Font::AlignmentRightDraw(const D3DXVECTOR2* _pDrawPos, LPCTSTR _pStr)
+		{
+			m_pGraphicsDevice->GetDeviceContext()->VSSetShader(m_pVertexShader, nullptr, 0);
+			m_pGraphicsDevice->GetDeviceContext()->PSSetShader(m_pPixelShader, nullptr, 0);
+
+			m_pGraphicsDevice->GetDeviceContext()->VSSetConstantBuffers(0, 1, &m_pConstantBuffer);
+			m_pGraphicsDevice->GetDeviceContext()->PSSetConstantBuffers(0, 1, &m_pConstantBuffer);
+
+			m_pGraphicsDevice->GetDeviceContext()->IASetInputLayout(m_pVertexLayout);
+			m_pGraphicsDevice->GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+
+			m_pGraphicsDevice->GetDeviceContext()->PSSetSamplers(0, 1, &m_pSamplerState);
+			m_pGraphicsDevice->GetDeviceContext()->PSSetShaderResources(0, 1, &m_pShaderResource);
+
+			m_pGraphicsDevice->GetDeviceContext()->OMSetBlendState(m_pBlendState, nullptr, 0xffffffff);
+
+			UINT Stride = sizeof(FONT_VERTEX);
+			UINT Offset = 0;
+			m_pGraphicsDevice->GetDeviceContext()->IASetVertexBuffers(0, 1, &m_pVertexBuffer, &Stride, &Offset);
+
+
+			D3DXMATRIX MatWorld, MatTranslate, MatRotate;
+			D3DXMatrixIdentity(&MatWorld);
+			D3DXMatrixScaling(&MatWorld, 1.0f, 1.0f, 1.0f);
+			D3DXMatrixRotationZ(&MatRotate, 0.0f);
+			D3DXMatrixMultiply(&MatWorld, &MatWorld, &MatRotate);
+			D3DXMatrixTranslation(&MatTranslate, _pDrawPos->x, _pDrawPos->y, 0.0f);
+			D3DXMatrixMultiply(&MatWorld, &MatWorld, &MatTranslate);
+
+			int StrLength = static_cast<int>(strlen(_pStr));
+			for (int i = 0; i < StrLength; i++)
+			{
+				D3D11_MAPPED_SUBRESOURCE MappedResource;
+				CONSTANT_BUFFER ConstantBuffer;
+				m_pGraphicsDevice->GetDeviceContext()->Map(m_pConstantBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &MappedResource);
+
+				ConstantBuffer.MatWorld = MatWorld;
+				D3DXMatrixTranspose(&ConstantBuffer.MatWorld, &ConstantBuffer.MatWorld);
+
+				ConstantBuffer.WindowSize.x = m_WindowWidth;
+				ConstantBuffer.WindowSize.y = m_WindowHeight;
+
+				ConstantBuffer.TexelOffset.x = static_cast<float>(_pStr[i] - m_SpaceAsciiCode) * m_FontTu;
+				ConstantBuffer.TexelOffset.y = 0.0f;
+				ConstantBuffer.TexelOffset.z = 0.0f;
+				ConstantBuffer.TexelOffset.w = 0.0f;
+
+				ConstantBuffer.PosOffset.x = i * m_FontSize.x - StrLength * m_FontSize.x;
+				ConstantBuffer.PosOffset.y = 0;
+				ConstantBuffer.PosOffset.z = 0;
+				ConstantBuffer.PosOffset.w = 0;
+
+				memcpy_s(
+					MappedResource.pData,
+					MappedResource.RowPitch,
+					reinterpret_cast<void*>(&ConstantBuffer),
+					sizeof(ConstantBuffer));
+
+				m_pGraphicsDevice->GetDeviceContext()->Unmap(m_pConstantBuffer, 0);
+
+				m_pGraphicsDevice->GetDeviceContext()->Draw(VERTEX_NUM, 0);
+			}
+		}
+
+		void Font::AlignmentLeftDraw(const D3DXVECTOR2* _pDrawPos, LPCTSTR _pStr)
+		{
+			m_pGraphicsDevice->GetDeviceContext()->VSSetShader(m_pVertexShader, nullptr, 0);
+			m_pGraphicsDevice->GetDeviceContext()->PSSetShader(m_pPixelShader, nullptr, 0);
+
+			m_pGraphicsDevice->GetDeviceContext()->VSSetConstantBuffers(0, 1, &m_pConstantBuffer);
+			m_pGraphicsDevice->GetDeviceContext()->PSSetConstantBuffers(0, 1, &m_pConstantBuffer);
+
+			m_pGraphicsDevice->GetDeviceContext()->IASetInputLayout(m_pVertexLayout);
+			m_pGraphicsDevice->GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+
+			m_pGraphicsDevice->GetDeviceContext()->PSSetSamplers(0, 1, &m_pSamplerState);
+			m_pGraphicsDevice->GetDeviceContext()->PSSetShaderResources(0, 1, &m_pShaderResource);
+
+			m_pGraphicsDevice->GetDeviceContext()->OMSetBlendState(m_pBlendState, nullptr, 0xffffffff);
+
+			UINT Stride = sizeof(FONT_VERTEX);
+			UINT Offset = 0;
+			m_pGraphicsDevice->GetDeviceContext()->IASetVertexBuffers(0, 1, &m_pVertexBuffer, &Stride, &Offset);
+
+
+			D3DXMATRIX MatWorld, MatTranslate, MatRotate;
+			D3DXMatrixIdentity(&MatWorld);
+			D3DXMatrixScaling(&MatWorld, 1.0f, 1.0f, 1.0f);
+			D3DXMatrixRotationZ(&MatRotate, 0.0f);
+			D3DXMatrixMultiply(&MatWorld, &MatWorld, &MatRotate);
+			D3DXMatrixTranslation(&MatTranslate, _pDrawPos->x, _pDrawPos->y, 0.0f);
+			D3DXMatrixMultiply(&MatWorld, &MatWorld, &MatTranslate);
+
+			for (int i = 0; i < static_cast<int>(strlen(_pStr)); i++)
+			{
+				D3D11_MAPPED_SUBRESOURCE MappedResource;
+				CONSTANT_BUFFER ConstantBuffer;
+				m_pGraphicsDevice->GetDeviceContext()->Map(m_pConstantBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &MappedResource);
+
+				ConstantBuffer.MatWorld = MatWorld;
+				D3DXMatrixTranspose(&ConstantBuffer.MatWorld, &ConstantBuffer.MatWorld);
+
+				ConstantBuffer.WindowSize.x = m_WindowWidth;
+				ConstantBuffer.WindowSize.y = m_WindowHeight;
+
+				ConstantBuffer.TexelOffset.x = static_cast<float>(_pStr[i] - m_SpaceAsciiCode) * m_FontTu;
+				ConstantBuffer.TexelOffset.y = 0.0f;
+				ConstantBuffer.TexelOffset.z = 0.0f;
+				ConstantBuffer.TexelOffset.w = 0.0f;
+
+				ConstantBuffer.PosOffset.x = i * m_FontSize.x;
+				ConstantBuffer.PosOffset.y = 0;
+				ConstantBuffer.PosOffset.z = 0;
+				ConstantBuffer.PosOffset.w = 0;
+
+				memcpy_s(
+					MappedResource.pData,
+					MappedResource.RowPitch,
+					reinterpret_cast<void*>(&ConstantBuffer),
+					sizeof(ConstantBuffer));
+
+				m_pGraphicsDevice->GetDeviceContext()->Unmap(m_pConstantBuffer, 0);
+
+				m_pGraphicsDevice->GetDeviceContext()->Draw(VERTEX_NUM, 0);
+			}
 		}
 	}
 }
