@@ -75,8 +75,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.cpp" />
+    <ClCompile Include="Main\Application\GamePlayFile\GamePlayFile.cpp" />
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectGameStartEvent\SelectGameStartEvent.cpp" />
     <ClCompile Include="Main\Application\Application.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp" />
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBackGround\SelectBackGround.cpp" />
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\RankingButton\RankingButton.cpp" />
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\RankingWindow\RankingWindow.cpp" />
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\ScoreRanking\ScoreRanking.cpp" />
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectObjectManager.cpp" />
     <ClCompile Include="Main\Main.cpp" />
     <ClCompile Include="Main\Object2DBase\Object2DBase.cpp" />
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleScene.cpp" />
@@ -106,6 +113,30 @@
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\MenuCursorEvent\MenuCursorEvent.h" />
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenuItemBase\TitleMenuButtonBase.h" />
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StaffButton\StaffButton.h" />
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectScene.cpp" />
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectBoard.cpp" />
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectManager\SelectManager.cpp" />
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectStageUpWindow.cpp" />
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectButtonBase.cpp" />
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectRankingButton\SelectRankingButton.cpp" />
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectReturnButton\SelectReturnButton.cpp" />
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectStartButton\SelectStartButton.cpp" />
+    <ClInclude Include="Main\Application\GamePlayFile\GamePlayFile.h" />
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectGameStartEvent\SelectGameStartEvent.h" />
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBackGround\SelectBackGround.h" />
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\RankingButton\RankingButton.h" />
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\RankingWindow\RankingWindow.h" />
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\ScoreRanking\ScoreRanking.h" />
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectObjectManager.h" />
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectScene.h" />
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectBoard.h" />
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectManager\SelectManager.h" />
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectStageUpWindow.h" />
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectButtonBase.h" />
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectRankingButton\SelectRankingButton.h" />
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectReturnButton\SelectReturnButton.h" />
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectStartButton\SelectStartButton.h" />
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectDefine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -29,6 +29,54 @@
     <Filter Include="Main\Application\TitleScene\TitleObjectManager\TitleMenu">
       <UniqueIdentifier>{139ff99d-5cc4-4a92-b221-235c36f1a371}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\StageSelectScene">
+      <UniqueIdentifier>{110e91e1-695f-4147-ae57-62cf28bc79e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Object2DBase">
+      <UniqueIdentifier>{4fab1c26-24a4-457a-99bb-e913ed0864c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\StageSelectScene\SelectManager">
+      <UniqueIdentifier>{819b40b9-5309-4e8d-9dd6-b18235cdc72f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\StageSelectScene\SelectObjectManager">
+      <UniqueIdentifier>{26e83d18-6323-49bb-99f4-73f6d258de4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\StageSelectScene\SelectObjectManager\SelectBackGround">
+      <UniqueIdentifier>{47a8b239-0fc4-4441-ac97-1073dbac9c03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\StageSelectScene\SelectObjectManager\SelectBoard">
+      <UniqueIdentifier>{09b87bfa-da78-42e7-bba8-591f558ee464}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow">
+      <UniqueIdentifier>{e4db758a-dd30-44dd-98dc-ea9f2d0cd64e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase">
+      <UniqueIdentifier>{3a9ba0f0-b85a-4b90-8efc-88916b51839b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectReturnButton">
+      <UniqueIdentifier>{3b900a9c-2714-4259-9b4b-b926b8d3a485}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectStartButton">
+      <UniqueIdentifier>{da079157-4060-4075-916b-815143bc482f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectRankingButton">
+      <UniqueIdentifier>{1d110989-83b7-4429-bf70-ecd3d77fdbe9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\StageSelectScene\SelectGameStartEvent">
+      <UniqueIdentifier>{aed0f3a4-ce8f-4a0a-a4ad-ff2f78976d54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\ScoreRanking">
+      <UniqueIdentifier>{302bf502-134c-4083-a9ce-fbf19ff40822}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\RankingButton">
+      <UniqueIdentifier>{01c9c2b8-6495-4c69-963c-ea52d4fd9c2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\RankingWindow">
+      <UniqueIdentifier>{2ebab80a-bd47-42c1-8a76-21dbe2dc150a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GamePlayFile">
+      <UniqueIdentifier>{b37d2d80-4049-49f2-a5e0-5377eca53f5e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -62,6 +110,52 @@
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.cpp" />
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StaffButton\StaffButton.cpp" />
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenuItemBase\TitleMenuButtonBase.cpp" />
+    <ClCompile Include="Main\Object2DBase\Object2DBase.cpp" />
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectScene.cpp">
+      <Filter>Main\Application\StageSelectScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectManager\SelectManager.cpp">
+      <Filter>Main\Application\StageSelectScene\SelectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectObjectManager.cpp">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBackGround\SelectBackGround.cpp">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectBoard.cpp">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectRankingButton\SelectRankingButton.cpp">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectRankingButton</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectReturnButton\SelectReturnButton.cpp">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectReturnButton</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectStartButton\SelectStartButton.cpp">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectStartButton</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectButtonBase.cpp">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectStageUpWindow.cpp">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectGameStartEvent\SelectGameStartEvent.cpp">
+      <Filter>Main\Application\StageSelectScene\SelectGameStartEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\RankingButton\RankingButton.cpp">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\RankingButton</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\RankingWindow\RankingWindow.cpp">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\RankingWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\ScoreRanking\ScoreRanking.cpp">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\ScoreRanking</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\GamePlayFile\GamePlayFile.cpp">
+      <Filter>Main\Application\GamePlayFile</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Application.h">
@@ -93,5 +187,54 @@
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.h" />
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StaffButton\StaffButton.h" />
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenuItemBase\TitleMenuButtonBase.h" />
+    <ClInclude Include="Main\Object2DBase\Object2DBase.h" />
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectScene.h">
+      <Filter>Main\Application\StageSelectScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectManager\SelectManager.h">
+      <Filter>Main\Application\StageSelectScene\SelectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectObjectManager.h">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBackGround\SelectBackGround.h">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectBoard.h">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectRankingButton\SelectRankingButton.h">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectRankingButton</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectReturnButton\SelectReturnButton.h">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectReturnButton</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectStartButton\SelectStartButton.h">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectStartButton</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectButtonBase.h">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectStageUpWindow.h">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectGameStartEvent\SelectGameStartEvent.h">
+      <Filter>Main\Application\StageSelectScene\SelectGameStartEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\RankingButton\RankingButton.h">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\RankingButton</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\RankingWindow\RankingWindow.h">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\RankingWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\ScoreRanking\ScoreRanking.h">
+      <Filter>Main\Application\StageSelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\ScoreRanking</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\GamePlayFile\GamePlayFile.h">
+      <Filter>Main\Application\GamePlayFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\SelectScene\SelectDefine.h">
+      <Filter>Main\Application\StageSelectScene</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

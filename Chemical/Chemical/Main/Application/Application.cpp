@@ -14,7 +14,7 @@
 #include "InputDeviceManager\InputDeviceManager.h"
 #include "Scene\GameScene\GameScene.h"
 #include "Scene\TitleScene\TitleScene.h"
-
+#include "Scene\SelectScene\SelectScene.h"
 
 //----------------------------------------------------------------------
 // Static Private Variables
@@ -155,9 +155,11 @@ bool Application::CreateSceneManager()
 	}
 
 	m_pTitleScene = new Title::TitleScene(TITLE_SCENE_ID);
+	m_pSelectScene = new Select::SelectScene(SELECT_SCENE_ID);
 	m_pGameScene = new GameScene(GAME_SCENE_ID);
 
 	m_pSceneManager->AddScene(m_pTitleScene);
+	m_pSceneManager->AddScene(m_pSelectScene);
 	m_pSceneManager->AddScene(m_pGameScene);
 
 	m_pSceneManager->SetEntryScene(m_pTitleScene);	// エントリシーンとして設定.
@@ -203,9 +205,12 @@ void Application::ReleaseSceneManager()
 		m_pSceneManager->DeleteScene(m_pGameScene);
 		SafeDelete(m_pGameScene);
 
+		m_pSceneManager->DeleteScene(m_pSelectScene);
+		SafeDelete(m_pSelectScene);
+	
 		m_pSceneManager->DeleteScene(m_pTitleScene);
 		SafeDelete(m_pTitleScene);
-
+		
 		m_pSceneManager->Finalize();
 		SafeDelete(m_pSceneManager);
 	}

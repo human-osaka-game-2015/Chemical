@@ -17,6 +17,10 @@ namespace Title
 	class TitleScene;
 }
 class GameScene;
+namespace Select
+{
+	class SelectScene;
+}
 
 
 /**
@@ -30,9 +34,10 @@ public:
 	 */
 	enum SCENE_ID
 	{
-		TITLE_SCENE_ID,	//!< タイトルシーンID.
-		GAME_SCENE_ID,	//!< ゲームシーンID.
-		END_SCENE_ID	//!< 終了ID.
+		TITLE_SCENE_ID,  //!< タイトルシーンID.
+		SELECT_SCENE_ID, //!< ステージ選択シーンID.
+		GAME_SCENE_ID,	 //!< ゲームシーンID.
+		END_SCENE_ID     //!< 終了ID.
 	};
 
 	/**
@@ -111,11 +116,12 @@ private:
 	void ReleaseSceneManager();
 
 
-	Lib::Window*		m_pMainWindow;		//!< メインウィンドウ.
-	Lib::SceneManager*	m_pSceneManager;	//!< シーン管理オブジェクト.
+	Lib::Window*		   m_pMainWindow;	//!< メインウィンドウ.
+	Lib::SceneManager*	   m_pSceneManager;	//!< シーン管理オブジェクト.
+	Title::TitleScene*	   m_pTitleScene;	//!< タイトルシーンオブジェクト.
+	Select::SelectScene*   m_pSelectScene;  //!< ステージ選択シーンオブジェクト.
+	GameScene*			   m_pGameScene;	//!< シーンオブジェクト.
 
-	Title::TitleScene*			m_pTitleScene;		//!< タイトルシーンオブジェクト.
-	GameScene*					m_pGameScene;		//!< シーンオブジェクト.
 };
 
 

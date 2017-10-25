@@ -69,6 +69,19 @@ namespace Lib
 			 */
 			void Draw(const D3DXVECTOR2* _pDrawPos, LPCTSTR _pStr);
 
+			/**
+			 * フォントを左右どちらに寄せるか設定
+			 * @param[in] _isRight 右寄せならtrue 左寄せならfalse
+			 */
+			void SetAlignment(bool _isRight)
+			{
+				m_IsAlignmentRight = _isRight;
+				if (m_IsAlignmentRight)
+					m_pDrawFunc = &Font::AlignmentRightDraw;
+				else
+					m_pDrawFunc = &Font::AlignmentLeftDraw;
+			}
+
 		private:
 			enum
 			{
@@ -151,6 +164,16 @@ namespace Lib
 			 */
 			void ReleaseResourceView();
 
+			/**
+			 * 右寄せ描画処理
+			 */
+			void AlignmentRightDraw(const D3DXVECTOR2* _pDrawPos, LPCTSTR _pStr);
+
+			/**
+			 * 左寄せ描画処理
+			 */
+			void AlignmentLeftDraw(const D3DXVECTOR2* _pDrawPos, LPCTSTR _pStr);
+
 
 			static const float			m_FontTu;				//!< テクスチャ上でのフォントサイズ.
 			static const int			m_SpaceAsciiCode;		//!< スペースのアスキーコード.
@@ -168,6 +191,8 @@ namespace Lib
 			D3DXVECTOR2					m_FontSize;				//!< フォントのサイズ.
 			float						m_WindowWidth;			//!< ウィンドウの幅.
 			float						m_WindowHeight;			//!< ウィンドウの高さ.
+			bool						m_IsAlignmentRight;		//!< フォントを左寄せにするかのフラグ.
+			void(Font::*m_pDrawFunc)(const D3DXVECTOR2*, LPCTSTR);
 
 		};
 	}

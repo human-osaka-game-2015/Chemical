@@ -1,0 +1,11 @@
+diff a/Chemical/Chemical/Chemical.vcxproj.filters b/Chemical/Chemical/Chemical.vcxproj.filters	(rejected hunks)
+@@ -55,9 +55,6 @@
+     <ClCompile Include="Main\Main.cpp">
+       <Filter>Main</Filter>
+     </ClCompile>
+-    <ClCompile Include="Main\Application\Application.cpp">
+-      <Filter>Main\Application</Filter>
+-    </ClCompile>
+     <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp">
+       <Filter>Main\Application\GameScene</Filter>
+     </ClCompile>
