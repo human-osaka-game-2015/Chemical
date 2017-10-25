@@ -3,6 +3,9 @@
  * @brief	タイトルの定義ヘッダ
  * @author	morimoto
  */
+#ifndef TITLE_TITLEDEFINE_H
+#define TITLE_TITLEDEFINE_H
+
 
 namespace Title
 {
@@ -33,3 +36,6 @@ namespace Title
 		TITLE_MENU_GROUP
 	};
 }
+
+
+#endif // !TITLE_TITLEDEFINE_H

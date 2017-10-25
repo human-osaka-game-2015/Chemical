@@ -29,6 +29,72 @@
     <Filter Include="Main\Application\TitleScene\TitleObjectManager\TitleMenu">
       <UniqueIdentifier>{139ff99d-5cc4-4a92-b221-235c36f1a371}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\CsvFile">
+      <UniqueIdentifier>{462822bf-eead-48e6-b347-afa1d05cd543}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\TitleScene\TitleObjectManager\TitleBackLogo">
+      <UniqueIdentifier>{796a16f0-f431-4301-9473-bc7b59ffdea4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\TitleScene\TitleObjectManager\TitleMenu\TitleMenuButtonBase">
+      <UniqueIdentifier>{4ceb9bbf-2ec4-4376-b9d7-2d9c1ed877c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\TitleScene\TitleObjectManager\TitleMenu\OptionButton">
+      <UniqueIdentifier>{b14d0ae6-a820-4518-a859-0807f45e42bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\TitleScene\TitleObjectManager\TitleMenu\EndButton">
+      <UniqueIdentifier>{5c7d02e1-6127-46c2-817e-4c989885d0b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\TitleScene\TitleObjectManager\TitleMenu\StartButton">
+      <UniqueIdentifier>{f006ac57-7851-4265-aa0a-999c0527f7a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\TitleScene\TitleObjectManager\TitleMenu\StaffButton">
+      <UniqueIdentifier>{3325fbe5-4ed2-43bb-9949-e192f31e9334}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\TitleScene\TitleObjectManager\TitleMenu\TitleMenuCursorEvent">
+      <UniqueIdentifier>{89d48ee5-607c-4942-9741-3cd0d66c4650}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager">
+      <UniqueIdentifier>{2f161d80-742c-407c-9e4c-f5fff437e2bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager">
+      <UniqueIdentifier>{e105c9c6-f0c0-4371-9f13-249c5f063afe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player">
+      <UniqueIdentifier>{c2c17d1f-e29f-4661-9018-c59cc61fa8c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Enemy">
+      <UniqueIdentifier>{468dfabd-16a6-4af0-9e17-10ca499c5e41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager">
+      <UniqueIdentifier>{064e73fc-0e68-44d9-95c9-061957c84af1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageBackground">
+      <UniqueIdentifier>{27814f08-6caf-415e-b9d9-903922ff2655}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Enemy\EnemyUI">
+      <UniqueIdentifier>{4bdcdfb0-fdb2-4cd5-8c29-d5ec09285b9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI">
+      <UniqueIdentifier>{765ca45d-85d9-4802-80f6-53c3e2f2d865}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager">
+      <UniqueIdentifier>{e6d9a6e3-9cdb-478d-8794-33d82c808336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager">
+      <UniqueIdentifier>{402bd403-93b6-4727-8afd-34c9ceb56c0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase">
+      <UniqueIdentifier>{7ce4079e-c864-4ff6-b456-294a03e235a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase">
+      <UniqueIdentifier>{759b3cbf-9542-4c23-a450-1a3f77ea8915}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\GameTimeManager">
+      <UniqueIdentifier>{bbbce755-ee46-4dcf-9e14-0dc1e4d2e381}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\GameTimeManager\GameTimeUI">
+      <UniqueIdentifier>{584772de-d551-4290-a9dc-4d34149604b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -55,13 +121,78 @@
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleObjectManager.cpp">
       <Filter>Main\Application\TitleScene\TitleObjectManager</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackLogo\TitleBackLogo.cpp" />
-    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StartButton\StartButton.cpp" />
-    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\OptionButton\OptionButton.cpp" />
-    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\MenuCursorEvent\MenuCursorEvent.cpp" />
-    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.cpp" />
-    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StaffButton\StaffButton.cpp" />
-    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenuItemBase\TitleMenuButtonBase.cpp" />
+    <ClCompile Include="Main\Object2DBase\Object2DBase.cpp" />
+    <ClCompile Include="Main\CsvFile\CsvFile.cpp">
+      <Filter>Main\CsvFile</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackLogo\TitleBackLogo.cpp">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleBackLogo</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenuButtonBase\TitleMenuButtonBase.cpp">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\TitleMenuButtonBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.cpp">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\EndButton</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StaffButton\StaffButton.cpp">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\StaffButton</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StartButton\StartButton.cpp">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\StartButton</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\OptionButton\OptionButton.cpp">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\OptionButton</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\MenuCursorEvent\MenuCursorEvent.cpp">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\TitleMenuCursorEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameObjectManager.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\Player.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Enemy\Enemy.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageManager.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameObjectManager.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageManager.cpp" />
+    <ClCompile Include="Main\CsvFile\CsvFile.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\Player.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Enemy\Enemy.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageBackground\StageBackground.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageBackground</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Enemy\EnemyUI\EnemyUI.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Enemy\EnemyUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\CharacterManager.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\PlayerUI.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipManager.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickManager.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\StageGimmickBase.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StageChipBase.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameTimeManager\GameTimeUI\GameTimeUI.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\GameTimeManager\GameTimeUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameTimeManager\GameTimeManager.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\GameTimeManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Application.h">
@@ -85,13 +216,83 @@
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleObjectManager.h">
       <Filter>Main\Application\TitleScene\TitleObjectManager</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackLogo\TitleBackLogo.h" />
-    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StartButton\StartButton.h" />
-    <ClInclude Include="Main\Application\Scene\TitleScene\TitleDefine.h" />
-    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\OptionButton\OptionButton.h" />
-    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\MenuCursorEvent\MenuCursorEvent.h" />
-    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.h" />
-    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StaffButton\StaffButton.h" />
-    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenuItemBase\TitleMenuButtonBase.h" />
+    <ClInclude Include="Main\Object2DBase\Object2DBase.h" />
+    <ClInclude Include="Main\CsvFile\CsvFile.h">
+      <Filter>Main\CsvFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleDefine.h">
+      <Filter>Main\Application\TitleScene\TitleObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackLogo\TitleBackLogo.h">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleBackLogo</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenuButtonBase\TitleMenuButtonBase.h">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\TitleMenuButtonBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.h">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\EndButton</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StaffButton\StaffButton.h">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\StaffButton</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StartButton\StartButton.h">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\StartButton</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\OptionButton\OptionButton.h">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\OptionButton</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\MenuCursorEvent\MenuCursorEvent.h">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\TitleMenuCursorEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameObjectManager.h">
+      <Filter>Main\Application\GameScene\GameObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\Player.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Enemy\Enemy.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageManager.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameObjectManager.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageManager.h" />
+    <ClInclude Include="Main\CsvFile\CsvFile.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\Player.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Enemy\Enemy.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageBackground\StageBackground.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageBackground</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Enemy\EnemyUI\EnemyUI.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Enemy\EnemyUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameDefine.h">
+      <Filter>Main\Application\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\CharacterManager.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\PlayerUI.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipManager.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickManager.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\StageGimmickBase.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StageChipBase.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameTimeManager\GameTimeUI\GameTimeUI.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\GameTimeManager\GameTimeUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameTimeManager\GameTimeManager.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\GameTimeManager</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

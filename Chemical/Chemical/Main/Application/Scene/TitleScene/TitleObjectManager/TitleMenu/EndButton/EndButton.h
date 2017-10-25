@@ -9,7 +9,7 @@
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "..\TitleMenuItemBase\TitleMenuButtonBase.h"
+#include "..\TitleMenuButtonBase\TitleMenuButtonBase.h"
 #include "..\MenuCursorEvent\MenuCursorEvent.h"
 
 

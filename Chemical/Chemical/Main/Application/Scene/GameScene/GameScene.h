@@ -3,8 +3,8 @@
  * @brief	ゲームシーンクラス定義
  * @author	morimoto
  */
-#ifndef GAMESCENE_H
-#define GAMESCENE_H
+#ifndef GAME_GAMESCENE_H
+#define GAME_GAMESCENE_H
 
 //----------------------------------------------------------------------
 // Include
@@ -13,42 +13,41 @@
 
 #include "Debugger\Debugger.h"
 #include "DirectX11\Font\Dx11Font.h"
+#include "GameObjectManager\GameObjectManager.h"
 
 
-/**
- * ゲームシーンクラス
- */
-class GameScene : public Lib::SceneBase
+namespace Game
 {
-public:
-	/**
-	 * コンストラクタ
-	 * @param[in] _sceneId シーンのID
-	 */
-	GameScene(int _sceneId);
+	/*** ゲームシーンクラス */
+	class GameScene : public Lib::SceneBase
+	{
+	public:
+		/**
+		 * コンストラクタ
+		 * @param[in] _sceneId シーンのID
+		 */
+		GameScene(int _sceneId);
 
-	/**
-	 * デストラクタ
-	 */
-	virtual ~GameScene();
+		/*** デストラクタ */
+		virtual ~GameScene();
 
-	/**
-	 * 初期化処理
-	 * @return 初期化に成功したらtrue 失敗したらfalse
-	 */
-	virtual bool Initialize();
+		/**
+		 * 初期化処理
+		 * @return 初期化に成功したらtrue 失敗したらfalse
+		 */
+		virtual bool Initialize();
 
-	/**
-	 * 終了処理
-	 */
-	virtual void Finalize();
+		/*** 終了処理 */
+		virtual void Finalize();
 
-	/**
-	 * シーンの更新
-	 */
-	virtual void Update();
+		/*** シーンの更新 */
+		virtual void Update();
 
-};
+	private:
+		ObjectManager* m_pObjectManager;	//!< 管理オブジェクト.
+
+	};
+}
 
 
-#endif // !GAMESCENE_H
+#endif // !GAME_GAMESCENE_H

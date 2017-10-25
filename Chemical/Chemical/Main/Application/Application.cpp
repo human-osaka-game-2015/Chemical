@@ -12,8 +12,8 @@
 #include "Debugger\Debugger.h"
 #include "DirectX11\GraphicsDevice\Dx11GraphicsDevice.h"
 #include "InputDeviceManager\InputDeviceManager.h"
-#include "Scene\GameScene\GameScene.h"
 #include "Scene\TitleScene\TitleScene.h"
+#include "Scene\GameScene\GameScene.h"
 
 
 //----------------------------------------------------------------------
@@ -66,12 +66,11 @@ void Application::Run()
 {
 	while (1)
 	{
-		if (!m_pMainWindow->Update())	// ウィンドウの更新処理を実行.
+		// ウィンドウの更新処理を実行.
+		if (!m_pMainWindow->Update())
 		{
-			if (m_pSceneManager->Update())	// シーンの更新処理を実行.
-			{
-				break;
-			}
+			// シーンの更新処理を実行.
+			if (m_pSceneManager->Update())	break;
 		}
 		else
 		{
@@ -155,7 +154,7 @@ bool Application::CreateSceneManager()
 	}
 
 	m_pTitleScene = new Title::TitleScene(TITLE_SCENE_ID);
-	m_pGameScene = new GameScene(GAME_SCENE_ID);
+	m_pGameScene = new Game::GameScene(GAME_SCENE_ID);
 
 	m_pSceneManager->AddScene(m_pTitleScene);
 	m_pSceneManager->AddScene(m_pGameScene);

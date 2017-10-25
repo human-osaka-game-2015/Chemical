@@ -85,27 +85,24 @@ namespace Title
 
 	void Menu::Update()
 	{
-		if (SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState()[DIK_UP] ==
-			Lib::KeyDevice::KEY_ON &&
-			m_IsMenuUp == false &&
-			m_IsMenuDown == false)
+		const Lib::KeyDevice::KEYSTATE* pKeyState =
+			SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState();
+
+		if (pKeyState[DIK_UP] == Lib::KeyDevice::KEY_ON &&
+			m_IsMenuUp == false && m_IsMenuDown == false)
 		{
 			m_IsMenuUp = true;
 			m_IsUp = true;
 		}
-		else if (SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState()[DIK_DOWN] ==
-			Lib::KeyDevice::KEY_ON &&
-			m_IsMenuUp == false &&
-			m_IsMenuDown == false)
+		else if (pKeyState[DIK_DOWN] == Lib::KeyDevice::KEY_ON &&
+			m_IsMenuUp == false && m_IsMenuDown == false)
 		{
 			m_IsMenuDown = true;
 			m_IsDown = true;
 		}
 
-		if (SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState()[DIK_SPACE] ==
-			Lib::KeyDevice::KEY_ON &&
-			m_IsMenuUp == false &&
-			m_IsMenuDown == false)
+		if (pKeyState[DIK_SPACE] == Lib::KeyDevice::KEY_ON &&
+			m_IsMenuUp == false && m_IsMenuDown == false)
 		{
 			// 一番前方にあるアイテムからイベントを取得.
 			m_pEvent->SetEventType(m_pMenuButtons[3]->GetID());
