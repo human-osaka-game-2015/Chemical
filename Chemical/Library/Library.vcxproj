@@ -97,9 +97,6 @@
     <ClInclude Include="Library\DirectX12\GraphicsDevice\Dx12GraphicsDevice.h" />
     <ClInclude Include="Library\BinaryFile\BinaryFile.h" />
     <ClInclude Include="Library\DirectX11\Billboard2D\Dx11Billboard2D.h" />
-    <ClInclude Include="Library\CollisionManager\CollisionBase\CollisionQuad2D\CollisionQuad2D.h" />
-    <ClInclude Include="Library\CollisionManager\CollisionBase\CollisionBase.h" />
-    <ClInclude Include="Library\CollisionManager\CollisionManager.h" />
     <ClInclude Include="Library\DirectX11\AnimationManager\IAnimation\Dx11IAnimation.h" />
     <ClInclude Include="Library\DirectX11\Camera\Dx11Camera.h" />
     <ClInclude Include="Library\DirectX11\Font\Dx11Font.h" />
@@ -179,9 +176,6 @@
     <ClCompile Include="Library\DirectX12\GraphicsDevice\Dx12GraphicsDevice.cpp" />
     <ClCompile Include="Library\BinaryFile\BinaryFile.cpp" />
     <ClCompile Include="Library\DirectX11\Billboard2D\Dx11Billboard2D.cpp" />
-    <ClCompile Include="Library\CollisionManager\CollisionBase\CollisionQuad2D\CollisionQuad2D.cpp" />
-    <ClCompile Include="Library\CollisionManager\CollisionBase\CollisionBase.cpp" />
-    <ClCompile Include="Library\CollisionManager\CollisionManager.cpp" />
     <ClCompile Include="Library\DirectX11\AnimationManager\IAnimation\Dx11IAnimation.cpp" />
     <ClCompile Include="Library\DirectX11\Camera\Dx11Camera.cpp" />
     <ClCompile Include="Library\DirectX11\Font\Dx11Font.cpp" />

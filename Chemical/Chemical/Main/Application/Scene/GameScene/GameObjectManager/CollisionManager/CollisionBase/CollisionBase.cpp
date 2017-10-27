@@ -1,6 +1,6 @@
 ﻿/**
  * @file	CollisionBase.cpp
- * @brief	衝突判定オブジェクト基底クラス実装
+ * @brief	当たり判定基底クラス実装
  * @author	morimoto
  */
 
@@ -10,25 +10,37 @@
 #include "CollisionBase.h"
 
 
-namespace Lib
+namespace Game
 {
 	//----------------------------------------------------------------------
 	// Static Private Variables
 	//----------------------------------------------------------------------
-	unsigned int CollisionBase::m_CollisionBaseCount = 0;
+	unsigned int CollisionBase::m_CollisionBaseNum = 0;
 
 
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
-	CollisionBase::CollisionBase() :
-		m_CollisionID(m_CollisionBaseCount),
-		m_Filter(CHARACTER | STAGE | BACKGROUND)
+	CollisionBase::CollisionBase(int _id) : 
+		m_CollisionID(_id)
 	{
-		m_CollisionBaseCount++;
+		m_ID = m_CollisionBaseNum;
+		m_CollisionBaseNum++;
 	}
 
 	CollisionBase::~CollisionBase()
+	{
+	}
+
+
+	//----------------------------------------------------------------------
+	// Public Functions
+	//----------------------------------------------------------------------
+	void CollisionBase::Collide(EmptyCollision* _pOther)
+	{
+	}
+
+	void CollisionBase::Collide(RectangleCollision* _pOther)
 	{
 	}
 }
