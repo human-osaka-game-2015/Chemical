@@ -286,15 +286,6 @@
     <ClCompile Include="Library\BinaryFile\BinaryFile.cpp">
       <Filter>Library\BinaryFile</Filter>
     </ClCompile>
-    <ClCompile Include="Library\CollisionManager\CollisionManager.cpp">
-      <Filter>Library\CollisionManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Library\CollisionManager\CollisionBase\CollisionBase.cpp">
-      <Filter>Library\CollisionManager\CollisionBase</Filter>
-    </ClCompile>
-    <ClCompile Include="Library\CollisionManager\CollisionBase\CollisionQuad2D\CollisionQuad2D.cpp">
-      <Filter>Library\CollisionManager\CollisionBase\CollisionQuad2D</Filter>
-    </ClCompile>
     <ClCompile Include="Library\SmartPointer\WeakPtr\WeakPtr.cpp">
       <Filter>Library\SmartPointer\WeakPtr</Filter>
     </ClCompile>
@@ -491,15 +482,6 @@
     </ClInclude>
     <ClInclude Include="Library\BinaryFile\BinaryFile.h">
       <Filter>Library\BinaryFile</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\CollisionManager\CollisionManager.h">
-      <Filter>Library\CollisionManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\CollisionManager\CollisionBase\CollisionBase.h">
-      <Filter>Library\CollisionManager\CollisionBase</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\CollisionManager\CollisionBase\CollisionQuad2D\CollisionQuad2D.h">
-      <Filter>Library\CollisionManager\CollisionBase\CollisionQuad2D</Filter>
     </ClInclude>
     <ClInclude Include="Library\SmartPointer\SmartPointer.h">
       <Filter>Library\SmartPointer</Filter>

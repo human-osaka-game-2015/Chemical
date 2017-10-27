@@ -143,6 +143,18 @@
     <Filter Include="Main\Application\GamePlayFile">
       <UniqueIdentifier>{b37d2d80-4049-49f2-a5e0-5377eca53f5e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CollisionManager">
+      <UniqueIdentifier>{e2d9c7f1-69a0-4bc6-b3fe-624c7b3be874}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase">
+      <UniqueIdentifier>{a734ecdc-4e53-4165-8e3a-89d17e15fc71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase\EmptyCollision">
+      <UniqueIdentifier>{12685a9c-4fa7-4730-ab5b-f58ac25897e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase\RectangleCollision">
+      <UniqueIdentifier>{0a60022b-8818-46c8-9da6-8748d3a70ab3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -236,7 +248,6 @@
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StartButton\StartButton.cpp" />
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\OptionButton\OptionButton.cpp" />
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\MenuCursorEvent\MenuCursorEvent.cpp" />
-    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.cpp" />
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StaffButton\StaffButton.cpp" />
     <ClCompile Include="Main\Object2DBase\Object2DBase.cpp" />
     <ClCompile Include="Main\Application\Scene\SelectScene\SelectScene.cpp">
@@ -289,6 +300,21 @@
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp">
       <Filter>Main\Application\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.cpp">
+      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\EndButton</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionManager.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\CollisionBase.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase\EmptyCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase\RectangleCollision</Filter>
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.cpp">
       <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\EndButton</Filter>
@@ -449,6 +475,18 @@
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\SelectScene\SelectDefine.h">
       <Filter>Main\Application\StageSelectScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionManager.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\CollisionBase.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase\EmptyCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase\RectangleCollision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

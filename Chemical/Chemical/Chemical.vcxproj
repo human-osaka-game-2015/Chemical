@@ -74,6 +74,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\CollisionBase.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionManager.cpp" />
     <ClCompile Include="Main\Application\Application.cpp" />
     <ClCompile Include="Main\Application\GamePlayFile\GamePlayFile.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp" />
@@ -111,8 +114,12 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StageChipBase.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickManager.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\StageGimmickBase.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\CollisionBase.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionManager.h" />
     <ClInclude Include="Main\Application\Application.h" />
     <ClInclude Include="Main\Object2DBase\Object2DBase.h" />
     <ClInclude Include="Main\CsvFile\CsvFile.h" />
@@ -168,6 +175,7 @@
     <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectReturnButton\SelectReturnButton.h" />
     <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectStartButton\SelectStartButton.h" />
     <ClInclude Include="Main\Application\Scene\SelectScene\SelectDefine.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

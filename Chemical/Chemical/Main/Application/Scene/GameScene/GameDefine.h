@@ -9,28 +9,29 @@
 
 namespace Game
 {
-	/**
-	 * 描画プライオリティ
-	 */
+	/*** 描画プライオリティ */
 	enum DRAW_PRIORITY
 	{
 		TITLE_DRAW_BACKGROUND = -1	//!< 背景描画プライオリティ.
 	};
 
-	/**
-	 * イベントの識別子
-	 */
+	/*** イベントの識別子 */
 	enum EVENT_ID
 	{
 		PLAYER_EVENT = 0	//!< プレイヤーイベント.
 	};
 
-	/**
-	 * イベントグループ名
-	 */
+	/*** イベントグループ名 */
 	enum EVENT_GROUP
 	{
 		PLAYER_EVENT_GROUP = 0	//!< プレイヤーイベントグループ.
+	};
+
+	/*** 当たり判定オブジェクトID */
+	enum COLLISION_ID
+	{
+		EMPTY_COLLISION_ID = 0,	//!< 空オブジェクトID(エラー値).
+		PLAYER_COLLISION_ID = 1	//!< プレイヤー当たり判定ID.
 	};
 }
 
