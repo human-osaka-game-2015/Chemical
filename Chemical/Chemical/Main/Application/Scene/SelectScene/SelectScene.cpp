@@ -158,10 +158,10 @@ namespace Select
 	
 	void SelectScene::ReciveEvent(Lib::EventBase* _pEvent)
 	{
-		GameStartEvent* pEvent = reinterpret_cast<GameStartEvent*>(_pEvent);
-		switch (m_pEventListener->GetEventListenerID())
+		switch (_pEvent->GetEventID())
 		{
 		case GAME_START_EVENT:
+			GameStartEvent* pEvent = reinterpret_cast<GameStartEvent*>(_pEvent);
 			switch (pEvent->GetEventType())
 			{
 			case GameStartEvent::START_BUTTON_PUSH:
@@ -169,8 +169,6 @@ namespace Select
 				m_State = FINAL_STATE;
 				break;
 			}
-			break;
-		default:
 			break;
 		}
 	}
