@@ -104,7 +104,7 @@ namespace Title
 		SINGLETON_INSTANCE(Lib::EventManager)->RemoveEventListener(m_pEventListener, 
 			TO_STRING(TITLE_MENU_GROUP));
 
-		delete m_pEventListener;
+		SafeDelete(m_pEventListener);
 
 		if (m_pObjectManager != nullptr)
 		{
@@ -161,14 +161,14 @@ namespace Title
 
 	void TitleScene::ReciveEvent(Lib::EventBase* _pEvent)
 	{
-		switch (m_pEventListener->GetEventListenerID())
+		switch (_pEvent->GetEventID())
 		{
 		case TITLE_MENU_EVENT:
 			MenuCursorEvent* pEvent = reinterpret_cast<MenuCursorEvent*>(_pEvent);
 			switch (pEvent->GetEventType())
 			{
 			case MenuCursorEvent::START_BUTTON_PUSH:
-				m_NextSceneID = Application::GAME_SCENE_ID;
+				m_NextSceneID = Application::SELECT_SCENE_ID;
 				m_State = FINAL_STATE;
 				break;
 			case MenuCursorEvent::OPTION_BUTTON_PUSH:
