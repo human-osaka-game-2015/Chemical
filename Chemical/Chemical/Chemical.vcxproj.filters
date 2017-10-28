@@ -155,6 +155,9 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase\RectangleCollision">
       <UniqueIdentifier>{0a60022b-8818-46c8-9da6-8748d3a70ab3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\GameDataManager">
+      <UniqueIdentifier>{bc4e1e97-b032-495a-b793-d9979ddaeb48}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -318,6 +321,9 @@
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.cpp">
       <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\EndButton</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameDataManager\GameDataManager.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\GameDataManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -487,6 +493,9 @@
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.h">
       <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase\RectangleCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameDataManager\GameDataManager.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\GameDataManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
