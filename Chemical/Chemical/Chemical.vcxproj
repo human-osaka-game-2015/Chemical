@@ -77,6 +77,7 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\CollisionBase.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionManager.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameDataManager\GameDataManager.cpp" />
     <ClCompile Include="Main\Application\Application.cpp" />
     <ClCompile Include="Main\Application\GamePlayFile\GamePlayFile.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp" />
@@ -120,6 +121,7 @@
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\CollisionBase.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionManager.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameDataManager\GameDataManager.h" />
     <ClInclude Include="Main\Application\Application.h" />
     <ClInclude Include="Main\Object2DBase\Object2DBase.h" />
     <ClInclude Include="Main\CsvFile\CsvFile.h" />
