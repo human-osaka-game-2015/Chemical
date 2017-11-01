@@ -14,7 +14,6 @@
 #include "StageManager\StageManager.h"
 #include "GameTimeManager\GameTimeManager.h"
 #include "CharacterManager\CharacterManager.h"
-#include "CollisionManager\CollisionManager.h"
 
 
 namespace Game
@@ -24,7 +23,6 @@ namespace Game
 	//----------------------------------------------------------------------
 	ObjectManager::ObjectManager()
 	{
-		SINGLETON_CREATE(CollisionManager);
 		SINGLETON_CREATE(GameDataManager);
 
 		m_pObjects.push_back(new StageManager());
@@ -40,7 +38,6 @@ namespace Game
 		}
 
 		SINGLETON_DELETE(GameDataManager);
-		SINGLETON_DELETE(CollisionManager);
 	}
 
 

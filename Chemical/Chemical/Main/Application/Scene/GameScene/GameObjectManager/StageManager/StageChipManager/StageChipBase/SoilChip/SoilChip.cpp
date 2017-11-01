@@ -1,15 +1,14 @@
 ﻿/**
- * @file	EmptyCollision.cpp
- * @brief	空の衝突判定オブジェクトクラス実装
+ * @file	SoilChip.cpp
+ * @brief	土チップクラス実装
  * @author	morimoto
  */
-
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "EmptyCollision.h"
+#include "SoilChip.h"
 
-#include "..\RectangleCollision\RectangleCollision.h"
+#include "DirectX11\TextureManager\Dx11TextureManager.h"
 
 
 namespace Game
@@ -17,12 +16,13 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
-	EmptyCollision::EmptyCollision() : 
-		CollisionBase(EMPTY_COLLISION_ID)
+	SoilChip::SoilChip() : 
+		StageChipBase(SOIL_COLLISION_ID, "Resource\\GameScene\\Texture\\Soil.png", "SoilChip")
 	{
+		m_Size = D3DXVECTOR2(80, 80);
 	}
 
-	EmptyCollision::~EmptyCollision()
+	SoilChip::~SoilChip()
 	{
 	}
 
@@ -30,16 +30,13 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Public Functions
 	//----------------------------------------------------------------------
-	void EmptyCollision::Dispatch(CollisionBase* _pOther)
-	{
-		_pOther->Collide(this);
-	}
-
-	void EmptyCollision::Collide(EmptyCollision* _pOther)
+	void SoilChip::Update()
 	{
 	}
 
-	void EmptyCollision::Collide(RectangleCollision* _pOther)
+	void SoilChip::Draw()
 	{
+		m_pMultipleVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
+		m_pMultipleVertex->DefaultDraw(&m_Positions[0]);
 	}
 }

@@ -1,13 +1,13 @@
 ﻿/**
- * @file   Object2DBase.cpp
- * @brief  Object2DBaseクラスの実装
- * @author morimoto
+ * @file	MultipleObject2DBase.cpp
+ * @brief	複数オブジェクト描画クラス実装
+ * @author	morimoto
  */
 
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "Object2DBase.h"
+#include "MultipleObject2DBase.h"
 
 #include "Debugger\Debugger.h"
 #include "DirectX11\GraphicsDevice\Dx11GraphicsDevice.h"
@@ -17,9 +17,8 @@
 //----------------------------------------------------------------------
 // Constructor	Destructor
 //----------------------------------------------------------------------
-Object2DBase::Object2DBase() :
-	m_pVertex(nullptr),
-	m_Pos(D3DXVECTOR2(0, 0)),
+MultipleObject2DBase::MultipleObject2DBase() :
+	m_pMultipleVertex(nullptr),
 	m_Size(D3DXVECTOR2(0, 0))
 {
 	m_pDrawTask = new Lib::Draw2DTask();
@@ -29,7 +28,8 @@ Object2DBase::Object2DBase() :
 	m_pUpdateTask->SetObject(this);
 }
 
-Object2DBase::~Object2DBase()
+
+MultipleObject2DBase::~MultipleObject2DBase()
 {
 	SafeDelete(m_pUpdateTask);
 	SafeDelete(m_pDrawTask);
@@ -39,68 +39,60 @@ Object2DBase::~Object2DBase()
 //----------------------------------------------------------------------
 // Public Functions
 //----------------------------------------------------------------------
-bool Object2DBase::Initialize()
+bool MultipleObject2DBase::Initialize()
 {
 	return true;
 }
 
-void Object2DBase::Finalize()
+void MultipleObject2DBase::Finalize()
 {
 }
 
-void Object2DBase::UpdateStartUp()
+void MultipleObject2DBase::UpdateStartUp()
 {
 }
 
-void Object2DBase::Update()
+void MultipleObject2DBase::Update()
 {
 }
 
-void Object2DBase::DrawStartUp()
+void MultipleObject2DBase::DrawStartUp()
 {
 }
 
-void Object2DBase::Draw()
+void MultipleObject2DBase::Draw()
 {
-	m_pVertex->ShaderSetup();
-	m_pVertex->WriteConstantBuffer(&m_Pos);
-	m_pVertex->Draw();
 }
 
 
 //----------------------------------------------------------------------
 // Protected Functions
 //----------------------------------------------------------------------
-bool Object2DBase::CreateVertex2D()
+bool MultipleObject2DBase::CreateVertex2D()
 {
-	m_pVertex = new Lib::Dx11::Vertex2D();
-	if (!m_pVertex->Initialize(SINGLETON_INSTANCE(Lib::Dx11::GraphicsDevice)))
+	m_pMultipleVertex = new Lib::Dx11::MultipleVertex2D();
+	if (!m_pMultipleVertex->Initialize(SINGLETON_INSTANCE(Lib::Dx11::GraphicsDevice)))
 	{
 		OutputErrorLog("2D描画オブジェクトの初期化に失敗しました");
 		return false;
 	}
 
-	if (!m_pVertex->CreateVertexBuffer(&m_Size))
+	if (!m_pMultipleVertex->CreateVertexBuffer(&m_Size))
 	{
 		OutputErrorLog("頂点バッファの生成に失敗しました");
-		return false;
-	}
-
-	if (!m_pVertex->WriteConstantBuffer(&m_Pos))
-	{
-		OutputErrorLog("定数バッファへの書き込みに失敗しました");
 		return false;
 	}
 
 	return true;
 }
 
-void Object2DBase::ReleaseVertex2D()
+void MultipleObject2DBase::ReleaseVertex2D()
 {
-	if (m_pVertex != nullptr)
+	if (m_pMultipleVertex != nullptr)
 	{
-		m_pVertex->ReleaseVertexBuffer();
-		m_pVertex->Finalize();
-		SafeDelete(m_pVertex);
+		m_pMultipleVertex->ReleaseVertexBuffer();
+		m_pMultipleVertex->Finalize();
+		SafeDelete(m_pMultipleVertex);
 	}
 }
+

@@ -1,10 +1,10 @@
 ﻿/**
- * @file	RectangleCollision.h
- * @brief	矩形衝突判定オブジェクトクラス定義
+ * @file	ChipCollision.h
+ * @brief	チップ衝突判定オブジェクトクラス定義
  * @author	morimoto
  */
-#ifndef GAME_RECTANGLECOLLISION_H
-#define GAME_RECTANGLECOLLISION_H
+#ifndef GAME_CHIPCOLLISION_H
+#define GAME_CHIPCOLLISION_H
 
 //----------------------------------------------------------------------
 // Include
@@ -14,8 +14,8 @@
 
 namespace Game
 {
-	/*** 矩形衝突判定オブジェクトクラス */
-	class RectangleCollision : public CollisionBase
+	/*** チップ衝突判定オブジェクトクラス */
+	class ChipCollision : public CollisionBase
 	{
 	public:
 		/*** 矩形データ構造体 */
@@ -45,10 +45,10 @@ namespace Game
 		 * コンストラクタ 
 		 * @param[in] _id 当たり判定ID
 		 */
-		RectangleCollision(int _id);
+		ChipCollision(int _id);
 
 		/*** デストラクタ */
-		virtual ~RectangleCollision();
+		virtual ~ChipCollision();
 
 		/**
 		 * Collide関数へのDispatch関数
@@ -62,23 +62,30 @@ namespace Game
 		/*** 矩形オブジェクトとの当たり判定を行う */
 		virtual void Collide(RectangleCollision* _pOther);
 
+		/*** チップオブジェクトとの当たり判定を行う */
+		virtual void Collide(ChipCollision* _pOther);
+
 		/**
-		 * 矩形の設定
-		 * @param[in] _rect 設定する矩形
+		 * 矩形の追加
+		 * @param[in] _rect 追加する矩形
 		 */
-		void SetRect(RECTANGLE _rect) { m_Rect = _rect; }
+		void AddRect(RECTANGLE _rect) { m_Rectangles.push_back(_rect); }
 
 		/**
 		 * 矩形の取得
+		 * @param[in] _index 矩形のindex番号
 		 * @return 矩形情報
 		 */
-		RECTANGLE GetRect()	{ return m_Rect; }
+		RECTANGLE GetRect(int _index) { return m_Rectangles[_index]; }
+
+		/*** 矩形情報のクリア */
+		void ClearRect() { m_Rectangles.clear(); }
 
 	private:
-		RECTANGLE m_Rect;	//!< 当たり判定用矩形.
+		std::vector<RECTANGLE> m_Rectangles;	//!< 当たり判定用矩形.
 
 	};
 }
 
 
-#endif // !GAME_RECTANGLECOLLISION_H
+#endif // !GAME_CHIPCOLLISION_H

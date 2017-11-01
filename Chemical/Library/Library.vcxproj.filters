@@ -640,6 +640,7 @@
     <FxCompile Include="Library\DirectX11\Font\Effect\Font.fx">
       <Filter>Library\DirectX11\Font\Effect</Filter>
     </FxCompile>
+    <FxCompile Include="Library\DirectX11\MultipleVertex2D\Effect\Vertex2D.fx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Library\SmartPointer\WeakPtr\WeakPtr_private.inl">

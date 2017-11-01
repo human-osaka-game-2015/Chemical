@@ -48,10 +48,14 @@ namespace Game
 			if (m_Rect.Top		< _pOther->m_Rect.Bottom ||
 				m_Rect.Bottom	> _pOther->m_Rect.Top)
 			{
-				// 衝突していた場合IDをキューにプッシュ
+				// 衝突していた場合IDをキューにプッシュ.
 				_pOther->PushOtherID(GetCollisionID());
 				PushOtherID(_pOther->GetCollisionID());
 			}
 		}
+	}
+
+	void RectangleCollision::Collide(ChipCollision* _pOther)
+	{
 	}
 }

@@ -23,9 +23,8 @@ public:
 	/**
 	 * コンストラクタ
 	 * @param[in] _pFilePath ファイルパス
-	 * @param[in] _lineNum データ行数
 	 */
-	CsvFile(LPCTSTR _pFilePath, int _lineNum);
+	CsvFile(LPCTSTR _pFilePath);
 
 	/*** デストラクタ */
 	~CsvFile();
@@ -52,9 +51,8 @@ private:
 	/**
 	 * 読み込み処理
 	 * @param[in] _pFilePath ファイルパス
-	 * @param[in] _lineNum データ行数
 	 */
-	void Load(LPCTSTR _pFilePath, int _lineNum);
+	void Load(LPCTSTR _pFilePath);
 
 	/*** 開放処理 */
 	void Release();

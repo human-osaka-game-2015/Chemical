@@ -9,7 +9,7 @@
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "..\..\..\GameDefine.h"
+#include "..\..\GameDefine.h"
 
 #include <queue>
 
@@ -18,6 +18,7 @@ namespace Game
 {
 	class EmptyCollision;
 	class RectangleCollision;
+	class ChipCollision;
 
 	/*** 当たり判定基底クラス */
 	class CollisionBase
@@ -44,6 +45,9 @@ namespace Game
 		/*** 矩形オブジェクトとの当たり判定を行う */
 		virtual void Collide(RectangleCollision* _pOther);
 
+		/*** チップオブジェクトとの当たり判定を行う */
+		virtual void Collide(ChipCollision* _pOther);
+		
 		/**
 		 * 当たり判定ID取得
 		 * @return 当たり判定ID
