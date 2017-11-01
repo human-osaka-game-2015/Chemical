@@ -1,10 +1,10 @@
 ﻿/**
- * @file	Dx11Vertex2D.h
- * @brief	2Dポリゴンの描画クラス定義
+ * @file	MultipleVertex2D.h
+ * @brief	複数の矩形描画クラス定義
  * @author	morimoto
  */
-#ifndef LIB_DX11_VERTEX2D_H
-#define LIB_DX11_VERTEX2D_H
+#ifndef LIB_MULTIPLEVERTEX2D_H
+#define LIB_MULTIPLEVERTEX2D_H
 
 //----------------------------------------------------------------------
 // Include
@@ -13,7 +13,6 @@
 #include <D3DX10.h>
 
 #include "..\GraphicsDevice\Dx11GraphicsDevice.h"
-#include "..\AnimationManager\IAnimation\Dx11IAnimation.h"
 #include "..\TextureManager\ITexture\Dx11ITexture.h"
 
 
@@ -21,15 +20,15 @@ namespace Lib
 {
 	namespace Dx11
 	{
-		/*** 2Dポリゴンの描画クラス */
-		class Vertex2D
+		/*** 複数の矩形描画クラス */
+		class MultipleVertex2D
 		{
 		public:
 			/*** コンストラクタ */
-			Vertex2D();
+			MultipleVertex2D();
 
 			/*** デストラクタ */
-			~Vertex2D();
+			~MultipleVertex2D();
 
 			/**
 			 * 初期化処理
@@ -47,7 +46,7 @@ namespace Lib
 			 * @param[in] _pMinUV テクスチャのMin座標
 			 * @param[in] _pMaxUV テクスチャのMax座標
 			 * @param[in] _pColor 頂点色
-			 * @return 初期化に成功したらtrue 失敗したらfalse
+			 * @return 生成に成功したらtrue 失敗したらfalse
 			 */
 			bool CreateVertexBuffer(
 				const D3DXVECTOR2* _pSize,
@@ -55,20 +54,25 @@ namespace Lib
 				const D3DXVECTOR2* _pMaxUV = &D3DXVECTOR2(1.0f, 1.0f),
 				const D3DXCOLOR* _pColor = &D3DXCOLOR(0xffffffff));
 
+			/**
+			 * インスタンスバッファの生成
+			 * @param[in] _pMat インスタンスごとの変換行列
+			 * @param[in] _instanceNum インスタンスの数
+			 * @return 生成に成功したらtrue 失敗したらfalse
+			 */
+			bool CreateInstanceBuffer(D3DXMATRIX* _pMat, int _instanceNum);
+
 			/*** 頂点バッファの解放 */
 			void ReleaseVertexBuffer();
 
-			/**
-			 * 頂点バッファにデータを書き込む
-			 * @return 初期化に成功したらtrue 失敗したらfalse
-			 */
-			bool WriteVertexBuffer();
+			/*** インスタンスバッファの解放 */
+			void ReleaseInstanceBuffer();
 
 			/**
-			 * 頂点座標を直接指定する
-			 * @param[in] _pVertex 設定する頂点座標(指定順序は左上-右上-左下-右下)
+			 * 頂点バッファにデータを書き込む
+			 * @return 書き込みに成功したらtrue 失敗したらfalse
 			 */
-			void SetVertexPos(const D3DXVECTOR2* _pVertex);
+			bool WriteVertexBuffer();
 
 			/**
 			 * 矩形情報から頂点座標を設定する
@@ -90,49 +94,38 @@ namespace Lib
 			void SetColor(const D3DXCOLOR* _pColor);
 
 			/**
-			 * 定数バッファにデータを書き込む
+			 * インスタンスバッファにデータを書き込む
 			 * @param[in] _pDrawPos 描画位置
-			 * @param[in] _pScale 2Dオブジェクトのスケーリング値
-			 * @param[in] _angle 2Dオブジェクトの回転値(X,Y,Zの順で回転が行われる)
 			 * @return 書き込みに成功したらtrue 失敗したらfalse
 			 */
-			bool WriteConstantBuffer(
-				const D3DXVECTOR2* _pDrawPos,
-				const D3DXVECTOR2* _pScale = &D3DXVECTOR2(1.f, 1.f),
-				const D3DXVECTOR3* _pAngle = &D3DXVECTOR3(0.f, 0.f, 0.f));
+			bool WriteInstanceBuffer(const D3DXVECTOR2* _pDrawPos);
 
-			/*** デフォルトのシェーダーを使用する準備 */
+			/*** デフォルトのシェーダーの準備 */
 			void ShaderSetup();
 
-			/*** 2Dポリゴンの描画 */
+			/*** テクスチャの準備 */
+			void TextureSetup();
+
+			/*** デフォルトの深度ステンシルステート準備*/
+			void DepthStencilStateSetup();
+
+			/*** デフォルトのブレンドステート準備*/
+			void BlendStateSetup();
+
+			/**
+			 * 複数矩形のデフォルト描画 
+			 * @param[in] _pDrawPos 描画位置
+			 */
+			void DefaultDraw(const D3DXVECTOR2* _pDrawPos);
+
+			/*** 複数矩形の描画(ポリゴンの描画処理のみ行う) */
 			void Draw();
 
 			/**
-			 * 描画するテクスチャをセットする
+			 * 描画するテクスチャの設定
 			 * @param[in] _pTexture テクスチャオブジェクト
 			 */
 			void SetTexture(ITexture* _pTexture) { m_pTexture = _pTexture; }
-
-			/**
-			 * 描画時のアニメーションをセットする
-			 * @param[in] _pAnimation アニメーションオブジェクト
-			 */
-			void SetAnimation(IAnimation* _pAnimation) { m_pAnimation = _pAnimation; }
-
-			/**
-			 * 画像が反転しているのか設定
-			 * @param[in] _isInverse 画像が反転しているか(アニメーション使用時にしか影響しない)
-			 */
-			void SetInverse(bool _isInverse) { m_IsInverse = _isInverse; }
-
-			/**
-			 * 深度ステンシルステートの設定
-			 * @param[in] _pState 画像が設定するステート
-			 */
-			void SetDepthStencilState(ID3D11DepthStencilState* _pState)
-			{
-				m_pUserDepthStencilState = _pState;
-			}
 
 		private:
 			enum
@@ -148,10 +141,15 @@ namespace Lib
 				D3DXCOLOR		Color;	//!< 頂点カラー値.
 			};
 
+			/*** インスタンス別データ構造体 */
+			struct INSTANCE_DATA
+			{
+				D3DXMATRIX Mat;		//!< 変換行列.
+			};
+
 			/*** シェーダーで使用する定数バッファ */
 			struct CONSTANT_BUFFER
 			{
-				D3DXMATRIX  MatWorld;	//!< ワールド変換行列.
 				D3DXVECTOR4 WindowSize;	//!< ウィンドウの縦横サイズ.
 			};
 
@@ -192,6 +190,12 @@ namespace Lib
 			/*** ステートの解放 */
 			void ReleaseState();
 
+			/**
+			 * 定数バッファにデータを書き込む
+			 * @return 書き込みに成功したらtrue 失敗したらfalse
+			 */
+			bool WriteConstantBuffer();
+
 			GraphicsDevice*				m_pGraphicsDevice;			//!< グラフィックデバイス.
 			ID3D11VertexShader*			m_pVertexShader;			//!< 頂点シェーダー.
 			ID3DBlob*					m_pVertexCompiledShader;	//!< 頂点シェーダーのコンパイル情報.
@@ -204,16 +208,17 @@ namespace Lib
 			ID3D11DepthStencilState*	m_pUserDepthStencilState;	//!< ユーザー指定の深度ステンシルステート.
 			ID3D11Buffer*				m_pVertexBuffer;			//!< 頂点バッファ.
 			ID3D11Buffer*				m_pConstantBuffer;			//!< 定数バッファ.
+			ID3D11Buffer*				m_pInstanceBuffer;			//!< インスタンシングバッファ.
 			ITexture*					m_pTexture;					//!< テクスチャインターフェース.
-			IAnimation*					m_pAnimation;				//!< アニメーションインターフェース.
 			VERTEX						m_pVertexData[VERTEX_NUM];	//!< 頂点情報構造体.
+			INSTANCE_DATA*				m_pInstanceData;			//!< インスタンスデータ.
 			float						m_WindowWidth;				//!< ウィンドウの幅.
 			float						m_WindowHeight;				//!< ウィンドウの高さ.
-			bool						m_IsInverse;				//!< 画像が反転しているか.
+			int							m_InstanceNum;				//!< インスタンスの数.
 
 		};
 	}
 }
 
 
-#endif // !LIB_DX11_VERTEX2D_H
+#endif // !LIB_MULTIPLEVERTEX2D_H
