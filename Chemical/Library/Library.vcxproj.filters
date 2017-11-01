@@ -430,6 +430,7 @@
     <ClCompile Include="Library\Math\Matrix\Matrix.cpp">
       <Filter>Library\Math\Matrix</Filter>
     </ClCompile>
+    <ClCompile Include="Library\DirectX11\MultipleVertex2D\Dx11MultipleVertex2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Library\Debugger\Debugger.h">
@@ -527,9 +528,6 @@
     </ClInclude>
     <ClInclude Include="Library\SoundManager\SoundManager.h">
       <Filter>Library\DirectX11\SoundManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\DirectX11\AnimationManager\Animation\Dx11Animation.h">
-      <Filter>Library\DirectX11\AnimationManager\Animation</Filter>
     </ClInclude>
     <ClInclude Include="Library\DirectX11\AnimationManager\IAnimation\Dx11IAnimation.h">
       <Filter>Library\DirectX11\AnimationManager\IAnimation</Filter>
@@ -633,6 +631,7 @@
     <ClInclude Include="Library\Math\Matrix\Matrix.h">
       <Filter>Library\Math\Matrix</Filter>
     </ClInclude>
+    <ClInclude Include="Library\DirectX11\MultipleVertex2D\Dx11MultipleVertex2D.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Library\DirectX11\Vertex2D\Effect\Vertex2D.fx">

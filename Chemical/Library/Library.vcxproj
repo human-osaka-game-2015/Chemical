@@ -88,6 +88,7 @@
     <ClInclude Include="Library\DirectX11\FbxFileManager\Dx11FbxFileManager.h" />
     <ClInclude Include="Library\DirectX11\FbxFileManager\FbxLoader\Dx11FbxLoader.h" />
     <ClInclude Include="Library\DirectX11\FbxFileManager\FbxModel\Dx11FbxModel.h" />
+    <ClInclude Include="Library\DirectX11\MultipleVertex2D\Dx11MultipleVertex2D.h" />
     <ClInclude Include="Library\TaskManager\TaskBase\DrawStartUpTask\DrawStartUpTask.h" />
     <ClInclude Include="Library\DirectX12\CommandListManager\CommandList\Dx12CommandList.h" />
     <ClInclude Include="Library\DirectX12\CommandQueueManager\CommandQueue\Dx12CommandQueue.h" />
@@ -104,7 +105,6 @@
     <ClInclude Include="Library\SoundManager\ISound\ISound.h" />
     <ClInclude Include="Library\DirectX11\TextureManager\ITexture\Dx11ITexture.h" />
     <ClInclude Include="Library\Define\Define.h" />
-    <ClInclude Include="Library\DirectX11\AnimationManager\Animation\Dx11Animation.h" />
     <ClInclude Include="Library\DirectX11\AnimationManager\Dx11AnimationManager.h" />
     <ClInclude Include="Library\SmartPointer\SharedPtr\SharedPtr.h" />
     <ClInclude Include="Library\SmartPointer\SmartPointer.h" />
@@ -167,6 +167,7 @@
     <ClCompile Include="Library\DirectX11\FbxFileManager\Dx11FbxFileManager.cpp" />
     <ClCompile Include="Library\DirectX11\FbxFileManager\FbxLoader\Dx11FbxLoader.cpp" />
     <ClCompile Include="Library\DirectX11\FbxFileManager\FbxModel\Dx11FbxModel.cpp" />
+    <ClCompile Include="Library\DirectX11\MultipleVertex2D\Dx11MultipleVertex2D.cpp" />
     <ClCompile Include="Library\TaskManager\TaskBase\DrawStartUpTask\DrawStartUpTask.cpp" />
     <ClCompile Include="Library\DirectX12\CommandListManager\CommandList\Dx12CommandList.cpp" />
     <ClCompile Include="Library\DirectX12\CommandQueueManager\CommandQueue\Dx12CommandQueue.cpp" />
