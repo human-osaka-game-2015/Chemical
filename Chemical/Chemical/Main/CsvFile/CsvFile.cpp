@@ -15,13 +15,16 @@
 //----------------------------------------------------------------------
 // Constructor	Destructor
 //----------------------------------------------------------------------
-CsvFile::CsvFile()
+CsvFile::CsvFile() : 
+	m_ppData(nullptr),
+	m_LineNum(0),
+	m_RowNum(0)
 {
 }
 
-CsvFile::CsvFile(LPCTSTR _pFilePath, int _lineNum)
+CsvFile::CsvFile(LPCTSTR _pFilePath)
 {
-	Load(_pFilePath, _lineNum);
+	Load(_pFilePath);
 }
 
 CsvFile::~CsvFile()
@@ -33,12 +36,28 @@ CsvFile::~CsvFile()
 //----------------------------------------------------------------------
 // Public Functions
 //----------------------------------------------------------------------
-void CsvFile::Load(LPCTSTR _pFilePath, int _lineNum)
+void CsvFile::Load(LPCTSTR _pFilePath)
 {
 	std::vector<BYTE> MapData;
 
 	FILE* pFile = nullptr;
 	fopen_s(&pFile, _pFilePath, "r");
+
+	// 改行をカウント.
+	{
+		char buf[1024];
+		size_t ReadSize;
+
+		while ((ReadSize = fread(buf, 1, 1024, pFile)) > 0)
+		{
+			for (size_t i = 0; i < ReadSize; i++)
+			{
+				if (buf[i] == '\n') m_LineNum++;
+			}
+		}
+	}
+
+	fseek(pFile, 0, FILE_BEGIN);
 
 	// ファイルからデータを読み込む.
 	{

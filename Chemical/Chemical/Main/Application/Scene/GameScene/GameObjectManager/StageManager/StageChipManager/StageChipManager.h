@@ -10,7 +10,10 @@
 // Include
 //----------------------------------------------------------------------
 #include "ObjectManagerBase\ObjectBase\ObjectBase.h"
+#include "StageChipBase\StageChipBase.h"
 
+class GamePlayFile;
+class CsvFile;
 
 namespace Game
 {
@@ -18,6 +21,17 @@ namespace Game
 	class StageChipManager : public Lib::ObjectBase
 	{
 	public:
+		/*** ステージのチップID */
+		enum STAGE_CHIP
+		{
+			NONE_CHIP,		//!< 空チップ.
+			SOIL_CHIP,		//!< 土チップ.
+			ROAD_CHIP,		//!< 道チップ.
+			STAGE_CHIP_MAX	//!< ステージチップ最大値.
+		};
+
+		static const D3DXVECTOR2 m_DefaultChipSize;	//!< チップのデフォルトサイズ.
+
 		/*** コンストラクタ */
 		StageChipManager();
 
@@ -32,6 +46,11 @@ namespace Game
 
 		/*** 終了処理 */
 		virtual void Finalize();
+
+	private:
+		StageChipBase*	m_pChips[STAGE_CHIP_MAX];	//!< チップオブジェクト.
+		GamePlayFile*	m_pPlayFile;				//!< ゲームプレイファイルオブジェクト.
+		CsvFile*		m_pCsvFile;					//!< CSVファイルオブジェクト.
 
 	};
 }

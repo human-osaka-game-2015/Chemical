@@ -18,6 +18,7 @@
 #include "SoundManager\SoundManager.h"
 #include "TaskManager\TaskBase\UpdateTask\UpdateTask.h"
 #include "TaskManager\TaskBase\DrawTask\DrawTask.h"
+#include "CollisionManager\CollisionManager.h"
 
 
 namespace Game
@@ -74,6 +75,8 @@ namespace Game
 			return false;
 		}
 
+		SINGLETON_CREATE(CollisionManager);
+
 		m_pObjectManager = new ObjectManager();
 		if (!m_pObjectManager->Initialize())
 		{
@@ -90,6 +93,8 @@ namespace Game
 	{
 		m_pObjectManager->Finalize();
 		SafeDelete(m_pObjectManager);
+
+		SINGLETON_DELETE(CollisionManager);
 
 		if (SINGLETON_INSTANCE(Lib::SoundManager) != nullptr)
 		{
@@ -127,6 +132,7 @@ namespace Game
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyUpdate();
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->MouseUpdate();
 
+		SINGLETON_INSTANCE(CollisionManager)->Run();
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->Run();
 
 		SINGLETON_INSTANCE(Lib::Dx11::GraphicsDevice)->BeginScene(Lib::Dx11::GraphicsDevice::BACKBUFFER_TARGET);

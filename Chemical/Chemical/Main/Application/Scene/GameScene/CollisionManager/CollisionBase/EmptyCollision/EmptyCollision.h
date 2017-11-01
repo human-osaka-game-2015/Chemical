@@ -36,6 +36,9 @@ namespace Game
 		/*** 矩形オブジェクトとの当たり判定を行う */
 		virtual void Collide(RectangleCollision* _pOther);
 
+		/*** チップオブジェクトとの当たり判定を行う */
+		virtual void Collide(ChipCollision* _pOther);
+
 	};
 }
 

@@ -143,20 +143,35 @@
     <Filter Include="Main\Application\GamePlayFile">
       <UniqueIdentifier>{b37d2d80-4049-49f2-a5e0-5377eca53f5e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\CollisionManager">
-      <UniqueIdentifier>{e2d9c7f1-69a0-4bc6-b3fe-624c7b3be874}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase">
-      <UniqueIdentifier>{a734ecdc-4e53-4165-8e3a-89d17e15fc71}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase\EmptyCollision">
-      <UniqueIdentifier>{12685a9c-4fa7-4730-ab5b-f58ac25897e2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase\RectangleCollision">
-      <UniqueIdentifier>{0a60022b-8818-46c8-9da6-8748d3a70ab3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main\Application\GameScene\GameObjectManager\GameDataManager">
       <UniqueIdentifier>{bc4e1e97-b032-495a-b793-d9979ddaeb48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip">
+      <UniqueIdentifier>{87acb7e4-c7fd-4514-969e-65e67c1a6a69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\RoadChip">
+      <UniqueIdentifier>{533b545c-76b8-48cf-9431-89ce7eb19f99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\SoilChip">
+      <UniqueIdentifier>{1e179f55-46df-4d8e-acfe-44b002643405}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager">
+      <UniqueIdentifier>{e2d9c7f1-69a0-4bc6-b3fe-624c7b3be874}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase">
+      <UniqueIdentifier>{a734ecdc-4e53-4165-8e3a-89d17e15fc71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\EmptyCollision">
+      <UniqueIdentifier>{12685a9c-4fa7-4730-ab5b-f58ac25897e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\RectangleCollision">
+      <UniqueIdentifier>{0a60022b-8818-46c8-9da6-8748d3a70ab3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\ChipCollision">
+      <UniqueIdentifier>{1daa270a-3729-44d1-af6a-1389ff2f3c25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\MultipleObject2DBase">
+      <UniqueIdentifier>{8cf854f0-cd14-4123-9408-7e7d22846308}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -307,23 +322,38 @@
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.cpp">
       <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\EndButton</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionManager.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\CollisionBase.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase</Filter>
-    </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase\EmptyCollision</Filter>
-    </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase\RectangleCollision</Filter>
-    </ClCompile>
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.cpp">
       <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\EndButton</Filter>
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameDataManager\GameDataManager.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\GameDataManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip\EmptyChip.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\RoadChip\RoadChip.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\RoadChip</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\SoilChip\SoilChip.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\SoilChip</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\EmptyCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\RectangleCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\CollisionBase.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionManager.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ChipCollision\ChipCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\ChipCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\MultipleObject2DBase\MultipleObject2DBase.cpp">
+      <Filter>Main\MultipleObject2DBase</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -482,20 +512,35 @@
     <ClInclude Include="Main\Application\Scene\SelectScene\SelectDefine.h">
       <Filter>Main\Application\StageSelectScene</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionManager.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\CollisionBase.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase</Filter>
-    </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase\EmptyCollision</Filter>
-    </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\CollisionManager\CollisionBase\RectangleCollision</Filter>
-    </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameDataManager\GameDataManager.h">
       <Filter>Main\Application\GameScene\GameObjectManager\GameDataManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip\EmptyChip.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\RoadChip\RoadChip.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\RoadChip</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\SoilChip\SoilChip.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\SoilChip</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\EmptyCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\RectangleCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\CollisionBase.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionManager.h">
+      <Filter>Main\Application\GameScene\CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ChipCollision\ChipCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\ChipCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\MultipleObject2DBase\MultipleObject2DBase.h">
+      <Filter>Main\MultipleObject2DBase</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

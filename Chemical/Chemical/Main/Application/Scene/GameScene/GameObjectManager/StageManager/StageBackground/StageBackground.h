@@ -10,7 +10,7 @@
 // Include
 //----------------------------------------------------------------------
 #include "Object2DBase\Object2DBase.h"
-#include "CsvFile\CsvFile.h"
+#include "Application\GamePlayFile\GamePlayFile.h"
 
 
 namespace Game
@@ -41,7 +41,8 @@ namespace Game
 		virtual void Draw();
 
 	private:
-		CsvFile*	m_pCsvFile;		//!< CSVファイルオブジェクト.
+		GamePlayFile*	m_pPlayFile;	//!< ゲームプレイファイルオブジェクト.
+		D3DXVECTOR2		m_CenterPos;	//!< スクロールの基準座標.
 
 	};
 }
