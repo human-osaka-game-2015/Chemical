@@ -248,7 +248,7 @@ namespace Lib
 					D3DXMatrixTranspose(&pInstanceData[i].Mat, &MatWorld);
 				}
 
-				m_pGraphicsDevice->GetDeviceContext()->Unmap(m_pVertexBuffer, 0);
+				m_pGraphicsDevice->GetDeviceContext()->Unmap(m_pInstanceBuffer, 0);
 
 				return true;
 			}
