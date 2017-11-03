@@ -9,7 +9,7 @@
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "..\StageChipBase.h"
+#include "..\..\StageChipBase.h"
 
 
 namespace Game
@@ -23,12 +23,6 @@ namespace Game
 
 		/*** デストラクタ */
 		virtual ~SoilChip();
-
-		/*** 更新処理 */
-		virtual void Update();
-
-		/*** 描画処理 */
-		virtual void Draw();
 
 	};
 }

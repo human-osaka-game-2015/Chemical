@@ -149,12 +149,6 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip">
       <UniqueIdentifier>{87acb7e4-c7fd-4514-969e-65e67c1a6a69}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\RoadChip">
-      <UniqueIdentifier>{533b545c-76b8-48cf-9431-89ce7eb19f99}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\SoilChip">
-      <UniqueIdentifier>{1e179f55-46df-4d8e-acfe-44b002643405}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main\Application\GameScene\CollisionManager">
       <UniqueIdentifier>{e2d9c7f1-69a0-4bc6-b3fe-624c7b3be874}</UniqueIdentifier>
     </Filter>
@@ -172,6 +166,30 @@
     </Filter>
     <Filter Include="Main\MultipleObject2DBase">
       <UniqueIdentifier>{8cf854f0-cd14-4123-9408-7e7d22846308}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil">
+      <UniqueIdentifier>{1a2f12a7-1d64-4fc1-a456-32dc5edad9ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip">
+      <UniqueIdentifier>{1e179f55-46df-4d8e-acfe-44b002643405}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottom">
+      <UniqueIdentifier>{9efbc7e7-a670-49b4-a417-16736e693345}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomLeftSide">
+      <UniqueIdentifier>{4cd0eb9a-d631-449d-a2ed-60c20a0ee272}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomRightSide">
+      <UniqueIdentifier>{f2b5e4cd-ab30-46b0-a4af-b742b4c7c8cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTop">
+      <UniqueIdentifier>{6bda28f2-7696-4105-9f53-cda64b266198}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopLeftSide">
+      <UniqueIdentifier>{835ef58a-c91d-4149-b54c-dafee67791c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopRightSide">
+      <UniqueIdentifier>{7705c8c1-0ef1-426e-8456-21dc72619d33}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -331,12 +349,6 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip\EmptyChip.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\RoadChip\RoadChip.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\RoadChip</Filter>
-    </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\SoilChip\SoilChip.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\SoilChip</Filter>
-    </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.cpp">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\EmptyCollision</Filter>
     </ClCompile>
@@ -354,6 +366,27 @@
     </ClCompile>
     <ClCompile Include="Main\MultipleObject2DBase\MultipleObject2DBase.cpp">
       <Filter>Main\MultipleObject2DBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip\SoilChip.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottom\SoilGroundBottom.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottom</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomLeftSide\SoilGroundBottomLeftSide.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomLeftSide</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomRightSide\SoilGroundBottomRightSide.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomRightSide</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTop\SoilGroundTop.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTop</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopLeftSide\SoilGroundTopLeftSide.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopLeftSide</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopRightSide\SoilGroundTopRightSide.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopRightSide</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -518,12 +551,6 @@
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip\EmptyChip.h">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\RoadChip\RoadChip.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\RoadChip</Filter>
-    </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\SoilChip\SoilChip.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\SoilChip</Filter>
-    </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.h">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\EmptyCollision</Filter>
     </ClInclude>
@@ -541,6 +568,27 @@
     </ClInclude>
     <ClInclude Include="Main\MultipleObject2DBase\MultipleObject2DBase.h">
       <Filter>Main\MultipleObject2DBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip\SoilChip.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottom\SoilGroundBottom.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottom</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomLeftSide\SoilGroundBottomLeftSide.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomLeftSide</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomRightSide\SoilGroundBottomRightSide.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomRightSide</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTop\SoilGroundTop.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTop</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopLeftSide\SoilGroundTopLeftSide.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopLeftSide</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopRightSide\SoilGroundTopRightSide.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopRightSide</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

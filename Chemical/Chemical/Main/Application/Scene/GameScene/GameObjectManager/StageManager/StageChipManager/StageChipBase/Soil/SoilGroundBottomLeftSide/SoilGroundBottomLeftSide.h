@@ -1,34 +1,26 @@
 ﻿/**
- * @file	RoadChip.h
- * @brief	道チップクラス定義
+ * @file	SoilGroundBottomLeftSide.h
+ * @brief	土の下部左端クラス定義
  * @author	morimoto
  */
-#ifndef GAME_ROADCHIP_H
-#define GAME_ROADCHIP_H
 
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "..\StageChipBase.h"
+#include "..\..\StageChipBase.h"
 
 
 namespace Game
 {
-	/*** 道チップクラス */
-	class RoadChip : public StageChipBase
+	/*** 土の下部左端クラス */
+	class SoilGroundBottomLeftSide : public StageChipBase
 	{
 	public:
-		/*** コンストラクタ */
-		RoadChip();
+		/*** コンストラクタ*/
+		SoilGroundBottomLeftSide();
 
 		/*** デストラクタ */
-		virtual ~RoadChip();
-
-		/*** 更新処理 */
-		virtual void Update();
-
-		/*** 描画処理 */
-		virtual void Draw();
+		virtual ~SoilGroundBottomLeftSide();
 
 		/**
 		 * チップの追加 
@@ -47,5 +39,3 @@ namespace Game
 	};
 }
 
-
-#endif // !GAME_ROADCHIP_H

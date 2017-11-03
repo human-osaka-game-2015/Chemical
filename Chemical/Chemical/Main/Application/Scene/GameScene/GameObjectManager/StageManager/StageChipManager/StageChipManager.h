@@ -24,10 +24,15 @@ namespace Game
 		/*** ステージのチップID */
 		enum STAGE_CHIP
 		{
-			NONE_CHIP,		//!< 空チップ.
-			SOIL_CHIP,		//!< 土チップ.
-			ROAD_CHIP,		//!< 道チップ.
-			STAGE_CHIP_MAX	//!< ステージチップ最大値.
+			NONE_CHIP,				//!< 空チップ.
+			SOIL_CHIP,				//!< 土チップ.
+			SOIL_BOTTOM_CHIP,		//!< 土の下部チップ.
+			SOIL_BOTTOM_LEFT_CHIP,	//!< 土の下部左端チップ.
+			SOIL_BOTTOM_RIGHT_CHIP,	//!< 土の下部右端チップ.
+			SOIL_TOP_CHIP,			//!< 土の上部チップ.
+			SOIL_TOP_LEFT_CHIP,		//!< 土の上部左端チップ.
+			SOIL_TOP_RIGHT_CHIP,	//!< 土の上部右端チップ.
+			STAGE_CHIP_MAX			//!< ステージチップ最大値.
 		};
 
 		static const D3DXVECTOR2 m_DefaultChipSize;	//!< チップのデフォルトサイズ.
