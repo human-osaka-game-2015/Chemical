@@ -9,13 +9,15 @@
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "Object2DBase\Object2DBase.h"
+#include "ObjectManagerBase\ObjectBase\ObjectBase.h"
+
+#include "DirectX11\Font\Dx11Font.h"
 
 
 namespace Game
 {
 	/*** ゲームタイムUIクラス */
-	class TimeUI : public Object2DBase
+	class TimeUI : public Lib::ObjectBase
 	{
 	public:
 		/*** コンストラクタ */
@@ -38,6 +40,34 @@ namespace Game
 
 		/*** 描画処理 */
 		virtual void Draw();
+
+		/**
+		 * フレームの設定
+		 * @param[in] _frame 設定するフレーム
+		 */
+		void SetFrame(int _frame) { m_Frame = _frame; }
+
+		/**
+		 * 時間(秒)設定
+		 * @param[in] _minute 設定する時間(秒)
+		 */
+		void SetSeconds(int _seconds) { m_Seconds = _seconds; }
+
+		/**
+		 * 時間(分)の設定
+		 * @param[in] _minute 設定する時間(分)
+		 */
+		void SetMinute(int _minute) { m_Minute = _minute; }
+
+	private:
+		static const D3DXVECTOR2 m_DefaultPos;
+		static const D3DXVECTOR2 m_DefaultSize;
+
+		Lib::Dx11::Font* m_pFont;
+
+		int m_Frame;
+		int m_Seconds;
+		int m_Minute;
 
 	};
 }
