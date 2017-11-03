@@ -12,8 +12,13 @@
 #include "Application\GamePlayFile\GamePlayFile.h"
 #include "CsvFile\CsvFile.h"
 #include "StageChipBase\EmptyChip\EmptyChip.h"
-#include "StageChipBase\SoilChip\SoilChip.h"
-#include "StageChipBase\RoadChip\RoadChip.h"
+#include "StageChipBase\Soil\SoilChip\SoilChip.h"
+#include "StageChipBase\Soil\SoilGroundBottom\SoilGroundBottom.h"
+#include "StageChipBase\Soil\SoilGroundBottomLeftSide\SoilGroundBottomLeftSide.h"
+#include "StageChipBase\Soil\SoilGroundBottomRightSide\SoilGroundBottomRightSide.h"
+#include "StageChipBase\Soil\SoilGroundTop\SoilGroundTop.h"
+#include "StageChipBase\Soil\SoilGroundTopLeftSide\SoilGroundTopLeftSide.h"
+#include "StageChipBase\Soil\SoilGroundTopRightSide\SoilGroundTopRightSide.h"
 #include "Debugger\Debugger.h"
 
 
@@ -34,7 +39,12 @@ namespace Game
 	{
 		m_pChips[NONE_CHIP] = new EmptyChip();
 		m_pChips[SOIL_CHIP] = new SoilChip();
-		m_pChips[ROAD_CHIP] = new RoadChip();
+		m_pChips[SOIL_BOTTOM_CHIP] = new SoilGroundBottom();
+		m_pChips[SOIL_BOTTOM_LEFT_CHIP] = new SoilGroundBottomLeftSide();
+		m_pChips[SOIL_BOTTOM_RIGHT_CHIP] = new SoilGroundBottomRightSide();
+		m_pChips[SOIL_TOP_CHIP] = new SoilGroundTop();
+		m_pChips[SOIL_TOP_LEFT_CHIP] = new SoilGroundTopLeftSide();
+		m_pChips[SOIL_TOP_RIGHT_CHIP] = new SoilGroundTopRightSide();
 	}
 
 	StageChipManager::~StageChipManager()
@@ -73,20 +83,8 @@ namespace Game
 		{
 			for (int j = 0; j < RowNumNum; j++)
 			{
-				switch (m_pCsvFile->GetData()[i][j])
-				{
-				case NONE_CHIP:
-					break;
-				case SOIL_CHIP:
-					m_pChips[SOIL_CHIP]->AddChip(j, i);
-					break;
-				case ROAD_CHIP:
-					m_pChips[ROAD_CHIP]->AddChip(j, i);
-					break;
-				default:
-					OutputErrorLog("StageChipのCSV内に不明なデータがあります");
-					break;
-				}
+				// 取得したデータに対応したチップを追加.
+				m_pChips[m_pCsvFile->GetData()[i][j]]->AddChip(j, i);
 			}
 		}
 

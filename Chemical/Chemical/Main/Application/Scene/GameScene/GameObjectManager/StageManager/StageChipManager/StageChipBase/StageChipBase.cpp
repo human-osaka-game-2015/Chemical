@@ -22,7 +22,8 @@ namespace Game
 	StageChipBase::StageChipBase(int _id, LPCTSTR _textureName, LPCTSTR _taskName) :
 		m_pCollision(new ChipCollision(_id)),
 		m_TextureName(_textureName),
-		m_TaskName(_taskName)
+		m_TaskName(_taskName),
+		m_ChipNum(0)
 	{
 	}
 
@@ -75,13 +76,20 @@ namespace Game
 
 	void StageChipBase::Draw()
 	{
+		if (m_ChipNum == 0) return;
+		m_pMultipleVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
+		m_pMultipleVertex->DefaultDraw(&m_Positions[0]);
 	}
 
 	void StageChipBase::AddChip(int _x, int _y)
 	{
-		m_Positions.emplace_back(
-			_x * StageChipManager::m_DefaultChipSize.x + StageChipManager::m_DefaultChipSize.x / 2,
-			_y * StageChipManager::m_DefaultChipSize.y + StageChipManager::m_DefaultChipSize.y / 2);
+		float X = StageChipManager::m_DefaultChipSize.x;
+		float Y = StageChipManager::m_DefaultChipSize.y;
+
+		D3DXVECTOR2 Pos(_x * X + X / 2, _y * Y + Y / 2);
+
+		m_ChipNum++;	// チップの個数をカウント.
+		m_Positions.emplace_back(Pos);
 	}
 
 	void StageChipBase::ClearChip()
@@ -91,10 +99,12 @@ namespace Game
 
 	bool StageChipBase::CreateInstanceBuffer()
 	{
-		int Size = m_Positions.size();
-		D3DXMATRIX* pMat = new D3DXMATRIX[Size];
-		for (int i = 0; i < Size; i++)	D3DXMatrixIdentity(&pMat[i]);
-		m_pMultipleVertex->CreateInstanceBuffer(pMat, Size);
+		// チップの数が0なら生成しない.
+		if (!m_ChipNum) return true;
+
+		D3DXMATRIX* pMat = new D3DXMATRIX[m_ChipNum];
+		for (int i = 0; i < m_ChipNum; i++)	D3DXMatrixIdentity(&pMat[i]);
+		m_pMultipleVertex->CreateInstanceBuffer(pMat, m_ChipNum);
 
 		SafeDeleteArray(pMat);
 

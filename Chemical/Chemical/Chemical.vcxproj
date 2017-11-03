@@ -82,6 +82,11 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip\EmptyChip.cpp" />
     <ClCompile Include="Main\Application\Application.cpp" />
     <ClCompile Include="Main\Application\GamePlayFile\GamePlayFile.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomLeftSide\SoilGroundBottomLeftSide.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomRightSide\SoilGroundBottomRightSide.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottom\SoilGroundBottom.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopLeftSide\SoilGroundTopLeftSide.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopRightSide\SoilGroundTopRightSide.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Main\Application\Scene\SelectScene\SelectGameStartEvent\SelectGameStartEvent.cpp" />
     <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBackGround\SelectBackGround.cpp" />
@@ -119,6 +124,7 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\StageGimmickBase.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.cpp" />
     <ClCompile Include="Main\MultipleObject2DBase\MultipleObject2DBase.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTop\SoilGroundTop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ChipCollision\ChipCollision.h" />
@@ -126,9 +132,14 @@
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\CollisionBase.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionManager.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameDataManager\GameDataManager.h" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\SoilChip\SoilChip.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\RoadChip\RoadChip.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip\SoilChip.cpp" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomLeftSide\SoilGroundBottomLeftSide.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomRightSide\SoilGroundBottomRightSide.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottom\SoilGroundBottom.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopLeftSide\SoilGroundTopLeftSide.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopRightSide\SoilGroundTopRightSide.h" />
     <ClInclude Include="Main\MultipleObject2DBase\MultipleObject2DBase.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTop\SoilGroundTop.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip\EmptyChip.h" />
@@ -188,8 +199,7 @@
     <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectStartButton\SelectStartButton.h" />
     <ClInclude Include="Main\Application\Scene\SelectScene\SelectDefine.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\SoilChip\SoilChip.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\RoadChip\RoadChip.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip\SoilChip.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

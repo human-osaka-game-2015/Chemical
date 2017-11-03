@@ -72,10 +72,11 @@ namespace Game
 		virtual void ReleaseCollision();
 
 	protected:
-		ChipCollision*				m_pCollision;		//!< 当たり判定オブジェクト.
-		std::vector<D3DXVECTOR2>	m_Positions;		//!< チップの座標.
-		LPCTSTR						m_TextureName;		//!< 描画するテクスチャ名.
-		LPCTSTR						m_TaskName;			//!< タスクの名前.
+		ChipCollision*				m_pCollision;	//!< 当たり判定オブジェクト.
+		std::vector<D3DXVECTOR2>	m_Positions;	//!< チップの座標.
+		LPCTSTR						m_TextureName;	//!< 描画するテクスチャ名.
+		LPCTSTR						m_TaskName;		//!< タスクの名前.
+		int							m_ChipNum;		//!< チップの個数.
 
 	};
 }
