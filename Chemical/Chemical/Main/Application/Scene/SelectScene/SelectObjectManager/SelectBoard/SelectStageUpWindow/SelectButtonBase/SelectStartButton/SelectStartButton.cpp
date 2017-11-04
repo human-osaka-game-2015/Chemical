@@ -18,7 +18,7 @@ namespace Select
 	StartButton::StartButton(int _stageNum) :
 		m_StageNum(_stageNum)
 	{
-		m_Pos.x = 450.f - m_Size.x / 2;
+		m_Pos.x = 770.f - m_Size.x / 2;
 	}
 
 

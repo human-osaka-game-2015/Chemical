@@ -28,7 +28,7 @@ namespace Select
 		m_ButtonState(NONE_BUTTON)
 	{
 		m_Size = D3DXVECTOR2(960, 480);
-		m_Pos = D3DXVECTOR2(640, 360);
+		m_Pos = D3DXVECTOR2(960, 540);
 		m_pDrawTask->SetPriority(SELECT_DRAW_STAGEUP_WINDOW);
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->AddTask(m_pUpdateTask);
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->AddTask(m_pDrawTask);

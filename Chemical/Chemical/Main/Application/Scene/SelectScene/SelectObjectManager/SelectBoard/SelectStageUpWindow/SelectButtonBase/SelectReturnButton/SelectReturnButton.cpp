@@ -13,7 +13,7 @@ namespace Select
 {
 	ReturnButton::ReturnButton()
 	{
-		m_Pos.x = 830.f + m_Size.x / 2;
+		m_Pos.x = 1150.f + m_Size.x / 2;
 	}
 
 	ReturnButton::~ReturnButton()

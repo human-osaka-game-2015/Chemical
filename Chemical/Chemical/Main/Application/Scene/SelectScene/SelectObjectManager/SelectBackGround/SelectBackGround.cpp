@@ -14,8 +14,8 @@ namespace Select
 {
 	BackGround::BackGround()
 	{
-		m_Size = D3DXVECTOR2(1280, 720);
-		m_Pos = D3DXVECTOR2(640, 360);
+		m_Pos = D3DXVECTOR2(960, 540);
+		m_Size = D3DXVECTOR2(1920, 1080);
 		m_pDrawTask->SetPriority(SELECT_DRAW_BACKGROUND);
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->AddTask(m_pUpdateTask);
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->AddTask(m_pDrawTask);

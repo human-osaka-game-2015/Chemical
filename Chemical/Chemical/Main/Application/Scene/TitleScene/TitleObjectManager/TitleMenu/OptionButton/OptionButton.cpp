@@ -21,7 +21,7 @@ namespace Title
 	//----------------------------------------------------------------------
 	OptionButton::OptionButton()
 	{
-		m_Pos = D3DXVECTOR2(655, 600);
+		m_Pos = D3DXVECTOR2(975, 850);
 		m_Size = D3DXVECTOR2(300, 100);
 	}
 

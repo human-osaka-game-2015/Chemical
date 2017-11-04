@@ -21,8 +21,8 @@ namespace Title
 	//----------------------------------------------------------------------
 	Background::Background()
 	{
-		m_Pos = D3DXVECTOR2(640, 360);
-		m_Size = D3DXVECTOR2(1280, 720);
+		m_Pos = D3DXVECTOR2(960, 540);
+		m_Size = D3DXVECTOR2(1920, 1080);
 	}
 
 	Background::~Background()

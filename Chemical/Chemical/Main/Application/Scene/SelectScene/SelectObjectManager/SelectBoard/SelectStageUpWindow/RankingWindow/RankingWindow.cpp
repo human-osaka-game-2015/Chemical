@@ -3,18 +3,26 @@
  * @brief  RankingWindowクラスの実装
  * @author fujioka
  */
+
+//----------------------------------------------------------------------
+// Include
+//----------------------------------------------------------------------
 #include "RankingWindow.h"
 
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
 #include "DirectX11\GraphicsDevice\Dx11GraphicsDevice.h"
 #include "TaskManager\TaskManager.h"
 
+
 namespace Select
 {
+	//----------------------------------------------------------------------
+	// Constructor	Destructor
+	//----------------------------------------------------------------------
 	RankingWindow::RankingWindow()
 	{
-		m_Pos = D3DXVECTOR2(640, 360);
-		m_Size = D3DXVECTOR2(1280, 720);
+		m_Pos = D3DXVECTOR2(960, 540);
+		m_Size = D3DXVECTOR2(1920, 1080);
 	}
 
 	RankingWindow::~RankingWindow()
@@ -22,10 +30,9 @@ namespace Select
 	}
 
 
-	//----------------------------------------------------------------------------------------------------
+	//----------------------------------------------------------------------
 	// Public Functions
-	//----------------------------------------------------------------------------------------------------
-
+	//----------------------------------------------------------------------
 	bool RankingWindow::Initialize()
 	{
 		if (!CreateVertex2D())
@@ -33,7 +40,9 @@ namespace Select
 			return false;
 		}
 
-		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture("Resource\\StageSelectScene\\RankingWindow\\Texture\\RankingWindow.bmp", &m_TextureIndex))
+		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
+			"Resource\\StageSelectScene\\RankingWindow\\Texture\\RankingWindow.bmp", 
+			&m_TextureIndex))
 		{
 			return false;
 		}
@@ -54,7 +63,5 @@ namespace Select
 	void RankingWindow::Update()
 	{
 	}
-
-	
 }
 

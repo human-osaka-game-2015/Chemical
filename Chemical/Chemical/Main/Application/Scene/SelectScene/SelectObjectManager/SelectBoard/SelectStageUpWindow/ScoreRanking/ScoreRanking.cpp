@@ -3,6 +3,10 @@
  * @brief  ScoreRankingクラスの実装
  * @author fujioka
  */
+
+//----------------------------------------------------------------------
+// Include
+//----------------------------------------------------------------------
 #include "ScoreRanking.h"
 
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
@@ -11,20 +15,28 @@
 #include <string>
 #include "InputDeviceManager\InputDeviceManager.h"
 
+
 namespace Select
 {
+	//----------------------------------------------------------------------
+	// Static Private Variables
+	//----------------------------------------------------------------------
 	const float ScoreRanking::m_FontSize = 20.f;
 	const int ScoreRanking::m_ScoreShift = 200;
 	const int ScoreRanking::m_NameShift = 200;
 	const int ScoreRanking::m_VerticalShift = 70;
-	const int ScoreRanking::m_ScrollSpeed = 5;
+	const int ScoreRanking::m_ScrollSpeed = 10;
 
+
+	//----------------------------------------------------------------------
+	// Constructor	Destructor
+	//----------------------------------------------------------------------
 	ScoreRanking::ScoreRanking(int _stageNum) :
-		m_StageNum(_stageNum), 
+		m_StageNum(_stageNum),
 		m_RankingNum(0),
 		m_pFile(nullptr)
 	{
-		m_BasePosition = D3DXVECTOR2(1300, 100);
+		m_BasePosition = D3DXVECTOR2(1960, 200);
 	}
 
 	ScoreRanking::~ScoreRanking()
@@ -32,10 +44,9 @@ namespace Select
 	}
 
 
-	//----------------------------------------------------------------------------------------------------
+	//----------------------------------------------------------------------
 	// Public Functions
-	//----------------------------------------------------------------------------------------------------
-
+	//----------------------------------------------------------------------
 	bool ScoreRanking::Initialize()
 	{
 		D3DXVECTOR2 FontSize = D3DXVECTOR2(m_FontSize, m_FontSize);
@@ -46,7 +57,7 @@ namespace Select
 		{
 			return false;
 		}
-		
+
 		return true;
 	}
 
@@ -58,53 +69,56 @@ namespace Select
 		SafeDelete(m_pFont);
 	}
 
-	void ScoreRanking::Draw()
-	{
-		for (int i = 0; i <m_RankingNum; i++)
-		{
-			D3DXVECTOR2 DrawPos = m_BasePosition;
-			DrawPos.y += i * m_VerticalShift;
-		
-			char Rank[64] = { 0 };
-		
-			sprintf_s(Rank, "%d", i + 1);
-		
-			m_pFont->Draw(&DrawPos, Rank);
-		
-			char Score[64] = { 0 };
-		
-			DrawPos.x += m_ScoreShift;
-		
-			sprintf_s(Score, "%d", m_pRankingData[i].Score);
-			m_pFont->Draw(&DrawPos, Score);
-		
-			DrawPos.x += m_NameShift;
-			m_pFont->Draw(&DrawPos, m_pRankingData[i].Name);
-		}
-	}
-
 	void ScoreRanking::Update()
 	{
 		if (m_BasePosition.x >= 100)
 		{
-			m_BasePosition.x -= 5;
+			m_BasePosition.x -= m_ScrollSpeed;
 		}
 		else
 		{
 			const Lib::KeyDevice::KEYSTATE* pKey =
 				SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState();
 
-			if (pKey[DIK_UP] == Lib::KeyDevice::KEY_ON&&m_BasePosition.y>-(m_RankingNum - (720 / (m_VerticalShift))) * m_VerticalShift)
+			if (pKey[DIK_UP] == Lib::KeyDevice::KEY_ON &&
+				m_BasePosition.y > -(m_RankingNum - (1080 / (m_VerticalShift))) * m_VerticalShift)
 			{
 				m_BasePosition.y -= m_ScrollSpeed;
 			}
 
-			if (pKey[DIK_DOWN] == Lib::KeyDevice::KEY_ON&&m_BasePosition.y < 100)
+			if (pKey[DIK_DOWN] == Lib::KeyDevice::KEY_ON &&
+				m_BasePosition.y < 100)
 			{
 				m_BasePosition.y += m_ScrollSpeed;
 			}
 		}
 	}
+
+	void ScoreRanking::Draw()
+	{
+		for (int i = 0; i < m_RankingNum; i++)
+		{
+			D3DXVECTOR2 DrawPos = m_BasePosition;
+			DrawPos.y += i * m_VerticalShift;
+
+			char Rank[64] = { 0 };
+
+			sprintf_s(Rank, "%d", i + 1);
+
+			m_pFont->Draw(&DrawPos, Rank);
+
+			char Score[64] = { 0 };
+
+			DrawPos.x += m_ScoreShift;
+
+			sprintf_s(Score, "%d", m_pRankingData[i].Score);
+			m_pFont->Draw(&DrawPos, Score);
+
+			DrawPos.x += m_NameShift;
+			m_pFont->Draw(&DrawPos, m_pRankingData[i].Name);
+		}
+	}
+
 	bool ScoreRanking::LoadRankingData()
 	{
 		char FileName[128] = { 0 };
@@ -135,7 +149,7 @@ namespace Select
 		for (int i = 0; i < m_RankingNum; i++)
 		{
 			m_pRankingData[i].Score = 0;
-		
+
 			fscanf_s(m_pFile, "%d,", &m_pRankingData[i].Score);
 			fscanf_s(m_pFile, "%s", &m_pRankingData[i].Name, sizeof(m_pRankingData[i].Name));
 		}
@@ -149,6 +163,4 @@ namespace Select
 	{
 		SafeDelete(m_pRankingData);
 	}
-
 }
-

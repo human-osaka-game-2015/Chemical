@@ -21,7 +21,7 @@ namespace Title
 	//----------------------------------------------------------------------
 	EndButton::EndButton()
 	{
-		m_Pos = D3DXVECTOR2(685, 600);
+		m_Pos = D3DXVECTOR2(1005, 850);
 		m_Size = D3DXVECTOR2(300, 100);
 	}
 

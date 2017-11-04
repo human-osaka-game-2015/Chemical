@@ -20,10 +20,14 @@
 //----------------------------------------------------------------------
 // Static Private Variables
 //----------------------------------------------------------------------
-const int Application::m_WindowWidth = 1280;
-const int Application::m_WindowHeight = 720;
-const DWORD Application::m_WindowStyle = WS_OVERLAPPEDWINDOW & ~WS_THICKFRAME & ~WS_MAXIMIZEBOX | WS_VISIBLE;
+const int Application::m_WindowWidth = 1920;
+const int Application::m_WindowHeight = 1080;
 
+#ifdef _DEBUG
+const DWORD Application::m_WindowStyle = WS_OVERLAPPEDWINDOW & ~WS_THICKFRAME & ~WS_MAXIMIZEBOX | WS_VISIBLE;
+#else
+const DWORD Application::m_WindowStyle = WS_VISIBLE | WS_POPUP;
+#endif 
 
 //----------------------------------------------------------------------
 // Constructor	Destructor
@@ -106,6 +110,10 @@ bool Application::CreateGraphicsDevice()
 		SINGLETON_DELETE(Lib::Dx11::GraphicsDevice);
 		return false;
 	}
+
+#ifndef _DEBUG
+	SINGLETON_INSTANCE(Lib::Dx11::GraphicsDevice)->SetFullScreen(true);
+#endif
 
 	return true;
 }

@@ -21,7 +21,7 @@ namespace Title
 	//----------------------------------------------------------------------
 	StaffButton::StaffButton()
 	{
-		m_Pos = D3DXVECTOR2(670, 600);
+		m_Pos = D3DXVECTOR2(990, 850);
 		m_Size = D3DXVECTOR2(300, 100);
 	}
 

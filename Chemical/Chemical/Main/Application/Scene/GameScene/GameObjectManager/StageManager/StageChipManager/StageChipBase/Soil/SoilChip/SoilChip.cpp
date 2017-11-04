@@ -8,6 +8,7 @@
 //----------------------------------------------------------------------
 #include "SoilChip.h"
 
+#include "..\..\..\StageChipManager.h"
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
 
 
@@ -19,7 +20,6 @@ namespace Game
 	SoilChip::SoilChip() : 
 		StageChipBase(SOIL_COLLISION_ID, "Resource\\GameScene\\Texture\\Chip11.png", "SoilChip")
 	{
-		m_Size = D3DXVECTOR2(80, 80);
 	}
 
 	SoilChip::~SoilChip()

@@ -27,7 +27,7 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Static Public Variables
 	//----------------------------------------------------------------------
-	const D3DXVECTOR2 StageChipManager::m_DefaultChipSize = D3DXVECTOR2(80, 80);
+	const D3DXVECTOR2 StageChipManager::m_DefaultChipSize = D3DXVECTOR2(120, 120);
 
 
 	//----------------------------------------------------------------------
