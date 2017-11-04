@@ -7,7 +7,8 @@
 // Include
 //----------------------------------------------------------------------
 #include "CharacterManager.h"
-
+#include "Player\Player.h"
+#include "Enemy\Enemy.h"
 
 namespace Game
 {
@@ -16,10 +17,16 @@ namespace Game
 	//----------------------------------------------------------------------
 	CharacterManager::CharacterManager()
 	{
+		m_pPlayer = new Player();
 	}
 
 	CharacterManager::~CharacterManager()
 	{
+		for (auto itr : m_pEnemys)
+		{
+			SafeDelete(itr);
+		}
+		SafeDelete(m_pPlayer);
 	}
 
 	//----------------------------------------------------------------------
@@ -27,10 +34,23 @@ namespace Game
 	//----------------------------------------------------------------------
 	bool CharacterManager::Initialize()
 	{
+		if (!m_pPlayer->Initialize()) return false;
+		for (auto itr : m_pEnemys)
+		{
+			if (!itr->Initialize())
+			{
+				Finalize();
+			}
+		}
 		return true;
 	}
 
 	void CharacterManager::Finalize()
 	{
+		for (auto itr : m_pEnemys)
+		{
+			itr->Finalize();
+		}
+		m_pPlayer->Finalize();
 	}
 }

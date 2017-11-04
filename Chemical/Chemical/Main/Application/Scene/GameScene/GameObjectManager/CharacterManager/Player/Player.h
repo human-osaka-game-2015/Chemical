@@ -14,6 +14,8 @@
 
 namespace Game
 {
+	class PlayerCollision;
+
 	/*** プレイヤークラス */
 	class Player : public Object2DBase
 	{
@@ -38,6 +40,23 @@ namespace Game
 
 		/*** 描画処理 */
 		virtual void Draw();
+
+	private:
+		static const float m_Gravity;
+		static const float m_JumpPower;
+
+		/*** 重力制御更新 */
+		void GravityUpdate();
+
+		/*** 当たり判定更新 */
+		void CollisionUpdate();
+
+		int					   m_AnimationIndex;
+		Lib::Dx11::IAnimation* m_pWalkAnimation;
+		PlayerCollision*	   m_pCollision;
+		float				   m_Acceleration;
+		bool				   m_IsLeft;
+		bool				   m_IsLanding; //!< 着地しているか?
 
 	};
 }

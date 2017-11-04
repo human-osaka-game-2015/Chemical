@@ -47,4 +47,8 @@ namespace Game
 	void CollisionBase::Collide(ChipCollision* _pOther)
 	{
 	}
+
+	void CollisionBase::Collide(PlayerCollision* _pOther)
+	{
+	}
 }

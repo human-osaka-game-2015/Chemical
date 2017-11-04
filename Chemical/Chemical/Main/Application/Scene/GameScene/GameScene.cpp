@@ -13,6 +13,7 @@
 #include "DirectX11\GraphicsDevice\Dx11GraphicsDevice.h"
 #include "DirectX11\ShaderManager\Dx11ShaderManager.h"
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
+#include "DirectX11\AnimationManager\Dx11AnimationManager.h"
 #include "InputDeviceManager\InputDeviceManager.h"
 #include "SoundDevice\SoundDevice.h"
 #include "SoundManager\SoundManager.h"
@@ -57,6 +58,13 @@ namespace Game
 			SINGLETON_INSTANCE(Lib::Dx11::GraphicsDevice)))
 		{
 			OutputErrorLog("テクスチャ管理クラスの生成に失敗しました");
+			return false;
+		}
+
+		SINGLETON_CREATE(Lib::Dx11::AnimationManager);
+		if (!SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->Initialize())
+		{
+			OutputErrorLog("アニメーション管理クラスの生成に失敗しました");
 			return false;
 		}
 
@@ -108,6 +116,12 @@ namespace Game
 			SINGLETON_DELETE(Lib::SoundDevice);
 		}
 
+		if (SINGLETON_INSTANCE(Lib::Dx11::AnimationManager) != nullptr)
+		{
+			SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->Finalize();
+			SINGLETON_DELETE(Lib::Dx11::AnimationManager);
+		}
+
 		if (SINGLETON_INSTANCE(Lib::Dx11::TextureManager) != nullptr)
 		{
 			SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->Finalize();
@@ -131,6 +145,9 @@ namespace Game
 		// デバイスの入力チェック.
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyUpdate();
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->MouseUpdate();
+		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_UPARROW);
+		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_LEFTARROW);
+		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_RIGHTARROW);
 
 		SINGLETON_INSTANCE(CollisionManager)->Run();
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->Run();

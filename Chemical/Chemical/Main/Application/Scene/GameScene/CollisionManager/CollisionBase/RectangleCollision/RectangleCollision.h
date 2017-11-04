@@ -65,6 +65,9 @@ namespace Game
 		/*** チップオブジェクトとの当たり判定を行う */
 		virtual void Collide(ChipCollision* _pOther);
 
+		/*** プレイヤーオブジェクトとの当たり判定を行う */
+		virtual void Collide(PlayerCollision* _pOther);
+
 		/**
 		 * 矩形の設定
 		 * @param[in] _rect 設定する矩形

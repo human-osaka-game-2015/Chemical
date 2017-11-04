@@ -65,6 +65,9 @@ namespace Game
 		/*** チップオブジェクトとの当たり判定を行う */
 		virtual void Collide(ChipCollision* _pOther);
 
+		/*** プレイヤーオブジェクトとの当たり判定を行う */
+		virtual void Collide(PlayerCollision* _pOther);
+
 		/**
 		 * 矩形の追加
 		 * @param[in] _rect 追加する矩形
@@ -77,6 +80,12 @@ namespace Game
 		 * @return 矩形情報
 		 */
 		RECTANGLE GetRect(int _index) { return m_Rectangles[_index]; }
+
+		/**
+		 * 矩形の取得
+		 * @return 矩形情報
+		 */
+		const std::vector<RECTANGLE>* GetRect(){ return &m_Rectangles; }
 
 		/*** 矩形情報のクリア */
 		void ClearRect() { m_Rectangles.clear(); }
