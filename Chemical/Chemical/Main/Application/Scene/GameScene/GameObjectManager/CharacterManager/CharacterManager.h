@@ -11,9 +11,13 @@
 //----------------------------------------------------------------------
 #include "ObjectManagerBase\ObjectBase\ObjectBase.h"
 
+#include <vector>
 
 namespace Game
 {
+	class Player;
+	class Enemy;
+
 	/*** キャラクター管理クラス */
 	class CharacterManager : public Lib::ObjectBase
 	{
@@ -32,6 +36,11 @@ namespace Game
 
 		/*** 終了処理 */
 		virtual void Finalize();
+
+	private:
+		Player* m_pPlayer;
+		std::vector<Enemy*> m_pEnemys;
+
 
 	};
 }

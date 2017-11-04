@@ -10,8 +10,8 @@
 #include "ChipCollision.h"
 
 #include "..\EmptyCollision\EmptyCollision.h"
+#include "..\PlayerCollision\PlayerCollision.h"
 #include "..\RectangleCollision\RectangleCollision.h"
-
 
 namespace Game
 {
@@ -60,6 +60,10 @@ namespace Game
 	}
 
 	void ChipCollision::Collide(ChipCollision* _pOther)
+	{
+	}
+
+	void ChipCollision::Collide(PlayerCollision* _pOther)
 	{
 	}
 }

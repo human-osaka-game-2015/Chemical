@@ -35,9 +35,12 @@ namespace Game
 	{
 		for (auto itr = m_pCollisions.begin(); itr != m_pCollisions.end(); itr++)
 		{
-			for (auto itr2 = itr + 1; itr2 != m_pCollisions.end(); itr2++)
+			for (auto itr2 = m_pCollisions.begin(); itr2 != m_pCollisions.end(); itr2++)
 			{
-				(*itr2)->Dispatch(*itr);
+				if ((*itr2) != (*itr))
+				{
+					(*itr2)->Dispatch(*itr);
+				}
 			}
 		}
 	}

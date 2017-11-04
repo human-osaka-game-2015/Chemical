@@ -58,4 +58,8 @@ namespace Game
 	void RectangleCollision::Collide(ChipCollision* _pOther)
 	{
 	}
+
+	void RectangleCollision::Collide(PlayerCollision* _pOther)
+	{
+	}
 }
