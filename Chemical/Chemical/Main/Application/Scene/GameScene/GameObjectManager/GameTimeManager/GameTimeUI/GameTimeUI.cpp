@@ -17,7 +17,7 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Static Private Variables
 	//----------------------------------------------------------------------
-	const D3DXVECTOR2 TimeUI::m_DefaultPos = D3DXVECTOR2(70, 650);
+	const D3DXVECTOR2 TimeUI::m_DefaultPos = D3DXVECTOR2(70, 1030);
 	const D3DXVECTOR2 TimeUI::m_DefaultSize = D3DXVECTOR2(32, 64);
 
 

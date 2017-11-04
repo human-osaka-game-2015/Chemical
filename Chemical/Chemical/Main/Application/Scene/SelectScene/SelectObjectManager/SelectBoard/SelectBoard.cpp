@@ -36,7 +36,7 @@ namespace Select
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->AddTask(m_pDrawTask);
 		SINGLETON_INSTANCE(SelectManager)->AddSelectBoard(this);
 
-		m_TargetDistance = sqrt(pow(640.f - m_DefaultPos.x, 2) + pow(360.f - m_DefaultPos.y, 2));
+		m_TargetDistance = sqrt(pow(960.f - m_DefaultPos.x, 2) + pow(540.f - m_DefaultPos.y, 2));
 	}
 	
 	SelectBoard::~SelectBoard()
@@ -137,7 +137,7 @@ namespace Select
 				SpinControl();
 				m_MoveDistance += m_MoveSpeed;
 				m_Scale += D3DXVECTOR2(0.03f, 0.03f);
-				m_Pos += GetAngleMovePos(m_MoveSpeed, GetAngle(m_Pos, D3DXVECTOR2(640.f, 360.f)));
+				m_Pos += GetAngleMovePos(m_MoveSpeed, GetAngle(m_Pos, D3DXVECTOR2(960, 540)));
 				m_Alpha -= 0.01f;
 			}
 			else

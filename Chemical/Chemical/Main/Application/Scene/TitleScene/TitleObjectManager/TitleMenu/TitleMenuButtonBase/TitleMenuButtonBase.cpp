@@ -20,12 +20,12 @@ namespace Title
 	// Static Private Variables
 	//----------------------------------------------------------------------
 	const float MenuButtonBase::m_MoveSpeed = 15.f;
-	const float MenuButtonBase::m_UpPos = 500.f;
-	const float MenuButtonBase::m_DownPos = 600.f;
-	const float MenuButtonBase::m_LeftPos = 640.f;
-	const float MenuButtonBase::m_RightPos = 685.f;
-	const float MenuButtonBase::m_LeftCenterPos = 655.f;
-	const float MenuButtonBase::m_RightCenterPos = 670.f;
+	const float MenuButtonBase::m_UpPos = 750.f;
+	const float MenuButtonBase::m_DownPos = 850.f;
+	const float MenuButtonBase::m_LeftPos = 960.f;
+	const float MenuButtonBase::m_RightPos = 1005.f;
+	const float MenuButtonBase::m_LeftCenterPos = 975.f;
+	const float MenuButtonBase::m_RightCenterPos = 990.f;
 
 
 	//----------------------------------------------------------------------

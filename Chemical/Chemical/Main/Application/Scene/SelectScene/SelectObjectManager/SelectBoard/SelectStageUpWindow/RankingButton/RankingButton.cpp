@@ -3,6 +3,10 @@
  * @brief  RankingReturnButtonクラスの実装
  * @author fujioka
  */
+
+//----------------------------------------------------------------------
+// Include
+//----------------------------------------------------------------------
 #include "RankingButton.h"
 
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
@@ -10,11 +14,15 @@
 #include "TaskManager\TaskManager.h"
 #include "InputDeviceManager\InputDeviceManager.h"
 
+
 namespace Select
 {
+	//----------------------------------------------------------------------
+	// Constructor	Destructor
+	//----------------------------------------------------------------------
 	RankingReturnButton::RankingReturnButton()
 	{
-		m_Pos = D3DXVECTOR2(1000,600);
+		m_Pos = D3DXVECTOR2(1700, 900);
 		m_Size = D3DXVECTOR2(200, 100);
 	}
 

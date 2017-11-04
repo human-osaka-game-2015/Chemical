@@ -8,7 +8,7 @@ namespace Select
 {
 	RankingButton::RankingButton()
 	{
-		m_Pos.x = 640.f;
+		m_Pos.x = 960.f;
 	}
 
 	RankingButton::~RankingButton()

@@ -21,7 +21,6 @@ namespace Game
 	SoilGroundTop::SoilGroundTop() :
 		StageChipBase(ROAD_COLLISION_ID, "Resource\\GameScene\\Texture\\Chip12.png", "SoilGroundTop")
 	{
-		m_Size = D3DXVECTOR2(80, 80);
 	}
 
 	SoilGroundTop::~SoilGroundTop()

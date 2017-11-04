@@ -14,7 +14,7 @@ namespace Select
 		m_DefaultSize = m_Size;
 		m_OnCursorSize.x = m_DefaultSize.x + 20.f;
 		m_OnCursorSize.y = m_DefaultSize.y + 20.f;
-		m_Pos.y = 530.f;
+		m_Pos.y = 680.f;
 	}
 
 	ButtonBase::~ButtonBase()

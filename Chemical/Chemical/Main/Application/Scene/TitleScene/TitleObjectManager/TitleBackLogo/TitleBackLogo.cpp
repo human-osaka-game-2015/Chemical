@@ -19,7 +19,7 @@ namespace Title
 	//----------------------------------------------------------------------
 	BackLogo::BackLogo()
 	{
-		m_Pos = D3DXVECTOR2(640, 200);
+		m_Pos = D3DXVECTOR2(960, 200);
 		m_Size = D3DXVECTOR2(300, 100);
 	}
 

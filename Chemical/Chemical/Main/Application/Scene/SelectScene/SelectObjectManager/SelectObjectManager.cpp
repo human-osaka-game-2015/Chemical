@@ -55,20 +55,20 @@ namespace Select
 
 	void ObjectManager::CreateSelectBoard()
 	{
-		m_pObjects.push_back(new SelectBoard(&D3DXVECTOR2(200.f, 230.f), 1));
+		m_pObjects.push_back(new SelectBoard(&D3DXVECTOR2(300.f, 345.f), 1));
 
-		m_pObjects.push_back(new SelectBoard(&D3DXVECTOR2(487.5f, 180.f), 2));
+		m_pObjects.push_back(new SelectBoard(&D3DXVECTOR2(731.25f, 270.f), 2));
 
-		m_pObjects.push_back(new SelectBoard(&D3DXVECTOR2(782.5f, 180.f), 3));
+		m_pObjects.push_back(new SelectBoard(&D3DXVECTOR2(1173.5f, 270.f), 3));
 
-		m_pObjects.push_back(new SelectBoard(&D3DXVECTOR2(1070.f, 230.f), 4));
+		m_pObjects.push_back(new SelectBoard(&D3DXVECTOR2(1605.f, 345.f), 4));
 
-		m_pObjects.push_back(new SelectBoard(&D3DXVECTOR2(200.f, 490.f), 5));
+		m_pObjects.push_back(new SelectBoard(&D3DXVECTOR2(300.f, 735.f), 5));
 
-		m_pObjects.push_back(new SelectBoard(&D3DXVECTOR2(487.5f, 540.f), 6));
+		m_pObjects.push_back(new SelectBoard(&D3DXVECTOR2(731.25f, 810.f), 6));
 
-		m_pObjects.push_back(new SelectBoard(&D3DXVECTOR2(782.5f, 540.f), 7));
+		m_pObjects.push_back(new SelectBoard(&D3DXVECTOR2(1173.5f, 810.f), 7));
 
-		m_pObjects.push_back(new SelectBoard(&D3DXVECTOR2(1070.f, 490.f), 8));
+		m_pObjects.push_back(new SelectBoard(&D3DXVECTOR2(1605.f, 735.f), 8));
 	}
 }

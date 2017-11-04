@@ -21,7 +21,6 @@ namespace Game
 	SoilGroundTopLeftSide::SoilGroundTopLeftSide() :
 		StageChipBase(ROAD_COLLISION_ID, "Resource\\GameScene\\Texture\\Chip8.png", "SoilGroundTopLeftSide")
 	{
-		m_Size = D3DXVECTOR2(80, 80);
 	}
 
 	SoilGroundTopLeftSide::~SoilGroundTopLeftSide()

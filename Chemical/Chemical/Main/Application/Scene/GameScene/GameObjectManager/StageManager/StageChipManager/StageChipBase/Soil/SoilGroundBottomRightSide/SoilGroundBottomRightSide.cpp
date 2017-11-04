@@ -21,7 +21,6 @@ namespace Game
 	SoilGroundBottomRightSide::SoilGroundBottomRightSide() :
 		StageChipBase(SOIL_COLLISION_ID, "Resource\\GameScene\\Texture\\Chip14.png", "SoilGroundBottomRightSide")
 	{
-		m_Size = D3DXVECTOR2(80, 80);
 	}
 
 	SoilGroundBottomRightSide::~SoilGroundBottomRightSide()

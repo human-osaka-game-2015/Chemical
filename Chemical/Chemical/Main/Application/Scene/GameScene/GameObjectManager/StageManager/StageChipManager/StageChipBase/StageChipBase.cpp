@@ -25,6 +25,7 @@ namespace Game
 		m_TaskName(_taskName),
 		m_ChipNum(0)
 	{
+		m_Size = StageChipManager::m_DefaultChipSize;
 	}
 
 	StageChipBase::~StageChipBase()
