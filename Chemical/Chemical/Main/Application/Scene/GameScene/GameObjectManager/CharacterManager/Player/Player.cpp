@@ -23,7 +23,7 @@
 namespace Game
 {
 	const float Player::m_Gravity = 0.8f;
-	const float Player::m_JumpPower = -20;
+	const float Player::m_JumpPower = -25;
 
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
@@ -36,7 +36,7 @@ namespace Game
 		m_Acceleration(0),
 		m_IsLanding(false)
 	{
-		m_Size = D3DXVECTOR2(120.f, 120.f);
+		m_Size = D3DXVECTOR2(220.f, 220.f);
 		m_Pos = D3DXVECTOR2(300.f, 400.f);
 	}
 
@@ -110,13 +110,13 @@ namespace Game
 
 		if (pKeyState[DIK_LEFTARROW] == Lib::KeyDevice::KEY_ON)
 		{
-			m_Pos.x -= 4.f;
+			m_Pos.x -= 6.f;
 			m_pWalkAnimation->Update();
 			m_IsLeft = true;
 		}
 		else if (pKeyState[DIK_RIGHTARROW] == Lib::KeyDevice::KEY_ON)
 		{
-			m_Pos.x += 4.f;
+			m_Pos.x += 6.f;
 			m_pWalkAnimation->Update();
 			m_IsLeft = false;
 		}
