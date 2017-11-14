@@ -4,6 +4,7 @@ SamplerState g_Sampler : register(s0);
 cbuffer global : register(b0)
 {
 	float4 g_ViewPort;
+	float4 g_InstancePos;
 };
 
 struct VS_INPUT
@@ -33,6 +34,8 @@ VS_OUTPUT VS(VS_INPUT In)
 {
 	VS_OUTPUT Out;
 	
+	In.Pos.xy += g_InstancePos.xy;
+
 	Out.Pos = mul(In.Pos, In.Mat);
 	Out.Pos.x = (Out.Pos.x / g_ViewPort.x) * 2 - 1;
 	Out.Pos.y = 1 - (Out.Pos.y / g_ViewPort.y) * 2;

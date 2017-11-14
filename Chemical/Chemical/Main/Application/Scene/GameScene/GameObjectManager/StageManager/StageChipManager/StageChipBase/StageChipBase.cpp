@@ -12,6 +12,7 @@
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
 #include "..\..\..\..\CollisionManager\CollisionManager.h"
 #include "..\StageChipManager.h"
+#include "..\..\..\GameDataManager\GameDataManager.h"
 
 
 namespace Game
@@ -73,6 +74,9 @@ namespace Game
 
 	void StageChipBase::Update()
 	{
+		D3DXVECTOR2 ScreenPos = SINGLETON_INSTANCE(GameDataManager)->GetScreenPos();
+
+		m_pMultipleVertex->WriteConstantBuffer(-ScreenPos);
 	}
 
 	void StageChipBase::Draw()

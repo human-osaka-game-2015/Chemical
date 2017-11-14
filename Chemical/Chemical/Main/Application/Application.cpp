@@ -18,16 +18,21 @@
 
 
 //----------------------------------------------------------------------
-// Static Private Variables
+// Static Public Variables
 //----------------------------------------------------------------------
 const int Application::m_WindowWidth = 1920;
 const int Application::m_WindowHeight = 1080;
 
+
+//----------------------------------------------------------------------
+// Static Private Variables
+//----------------------------------------------------------------------
 #ifdef _DEBUG
 const DWORD Application::m_WindowStyle = WS_OVERLAPPEDWINDOW & ~WS_THICKFRAME & ~WS_MAXIMIZEBOX | WS_VISIBLE;
 #else
 const DWORD Application::m_WindowStyle = WS_VISIBLE | WS_POPUP;
 #endif 
+
 
 //----------------------------------------------------------------------
 // Constructor	Destructor
