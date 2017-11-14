@@ -178,6 +178,34 @@ namespace Lib
 			SafeRelease(m_pInstanceBuffer);
 		}
 
+		bool MultipleVertex2D::WriteConstantBuffer(D3DXVECTOR2 _pos)
+		{
+			D3D11_MAPPED_SUBRESOURCE MappedResource;
+			if (SUCCEEDED(m_pGraphicsDevice->GetDeviceContext()->Map(
+				m_pConstantBuffer,
+				0,
+				D3D11_MAP_WRITE_DISCARD,
+				0,
+				&MappedResource)))
+			{
+				CONSTANT_BUFFER ConstantBuffer;
+				ConstantBuffer.WindowSize.x = m_WindowWidth;
+				ConstantBuffer.WindowSize.y = m_WindowHeight;
+				ConstantBuffer.InstancePos = D3DXVECTOR4(_pos.x, _pos.y, 0, 0);
+
+				memcpy_s(
+					MappedResource.pData,
+					MappedResource.RowPitch,
+					reinterpret_cast<void*>(&ConstantBuffer),
+					sizeof(ConstantBuffer));
+				m_pGraphicsDevice->GetDeviceContext()->Unmap(m_pConstantBuffer, 0);
+
+				return true;
+			}
+
+			return false;
+		}
+
 		bool MultipleVertex2D::WriteVertexBuffer()
 		{
 			D3D11_MAPPED_SUBRESOURCE MappedResource;
@@ -523,33 +551,6 @@ namespace Lib
 			SafeRelease(m_pDepthStencilState);
 			SafeRelease(m_pSamplerState);
 			SafeRelease(m_pBlendState);
-		}
-
-		bool MultipleVertex2D::WriteConstantBuffer()
-		{
-			D3D11_MAPPED_SUBRESOURCE MappedResource;
-			if (SUCCEEDED(m_pGraphicsDevice->GetDeviceContext()->Map(
-				m_pConstantBuffer,
-				0,
-				D3D11_MAP_WRITE_DISCARD,
-				0,
-				&MappedResource)))
-			{
-				CONSTANT_BUFFER ConstantBuffer;
-				ConstantBuffer.WindowSize.x = m_WindowWidth;
-				ConstantBuffer.WindowSize.y = m_WindowHeight;
-
-				memcpy_s(
-					MappedResource.pData,
-					MappedResource.RowPitch,
-					reinterpret_cast<void*>(&ConstantBuffer),
-					sizeof(ConstantBuffer));
-				m_pGraphicsDevice->GetDeviceContext()->Unmap(m_pConstantBuffer, 0);
-
-				return true;
-			}
-
-			return false;
 		}
 	}
 }

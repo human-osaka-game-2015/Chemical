@@ -5,15 +5,23 @@
  */
 #ifndef GAME_GAMEDATA_MANAGER_H
 #define GAME_GAMEDATA_MANAGER_H
+
+//----------------------------------------------------------------------
+// Include
+//----------------------------------------------------------------------
 #include "SingletonBase\SingletonBase.h"
+
+#include <D3DX11.h>
 #include <D3DX10.h>
+
 
 namespace Game
 {
 	class GameDataManager : public Lib::SingletonBase<GameDataManager>
 	{
-		friend Lib::SingletonBase<GameDataManager>;
 	public:
+		friend Lib::SingletonBase<GameDataManager>;
+
 		/**
 		 * プレイヤーの座標のポインタをセットする 
 		 * @param[in] プレイヤー座標のポインタ
@@ -32,6 +40,24 @@ namespace Game
 			return *m_PlayerPos;
 		}
 
+		/**
+		 * スクリーン座標のポインタを設定
+		 * @param[in] スクリーン座標のポインタ
+		 */
+		void SetScreenPosPtr(D3DXVECTOR2* _pScreenPos)
+		{
+			m_ScreenPos = _pScreenPos;
+		}
+
+		/**
+		 * スクリーン座標を取得  
+		 * @return スクリーン座標
+		 */
+		D3DXVECTOR2 GetScreenPos()
+		{
+			return *m_ScreenPos;
+		}
+
 	private:
 		/*** コンストラクタ */
 		GameDataManager();
@@ -40,6 +66,7 @@ namespace Game
 		virtual ~GameDataManager();
 	
 		D3DXVECTOR2* m_PlayerPos;
+		D3DXVECTOR2* m_ScreenPos;
 	
 	};
 }

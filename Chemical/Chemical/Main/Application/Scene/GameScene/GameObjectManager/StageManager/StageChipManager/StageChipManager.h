@@ -11,9 +11,9 @@
 //----------------------------------------------------------------------
 #include "ObjectManagerBase\ObjectBase\ObjectBase.h"
 #include "StageChipBase\StageChipBase.h"
+#include "CsvFile\CsvFile.h"
 
 class GamePlayFile;
-class CsvFile;
 
 namespace Game
 {
@@ -51,6 +51,18 @@ namespace Game
 
 		/*** 終了処理 */
 		virtual void Finalize();
+
+		/**
+		 * CSVの行数の取得
+		 * @return CSVの行数
+		 */
+		int GetLineNum(){ return m_pCsvFile->GetLineNum(); }
+
+		/**
+		 * CSVの列数の取得
+		 * @return CSVの列数
+		 */
+		int GetRowNum(){ return m_pCsvFile->GetRowNum(); }
 
 	private:
 		StageChipBase*	m_pChips[STAGE_CHIP_MAX];	//!< チップオブジェクト.

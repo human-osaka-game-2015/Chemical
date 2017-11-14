@@ -10,7 +10,10 @@
 // Include
 //----------------------------------------------------------------------
 #include "ObjectManagerBase\ObjectBase\ObjectBase.h"
+#include "TaskManager\TaskBase\UpdateTask\UpdateTask.h"
 
+#include <D3DX11.h>
+#include <D3DX10.h>
 #include <vector>
 
 
@@ -35,8 +38,25 @@ namespace Game
 		/*** 終了処理 */
 		virtual void Finalize();
 
+		/*** オブジェクトの更新 */
+		virtual void Update();
+
 	private:
-		std::vector<Lib::ObjectBase*> m_pObjects;	//!< 管理オブジェクト.
+		/*** ステージ管理オブジェクト */
+		enum STAGE_OBJECT
+		{
+			STAGE_BACKGROUND,
+			STAGE_CHIP_MANAGER,
+			STAGE_GIMMICK_MANAGER,
+			STAGE_OBJECT_MAX
+		};
+
+		Lib::UpdateTask* m_pUpdateTask;
+
+		ObjectBase* m_pObjects[STAGE_OBJECT_MAX];
+		D3DXVECTOR2 m_ScreenPos;	//!< スクリーン座標.
+		int m_StageLine;	//!< ステージの行数.
+		int m_StageRow;		//!< ステージの列数.
 
 	};
 }

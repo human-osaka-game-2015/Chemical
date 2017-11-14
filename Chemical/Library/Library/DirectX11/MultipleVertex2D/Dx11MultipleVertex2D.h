@@ -69,6 +69,12 @@ namespace Lib
 			void ReleaseInstanceBuffer();
 
 			/**
+			 * 定数バッファにデータを書き込む
+			 * @return 書き込みに成功したらtrue 失敗したらfalse
+			 */
+			bool WriteConstantBuffer(D3DXVECTOR2 _pos = D3DXVECTOR2(0, 0));
+
+			/**
 			 * 頂点バッファにデータを書き込む
 			 * @return 書き込みに成功したらtrue 失敗したらfalse
 			 */
@@ -150,7 +156,8 @@ namespace Lib
 			/*** シェーダーで使用する定数バッファ */
 			struct CONSTANT_BUFFER
 			{
-				D3DXVECTOR4 WindowSize;	//!< ウィンドウの縦横サイズ.
+				D3DXVECTOR4 WindowSize;		//!< ウィンドウの縦横サイズ.
+				D3DXVECTOR4 InstancePos;	//!< インスタンス全体に影響する座標値.
 			};
 
 
@@ -189,12 +196,6 @@ namespace Lib
 
 			/*** ステートの解放 */
 			void ReleaseState();
-
-			/**
-			 * 定数バッファにデータを書き込む
-			 * @return 書き込みに成功したらtrue 失敗したらfalse
-			 */
-			bool WriteConstantBuffer();
 
 			GraphicsDevice*				m_pGraphicsDevice;			//!< グラフィックデバイス.
 			ID3D11VertexShader*			m_pVertexShader;			//!< 頂点シェーダー.

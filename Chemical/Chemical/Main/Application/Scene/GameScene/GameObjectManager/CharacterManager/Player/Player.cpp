@@ -82,6 +82,8 @@ namespace Game
 		m_pCollision->SetRect(RectAngle);
 		SINGLETON_INSTANCE(CollisionManager)->AddCollision(m_pCollision);
 
+		SINGLETON_INSTANCE(GameDataManager)->SetPlayerPosPtr(&m_Pos);
+
 		return true;
 	}
 	
