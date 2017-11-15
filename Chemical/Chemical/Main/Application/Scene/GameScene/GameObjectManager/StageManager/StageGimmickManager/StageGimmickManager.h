@@ -10,7 +10,10 @@
 // Include
 //----------------------------------------------------------------------
 #include "ObjectManagerBase\ObjectBase\ObjectBase.h"
+#include "StageGimmickBase\StageGimmickBase.h"
+#include "CsvFile\CsvFile.h"
 
+class GamePlayFile;
 
 namespace Game
 {
@@ -18,6 +21,15 @@ namespace Game
 	class StageGimmickManager : public Lib::ObjectBase
 	{
 	public:
+		/*** ステージのギミックID */
+		enum STAGE_GIMMICK
+		{
+			NONE_GIMMICK,
+			STAGE_GIMMICK_MAX
+		};
+
+		static const D3DXVECTOR2 m_DefaultGimmickSize;	//!< ギミックのデフォルトサイズ.
+
 		/*** コンストラクタ */
 		StageGimmickManager();
 
@@ -32,6 +44,11 @@ namespace Game
 
 		/*** 終了処理 */
 		virtual void Finalize();
+
+	private:
+		StageGimmickBase*	m_pGimmicks[STAGE_GIMMICK_MAX];	//!< ギミックオブジェクト.
+		GamePlayFile*		m_pPlayFile;					//!< ゲームプレイファイルオブジェクト.
+		CsvFile*			m_pCsvFile;						//!< CSVファイルオブジェクト.
 
 	};
 }

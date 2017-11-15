@@ -9,20 +9,25 @@
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "Object2DBase\Object2DBase.h"
+#include "MultipleObject2DBase\MultipleObject2DBase.h"
+#include "..\..\..\..\GameDefine.h"
+
+#include <vector>
 
 
 namespace Game
 {
 	/** ステージギミック基底クラス */
-	class StageGimmickBase : public Object2DBase
+	class StageGimmickBase : public MultipleObject2DBase
 	{
 	public:
 		/**
 		 * コンストラクタ 
+		 * @param[in] _id 当たり判定ID
 		 * @param[in] _textureName テクスチャ名
+		 * @param[in] _taskName タスク名
 		 */
-		StageGimmickBase(LPCTSTR _textureName);
+		StageGimmickBase(int _id, LPCTSTR _textureName, LPCTSTR _taskName);
 
 		/*** デストラクタ */
 		virtual ~StageGimmickBase();
@@ -42,8 +47,33 @@ namespace Game
 		/*** 描画処理 */
 		virtual void Draw();
 
-	private:
-		LPCTSTR m_TextureName;	//!< 描画するテクスチャ名.
+		/**
+		 * チップの追加 
+		 * @param[in] _x 追加するチップのx位置
+		 * @param[in] _y 追加するチップのy位置
+		 */
+		virtual void AddChip(int _x, int _y);
+
+		/*** チップのクリア */
+		virtual void ClearChip();
+
+		/*** インスタンスバッファの生成 */
+		virtual bool CreateInstanceBuffer();
+
+		/*** 当たり判定の生成 */
+		virtual bool CreateCollision();
+
+		/*** インスタンスバッファの解放 */
+		virtual void ReleaseInstanceBuffer();
+
+		/*** 当たり判定の解放 */
+		virtual void ReleaseCollision();
+
+	protected:
+		std::vector<D3DXVECTOR2>	m_Positions;	//!< ギミックの座標.
+		LPCTSTR						m_TextureName;	//!< 描画するテクスチャ名.
+		LPCTSTR						m_TaskName;		//!< タスクの名前.
+		int							m_GimmickNum;	//!< ギミックの個数.
 
 	};
 }

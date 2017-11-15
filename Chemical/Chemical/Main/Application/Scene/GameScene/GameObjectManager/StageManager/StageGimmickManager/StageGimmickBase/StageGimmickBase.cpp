@@ -10,6 +10,7 @@
 #include "StageGimmickBase.h"
 
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
+#include "..\StageGimmickManager.h"
 
 
 namespace Game
@@ -17,8 +18,10 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
-	StageGimmickBase::StageGimmickBase(LPCTSTR _textureName) : 
-		m_TextureName(_textureName)
+	StageGimmickBase::StageGimmickBase(int _id, LPCTSTR _textureName, LPCTSTR _taskName) :
+		m_TextureName(_textureName),
+		m_TaskName(_taskName),
+		m_GimmickNum(0)
 	{
 	}
 
@@ -62,6 +65,52 @@ namespace Game
 	}
 
 	void StageGimmickBase::Draw()
+	{
+	}
+
+	void StageGimmickBase::AddChip(int _x, int _y)
+	{
+		float X = StageGimmickManager::m_DefaultGimmickSize.x;
+		float Y = StageGimmickManager::m_DefaultGimmickSize.y;
+
+		D3DXVECTOR2 Pos(_x * X + X / 2, _y * Y + Y / 2);
+
+		m_GimmickNum++;	// ギミックの個数をカウント.
+		m_Positions.emplace_back(Pos);
+	}
+
+	void StageGimmickBase::ClearChip()
+	{
+		m_Positions.clear();
+	}
+
+	bool StageGimmickBase::CreateInstanceBuffer()
+	{
+		// ギミックの数が0なら生成しない.
+		if (!m_GimmickNum) return true;
+
+		D3DXMATRIX* pMat = new D3DXMATRIX[m_GimmickNum];
+		for (int i = 0; i < m_GimmickNum; i++)	D3DXMatrixIdentity(&pMat[i]);
+		m_pMultipleVertex->CreateInstanceBuffer(pMat, m_GimmickNum);
+
+		SafeDeleteArray(pMat);
+
+		m_pMultipleVertex->WriteInstanceBuffer(&m_Positions[0]);
+
+		return true;
+	}
+
+	bool StageGimmickBase::CreateCollision()
+	{
+		return true;
+	}
+
+	void StageGimmickBase::ReleaseInstanceBuffer()
+	{
+		m_pMultipleVertex->ReleaseInstanceBuffer();
+	}
+
+	void StageGimmickBase::ReleaseCollision()
 	{
 	}
 }

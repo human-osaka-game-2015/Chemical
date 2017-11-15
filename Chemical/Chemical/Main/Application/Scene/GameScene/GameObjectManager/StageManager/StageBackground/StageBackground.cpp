@@ -10,6 +10,7 @@
 #include "StageBackground.h"
 
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
+#include "..\..\GameDataManager\GameDataManager.h"
 
 
 namespace Game
@@ -23,6 +24,9 @@ namespace Game
 	{
 		m_Pos = D3DXVECTOR2(960, 540);
 		m_Size = D3DXVECTOR2(1920, 1080);
+
+		m_BackgroundPos = D3DXVECTOR2(960, 540);
+		m_BackgroundPos2 = D3DXVECTOR2(2880, 540);
 	}
 
 	StageBackground::~StageBackground()
@@ -42,7 +46,9 @@ namespace Game
 		m_pPlayFile->Close();
 
 		char FilePath[256];
+		char FilePath2[256];
 		sprintf_s(FilePath, 256, "Resource\\GameScene\\Texture\\StageBackground%d.png", StageNum);
+		sprintf_s(FilePath2, 256, "Resource\\GameScene\\Texture\\StageBackground%d_2.png", StageNum);
 
 		m_pUpdateTask->SetName("StageBackground");
 		m_pDrawTask->SetName("StageBackground");
@@ -59,11 +65,19 @@ namespace Game
 			return false;
 		}
 
+		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
+			FilePath2,
+			&m_TextureIndex2))
+		{
+			return false;
+		}
+
 		return true;
 	}
 
 	void StageBackground::Finalize()
 	{
+		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->ReleaseTexture(m_TextureIndex2);
 		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->ReleaseTexture(m_TextureIndex);
 
 		ReleaseVertex2D();
@@ -76,12 +90,26 @@ namespace Game
 
 	void StageBackground::Update()
 	{
+		D3DXVECTOR2 ScreenPos = SINGLETON_INSTANCE(GameDataManager)->GetScreenPos();
+
+		float Scrool = ScreenPos.x;
+		if (Scrool > m_Size.x)
+			Scrool -= m_Size.x * static_cast<int>(Scrool / m_Size.x);
+
+		m_BackgroundPos.x = m_Pos.x - Scrool;
+		m_BackgroundPos2.x = m_Pos.x + m_Size.x - Scrool;
 	}
 
 	void StageBackground::Draw()
 	{
 		m_pVertex->ShaderSetup();
-		m_pVertex->WriteConstantBuffer(&m_Pos);
+		m_pVertex->WriteConstantBuffer(&m_BackgroundPos);
+		m_pVertex->SetTexture(
+			SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
+		m_pVertex->Draw();
+
+		m_pVertex->ShaderSetup();
+		m_pVertex->WriteConstantBuffer(&m_BackgroundPos2);
 		m_pVertex->SetTexture(
 			SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
 		m_pVertex->Draw();
