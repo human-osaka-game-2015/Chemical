@@ -20,6 +20,7 @@
 #include "TaskManager\TaskBase\UpdateTask\UpdateTask.h"
 #include "TaskManager\TaskBase\DrawTask\DrawTask.h"
 #include "CollisionManager\CollisionManager.h"
+#include "CollisionTask\CollisionTask.h"
 
 
 namespace Game
@@ -84,6 +85,7 @@ namespace Game
 		}
 
 		SINGLETON_CREATE(CollisionManager);
+		SINGLETON_CREATE(CollisionTaskManager);
 
 		m_pObjectManager = new ObjectManager();
 		if (!m_pObjectManager->Initialize())
@@ -102,6 +104,7 @@ namespace Game
 		m_pObjectManager->Finalize();
 		SafeDelete(m_pObjectManager);
 
+		SINGLETON_DELETE(CollisionTaskManager);
 		SINGLETON_DELETE(CollisionManager);
 
 		if (SINGLETON_INSTANCE(Lib::SoundManager) != nullptr)
@@ -149,8 +152,9 @@ namespace Game
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_LEFTARROW);
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_RIGHTARROW);
 
-		SINGLETON_INSTANCE(CollisionManager)->Run();
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->Run();
+		SINGLETON_INSTANCE(CollisionManager)->Run();
+		SINGLETON_INSTANCE(CollisionTaskManager)->Run();
 
 		SINGLETON_INSTANCE(Lib::Dx11::GraphicsDevice)->BeginScene(Lib::Dx11::GraphicsDevice::BACKBUFFER_TARGET);
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->Run();

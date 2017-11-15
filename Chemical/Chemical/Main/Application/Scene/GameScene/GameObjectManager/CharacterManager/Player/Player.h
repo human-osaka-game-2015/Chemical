@@ -10,6 +10,8 @@
 // Include
 //----------------------------------------------------------------------
 #include "Object2DBase\Object2DBase.h"
+#include "Application\Scene\GameScene\CollisionTask\CollisionTask.h"
+#include <array>
 
 
 namespace Game
@@ -35,6 +37,9 @@ namespace Game
 		/*** 終了処理 */
 		virtual void Finalize();
 
+		/*** オブジェクトの当たり判定更新*/
+		virtual void CollisionTaskUpdate();
+
 		/*** 更新処理 */
 		virtual void Update();
 
@@ -42,21 +47,42 @@ namespace Game
 		virtual void Draw();
 
 	private:
+		enum ANIMATION_STATE
+		{
+			WALK_ANIMATION,
+			ANIMATION_MAX
+		};
+
+		struct AnimationData
+		{
+			Lib::Dx11::IAnimation* pData;
+			int					   Index;
+		};
+
+		typedef std::array<AnimationData, ANIMATION_MAX> AnimationArray;
 		static const float m_Gravity;
 		static const float m_JumpPower;
+		static const float m_MoveSpeed;
+
+		/**
+		 * アニメーションの読み込み関数
+		 * @param[in] _fileName アニメーションファイルの名前
+		 * @param[in] _animationState 読み込むアニメーションのenum
+		 * @return 読み込みに成功したらtrue 失敗したらfalse
+		 */
+		bool LoadAnimation(std::string _fileName, ANIMATION_STATE _animationState);
 
 		/*** 重力制御更新 */
 		void GravityUpdate();
 
-		/*** 当たり判定更新 */
-		void CollisionUpdate();
-
-		int					   m_AnimationIndex;
-		Lib::Dx11::IAnimation* m_pWalkAnimation;
-		PlayerCollision*	   m_pCollision;
-		float				   m_Acceleration;
-		bool				   m_IsLeft;
-		bool				   m_IsLanding; //!< 着地しているか?
+		CollisionTask*			m_pCollisionTask;
+		PlayerCollision*	    m_pCollision;
+		D3DXVECTOR2			    m_WorldPos;
+		float				    m_Acceleration;
+		bool				    m_IsLeft;
+		bool				    m_IsLanding; //!< 着地しているか?
+		AnimationArray		    m_Animations;
+		ANIMATION_STATE		    m_AnimationState;
 
 	};
 }
