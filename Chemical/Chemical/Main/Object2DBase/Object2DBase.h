@@ -48,6 +48,11 @@ public:
 	virtual void UpdateStartUp();
 
 	/**
+	 * 当たり判定更新 
+	 */
+	virtual void CollisionTaskUpdate();
+
+	/**
 	 * オブジェクトの更新
 	 */
 	virtual void Update();

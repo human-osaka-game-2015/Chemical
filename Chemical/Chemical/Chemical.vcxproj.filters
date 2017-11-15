@@ -197,6 +197,15 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EmptyGimmick">
       <UniqueIdentifier>{4dddf91b-2434-49d7-9b56-0858d85aab50}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionUpdateTask">
+      <UniqueIdentifier>{7b81793d-a60e-4f9a-bfc7-6a82be6f4845}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionTaskManager">
+      <UniqueIdentifier>{60df37ed-04da-4ce2-a00e-df6ffbb9941f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionTaskManager\CollisionTask">
+      <UniqueIdentifier>{4615a479-87e7-43d2-877f-027702c6ac2d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -608,5 +617,11 @@
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EmptyGimmick\EmptyGimmick.h">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EmptyGimmick</Filter>
     </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\SoilChip\SoilChip.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\RoadChip\RoadChip.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask_private.inl" />
   </ItemGroup>
 </Project>

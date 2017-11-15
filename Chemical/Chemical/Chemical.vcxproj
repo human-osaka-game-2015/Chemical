@@ -134,6 +134,7 @@
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\CollisionBase.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionManager.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameDataManager\GameDataManager.h" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip\SoilChip.cpp" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomLeftSide\SoilGroundBottomLeftSide.h" />
@@ -204,6 +205,9 @@
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip\SoilChip.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\PlayerCollision\PlayerCollision.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask_private.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

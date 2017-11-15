@@ -52,6 +52,10 @@ void Object2DBase::UpdateStartUp()
 {
 }
 
+void Object2DBase::CollisionTaskUpdate()
+{
+}
+
 void Object2DBase::Update()
 {
 }
