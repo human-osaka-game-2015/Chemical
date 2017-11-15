@@ -10,7 +10,6 @@
 // Include
 //----------------------------------------------------------------------
 #include "MultipleObject2DBase\MultipleObject2DBase.h"
-#include "DirectX11\MultipleVertex2D\Dx11MultipleVertex2D.h"
 #include "..\..\..\..\CollisionManager\CollisionBase\ChipCollision\ChipCollision.h"
 #include "..\..\..\..\GameDefine.h"
 

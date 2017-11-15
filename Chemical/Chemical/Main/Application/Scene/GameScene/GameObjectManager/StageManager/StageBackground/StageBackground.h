@@ -44,6 +44,11 @@ namespace Game
 		GamePlayFile*	m_pPlayFile;	//!< ゲームプレイファイルオブジェクト.
 		D3DXVECTOR2		m_CenterPos;	//!< スクロールの基準座標.
 
+		D3DXVECTOR2		m_BackgroundPos;	//!< 背景座標.
+		D3DXVECTOR2		m_BackgroundPos2;	//!< 背景座標.
+
+		int m_TextureIndex2;
+
 	};
 }
 
