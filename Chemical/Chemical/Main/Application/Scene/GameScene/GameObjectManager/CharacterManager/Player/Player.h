@@ -22,8 +22,11 @@ namespace Game
 	class Player : public Object2DBase
 	{
 	public:
-		/*** コンストラクタ */
-		Player();
+		/**
+		 * コンストラクタ
+		 * @param[in] _worldPos プレイヤーのワールド座標
+		 */
+		Player(const D3DXVECTOR2& _worldPos);
 
 		/*** デストラクタ */
 		virtual ~Player();

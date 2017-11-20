@@ -9,6 +9,9 @@
 #include "CharacterManager.h"
 #include "Player\Player.h"
 #include "Enemy\Enemy.h"
+#include "InitializeFile\InitializeFile.h"
+#include "Application\GamePlayFile\GamePlayFile.h"
+
 
 namespace Game
 {
@@ -17,7 +20,14 @@ namespace Game
 	//----------------------------------------------------------------------
 	CharacterManager::CharacterManager()
 	{
-		m_pPlayer = new Player();
+		GamePlayFile* pPlayFile = new GamePlayFile;
+		pPlayFile->Open();
+		InitializeFile* pInitializeFile = new InitializeFile(pPlayFile->GetStageNum());
+		pPlayFile->Close();
+		m_pPlayer = new Player(pInitializeFile->GetPlayerInitPos());
+
+		SafeDelete(pPlayFile);
+		SafeDelete(pInitializeFile);
 	}
 
 	CharacterManager::~CharacterManager()

@@ -31,16 +31,22 @@ namespace Game
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
 	
-	Player::Player() :
+	Player::Player(const D3DXVECTOR2& _worldPos) :
 		m_IsLeft(false),
 		m_pCollision(nullptr),
 		m_Acceleration(0),
 		m_IsLanding(false),
-		m_AnimationState(WALK_ANIMATION)
+		m_AnimationState(WALK_ANIMATION),
+		m_WorldPos(_worldPos)
 	{
 		m_Size = D3DXVECTOR2(220.f, 220.f);
-		m_Pos = D3DXVECTOR2(980.f, 400.f);
-		m_WorldPos = m_Pos;
+		m_Pos = D3DXVECTOR2(960.f, 400.f);
+		// プレイヤーの初期位置がスクロールの左端より左の場合
+		if (m_WorldPos.x < Application::m_WindowWidth / 2)
+		{
+			m_Pos = m_WorldPos;
+		}
+
 	}
 
 	Player::~Player()
@@ -77,14 +83,7 @@ namespace Game
 		m_pVertex->SetAnimation(m_Animations[WALK_ANIMATION].pData);
 
 		m_pCollision = new PlayerCollision();
-		RectangleCollision::RECTANGLE RectAngle;
-		RectAngle.Left = m_Pos.x - m_Size.x / 2;
-		RectAngle.Top = m_Pos.y - m_Size.y / 2;
-		RectAngle.Right = m_Pos.x + m_Size.x / 2;
-		RectAngle.Bottom = m_Pos.y + m_Size.y / 2;
-		m_pCollision->SetRect(RectAngle);
 		SINGLETON_INSTANCE(CollisionManager)->AddCollision(m_pCollision);
-
 		SINGLETON_INSTANCE(GameDataManager)->SetPlayerPosPtr(&m_WorldPos);
 
 		return true;
@@ -112,6 +111,8 @@ namespace Game
 
 	void Player::CollisionTaskUpdate()
 	{
+		float X = static_cast<float>(Application::m_WindowWidth / 2);	//!< 画面中央からスクロール.
+
 		// 地面に足が着いている.
 		if (m_pCollision->GetCollisionDiff().y != 0)
 		{
@@ -124,6 +125,10 @@ namespace Game
 		}
 
 		m_Pos.y += m_pCollision->GetCollisionDiff().y;
+		if (m_WorldPos.x < X)
+		{
+			m_Pos.x += m_pCollision->GetCollisionDiff().x;
+		}
 		m_WorldPos += m_pCollision->GetCollisionDiff();
 	}
 

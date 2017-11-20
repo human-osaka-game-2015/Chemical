@@ -74,6 +74,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\InitializeFile\InitializeFile.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EmptyGimmick\EmptyGimmick.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ChipCollision\ChipCollision.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.cpp" />
@@ -129,6 +130,7 @@
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\PlayerCollision\PlayerCollision.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\InitializeFile\InitializeFile.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EmptyGimmick\EmptyGimmick.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ChipCollision\ChipCollision.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.h" />
