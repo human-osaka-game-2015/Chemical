@@ -9,6 +9,7 @@
 #include "CharacterManager.h"
 #include "Player\Player.h"
 #include "Enemy\Enemy.h"
+#include "InitializeData\InitializeData.h"
 
 namespace Game
 {
@@ -17,7 +18,10 @@ namespace Game
 	//----------------------------------------------------------------------
 	CharacterManager::CharacterManager()
 	{
-		m_pPlayer = new Player();
+		SINGLETON_CREATE(InitializeData);
+		SINGLETON_INSTANCE(InitializeData)->Load(1);
+
+		m_pPlayer = new Player(SINGLETON_INSTANCE(InitializeData)->GetPlayerInitPos());
 	}
 
 	CharacterManager::~CharacterManager()
@@ -27,6 +31,7 @@ namespace Game
 			SafeDelete(itr);
 		}
 		SafeDelete(m_pPlayer);
+		SINGLETON_DELETE(InitializeData);
 	}
 
 	//----------------------------------------------------------------------

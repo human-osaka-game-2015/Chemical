@@ -206,6 +206,9 @@
     <Filter Include="Main\Application\GameScene\CollisionTaskManager\CollisionTask">
       <UniqueIdentifier>{4615a479-87e7-43d2-877f-027702c6ac2d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\InitializeData">
+      <UniqueIdentifier>{a7c69eb6-7a0b-4612-acef-f29ee7d3ad39}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -408,6 +411,9 @@
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EmptyGimmick\EmptyGimmick.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EmptyGimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\InitializeData\InitializeData.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\InitializeData</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -617,11 +623,16 @@
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EmptyGimmick\EmptyGimmick.h">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EmptyGimmick</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\SoilChip\SoilChip.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\RoadChip\RoadChip.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask.h">
+      <Filter>Main\Application\GameScene\CollisionUpdateTask</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\InitializeData\InitializeData.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\InitializeData</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask_private.inl" />
+    <None Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask_private.inl">
+      <Filter>Main\Application\GameScene\CollisionUpdateTask</Filter>
+    </None>
   </ItemGroup>
 </Project>
