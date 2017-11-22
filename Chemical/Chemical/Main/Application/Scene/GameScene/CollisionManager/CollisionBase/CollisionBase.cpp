@@ -48,6 +48,10 @@ namespace Game
 	{
 	}
 
+	void CollisionBase::Collide(GimmickCollision* _pOther)
+	{
+	}
+
 	void CollisionBase::Collide(PlayerCollision* _pOther)
 	{
 	}

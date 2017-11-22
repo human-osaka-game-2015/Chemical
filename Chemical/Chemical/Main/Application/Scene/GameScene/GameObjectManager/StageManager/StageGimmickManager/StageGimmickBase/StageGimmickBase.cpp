@@ -11,6 +11,8 @@
 
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
 #include "..\StageGimmickManager.h"
+#include "..\..\..\..\CollisionManager\CollisionManager.h"
+#include "..\..\..\GameDataManager\GameDataManager.h"
 
 
 namespace Game
@@ -19,14 +21,17 @@ namespace Game
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
 	StageGimmickBase::StageGimmickBase(int _id, LPCTSTR _textureName, LPCTSTR _taskName) :
+		m_pCollision(new GimmickCollision(_id)),
 		m_TextureName(_textureName),
 		m_TaskName(_taskName),
 		m_GimmickNum(0)
 	{
+		m_Size = StageGimmickManager::m_DefaultGimmickSize;
 	}
 
 	StageGimmickBase::~StageGimmickBase()
 	{
+		SafeDelete(m_pCollision);
 	}
 
 
@@ -35,6 +40,9 @@ namespace Game
 	//----------------------------------------------------------------------
 	bool StageGimmickBase::Initialize()
 	{
+		m_pUpdateTask->SetName(m_TaskName);
+		m_pDrawTask->SetName(m_TaskName);
+
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->AddTask(m_pUpdateTask);
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->AddTask(m_pDrawTask);
 
@@ -47,11 +55,15 @@ namespace Game
 			return false;
 		}
 
+		SINGLETON_INSTANCE(CollisionManager)->AddCollision(m_pCollision);
+
 		return true;
 	}
 
 	void StageGimmickBase::Finalize()
 	{
+		SINGLETON_INSTANCE(CollisionManager)->RemoveCollision(m_pCollision);
+
 		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->ReleaseTexture(m_TextureIndex);
 
 		ReleaseVertex2D();
@@ -62,13 +74,19 @@ namespace Game
 
 	void StageGimmickBase::Update()
 	{
+		D3DXVECTOR2 ScreenPos = SINGLETON_INSTANCE(GameDataManager)->GetScreenPos();
+
+		m_pMultipleVertex->WriteConstantBuffer(-ScreenPos);
 	}
 
 	void StageGimmickBase::Draw()
 	{
+		if (m_GimmickNum == 0) return;
+		m_pMultipleVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
+		m_pMultipleVertex->DefaultDraw(&m_Positions[0]);
 	}
 
-	void StageGimmickBase::AddChip(int _x, int _y)
+	void StageGimmickBase::AddGimmick(int _x, int _y)
 	{
 		float X = StageGimmickManager::m_DefaultGimmickSize.x;
 		float Y = StageGimmickManager::m_DefaultGimmickSize.y;
@@ -100,18 +118,9 @@ namespace Game
 		return true;
 	}
 
-	bool StageGimmickBase::CreateCollision()
-	{
-		return true;
-	}
-
 	void StageGimmickBase::ReleaseInstanceBuffer()
 	{
 		m_pMultipleVertex->ReleaseInstanceBuffer();
-	}
-
-	void StageGimmickBase::ReleaseCollision()
-	{
 	}
 }
 

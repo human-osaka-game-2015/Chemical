@@ -1,13 +1,13 @@
 ﻿/**
- * @file	SoilGroundBottom.cpp
- * @brief	土の下部クラス実装
+ * @file	SoilChipRightSide.cpp
+ * @brief	土の右端クラス実装
  * @author	morimoto
  */
 
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "SoilGroundBottom.h"
+#include "SoilChipRightSide.h"
 
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
 #include "..\..\..\StageChipManager.h"
@@ -18,12 +18,12 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
-	SoilGroundBottom::SoilGroundBottom() :
-		StageChipBase(SOIL_COLLISION_ID, "Resource\\GameScene\\Texture\\Chip10.png", "SoilGroundBottom")
+	SoilChipRightSide::SoilChipRightSide() :
+		StageChipBase(SOIL_COLLISION_ID, "Resource\\GameScene\\Texture\\Chip15.png", "SoilChipRightSide")
 	{
 	}
 
-	SoilGroundBottom::~SoilGroundBottom()
+	SoilChipRightSide::~SoilChipRightSide()
 	{
 	}
 
@@ -31,7 +31,7 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Public Functions
 	//----------------------------------------------------------------------
-	void SoilGroundBottom::AddChip(int _x, int _y)
+	void SoilChipRightSide::AddChip(int _x, int _y)
 	{
 		float X = StageChipManager::m_DefaultChipSize.x;
 		float Y = StageChipManager::m_DefaultChipSize.y;
@@ -51,7 +51,7 @@ namespace Game
 		m_ChipNum++;	// チップの個数をカウント.
 	}
 
-	void SoilGroundBottom::ClearChip()
+	void SoilChipRightSide::ClearChip()
 	{
 		m_Rectangles.clear();
 		m_Positions.clear();

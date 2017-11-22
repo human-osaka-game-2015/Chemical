@@ -1,16 +1,14 @@
 ﻿/**
- * @file	ChipCollision.cpp
- * @brief	矩形衝突判定オブジェクトクラス実装
+ * @file	GimmickCollision.cpp
+ * @brief	ギミック当たり判定クラス実装
  * @author	morimoto
  */
 
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "ChipCollision.h"
+#include "GimmickCollision.h"
 
-#include "..\EmptyCollision\EmptyCollision.h"
-#include "..\PlayerCollision\PlayerCollision.h"
 #include "..\RectangleCollision\RectangleCollision.h"
 
 
@@ -19,12 +17,12 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
-	ChipCollision::ChipCollision(int _id) :
+	GimmickCollision::GimmickCollision(int _id) : 
 		CollisionBase(_id)
 	{
 	}
 
-	ChipCollision::~ChipCollision()
+	GimmickCollision::~GimmickCollision()
 	{
 	}
 
@@ -32,16 +30,16 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Public Functions
 	//----------------------------------------------------------------------
-	void ChipCollision::Dispatch(CollisionBase* _pOther)
+	void GimmickCollision::Dispatch(CollisionBase* _pOther)
 	{
 		_pOther->Collide(this);
 	}
 
-	void ChipCollision::Collide(EmptyCollision* _pOther)
+	void GimmickCollision::Collide(EmptyCollision* _pOther)
 	{
 	}
 
-	void ChipCollision::Collide(RectangleCollision* _pOther)
+	void GimmickCollision::Collide(RectangleCollision* _pOther)
 	{
 		// 矩形同士の衝突判定.
 		for (auto itr = m_Rectangles.begin(); itr != m_Rectangles.end(); itr++)
@@ -60,11 +58,11 @@ namespace Game
 		}
 	}
 
-	void ChipCollision::Collide(ChipCollision* _pOther)
+	void GimmickCollision::Collide(ChipCollision* _pOther)
 	{
 	}
 
-	void ChipCollision::Collide(PlayerCollision* _pOther)
+	void GimmickCollision::Collide(PlayerCollision* _pOther)
 	{
 	}
 }

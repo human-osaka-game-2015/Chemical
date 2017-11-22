@@ -1,10 +1,10 @@
 ﻿/**
- * @file	EmptyGimmick.h
- * @brief	空ギミッククラス定義
+ * @file	EnemyGenerator.h
+ * @brief	エネミー生成ギミッククラス定義
  * @author	morimoto
  */
-#ifndef GAME_EMPTYGIMMICK_H
-#define GAME_EMPTYGIMMICK_H
+#ifndef GAME_ENEMYGENERATOR_H
+#define GAME_ENEMYGENERATOR_H
 
 //----------------------------------------------------------------------
 // Include
@@ -14,15 +14,15 @@
 
 namespace Game
 {
-	/*** 空ギミッククラス */
-	class EmptyGimmick : public StageGimmickBase
+	/*** エネミー生成ギミッククラス */
+	class EnemyGenerator : public StageGimmickBase
 	{
 	public:
 		/*** コンストラクタ */
-		EmptyGimmick();
+		EnemyGenerator();
 
 		/*** デストラクタ */
-		virtual ~EmptyGimmick();
+		virtual ~EnemyGenerator();
 
 		/**
 		 * 初期化処理
@@ -49,14 +49,12 @@ namespace Game
 		/*** チップのクリア */
 		virtual void ClearChip();
 
-		/*** インスタンスバッファの生成 */
-		virtual bool CreateInstanceBuffer();
-
-		/*** インスタンスバッファの解放 */
-		virtual void ReleaseInstanceBuffer();
+	private:
+		using RECTANGLE = GimmickCollision::RECTANGLE;
+		std::vector<RECTANGLE> m_Rectangles;
 
 	};
 }
 
 
-#endif // !GAME_EMPTYGIMMICK_H
+#endif // !GAME_ENEMYGENERATOR_H

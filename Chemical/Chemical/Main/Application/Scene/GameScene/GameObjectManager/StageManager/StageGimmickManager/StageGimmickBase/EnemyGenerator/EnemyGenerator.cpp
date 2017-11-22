@@ -1,16 +1,15 @@
 ﻿/**
- * @file	SoilGroundBottom.cpp
- * @brief	土の下部クラス実装
+ * @file	EnemyGenerator.cpp
+ * @brief	エネミー生成ギミッククラス実装
  * @author	morimoto
  */
 
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "SoilGroundBottom.h"
+#include "EnemyGenerator.h"
 
-#include "DirectX11\TextureManager\Dx11TextureManager.h"
-#include "..\..\..\StageChipManager.h"
+#include "..\..\StageGimmickManager.h"
 
 
 namespace Game
@@ -18,12 +17,12 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
-	SoilGroundBottom::SoilGroundBottom() :
-		StageChipBase(SOIL_COLLISION_ID, "Resource\\GameScene\\Texture\\Chip10.png", "SoilGroundBottom")
+	EnemyGenerator::EnemyGenerator() :
+		StageGimmickBase(ENEMYGENERATOR_COLLISION_ID, "", "EnemyGenerator")
 	{
 	}
 
-	SoilGroundBottom::~SoilGroundBottom()
+	EnemyGenerator::~EnemyGenerator()
 	{
 	}
 
@@ -31,10 +30,27 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Public Functions
 	//----------------------------------------------------------------------
-	void SoilGroundBottom::AddChip(int _x, int _y)
+	bool EnemyGenerator::Initialize()
 	{
-		float X = StageChipManager::m_DefaultChipSize.x;
-		float Y = StageChipManager::m_DefaultChipSize.y;
+		return true;
+	}
+
+	void EnemyGenerator::Finalize()
+	{
+	}
+
+	void EnemyGenerator::Update()
+	{
+	}
+
+	void EnemyGenerator::Draw()
+	{
+	}
+
+	void EnemyGenerator::AddGimmick(int _x, int _y)
+	{
+		float X = StageGimmickManager::m_DefaultGimmickSize.x;
+		float Y = StageGimmickManager::m_DefaultGimmickSize.y;
 
 		D3DXVECTOR2 Pos(_x * X + X / 2, _y * Y + Y / 2);
 
@@ -48,10 +64,10 @@ namespace Game
 
 		m_Rectangles.emplace_back(Rect);
 		m_pCollision->AddRect(Rect);
-		m_ChipNum++;	// チップの個数をカウント.
+		m_GimmickNum++;	// ギミックの個数をカウント.
 	}
 
-	void SoilGroundBottom::ClearChip()
+	void EnemyGenerator::ClearChip()
 	{
 		m_Rectangles.clear();
 		m_Positions.clear();

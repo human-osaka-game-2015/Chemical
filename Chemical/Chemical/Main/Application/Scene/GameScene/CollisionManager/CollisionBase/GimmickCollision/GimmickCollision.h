@@ -1,10 +1,10 @@
 ﻿/**
- * @file	ChipCollision.h
- * @brief	チップ衝突判定オブジェクトクラス定義
+ * @file	GimmickCollision.h
+ * @brief	ギミック当たり判定クラス定義
  * @author	morimoto
  */
-#ifndef GAME_CHIPCOLLISION_H
-#define GAME_CHIPCOLLISION_H
+#ifndef GAME_GIMMICKCOLLISION_H
+#define GAME_GIMMICKCOLLISION_H
 
 //----------------------------------------------------------------------
 // Include
@@ -14,8 +14,8 @@
 
 namespace Game
 {
-	/*** チップ衝突判定オブジェクトクラス */
-	class ChipCollision : public CollisionBase
+	/*** ギミック当たり判定クラス */
+	class GimmickCollision : public CollisionBase
 	{
 	public:
 		/*** 矩形データ構造体 */
@@ -45,10 +45,10 @@ namespace Game
 		 * コンストラクタ 
 		 * @param[in] _id 当たり判定ID
 		 */
-		ChipCollision(int _id);
+		GimmickCollision(int _id);
 
 		/*** デストラクタ */
-		virtual ~ChipCollision();
+		virtual ~GimmickCollision();
 
 		/**
 		 * Collide関数へのDispatch関数
@@ -97,4 +97,4 @@ namespace Game
 }
 
 
-#endif // !GAME_CHIPCOLLISION_H
+#endif // !GAME_GIMMICKCOLLISION_H

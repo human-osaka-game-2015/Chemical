@@ -12,19 +12,26 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		MyDebug|Win32 = MyDebug|Win32
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2F4A1EF5-3BC0-4DA9-AACD-04CFAE462B76}.Debug|Win32.ActiveCfg = Debug|Win32
 		{2F4A1EF5-3BC0-4DA9-AACD-04CFAE462B76}.Debug|Win32.Build.0 = Debug|Win32
+		{2F4A1EF5-3BC0-4DA9-AACD-04CFAE462B76}.MyDebug|Win32.ActiveCfg = MyDebug|Win32
+		{2F4A1EF5-3BC0-4DA9-AACD-04CFAE462B76}.MyDebug|Win32.Build.0 = MyDebug|Win32
 		{2F4A1EF5-3BC0-4DA9-AACD-04CFAE462B76}.Release|Win32.ActiveCfg = Release|Win32
 		{2F4A1EF5-3BC0-4DA9-AACD-04CFAE462B76}.Release|Win32.Build.0 = Release|Win32
 		{0271F60E-7A7E-42C7-A14C-6D0B7DD36CB5}.Debug|Win32.ActiveCfg = Debug|Win32
 		{0271F60E-7A7E-42C7-A14C-6D0B7DD36CB5}.Debug|Win32.Build.0 = Debug|Win32
+		{0271F60E-7A7E-42C7-A14C-6D0B7DD36CB5}.MyDebug|Win32.ActiveCfg = MyDebug|Win32
+		{0271F60E-7A7E-42C7-A14C-6D0B7DD36CB5}.MyDebug|Win32.Build.0 = MyDebug|Win32
 		{0271F60E-7A7E-42C7-A14C-6D0B7DD36CB5}.Release|Win32.ActiveCfg = Release|Win32
 		{0271F60E-7A7E-42C7-A14C-6D0B7DD36CB5}.Release|Win32.Build.0 = Release|Win32
 		{57822D18-4444-4E7A-A285-4E010C5253E1}.Debug|Win32.ActiveCfg = Debug|Win32
 		{57822D18-4444-4E7A-A285-4E010C5253E1}.Debug|Win32.Build.0 = Debug|Win32
+		{57822D18-4444-4E7A-A285-4E010C5253E1}.MyDebug|Win32.ActiveCfg = MyDebug|Win32
+		{57822D18-4444-4E7A-A285-4E010C5253E1}.MyDebug|Win32.Build.0 = MyDebug|Win32
 		{57822D18-4444-4E7A-A285-4E010C5253E1}.Release|Win32.ActiveCfg = Release|Win32
 		{57822D18-4444-4E7A-A285-4E010C5253E1}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection

@@ -31,10 +31,11 @@ namespace Game
 	/*** 当たり判定オブジェクトID */
 	enum COLLISION_ID
 	{
-		EMPTY_COLLISION_ID = 0,	//!< 空オブジェクトID(エラー値).
-		PLAYER_COLLISION_ID = 1,//!< プレイヤー当たり判定ID.
-		ROAD_COLLISION_ID = 2,	//!< 道の当たり判定ID.
-		SOIL_COLLISION_ID = 3	//!< 土の当たり判定ID.
+		EMPTY_COLLISION_ID,			//!< 空オブジェクトID(エラー値).
+		PLAYER_COLLISION_ID,		//!< プレイヤー当たり判定ID.
+		ROAD_COLLISION_ID,			//!< 道の当たり判定ID.
+		SOIL_COLLISION_ID,			//!< 土の当たり判定ID.
+		ENEMYGENERATOR_COLLISION_ID	//!< エネミー生成ギミック当たり判定ID.
 	};
 
 	/*** ステージナンバー */

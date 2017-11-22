@@ -10,6 +10,7 @@
 // Include
 //----------------------------------------------------------------------
 #include "MultipleObject2DBase\MultipleObject2DBase.h"
+#include "..\..\..\..\CollisionManager\CollisionBase\GimmickCollision\GimmickCollision.h"
 #include "..\..\..\..\GameDefine.h"
 
 #include <vector>
@@ -48,11 +49,11 @@ namespace Game
 		virtual void Draw();
 
 		/**
-		 * チップの追加 
+		 * ギミックの追加 
 		 * @param[in] _x 追加するチップのx位置
 		 * @param[in] _y 追加するチップのy位置
 		 */
-		virtual void AddChip(int _x, int _y);
+		virtual void AddGimmick(int _x, int _y);
 
 		/*** チップのクリア */
 		virtual void ClearChip();
@@ -60,16 +61,11 @@ namespace Game
 		/*** インスタンスバッファの生成 */
 		virtual bool CreateInstanceBuffer();
 
-		/*** 当たり判定の生成 */
-		virtual bool CreateCollision();
-
 		/*** インスタンスバッファの解放 */
 		virtual void ReleaseInstanceBuffer();
 
-		/*** 当たり判定の解放 */
-		virtual void ReleaseCollision();
-
 	protected:
+		GimmickCollision*			m_pCollision;	//!< 当たり判定オブジェクト.
 		std::vector<D3DXVECTOR2>	m_Positions;	//!< ギミックの座標.
 		LPCTSTR						m_TextureName;	//!< 描画するテクスチャ名.
 		LPCTSTR						m_TaskName;		//!< タスクの名前.

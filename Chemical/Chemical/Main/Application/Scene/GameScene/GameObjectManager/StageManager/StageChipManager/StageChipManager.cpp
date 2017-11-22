@@ -12,6 +12,8 @@
 #include "Application\GamePlayFile\GamePlayFile.h"
 #include "StageChipBase\EmptyChip\EmptyChip.h"
 #include "StageChipBase\Soil\SoilChip\SoilChip.h"
+#include "StageChipBase\Soil\SoilChipLeftSide\SoilChipLeftSide.h"
+#include "StageChipBase\Soil\SoilChipRightSide\SoilChipRightSide.h"
 #include "StageChipBase\Soil\SoilGroundBottom\SoilGroundBottom.h"
 #include "StageChipBase\Soil\SoilGroundBottomLeftSide\SoilGroundBottomLeftSide.h"
 #include "StageChipBase\Soil\SoilGroundBottomRightSide\SoilGroundBottomRightSide.h"
@@ -44,6 +46,8 @@ namespace Game
 		m_pChips[SOIL_TOP_CHIP] = new SoilGroundTop();
 		m_pChips[SOIL_TOP_LEFT_CHIP] = new SoilGroundTopLeftSide();
 		m_pChips[SOIL_TOP_RIGHT_CHIP] = new SoilGroundTopRightSide();
+		m_pChips[SOIL_LEFT_CHIP] = new SoilChipLeftSide();
+		m_pChips[SOIL_RIGHT_CHIP] = new SoilChipRightSide();
 	}
 
 	StageChipManager::~StageChipManager()
@@ -74,6 +78,8 @@ namespace Game
 			256,
 			"Resource\\GameScene\\CSV\\StageChip%d.csv", 
 			m_pPlayFile->GetStageNum());
+		m_pPlayFile->Close();	// 不必要なので閉じる.
+
 		m_pCsvFile = new CsvFile(FilePath);
 
 		int LineNum = m_pCsvFile->GetLineNum();
@@ -103,7 +109,6 @@ namespace Game
 		}
 
 		SafeDelete(m_pCsvFile);
-		m_pPlayFile->Close();
 		SafeDelete(m_pPlayFile);
 
 		for (int i = 0; i < STAGE_CHIP_MAX; i++)
