@@ -19,7 +19,7 @@ namespace Game
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
 	SoilGroundBottomLeftSide::SoilGroundBottomLeftSide() :
-		StageChipBase(SOIL_COLLISION_ID, "Resource\\GameScene\\Texture\\Chip6.png", "SoilGroundTop")
+		StageChipBase(SOIL_COLLISION_ID, "Resource\\GameScene\\Texture\\Chip6.png", "SoilGroundBottomLeftSide")
 	{
 	}
 

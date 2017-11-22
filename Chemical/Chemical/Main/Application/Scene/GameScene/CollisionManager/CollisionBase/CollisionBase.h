@@ -19,6 +19,7 @@ namespace Game
 	class EmptyCollision;
 	class RectangleCollision;
 	class ChipCollision;
+	class GimmickCollision;
 	class PlayerCollision;
 
 	/*** 当たり判定基底クラス */
@@ -48,6 +49,9 @@ namespace Game
 
 		/*** チップオブジェクトとの当たり判定を行う */
 		virtual void Collide(ChipCollision* _pOther);
+
+		/*** ギミックオブジェクトとの当たり判定を行う */
+		virtual void Collide(GimmickCollision* _pOther);
 
 		/*** プレイヤーオブジェクトとの当たり判定を行う */
 		virtual void Collide(PlayerCollision* _pOther);

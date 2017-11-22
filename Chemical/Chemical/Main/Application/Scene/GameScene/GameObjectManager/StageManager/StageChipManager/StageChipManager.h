@@ -32,6 +32,8 @@ namespace Game
 			SOIL_TOP_CHIP,			//!< 土の上部チップ.
 			SOIL_TOP_LEFT_CHIP,		//!< 土の上部左端チップ.
 			SOIL_TOP_RIGHT_CHIP,	//!< 土の上部右端チップ.
+			SOIL_LEFT_CHIP,			//!< 土の左部チップ.
+			SOIL_RIGHT_CHIP,		//!< 土の右部チップ.
 			STAGE_CHIP_MAX			//!< ステージチップ最大値.
 		};
 

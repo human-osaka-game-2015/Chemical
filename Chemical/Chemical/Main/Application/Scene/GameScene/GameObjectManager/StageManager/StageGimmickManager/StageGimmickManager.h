@@ -25,6 +25,8 @@ namespace Game
 		enum STAGE_GIMMICK
 		{
 			NONE_GIMMICK,
+			FIRE_GIMMICK,
+			MUSHROOM_GIMMICK,
 			STAGE_GIMMICK_MAX
 		};
 

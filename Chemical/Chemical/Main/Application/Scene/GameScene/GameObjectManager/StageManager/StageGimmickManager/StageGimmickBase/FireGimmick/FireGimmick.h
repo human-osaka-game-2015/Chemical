@@ -1,10 +1,10 @@
 ﻿/**
- * @file	EmptyGimmick.h
- * @brief	空ギミッククラス定義
+ * @file	FireGimmick.h
+ * @brief	炎ギミッククラス定義
  * @author	morimoto
  */
-#ifndef GAME_EMPTYGIMMICK_H
-#define GAME_EMPTYGIMMICK_H
+#ifndef GAME_FIREGIMMICK_H
+#define GAME_FIREGIMMICK_H
 
 //----------------------------------------------------------------------
 // Include
@@ -14,24 +14,15 @@
 
 namespace Game
 {
-	/*** 空ギミッククラス */
-	class EmptyGimmick : public StageGimmickBase
+	/*** 炎ギミッククラス */
+	class FireGimmick : public StageGimmickBase
 	{
 	public:
 		/*** コンストラクタ */
-		EmptyGimmick();
+		FireGimmick();
 
 		/*** デストラクタ */
-		virtual ~EmptyGimmick();
-
-		/**
-		 * 初期化処理
-		 * @return 初期化に成功したらtrue 失敗したらfalse
-		 */
-		virtual bool Initialize();
-
-		/*** 終了処理 */
-		virtual void Finalize();
+		virtual ~FireGimmick();
 
 		/*** 更新処理 */
 		virtual void Update();
@@ -49,14 +40,12 @@ namespace Game
 		/*** チップのクリア */
 		virtual void ClearChip();
 
-		/*** インスタンスバッファの生成 */
-		virtual bool CreateInstanceBuffer();
-
-		/*** インスタンスバッファの解放 */
-		virtual void ReleaseInstanceBuffer();
+	private:
+		using RECTANGLE = GimmickCollision::RECTANGLE;
+		std::vector<RECTANGLE> m_Rectangles;
 
 	};
 }
 
 
-#endif // !GAME_EMPTYGIMMICK_H
+#endif // !GAME_FIREGIMMICK_H

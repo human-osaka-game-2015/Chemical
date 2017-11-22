@@ -118,17 +118,8 @@ namespace Game
 		return true;
 	}
 
-	bool StageChipBase::CreateCollision()
-	{
-		return true;
-	}
-
 	void StageChipBase::ReleaseInstanceBuffer()
 	{
 		m_pMultipleVertex->ReleaseInstanceBuffer();
-	}
-
-	void StageChipBase::ReleaseCollision()
-	{
 	}
 }

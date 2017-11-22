@@ -61,14 +61,8 @@ namespace Game
 		/*** インスタンスバッファの生成 */
 		virtual bool CreateInstanceBuffer();
 
-		/*** 当たり判定の生成 */
-		virtual bool CreateCollision();
-
 		/*** インスタンスバッファの解放 */
 		virtual void ReleaseInstanceBuffer();
-
-		/*** 当たり判定の解放 */
-		virtual void ReleaseCollision();
 
 	protected:
 		ChipCollision*				m_pCollision;	//!< 当たり判定オブジェクト.

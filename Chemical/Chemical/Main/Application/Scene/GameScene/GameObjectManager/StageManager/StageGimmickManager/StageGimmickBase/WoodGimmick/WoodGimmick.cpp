@@ -1,13 +1,13 @@
 ﻿/**
- * @file	EmptyGimmick.cpp
- * @brief	空ギミック実装クラス
+ * @file	WoodGimmick.cpp
+ * @brief	木ギミッククラス定義
  * @author	morimoto
  */
 
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "EmptyGimmick.h"
+#include "WoodGimmick.h"
 
 
 namespace Game
@@ -15,12 +15,12 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
-	EmptyGimmick::EmptyGimmick() :
-		StageGimmickBase(EMPTY_COLLISION_ID, "", "EmptyGimmick")
+	WoodGimmick::WoodGimmick() :
+		StageGimmickBase(EMPTY_COLLISION_ID, "", "WoodGimmick")
 	{
 	}
 
-	EmptyGimmick::~EmptyGimmick()
+	WoodGimmick::~WoodGimmick()
 	{
 	}
 
@@ -28,37 +28,12 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Public Functions
 	//----------------------------------------------------------------------
-	bool EmptyGimmick::Initialize()
+	bool WoodGimmick::Initialize()
 	{
 		return true;
 	}
 
-	void EmptyGimmick::Finalize()
-	{
-	}
-
-	void EmptyGimmick::Update()
-	{
-	}
-
-	void EmptyGimmick::Draw()
-	{
-	}
-
-	void EmptyGimmick::AddGimmick(int _x, int _y)
-	{
-	}
-
-	void EmptyGimmick::ClearChip()
-	{
-	}
-
-	bool EmptyGimmick::CreateInstanceBuffer()
-	{
-		return true;
-	}
-
-	void EmptyGimmick::ReleaseInstanceBuffer()
+	void WoodGimmick::Finalize()
 	{
 	}
 }
