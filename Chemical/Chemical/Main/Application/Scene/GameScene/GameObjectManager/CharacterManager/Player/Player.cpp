@@ -36,10 +36,10 @@ namespace Game
 		m_pCollision(nullptr),
 		m_Acceleration(0),
 		m_IsLanding(false),
-		m_AnimationState(WALK_ANIMATION),
+		m_AnimationState(WAIT_ANIMATION),
 		m_WorldPos(_worldPos)
 	{
-		m_Size = D3DXVECTOR2(220.f, 220.f);
+		m_Size = D3DXVECTOR2(120.f, 240.f);
 		m_Pos = D3DXVECTOR2(960.f, 400.f);
 		// プレイヤーの初期位置がスクロールの左端より左の場合
 		if (m_WorldPos.x < Application::m_WindowWidth / 2)
@@ -66,21 +66,25 @@ namespace Game
 		m_pCollisionTask = new CollisionTask();
 		m_pCollisionTask->SetObject(this);
 		SINGLETON_INSTANCE(CollisionTaskManager)->AddTask(m_pCollisionTask);
-
 		if (!LoadAnimation("PlayerWalk.anim", WALK_ANIMATION)) return false;
+		if (!LoadAnimation("PlayerWait.anim", WAIT_ANIMATION)) return false;
 
 		m_Animations[WALK_ANIMATION].pData->
 			SetAnimationPattern(Lib::Dx11::IAnimation::ANIMATION_PATTERN::LOOP_ANIMATION);
 		m_Animations[WALK_ANIMATION].pData->SetAnimationSpeed(0.1f);
 
+		m_Animations[WAIT_ANIMATION].pData->
+			SetAnimationPattern(Lib::Dx11::IAnimation::ANIMATION_PATTERN::LOOP_ANIMATION);
+		m_Animations[WAIT_ANIMATION].pData->SetAnimationSpeed(0.1f);
+
 		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
-			"Resource\\GameScene\\Texture\\player.png",
+			"Resource\\GameScene\\Texture\\Player.png",
 			&m_TextureIndex)) return false;
 
 		if (!CreateVertex2D()) return false;
 		m_pVertex->SetUV(&D3DXVECTOR2(0.f, 0.f), &D3DXVECTOR2(1.f, 1.f));
 		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
-		m_pVertex->SetAnimation(m_Animations[WALK_ANIMATION].pData);
+		m_pVertex->SetAnimation(m_Animations[WAIT_ANIMATION].pData);
 
 		m_pCollision = new PlayerCollision();
 		SINGLETON_INSTANCE(CollisionManager)->AddCollision(m_pCollision);
@@ -145,7 +149,8 @@ namespace Game
 
 		if (pKeyState[DIK_LEFTARROW] == Lib::KeyDevice::KEY_ON)
 		{
-			m_Animations[WALK_ANIMATION].pData->Update();
+			m_AnimationState = WALK_ANIMATION;
+			m_Animations[m_AnimationState].pData->Update();
 			m_IsLeft = true;
 			m_WorldPos.x -= m_MoveSpeed;
 			if (m_WorldPos.x < X)
@@ -155,15 +160,23 @@ namespace Game
 		}
 		else if (pKeyState[DIK_RIGHTARROW] == Lib::KeyDevice::KEY_ON)
 		{
+			m_AnimationState = WALK_ANIMATION;
+			m_Animations[m_AnimationState].pData->Update();
+			m_IsLeft = false;
 			m_WorldPos.x += m_MoveSpeed;
 			if (m_WorldPos.x < X)
 			{
 				m_Pos.x += m_MoveSpeed;
 			}
-			m_Animations[WALK_ANIMATION].pData->Update();
-			m_IsLeft = false;
+		}
+		else
+		{
+			m_AnimationState = WAIT_ANIMATION;
+			m_Animations[m_AnimationState].pData->Update();
 		}
 		GravityUpdate();
+
+		m_pVertex->SetAnimation(m_Animations[m_AnimationState].pData);
 
 		RectangleCollision::RECTANGLE RectAngle;
 		RectAngle.Left = m_WorldPos.x - m_Size.x / 2;
@@ -195,7 +208,7 @@ namespace Game
 			FileName.c_str(),
 			&m_Animations[_animationState].Index)) return false;
 
-		m_Animations[WALK_ANIMATION].pData =
+		m_Animations[_animationState].pData =
 			SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->GetAnimation(m_Animations[_animationState].Index);
 
 		return true;

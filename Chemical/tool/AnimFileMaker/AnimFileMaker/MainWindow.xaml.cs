@@ -93,87 +93,84 @@ namespace AnimFileMaker
         {
             string Filename = textBox1.Text + "\\" + textBox.Text + ".anim";
             string Str = "{\n";
-            int AnimNum, AnimNum2;
-            float IntegrationTextureHeight, IntegrationTextureWidth;
-            float TextureHeight, TextureWidth;
-            float TextureLeft, TextureTop;
-            float TextureLeft2, TextureTop2;
 
             // 必要なデータが揃っているかチェック
             if(!DataCheck()) return;
 
-            IntegrationTextureHeight = float.Parse(integrationTextureHeight.Text);
-            IntegrationTextureWidth = float.Parse(integrationTextureWidth.Text);
-            TextureHeight = float.Parse(textureHeight.Text);
-            TextureWidth = float.Parse(textureWidth.Text);
-            TextureLeft = float.Parse(textureXPos.Text);
-            TextureTop = float.Parse(textureYPos.Text);
-            AnimNum = int.Parse(animNum.Text);
+            int IntegrationTextureHeight = int.Parse(integrationTextureHeight.Text);
+            int IntegrationTextureWidth = int.Parse(integrationTextureWidth.Text);
+            int TextureHeight = int.Parse(textureHeight.Text);
+            int TextureWidth = int.Parse(textureWidth.Text);
+            int TextureLeft = int.Parse(textureXPos.Text);
+            int TextureTop = int.Parse(textureYPos.Text);
+            int AnimNum = int.Parse(animNum.Text);
             float AddU = (TextureWidth / IntegrationTextureWidth);
-            int digit;
-            float tmp;
+            int Digit;
+            float UvPos;
+
             for (int i = 0; i < AnimNum; i++)
             {
                 Str += i.ToString() + ",";
+                UvPos = ((TextureLeft / IntegrationTextureWidth) + (AddU * i));
+                UvPos += TextureLeft / IntegrationTextureWidth;
+                Digit = UvPos.ToString().Length;
+                if (Digit != 1) Digit -= 2;
+                Str += UvPos.ToString("f" + Digit.ToString()) + ",";
 
-                tmp = ((TextureLeft / IntegrationTextureWidth) + (AddU * i));
-                digit = tmp.ToString().Length;
-                if (digit != 1) digit -= 2;
-                Str += ((TextureLeft / IntegrationTextureWidth) + (AddU * i)).ToString("f" + digit.ToString()) + ",";
+                UvPos = (TextureTop / IntegrationTextureHeight);
+                Digit = UvPos.ToString().Length;
+                if (Digit != 1) Digit -= 2;
+                Str += UvPos.ToString("f" + Digit.ToString()) + ",";
 
-                tmp = (TextureTop / IntegrationTextureHeight);
-                digit = tmp.ToString().Length;
-                if (digit != 1) digit -= 2;
-                Str += (TextureTop / IntegrationTextureHeight).ToString("f" + digit.ToString()) + ",";
+                UvPos = (TextureLeft / IntegrationTextureWidth) + (AddU * (i + 1));
+                UvPos += TextureLeft / IntegrationTextureWidth;
+                Digit = UvPos.ToString().Length;
+                if (Digit != 1) Digit -= 2;
+                Str += UvPos.ToString("f" + Digit.ToString()) + ",";
 
-                tmp = (TextureLeft / IntegrationTextureWidth) + (AddU * (i + 1));
-                digit = tmp.ToString().Length;
-                if (digit != 1) digit -= 2;
-                Str += ((TextureLeft / IntegrationTextureWidth) + (AddU * (i + 1))).ToString("f" + digit.ToString()) + ",";
-
-                tmp = TextureHeight / IntegrationTextureHeight;
-                digit = tmp.ToString().Length;
-                if (digit != 1) digit -= 2;
-                Str += (TextureHeight / IntegrationTextureHeight).ToString("f" + digit.ToString()) + "\n";
+                UvPos = (TextureHeight + TextureTop) / IntegrationTextureHeight;
+                Digit = UvPos.ToString().Length;
+                if (Digit != 1) Digit -= 2;
+                Str += UvPos.ToString("f" + Digit.ToString()) + "\n";
             }
 
             if(textureXPos2.Text != "" &&
                textureYPos2.Text != "" &&
                animNum2.Text != "")
             {
-                TextureLeft2 = float.Parse(textureXPos2.Text);
-                TextureTop2 = float.Parse(textureYPos2.Text);
-                AnimNum2 = int.Parse(animNum2.Text);
+                int TextureLeft2 = int.Parse(textureXPos2.Text);
+                int TextureTop2 = int.Parse(textureYPos2.Text);
+                int AnimNum2 = int.Parse(animNum2.Text);
 
                 for (int i = 0; i < AnimNum2; i++)
                 {
                     Str += (i + AnimNum).ToString() + ",";
 
-                    tmp = ((TextureLeft2 / IntegrationTextureWidth) + (AddU * i));
-                    digit = tmp.ToString().Length;
-                    if (digit != 1) digit -= 2;
-                    Str += ((TextureLeft2 / IntegrationTextureWidth) + (AddU * i)).ToString("f" + digit.ToString()) + ",";
+                    UvPos = ((TextureLeft2 / IntegrationTextureWidth) + (AddU * i));
+                    Digit = UvPos.ToString().Length;
+                    if (Digit != 1) Digit -= 2;
+                    Str += ((TextureLeft2 / IntegrationTextureWidth) + (AddU * i)).ToString("f" + Digit.ToString()) + ",";
 
-                    tmp = (TextureTop2 / IntegrationTextureHeight);
-                    digit = tmp.ToString().Length;
-                    if (digit != 1) digit -= 2;
-                    Str += (TextureTop2 / IntegrationTextureHeight).ToString("f" + digit.ToString()) + ",";
+                    UvPos = (TextureTop2 / IntegrationTextureHeight);
+                    Digit = UvPos.ToString().Length;
+                    if (Digit != 1) Digit -= 2;
+                    Str += (TextureTop2 / IntegrationTextureHeight).ToString("f" + Digit.ToString()) + ",";
 
-                    tmp = (TextureLeft2 / IntegrationTextureWidth) + (AddU * (i + 1));
-                    digit = tmp.ToString().Length;
-                    if (digit != 1) digit -= 2;
-                    Str += ((TextureLeft2 / IntegrationTextureWidth) + (AddU * (i + 1))).ToString("f" + digit.ToString()) + ",";
+                    UvPos = (TextureLeft2 / IntegrationTextureWidth) + (AddU * (i + 1));
+                    Digit = UvPos.ToString().Length;
+                    if (Digit != 1) Digit -= 2;
+                    Str += ((TextureLeft2 / IntegrationTextureWidth) + (AddU * (i + 1))).ToString("f" + Digit.ToString()) + ",";
 
-                    tmp = TextureHeight / IntegrationTextureHeight;
-                    digit = tmp.ToString().Length;
-                    if (digit != 1) digit -= 2;
-                    Str += (TextureHeight / IntegrationTextureHeight).ToString("f" + digit.ToString()) + "\n";
+                    UvPos = TextureHeight / IntegrationTextureHeight;
+                    Digit = UvPos.ToString().Length;
+                    if (Digit != 1) Digit -= 2;
+                    Str += (TextureHeight / IntegrationTextureHeight).ToString("f" + Digit.ToString()) + "\n";
                 }
             }
 
             Str += "}";
 
-            File.WriteAllText(Filename, Str, Encoding.UTF8);
+            File.WriteAllText(Filename, Str);
         }
     }
 }
