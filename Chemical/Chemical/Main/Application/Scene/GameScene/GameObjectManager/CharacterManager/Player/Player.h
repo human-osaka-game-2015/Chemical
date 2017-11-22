@@ -53,6 +53,7 @@ namespace Game
 		enum ANIMATION_STATE
 		{
 			WALK_ANIMATION,
+			WAIT_ANIMATION,
 			ANIMATION_MAX
 		};
 
