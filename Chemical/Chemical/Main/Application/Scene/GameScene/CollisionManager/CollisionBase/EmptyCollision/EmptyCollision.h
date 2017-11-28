@@ -30,15 +30,6 @@ namespace Game
 		 */
 		virtual void Dispatch(CollisionBase* _pOther);
 
-		/*** 空オブジェクトとの当たり判定を行う */
-		virtual void Collide(EmptyCollision* _pOther);
-
-		/*** 矩形オブジェクトとの当たり判定を行う */
-		virtual void Collide(RectangleCollision* _pOther);
-
-		/*** チップオブジェクトとの当たり判定を行う */
-		virtual void Collide(ChipCollision* _pOther);
-
 	};
 }
 

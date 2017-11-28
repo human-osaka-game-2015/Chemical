@@ -42,7 +42,26 @@ namespace Game
 
 	private:
 		using RECTANGLE = GimmickCollision::RECTANGLE;
-		std::vector<RECTANGLE> m_Rectangles;
+
+		enum STATE
+		{
+			NORMAL_STATE,	//!< 通常状態.
+			GROWTH_STATE	//!< 成長状態.
+		};
+
+		struct MUSHROOM
+		{
+			MUSHROOM(RECTANGLE _rect, STATE _state) :
+				Rect(_rect),
+				State(_state)
+			{
+			}
+
+			RECTANGLE	Rect;	//!< 当たり判定矩形.
+			STATE		State;	//!< 状態.
+		};
+
+		std::vector<MUSHROOM> m_Mushroom;
 
 	};
 }

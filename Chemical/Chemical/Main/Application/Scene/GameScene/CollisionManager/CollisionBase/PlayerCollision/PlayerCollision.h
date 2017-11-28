@@ -6,12 +6,12 @@
 #ifndef GAME_PLAYER_COLLISION_H
 #define GAME_PLAYER_COLLISION_H
 
-#include "Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.h"
+#include "..\RectangleCollisionBase\RectangleCollisionBase.h"
 #include <D3DX10.h>
 
 namespace Game
 {
-	class PlayerCollision : public RectangleCollision
+	class PlayerCollision : public RectangleCollisionBase
 	{
 	public:
 		/*** コンストラクタ */
@@ -25,12 +25,6 @@ namespace Game
 		 * @param[in] _pOther 他オブジェクト
 		 */
 		virtual void Dispatch(CollisionBase* _pOther);
-
-		/*** 空オブジェクトとの当たり判定を行う */
-		virtual void Collide(EmptyCollision* _pOther);
-
-		/*** 矩形オブジェクトとの当たり判定を行う */
-		virtual void Collide(RectangleCollision* _pOther);
 
 		/*** チップオブジェクトとの当たり判定を行う */
 		virtual void Collide(ChipCollision* _pOther);

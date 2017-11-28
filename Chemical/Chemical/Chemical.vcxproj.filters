@@ -370,9 +370,6 @@
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.cpp">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\EmptyCollision</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.cpp">
-      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\RectangleCollision</Filter>
-    </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\CollisionBase.cpp">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase</Filter>
     </ClCompile>
@@ -422,6 +419,9 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WoodGimmick\WoodGimmick.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChipLeftSide\SoilChipLeftSide.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChipRightSide\SoilChipRightSide.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollisionBase\RectangleCollisionBase.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\RectangleCollision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Application.h">
@@ -588,9 +588,6 @@
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\EmptyCollision\EmptyCollision.h">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\EmptyCollision</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.h">
-      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\RectangleCollision</Filter>
-    </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\CollisionBase.h">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase</Filter>
     </ClInclude>
@@ -635,6 +632,9 @@
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\InitializeFile\InitializeFile.h">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\InitializeFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollisionBase\RectangleCollisionBase.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\RectangleCollision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

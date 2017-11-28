@@ -60,14 +60,14 @@ namespace Game
 			Pos.y + Y / 2);
 
 		m_Positions.emplace_back(Pos);
-		m_Rectangles.emplace_back(Rect);
-		m_pCollision->AddRect(Rect);
+		m_Mushroom.emplace_back(Rect, NORMAL_STATE);
+		m_pCollision->AddRect(Rect);///@todo 修正予定地.
 		m_GimmickNum++;	// ギミックの個数をカウント.
 	}
 
 	void MushroomGimmick::ClearChip()
 	{
-		m_Rectangles.clear();
+		m_Mushroom.clear();
 		m_Positions.clear();
 	}
 }
