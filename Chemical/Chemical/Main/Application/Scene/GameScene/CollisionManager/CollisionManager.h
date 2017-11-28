@@ -11,7 +11,7 @@
 //----------------------------------------------------------------------
 #include "SingletonBase\SingletonBase.h"
 
-#include <vector>
+#include <list>
 
 
 namespace Game
@@ -47,7 +47,7 @@ namespace Game
 		virtual ~CollisionManager();
 
 
-		std::vector<CollisionBase*>	m_pCollisions;	//!< 当たり判定オブジェクト管理するコンテナ.
+		std::list<CollisionBase*>	m_pCollisions;	//!< 当たり判定オブジェクト管理するコンテナ.
 	};
 }
 

@@ -1,6 +1,6 @@
 ﻿/**
- * @file	RectangleCollision.h
- * @brief	矩形衝突判定オブジェクトクラス定義
+ * @file	RectangleCollisionBase.h
+ * @brief	矩形衝突判定オブジェクト基底クラス定義
  * @author	morimoto
  */
 #ifndef GAME_RECTANGLECOLLISION_H
@@ -14,8 +14,8 @@
 
 namespace Game
 {
-	/*** 矩形衝突判定オブジェクトクラス */
-	class RectangleCollision : public CollisionBase
+	/*** 矩形衝突判定オブジェクト基底クラス */
+	class RectangleCollisionBase : public CollisionBase
 	{
 	public:
 		/*** 矩形データ構造体 */
@@ -45,28 +45,16 @@ namespace Game
 		 * コンストラクタ 
 		 * @param[in] _id 当たり判定ID
 		 */
-		RectangleCollision(int _id);
+		RectangleCollisionBase(int _id);
 
 		/*** デストラクタ */
-		virtual ~RectangleCollision();
+		virtual ~RectangleCollisionBase();
 
 		/**
 		 * Collide関数へのDispatch関数
 		 * @param[in] _pOther 他オブジェクト
 		 */
-		virtual void Dispatch(CollisionBase* _pOther);
-
-		/*** 空オブジェクトとの当たり判定を行う */
-		virtual void Collide(EmptyCollision* _pOther);
-
-		/*** 矩形オブジェクトとの当たり判定を行う */
-		virtual void Collide(RectangleCollision* _pOther);
-
-		/*** チップオブジェクトとの当たり判定を行う */
-		virtual void Collide(ChipCollision* _pOther);
-
-		/*** プレイヤーオブジェクトとの当たり判定を行う */
-		virtual void Collide(PlayerCollision* _pOther);
+		virtual void Dispatch(CollisionBase* _pOther) = 0;
 
 		/**
 		 * 矩形の設定

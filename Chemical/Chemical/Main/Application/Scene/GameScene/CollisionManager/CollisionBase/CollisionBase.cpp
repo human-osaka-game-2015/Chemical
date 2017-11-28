@@ -40,10 +40,6 @@ namespace Game
 	{
 	}
 
-	void CollisionBase::Collide(RectangleCollision* _pOther)
-	{
-	}
-
 	void CollisionBase::Collide(ChipCollision* _pOther)
 	{
 	}

@@ -157,7 +157,7 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StageChipBase.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickManager.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\StageGimmickBase.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollisionBase\RectangleCollisionBase.cpp" />
     <ClCompile Include="Main\MultipleObject2DBase\MultipleObject2DBase.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTop\SoilGroundTop.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\PlayerCollision\PlayerCollision.cpp" />
@@ -246,7 +246,7 @@
     <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectReturnButton\SelectReturnButton.h" />
     <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectStartButton\SelectStartButton.h" />
     <ClInclude Include="Main\Application\Scene\SelectScene\SelectDefine.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollision\RectangleCollision.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollisionBase\RectangleCollisionBase.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip\SoilChip.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\PlayerCollision\PlayerCollision.h" />
   </ItemGroup>

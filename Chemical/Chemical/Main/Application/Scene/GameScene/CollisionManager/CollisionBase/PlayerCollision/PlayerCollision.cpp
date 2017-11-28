@@ -1,10 +1,23 @@
-﻿#include "PlayerCollision.h"
+﻿/**
+ * @file   PlayerCollision.cpp
+ * @brief  PlayerCollisionクラスのcppファイル
+ * @author kotani
+ */
+
+//----------------------------------------------------------------------
+// Include
+//----------------------------------------------------------------------
+#include "PlayerCollision.h"
 #include "..\ChipCollision\ChipCollision.h"
+
 
 namespace Game
 {
+	//----------------------------------------------------------------------
+	// Constructor	Destructor
+	//----------------------------------------------------------------------
 	PlayerCollision::PlayerCollision() :
-		RectangleCollision(PLAYER_COLLISION_ID),
+		RectangleCollisionBase(PLAYER_COLLISION_ID),
 		m_CollisionDiff(D3DXVECTOR2(0,0))
 	{
 	}
@@ -14,21 +27,12 @@ namespace Game
 	}
 
 
-	//----------------------------------------------------------------------------------------------------
+	//----------------------------------------------------------------------
 	// Public Functions
-	//----------------------------------------------------------------------------------------------------
-
+	//----------------------------------------------------------------------
 	void PlayerCollision::Dispatch(CollisionBase* _pOther)
 	{
 		_pOther->Collide(this);
-	}
-
-	void PlayerCollision::Collide(EmptyCollision* _pOther)
-	{
-	}
-
-	void PlayerCollision::Collide(RectangleCollision* _pOther)
-	{
 	}
 
 	void PlayerCollision::Collide(ChipCollision* _pOther)

@@ -9,7 +9,7 @@
 //----------------------------------------------------------------------
 #include "GimmickCollision.h"
 
-#include "..\RectangleCollision\RectangleCollision.h"
+#include "..\PlayerCollision\PlayerCollision.h"
 
 
 namespace Game
@@ -35,11 +35,7 @@ namespace Game
 		_pOther->Collide(this);
 	}
 
-	void GimmickCollision::Collide(EmptyCollision* _pOther)
-	{
-	}
-
-	void GimmickCollision::Collide(RectangleCollision* _pOther)
+	void GimmickCollision::Collide(PlayerCollision* _pOther)
 	{
 		// 矩形同士の衝突判定.
 		for (auto itr = m_Rectangles.begin(); itr != m_Rectangles.end(); itr++)
@@ -50,19 +46,9 @@ namespace Game
 				if ((*itr).Top		< _pOther->GetRect().Bottom &&
 					(*itr).Bottom	> _pOther->GetRect().Top)
 				{
-					// 衝突していた場合IDをキューにプッシュ.
-					_pOther->PushOtherID(GetCollisionID());
 					break;
 				}
 			}
 		}
-	}
-
-	void GimmickCollision::Collide(ChipCollision* _pOther)
-	{
-	}
-
-	void GimmickCollision::Collide(PlayerCollision* _pOther)
-	{
 	}
 }

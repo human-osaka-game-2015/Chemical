@@ -178,7 +178,7 @@ namespace Game
 
 		m_pVertex->SetAnimation(m_Animations[m_AnimationState].pData);
 
-		RectangleCollision::RECTANGLE RectAngle;
+		RectangleCollisionBase::RECTANGLE RectAngle;
 		RectAngle.Left = m_WorldPos.x - m_Size.x / 2;
 		RectAngle.Top = m_Pos.y - m_Size.y / 2;
 		RectAngle.Right = m_WorldPos.x + m_Size.x / 2;
