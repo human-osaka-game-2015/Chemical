@@ -51,4 +51,8 @@ namespace Game
 	void CollisionBase::Collide(PlayerCollision* _pOther)
 	{
 	}
+
+	void CollisionBase::Collide(ChemicalCollision* _pOther)
+	{
+	}
 }

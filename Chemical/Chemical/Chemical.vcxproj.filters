@@ -209,6 +209,18 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\InitializeFile">
       <UniqueIdentifier>{a7c69eb6-7a0b-4612-acef-f29ee7d3ad39}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory">
+      <UniqueIdentifier>{b5ac6426-377a-4115-bc62-1fd2018bd69e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase">
+      <UniqueIdentifier>{6c854ad1-b121-42b3-b7df-08c53c308cc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\ExplosionChemical">
+      <UniqueIdentifier>{a261bc04-3cee-4ee8-8d5b-ccb5ab2fd231}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\ChemicalCollision">
+      <UniqueIdentifier>{f61cc0b6-f5e3-4eeb-8ab7-e27e7b8ea416}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -421,6 +433,18 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChipRightSide\SoilChipRightSide.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollisionBase\RectangleCollisionBase.cpp">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\RectangleCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalFactory.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\ExplosionChemical\ExplosionChemical.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\ExplosionChemical</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ChemicalCollision\ChemicalCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\ChemicalCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\ChemicalBase.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -635,6 +659,18 @@
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollisionBase\RectangleCollisionBase.h">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\RectangleCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\ChemicalBase.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalFactory.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\ExplosionChemical\ExplosionChemical.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\ExplosionChemical</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ChemicalCollision\ChemicalCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\ChemicalCollision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

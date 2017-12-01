@@ -1,0 +1,54 @@
+﻿/**
+ * @file   ChemicalCollision.h
+ * @brief  ChemicalCollisionクラスのヘッダファイル
+ * @author kotani
+ */
+#ifndef GAME_CHEMICAL_COLLISION_H
+#define GAME_CHEMICAL_COLLISION_H
+
+#include "..\RectangleCollisionBase\RectangleCollisionBase.h"
+#include <D3DX11.h>
+#include <D3DX10.h>
+
+namespace Game
+{
+	class ChemicalCollision : public RectangleCollisionBase
+	{
+	public:
+		/*** コンストラクタ */
+		ChemicalCollision();
+
+		/*** デストラクタ */
+		virtual ~ChemicalCollision();
+
+		/**
+		* Collide関数へのDispatch関数
+		* @param[in] _pOther 他オブジェクト
+		*/
+		virtual void Dispatch(CollisionBase* _pOther);
+
+		/*** チップオブジェクトとの当たり判定を行う */
+		virtual void Collide(ChipCollision* _pOther);
+
+		/*** 当たり判定の初期化 */
+		void ResetCollision()
+		{
+			m_IsHit = false;
+		}
+
+		/**
+		 * 当たっているかのフラグを参照する
+		 * @return 当たっていたらtrue 当たっていなかったらfalse
+		 */
+		bool GetHit()
+		{
+			return m_IsHit;
+		}
+	private:
+		bool m_IsHit;
+
+	};
+}
+
+
+#endif
