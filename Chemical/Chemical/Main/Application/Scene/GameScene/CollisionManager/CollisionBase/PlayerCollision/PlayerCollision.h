@@ -7,6 +7,7 @@
 #define GAME_PLAYER_COLLISION_H
 
 #include "..\RectangleCollisionBase\RectangleCollisionBase.h"
+#include <D3DX11.h>
 #include <D3DX10.h>
 
 namespace Game

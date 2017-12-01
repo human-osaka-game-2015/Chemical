@@ -8,7 +8,9 @@
 // Include
 //----------------------------------------------------------------------
 #include "Player.h"
+#include "PlayerUI\PlayerUI.h"
 #include "Application\Application.h"
+#include "ChemicalFactory\ChemicalFactory.h"
 #include "Application\Scene\GameScene\GameDefine.h"
 #include "..\..\GameDataManager\GameDataManager.h"
 #include "..\..\..\CollisionManager\CollisionManager.h"
@@ -20,6 +22,7 @@
 #include "InputDeviceManager\KeyDevice\KeyDevice.h"
 #include "TaskManager\TaskManager.h"
 
+#include <algorithm>
 
 namespace Game
 {
@@ -63,9 +66,16 @@ namespace Game
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->AddTask(m_pUpdateTask);
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->AddTask(m_pDrawTask);
 		m_pDrawTask->SetPriority(GAME_DRAW_CHARACTER);
+		
+		m_pChemicalFactory = new ChemicalFactory();
+		m_pChemicalFactory->Initialize();
+
+		m_pPlayerUI = new PlayerUI();
+
 		m_pCollisionTask = new CollisionTask();
 		m_pCollisionTask->SetObject(this);
 		SINGLETON_INSTANCE(CollisionTaskManager)->AddTask(m_pCollisionTask);
+
 		if (!LoadAnimation("PlayerWalk.anim", WALK_ANIMATION)) return false;
 		if (!LoadAnimation("PlayerWait.anim", WAIT_ANIMATION)) return false;
 
@@ -90,13 +100,15 @@ namespace Game
 		SINGLETON_INSTANCE(CollisionManager)->AddCollision(m_pCollision);
 		SINGLETON_INSTANCE(GameDataManager)->SetPlayerPosPtr(&m_WorldPos);
 
+		pControl = &Player::NormalControl;
+
 		return true;
 	}
 	
 	void Player::Finalize()
 	{
 		SINGLETON_INSTANCE(CollisionManager)->RemoveCollision(m_pCollision);
-		SafeDelete(m_pCollision);
+
 
 		ReleaseVertex2D();
 
@@ -106,9 +118,22 @@ namespace Game
 			SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->
 				ReleaseAnimation(itr.Index);
 		}
+
+		for (auto itr : m_pChemicals)
+		{
+			itr->Finalize();
+			SafeDelete(itr);
+		}
 		
 		SINGLETON_INSTANCE(CollisionTaskManager)->RemoveStartUpTask(m_pCollisionTask);
 		SafeDelete(m_pCollisionTask);
+		SafeDelete(m_pPlayerUI);
+
+		m_pChemicalFactory->Finalize();
+		SafeDelete(m_pChemicalFactory);
+
+		SafeDelete(m_pCollision);
+
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->RemoveTask(m_pUpdateTask);
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->RemoveTask(m_pDrawTask);
 	}
@@ -133,13 +158,97 @@ namespace Game
 		{
 			m_Pos.x += m_pCollision->GetCollisionDiff().x;
 		}
-		m_WorldPos += m_pCollision->GetCollisionDiff();
+		m_WorldPos += m_pCollision->GetCollisionDiff() ;
 	}
 
 	void Player::Update()
 	{
+		(this->*pControl)();
+		GravityUpdate();
+
+		m_pVertex->SetAnimation(m_Animations[m_AnimationState].pData);
+
+		auto Result = std::remove_if(m_pChemicals.begin(), m_pChemicals.end(),
+			[](ChemicalBase* _chemical)
+		{
+			if (_chemical->GetIsHit())
+			{
+				_chemical->Finalize();
+				SafeDelete(_chemical);
+				return true;
+			}
+			return false;
+		});
+		m_pChemicals.erase(Result, m_pChemicals.end());
+
+		for (const auto& itr : m_pChemicals)
+		{
+			itr->Update();
+		}
+
+		RectangleCollisionBase::RECTANGLE RectAngle;
+		RectAngle.Left = m_WorldPos.x - m_Size.x / 2;
+		RectAngle.Top = m_WorldPos.y - m_Size.y / 2;
+		RectAngle.Right = m_WorldPos.x + m_Size.x / 2;
+		RectAngle.Bottom = m_WorldPos.y + m_Size.y / 2;
+		m_pCollision->SetRect(RectAngle);
+		m_pCollision->ResetCollisionDiff();
+	}
+	
+	void Player::Draw()
+	{
+		m_pVertex->SetInverse(m_IsLeft);
+		m_pVertex->ShaderSetup();
+		m_pVertex->WriteVertexBuffer();
+		m_pVertex->WriteConstantBuffer(&m_Pos);
+		m_pVertex->Draw();
+
+		for (const auto& itr : m_pChemicals)
+		{
+			itr->Draw();
+		}
+	}
+
+
+	//----------------------------------------------------------------------
+	// Private Functions
+	//----------------------------------------------------------------------
+
+	bool Player::LoadAnimation(std::string _fileName, ANIMATION_STATE _animationState)
+	{
+		std::string FileName = "Resource\\GameScene\\Animation\\" + _fileName;
+		if (!SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->LoadAnimation(
+			FileName.c_str(),
+			&m_Animations[_animationState].Index)) return false;
+
+		m_Animations[_animationState].pData =
+			SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->GetAnimation(m_Animations[_animationState].Index);
+
+		return true;
+	}
+
+	void Player::GravityUpdate()
+	{
+		if (m_Acceleration > 23.f)
+		{
+			m_Acceleration = 23.f;
+		}
+
+		m_Acceleration += m_Gravity;
+		m_Pos.y += m_Acceleration;
+		m_WorldPos.y = m_Pos.y;
+	}
+
+	void Player::NormalControl()
+	{
 		const Lib::KeyDevice::KEYSTATE* pKeyState = SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState();
 		float X = static_cast<float>(Application::m_WindowWidth / 2);	//!< 画面中央からスクロール.
+
+		if (pKeyState[DIK_Z] == Lib::KeyDevice::KEY_PUSH)
+		{
+			// 薬品をかけるモーションに移行.
+			pControl = &Player::AttackControl;
+		}
 
 		if (pKeyState[DIK_UPARROW] == Lib::KeyDevice::KEY_PUSH &&
 			m_IsLanding)
@@ -174,55 +283,11 @@ namespace Game
 			m_AnimationState = WAIT_ANIMATION;
 			m_Animations[m_AnimationState].pData->Update();
 		}
-		GravityUpdate();
-
-		m_pVertex->SetAnimation(m_Animations[m_AnimationState].pData);
-
-		RectangleCollisionBase::RECTANGLE RectAngle;
-		RectAngle.Left = m_WorldPos.x - m_Size.x / 2;
-		RectAngle.Top = m_Pos.y - m_Size.y / 2;
-		RectAngle.Right = m_WorldPos.x + m_Size.x / 2;
-		RectAngle.Bottom = m_Pos.y + m_Size.y / 2;
-		m_pCollision->SetRect(RectAngle);
-		m_pCollision->ResetCollisionDiff();
 	}
-	
-	void Player::Draw()
+
+	void Player::AttackControl()
 	{
-		m_pVertex->SetInverse(m_IsLeft);
-		m_pVertex->ShaderSetup();
-		m_pVertex->WriteVertexBuffer();
-		m_pVertex->WriteConstantBuffer(&m_Pos);
-		m_pVertex->Draw();
+		m_pChemicals.push_back(m_pChemicalFactory->Create(ChemicalFactory::BLUE, ChemicalFactory::RED, m_WorldPos,m_IsLeft));
+		pControl = &Player::NormalControl;
 	}
-
-
-	//----------------------------------------------------------------------
-	// Private Functions
-	//----------------------------------------------------------------------
-
-	bool Player::LoadAnimation(std::string _fileName, ANIMATION_STATE _animationState)
-	{
-		std::string FileName = "Resource\\GameScene\\Animation\\" + _fileName;
-		if (!SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->LoadAnimation(
-			FileName.c_str(),
-			&m_Animations[_animationState].Index)) return false;
-
-		m_Animations[_animationState].pData =
-			SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->GetAnimation(m_Animations[_animationState].Index);
-
-		return true;
-	}
-
-	void Player::GravityUpdate()
-	{
-		if (m_Acceleration > 23.f)
-		{
-			m_Acceleration = 23.f;
-		}
-
-		m_Acceleration += m_Gravity;
-		m_Pos.y += m_Acceleration;
-	}
-
 }

@@ -12,11 +12,15 @@
 #include "Object2DBase\Object2DBase.h"
 #include "Application\Scene\GameScene\CollisionTask\CollisionTask.h"
 #include <array>
+#include <vector>
 
 
 namespace Game
 {
 	class PlayerCollision;
+	class PlayerUI;
+	class ChemicalBase;
+	class ChemicalFactory;
 
 	/*** プレイヤークラス */
 	class Player : public Object2DBase
@@ -63,7 +67,7 @@ namespace Game
 			int					   Index;
 		};
 
-		typedef std::array<AnimationData, ANIMATION_MAX> AnimationArray;
+		using AnimationArray = std::array<AnimationData, ANIMATION_MAX>;
 		static const float m_Gravity;
 		static const float m_JumpPower;
 		static const float m_MoveSpeed;
@@ -79,14 +83,26 @@ namespace Game
 		/*** 重力制御更新 */
 		void GravityUpdate();
 
-		CollisionTask*			m_pCollisionTask;
-		PlayerCollision*	    m_pCollision;
-		D3DXVECTOR2			    m_WorldPos;
-		float				    m_Acceleration;
-		bool				    m_IsLeft;
-		bool				    m_IsLanding; //!< 着地しているか?
-		AnimationArray		    m_Animations;
-		ANIMATION_STATE		    m_AnimationState;
+		/*** 制御用関数ポインタ */
+		void (Player::*pControl)();
+
+		/*** 移動・待機時の制御関数 */
+		void NormalControl();
+
+		/*** 攻撃時制御関数 */
+		void AttackControl();
+
+		PlayerUI*				 m_pPlayerUI;
+		CollisionTask*			 m_pCollisionTask;
+		PlayerCollision*	     m_pCollision;
+		D3DXVECTOR2			     m_WorldPos;
+		float				     m_Acceleration;
+		bool				     m_IsLeft;
+		bool				     m_IsLanding; //!< 着地しているか?
+		ANIMATION_STATE		     m_AnimationState;
+		AnimationArray			 m_Animations;
+		ChemicalFactory*		 m_pChemicalFactory;
+		std::vector<ChemicalBase*> m_pChemicals;
 
 	};
 }
