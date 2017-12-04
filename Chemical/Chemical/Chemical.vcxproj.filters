@@ -170,27 +170,6 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil">
       <UniqueIdentifier>{1a2f12a7-1d64-4fc1-a456-32dc5edad9ff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip">
-      <UniqueIdentifier>{1e179f55-46df-4d8e-acfe-44b002643405}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottom">
-      <UniqueIdentifier>{9efbc7e7-a670-49b4-a417-16736e693345}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomLeftSide">
-      <UniqueIdentifier>{4cd0eb9a-d631-449d-a2ed-60c20a0ee272}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomRightSide">
-      <UniqueIdentifier>{f2b5e4cd-ab30-46b0-a4af-b742b4c7c8cb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTop">
-      <UniqueIdentifier>{6bda28f2-7696-4105-9f53-cda64b266198}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopLeftSide">
-      <UniqueIdentifier>{835ef58a-c91d-4149-b54c-dafee67791c5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopRightSide">
-      <UniqueIdentifier>{7705c8c1-0ef1-426e-8456-21dc72619d33}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\PlayerCollision">
       <UniqueIdentifier>{55482cce-ae86-47e8-82b2-8ee67ca5bd1e}</UniqueIdentifier>
     </Filter>
@@ -220,6 +199,60 @@
     </Filter>
     <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\ChemicalCollision">
       <UniqueIdentifier>{f61cc0b6-f5e3-4eeb-8ab7-e27e7b8ea416}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick">
+      <UniqueIdentifier>{3e4726fc-3eab-45f7-9d4d-825ae006fdf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\FireGimmick">
+      <UniqueIdentifier>{f7d15b5f-c42a-4533-9f70-250a06a6def6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator">
+      <UniqueIdentifier>{d1ab34b9-e267-49b3-8c65-ef6a7f6e2c7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\MushroomGimmick">
+      <UniqueIdentifier>{1d5cca9a-7527-471f-a197-22e29e24d61b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RecoveryGimmick">
+      <UniqueIdentifier>{39862db2-2362-4019-855c-4926ad931524}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WoodGimmick">
+      <UniqueIdentifier>{dba6afca-4d77-48dd-bd3e-26c4eb940551}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmickEvent">
+      <UniqueIdentifier>{827f127a-f352-45f3-a2ea-1b731dc1e4a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator\EnemyGeneratorEvent">
+      <UniqueIdentifier>{bafb5408-ffcd-4517-b988-15ff9eb3f16d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\Soil">
+      <UniqueIdentifier>{1e179f55-46df-4d8e-acfe-44b002643405}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilBottom">
+      <UniqueIdentifier>{9efbc7e7-a670-49b4-a417-16736e693345}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilTop">
+      <UniqueIdentifier>{4cd0eb9a-d631-449d-a2ed-60c20a0ee272}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision">
+      <UniqueIdentifier>{56b3a54b-07f0-43eb-b77d-5a37811ce4de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\ButtonGimmickCollision">
+      <UniqueIdentifier>{17440a04-a72f-48cb-92c4-10580e64db20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\EnemyGeneratorCollision">
+      <UniqueIdentifier>{d7722b8c-82e9-4dc4-a01b-5dfcda9aa5ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\FireGimmickCollision">
+      <UniqueIdentifier>{ea998733-b344-4875-be50-fb018338e716}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\MushroomGimmickCollision">
+      <UniqueIdentifier>{9fe304af-e015-4f9a-b44a-9b7e907d8faf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\WoodGimmickCollision">
+      <UniqueIdentifier>{90e03812-8b3e-4946-8357-3ce2325f7cff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision">
+      <UniqueIdentifier>{4dc2cbec-fd7d-40fe-aecf-087be67c6250}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -394,27 +427,6 @@
     <ClCompile Include="Main\MultipleObject2DBase\MultipleObject2DBase.cpp">
       <Filter>Main\MultipleObject2DBase</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip\SoilChip.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip</Filter>
-    </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottom\SoilGroundBottom.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottom</Filter>
-    </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomLeftSide\SoilGroundBottomLeftSide.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomLeftSide</Filter>
-    </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomRightSide\SoilGroundBottomRightSide.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomRightSide</Filter>
-    </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTop\SoilGroundTop.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTop</Filter>
-    </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopLeftSide\SoilGroundTopLeftSide.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopLeftSide</Filter>
-    </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopRightSide\SoilGroundTopRightSide.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopRightSide</Filter>
-    </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\PlayerCollision\PlayerCollision.cpp">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\PlayerCollision</Filter>
     </ClCompile>
@@ -424,13 +436,6 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\InitializeFile\InitializeFile.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\InitializeFile</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator\EnemyGenerator.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\GimmickCollision.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\FireGimmick\FireGimmick.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\MushroomGimmick\MushroomGimmick.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WoodGimmick\WoodGimmick.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChipLeftSide\SoilChipLeftSide.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChipRightSide\SoilChipRightSide.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollisionBase\RectangleCollisionBase.cpp">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\RectangleCollision</Filter>
     </ClCompile>
@@ -445,6 +450,60 @@
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\ChemicalBase.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmick.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\FireGimmick\FireGimmick.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\FireGimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator\EnemyGenerator.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\MushroomGimmick\MushroomGimmick.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\MushroomGimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WoodGimmick\WoodGimmick.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WoodGimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RecoveryGimmick\RecoveryGimmick.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RecoveryGimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmickEvent\ButtonGimmickEvent.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmickEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator\EnemyGeneratorEvent\EnemyGeneratorEvent.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator\EnemyGeneratorEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\Soil\Soil.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\Soil</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilTop\SoilTop.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilTop</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilBottom\SoilBottom.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilBottom</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\GimmickCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\ButtonGimmickCollision\ButtonGimmickCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\ButtonGimmickCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\EnemyGeneratorCollision\EnemyGeneratorCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\EnemyGeneratorCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\FireGimmickCollision\FireGimmickCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\FireGimmickCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\MushroomGimmickCollision\MushroomGimmickCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\MushroomGimmickCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\WoodGimmickCollision\WoodGimmickCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\WoodGimmickCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision\RecoveryGimmickCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -624,27 +683,6 @@
     <ClInclude Include="Main\MultipleObject2DBase\MultipleObject2DBase.h">
       <Filter>Main\MultipleObject2DBase</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip\SoilChip.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip</Filter>
-    </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottom\SoilGroundBottom.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottom</Filter>
-    </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomLeftSide\SoilGroundBottomLeftSide.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomLeftSide</Filter>
-    </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomRightSide\SoilGroundBottomRightSide.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomRightSide</Filter>
-    </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTop\SoilGroundTop.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTop</Filter>
-    </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopLeftSide\SoilGroundTopLeftSide.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopLeftSide</Filter>
-    </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopRightSide\SoilGroundTopRightSide.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopRightSide</Filter>
-    </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\PlayerCollision\PlayerCollision.h">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\PlayerCollision</Filter>
     </ClInclude>
@@ -672,21 +710,68 @@
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ChemicalCollision\ChemicalCollision.h">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\ChemicalCollision</Filter>
     </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmick.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\FireGimmick\FireGimmick.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\FireGimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator\EnemyGenerator.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\MushroomGimmick\MushroomGimmick.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\MushroomGimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WoodGimmick\WoodGimmick.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WoodGimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RecoveryGimmick\RecoveryGimmick.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RecoveryGimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmickEvent\ButtonGimmickEvent.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmickEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator\EnemyGeneratorEvent\EnemyGeneratorEvent.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator\EnemyGeneratorEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\Soil\Soil.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\Soil</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilTop\SoilTop.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilTop</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilBottom\SoilBottom.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilBottom</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\GimmickCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\ButtonGimmickCollision\ButtonGimmickCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\ButtonGimmickCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\EnemyGeneratorCollision\EnemyGeneratorCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\EnemyGeneratorCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\FireGimmickCollision\FireGimmickCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\FireGimmickCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\MushroomGimmickCollision\MushroomGimmickCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\MushroomGimmickCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\WoodGimmickCollision\WoodGimmickCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\WoodGimmickCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision\RecoveryGimmickCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask_private.inl">
       <Filter>Main\Application\GameScene\CollisionUpdateTask</Filter>
     </None>
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChipLeftSide\SoilChipLeftSide.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChipRightSide\SoilChipRightSide.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask_private.inl" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator\EnemyGenerator.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\GimmickCollision.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\FireGimmick\FireGimmick.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\MushroomGimmick\MushroomGimmick.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WoodGimmick\WoodGimmick.h" />
   </ItemGroup>
 </Project>

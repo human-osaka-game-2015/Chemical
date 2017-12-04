@@ -27,13 +27,7 @@ namespace Game
 			NONE_CHIP,				//!< 空チップ.
 			SOIL_CHIP,				//!< 土チップ.
 			SOIL_BOTTOM_CHIP,		//!< 土の下部チップ.
-			SOIL_BOTTOM_LEFT_CHIP,	//!< 土の下部左端チップ.
-			SOIL_BOTTOM_RIGHT_CHIP,	//!< 土の下部右端チップ.
 			SOIL_TOP_CHIP,			//!< 土の上部チップ.
-			SOIL_TOP_LEFT_CHIP,		//!< 土の上部左端チップ.
-			SOIL_TOP_RIGHT_CHIP,	//!< 土の上部右端チップ.
-			SOIL_LEFT_CHIP,			//!< 土の左部チップ.
-			SOIL_RIGHT_CHIP,		//!< 土の右部チップ.
 			STAGE_CHIP_MAX			//!< ステージチップ最大値.
 		};
 

@@ -13,6 +13,8 @@
 #include "StageGimmickBase\StageGimmickBase.h"
 #include "CsvFile\CsvFile.h"
 
+#include <array>
+
 class GamePlayFile;
 
 namespace Game
@@ -27,6 +29,10 @@ namespace Game
 			NONE_GIMMICK,
 			FIRE_GIMMICK,
 			MUSHROOM_GIMMICK,
+			WOOD_GIMMICK,
+			RECOVERY_GIMMICK,
+			ENEMY_GENERATOR_GIMMICK,
+			BUTTON_GIMMICK,
 			STAGE_GIMMICK_MAX
 		};
 
@@ -48,9 +54,11 @@ namespace Game
 		virtual void Finalize();
 
 	private:
-		StageGimmickBase*	m_pGimmicks[STAGE_GIMMICK_MAX];	//!< ギミックオブジェクト.
-		GamePlayFile*		m_pPlayFile;					//!< ゲームプレイファイルオブジェクト.
-		CsvFile*			m_pCsvFile;						//!< CSVファイルオブジェクト.
+		using GimmickArray = std::array<StageGimmickBase*, STAGE_GIMMICK_MAX>;
+
+		GimmickArray	m_pGimmicks;	//!< ギミックオブジェクト.
+		GamePlayFile*	m_pPlayFile;	//!< ゲームプレイファイルオブジェクト.
+		CsvFile*		m_pCsvFile;		//!< CSVファイルオブジェクト.
 
 	};
 }

@@ -19,23 +19,34 @@ namespace Game
 	/*** イベントの識別子 */
 	enum EVENT_ID
 	{
-		PLAYER_EVENT = 0	//!< プレイヤーイベント.
+		PLAYER_EVENT = 0,			//!< プレイヤーイベント.
+		ENEMY_GENERATE_EVENT = 1,	//!< エネミー生成イベント.
+		BUTTON_GIMMICK_EVENT = 2,	//!< ボタンギミックイベント.
+		EVENT_ID_MAX				//!< イベント識別子最大数.
 	};
 
 	/*** イベントグループ名 */
 	enum EVENT_GROUP
 	{
-		PLAYER_EVENT_GROUP = 0	//!< プレイヤーイベントグループ.
+		PLAYER_EVENT_GROUP = 0,		//!< プレイヤーイベントグループ.
+		GIMMICK_EVENT_GROUP = 1,	//!< エネミーイベントグループ.
+		EVENT_GROUP_MAX				//!< イベントグループの最大数.
 	};
 
 	/*** 当たり判定オブジェクトID */
 	enum COLLISION_ID
 	{
-		EMPTY_COLLISION_ID,			//!< 空オブジェクトID(エラー値).
-		PLAYER_COLLISION_ID,		//!< プレイヤー当たり判定ID.
-		ROAD_COLLISION_ID,			//!< 道の当たり判定ID.
-		SOIL_COLLISION_ID,			//!< 土の当たり判定ID.
-		ENEMYGENERATOR_COLLISION_ID	//!< エネミー生成ギミック当たり判定ID.
+		EMPTY_COLLISION_ID,				//!< 空オブジェクトID(エラー値).
+		PLAYER_COLLISION_ID,			//!< プレイヤー当たり判定ID.
+		ROAD_COLLISION_ID,				//!< 道の当たり判定ID.
+		SOIL_COLLISION_ID,				//!< 土の当たり判定ID.
+		ENEMYGENERATOR_COLLISION_ID,	//!< エネミー生成ギミック当たり判定ID.
+		FIRE_GIMMICK_COLLISION_ID,		//!< 火ギミック当たり判定ID.
+		MUSHROOM_GIMMICK_COLLISION_ID,	//!< キノコギミック当たり判定ID.
+		WOOD_GIMMICK_COLLISION_ID,		//!< 木ギミック当たり判定ID.
+		RECOVERY_GIMMICK_COLLISION_ID,	//!< 回復ギミック当たり判定ID.
+		BUTTON_GIMMICK_COLLISION_ID,	//!< ボタンギミック当たり判定ID.
+		COLLISION_ID_MAX				//!< 当たり判定ID最大値.
 	};
 
 	/*** ステージナンバー */

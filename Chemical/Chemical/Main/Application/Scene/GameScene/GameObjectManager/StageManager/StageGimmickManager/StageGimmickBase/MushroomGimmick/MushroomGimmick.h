@@ -10,6 +10,8 @@
 // Include
 //----------------------------------------------------------------------
 #include "..\StageGimmickBase.h"
+#include "CollisionManager\CollisionBase\GimmickCollision\MushroomGimmickCollision\MushroomGimmickCollision.h"
+#include "DirectX11\MultipleVertex2D\Dx11MultipleVertex2DUV.h"
 
 
 namespace Game
@@ -23,6 +25,15 @@ namespace Game
 
 		/*** デストラクタ */
 		virtual ~MushroomGimmick();
+
+		/* 
+		 * 初期化処理
+		 * @return 初期化に成功したらtrue 失敗したらfalse
+		 */
+		virtual bool Initialize();
+
+		/*** 終了処理 */
+		virtual void Finalize();
 
 		/*** 更新処理 */
 		virtual void Update();
@@ -40,28 +51,29 @@ namespace Game
 		/*** チップのクリア */
 		virtual void ClearChip();
 
+		/*** インスタンスバッファの生成 */
+		virtual bool CreateInstanceBuffer();
+
+		/*** インスタンスバッファの解放 */
+		virtual void ReleaseInstanceBuffer();
+
 	private:
-		using RECTANGLE = GimmickCollision::RECTANGLE;
+		using GIMMICK_RECTANGLE = GimmickCollision::GIMMICK_RECTANGLE;
 
-		enum STATE
-		{
-			NORMAL_STATE,	//!< 通常状態.
-			GROWTH_STATE	//!< 成長状態.
-		};
+		static const D3DXVECTOR2 m_MushroomSize;	//!< キノコのサイズ.
 
-		struct MUSHROOM
-		{
-			MUSHROOM(RECTANGLE _rect, STATE _state) :
-				Rect(_rect),
-				State(_state)
-			{
-			}
+		std::vector<D3DXVECTOR2>			m_Positions;	//!< ギミックの座標.
+		std::vector<D3DXVECTOR2>			m_GimmickUV;	//!< ギミックのUV.
+		MushroomGimmickCollision*			m_pCollision;	//!< ギミックの当たり判定オブジェクト.
 
-			RECTANGLE	Rect;	//!< 当たり判定矩形.
-			STATE		State;	//!< 状態.
-		};
+		std::vector<D3DXVECTOR2>			m_Positions2;	//!< 変化後ギミックの座標.
+		std::vector<D3DXVECTOR2>			m_GimmickUV2;	//!< 変化後ギミックのUV.
+		MushroomGimmickCollision*			m_pCollision2;	//!< 変化後ギミックの当たり判定オブジェクト.	
 
-		std::vector<MUSHROOM> m_Mushroom;
+		Lib::Dx11::MultipleVertex2DUV*		m_pMultipleVertexUV;
+		Lib::Dx11::MultipleVertex2DUV*		m_pMultipleVertexUV2;
+
+		int									m_GimmickNum2;
 
 	};
 }

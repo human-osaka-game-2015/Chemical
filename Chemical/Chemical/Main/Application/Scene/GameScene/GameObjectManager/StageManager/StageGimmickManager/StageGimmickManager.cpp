@@ -13,6 +13,10 @@
 #include "StageGimmickBase\EmptyGimmick\EmptyGimmick.h"
 #include "StageGimmickBase\FireGimmick\FireGimmick.h"
 #include "StageGimmickBase\MushroomGimmick\MushroomGimmick.h"
+#include "StageGimmickBase\WoodGimmick\WoodGimmick.h"
+#include "StageGimmickBase\RecoveryGimmick\RecoveryGimmick.h"
+#include "StageGimmickBase\EnemyGenerator\EnemyGenerator.h"
+#include "StageGimmickBase\ButtonGimmick\ButtonGimmick.h"
 #include "Debugger\Debugger.h"
 
 
@@ -34,6 +38,10 @@ namespace Game
 		m_pGimmicks[NONE_GIMMICK] = new EmptyGimmick();
 		m_pGimmicks[FIRE_GIMMICK] = new FireGimmick();
 		m_pGimmicks[MUSHROOM_GIMMICK] = new MushroomGimmick();
+		m_pGimmicks[WOOD_GIMMICK]	= new WoodGimmick();
+		m_pGimmicks[RECOVERY_GIMMICK] = new RecoveryGimmick();
+		m_pGimmicks[ENEMY_GENERATOR_GIMMICK] = new EnemyGenerator();
+		m_pGimmicks[BUTTON_GIMMICK] = new ButtonGimmick();
 	}
 
 	StageGimmickManager::~StageGimmickManager()

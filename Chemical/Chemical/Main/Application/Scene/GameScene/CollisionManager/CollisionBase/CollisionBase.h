@@ -19,6 +19,12 @@ namespace Game
 	class EmptyCollision;
 	class ChipCollision;
 	class GimmickCollision;
+	class FireGimmickCollision;
+	class MushroomGimmickCollision;
+	class WoodGimmickCollision;
+	class RecoveryGimmickCollision;
+	class EnemyGeneratorCollision;
+	class ButtonGimmickCollision;
 	class PlayerCollision;
 	class ChemicalCollision;
 
@@ -49,6 +55,24 @@ namespace Game
 
 		/*** ギミックオブジェクトとの当たり判定を行う */
 		virtual void Collide(GimmickCollision* _pOther);
+
+		/*** 火ギミックオブジェクトとの当たり判定を行う */
+		virtual void Collide(FireGimmickCollision* _pOther);
+
+		/*** キノコギミックオブジェクトとの当たり判定を行う */
+		virtual void Collide(MushroomGimmickCollision* _pOther);
+
+		/*** 木ギミックオブジェクトとの当たり判定を行う */
+		virtual void Collide(WoodGimmickCollision* _pOther);
+
+		/*** 回復ギミックオブジェクトとの当たり判定を行う */
+		virtual void Collide(RecoveryGimmickCollision* _pOther);
+
+		/*** エネミー生成ギミックオブジェクトとの当たり判定を行う */
+		virtual void Collide(EnemyGeneratorCollision* _pOther);
+
+		/*** ボタンギミックオブジェクトとの当たり判定を行う */
+		virtual void Collide(ButtonGimmickCollision* _pOther);
 
 		/*** プレイヤーオブジェクトとの当たり判定を行う */
 		virtual void Collide(PlayerCollision* _pOther);

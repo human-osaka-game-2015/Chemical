@@ -10,7 +10,6 @@
 // Include
 //----------------------------------------------------------------------
 #include "MultipleObject2DBase\MultipleObject2DBase.h"
-#include "..\..\..\..\CollisionManager\CollisionBase\GimmickCollision\GimmickCollision.h"
 #include "..\..\..\..\GameDefine.h"
 
 #include <vector>
@@ -24,11 +23,10 @@ namespace Game
 	public:
 		/**
 		 * コンストラクタ 
-		 * @param[in] _id 当たり判定ID
 		 * @param[in] _textureName テクスチャ名
 		 * @param[in] _taskName タスク名
 		 */
-		StageGimmickBase(int _id, LPCTSTR _textureName, LPCTSTR _taskName);
+		StageGimmickBase(LPCTSTR _textureName, LPCTSTR _taskName);
 
 		/*** デストラクタ */
 		virtual ~StageGimmickBase();
@@ -65,8 +63,6 @@ namespace Game
 		virtual void ReleaseInstanceBuffer();
 
 	protected:
-		GimmickCollision*			m_pCollision;	//!< 当たり判定オブジェクト.
-		std::vector<D3DXVECTOR2>	m_Positions;	//!< ギミックの座標.
 		LPCTSTR						m_TextureName;	//!< 描画するテクスチャ名.
 		LPCTSTR						m_TaskName;		//!< タスクの名前.
 		int							m_GimmickNum;	//!< ギミックの個数.

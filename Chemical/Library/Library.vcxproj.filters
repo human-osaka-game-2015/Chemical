@@ -431,6 +431,7 @@
       <Filter>Library\Math\Matrix</Filter>
     </ClCompile>
     <ClCompile Include="Library\DirectX11\MultipleVertex2D\Dx11MultipleVertex2D.cpp" />
+    <ClCompile Include="Library\DirectX11\MultipleVertex2D\Dx11MultipleVertex2DUV.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Library\Debugger\Debugger.h">
@@ -632,6 +633,7 @@
       <Filter>Library\Math\Matrix</Filter>
     </ClInclude>
     <ClInclude Include="Library\DirectX11\MultipleVertex2D\Dx11MultipleVertex2D.h" />
+    <ClInclude Include="Library\DirectX11\MultipleVertex2D\Dx11MultipleVertex2DUV.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Library\DirectX11\Vertex2D\Effect\Vertex2D.fx">
@@ -640,7 +642,6 @@
     <FxCompile Include="Library\DirectX11\Font\Effect\Font.fx">
       <Filter>Library\DirectX11\Font\Effect</Filter>
     </FxCompile>
-    <FxCompile Include="Library\DirectX11\MultipleVertex2D\Effect\Vertex2D.fx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Library\SmartPointer\WeakPtr\WeakPtr_private.inl">

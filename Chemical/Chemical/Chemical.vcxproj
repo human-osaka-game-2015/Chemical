@@ -57,7 +57,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)Chemical\Main;$(SolutionDir)Library\Library;$(DXSDK_DIR)Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Chemical\Main;$(SolutionDir)Library\Library;$(DXSDK_DIR)Include;$(SolutionDir)Chemical\Main\Application\Scene\GameScene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DisableSpecificWarnings>4005</DisableSpecificWarnings>
     </ClCompile>
@@ -72,7 +72,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)Chemical\Main;$(SolutionDir)Library\Library;$(DXSDK_DIR)Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Chemical\Main;$(SolutionDir)Library\Library;$(DXSDK_DIR)Include;$(SolutionDir)Chemical\Main\Application\Scene\GameScene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DisableSpecificWarnings>4005</DisableSpecificWarnings>
     </ClCompile>
@@ -89,7 +89,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)Chemical\Main;$(SolutionDir)Library\Library;$(DXSDK_DIR)Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Chemical\Main;$(SolutionDir)Library\Library;$(DXSDK_DIR)Include;$(SolutionDir)Chemical\Main\Application\Scene\GameScene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <DisableSpecificWarnings>4005</DisableSpecificWarnings>
     </ClCompile>
@@ -102,13 +102,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmickEvent\ButtonGimmickEvent.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\ButtonGimmickCollision\ButtonGimmickCollision.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmick.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\EnemyGeneratorCollision\EnemyGeneratorCollision.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator\EnemyGeneratorEvent\EnemyGeneratorEvent.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ChemicalCollision\ChemicalCollision.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\ExplosionChemical\ExplosionChemical.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalFactory.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\ChemicalBase.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\FireGimmickCollision\FireGimmickCollision.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\InitializeFile\InitializeFile.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChipLeftSide\SoilChipLeftSide.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChipRightSide\SoilChipRightSide.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\Soil\Soil.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\FireGimmick\FireGimmick.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\GimmickCollision.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator\EnemyGenerator.cpp" />
@@ -121,11 +126,8 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip\EmptyChip.cpp" />
     <ClCompile Include="Main\Application\Application.cpp" />
     <ClCompile Include="Main\Application\GamePlayFile\GamePlayFile.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomLeftSide\SoilGroundBottomLeftSide.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomRightSide\SoilGroundBottomRightSide.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottom\SoilGroundBottom.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopLeftSide\SoilGroundTopLeftSide.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopRightSide\SoilGroundTopRightSide.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilTop\SoilTop.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilBottom\SoilBottom.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Main\Application\Scene\SelectScene\SelectGameStartEvent\SelectGameStartEvent.cpp" />
     <ClCompile Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBackGround\SelectBackGround.cpp" />
@@ -163,19 +165,27 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\StageGimmickBase.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollisionBase\RectangleCollisionBase.cpp" />
     <ClCompile Include="Main\MultipleObject2DBase\MultipleObject2DBase.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTop\SoilGroundTop.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\PlayerCollision\PlayerCollision.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\MushroomGimmick\MushroomGimmick.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WoodGimmick\WoodGimmick.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\WoodGimmickCollision\WoodGimmickCollision.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\MushroomGimmickCollision\MushroomGimmickCollision.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RecoveryGimmick\RecoveryGimmick.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision\RecoveryGimmickCollision.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmickEvent\ButtonGimmickEvent.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\ButtonGimmickCollision\ButtonGimmickCollision.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmick.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\EnemyGeneratorCollision\EnemyGeneratorCollision.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator\EnemyGeneratorEvent\EnemyGeneratorEvent.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ChemicalCollision\ChemicalCollision.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\ExplosionChemical\ExplosionChemical.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalFactory.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\ChemicalBase.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\FireGimmickCollision\FireGimmickCollision.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\InitializeFile\InitializeFile.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChipLeftSide\SoilChipLeftSide.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChipRightSide\SoilChipRightSide.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\Soil\Soil.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\FireGimmick\FireGimmick.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\GimmickCollision.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator\EnemyGenerator.h" />
@@ -186,16 +196,15 @@
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionManager.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameDataManager\GameDataManager.h" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip\SoilChip.cpp" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomLeftSide\SoilGroundBottomLeftSide.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottomRightSide\SoilGroundBottomRightSide.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundBottom\SoilGroundBottom.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopLeftSide\SoilGroundTopLeftSide.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTopRightSide\SoilGroundTopRightSide.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilTop\SoilTop.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilBottom\SoilBottom.h" />
     <ClInclude Include="Main\MultipleObject2DBase\MultipleObject2DBase.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilGroundTop\SoilGroundTop.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\MushroomGimmick\MushroomGimmick.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WoodGimmick\WoodGimmick.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\WoodGimmickCollision\WoodGimmickCollision.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\MushroomGimmickCollision\MushroomGimmickCollision.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RecoveryGimmick\RecoveryGimmick.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision\RecoveryGimmickCollision.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip\EmptyChip.h" />
@@ -255,7 +264,6 @@
     <ClInclude Include="Main\Application\Scene\SelectScene\SelectObjectManager\SelectBoard\SelectStageUpWindow\SelectButtonBase\SelectStartButton\SelectStartButton.h" />
     <ClInclude Include="Main\Application\Scene\SelectScene\SelectDefine.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\RectangleCollisionBase\RectangleCollisionBase.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilChip\SoilChip.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\PlayerCollision\PlayerCollision.h" />
   </ItemGroup>
   <ItemGroup>

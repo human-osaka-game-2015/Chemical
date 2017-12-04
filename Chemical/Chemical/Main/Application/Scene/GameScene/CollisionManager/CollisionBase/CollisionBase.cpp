@@ -48,6 +48,30 @@ namespace Game
 	{
 	}
 
+	void CollisionBase::Collide(FireGimmickCollision* _pOther)
+	{
+	}
+
+	void CollisionBase::Collide(MushroomGimmickCollision* _pOther)
+	{
+	}
+
+	void CollisionBase::Collide(WoodGimmickCollision* _pOther)
+	{
+	}
+
+	void CollisionBase::Collide(RecoveryGimmickCollision* _pOther)
+	{
+	}
+
+	void CollisionBase::Collide(EnemyGeneratorCollision* _pOther)
+	{
+	}
+
+	void CollisionBase::Collide(ButtonGimmickCollision* _pOther)
+	{
+	}
+
 	void CollisionBase::Collide(PlayerCollision* _pOther)
 	{
 	}
