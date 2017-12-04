@@ -100,6 +100,7 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Library\DirectX11\MultipleVertex2D\Dx11MultipleVertex2DUV.h" />
     <ClInclude Include="Library\Debugger\ConsoleWindow\ConsoleWindow.h" />
     <ClInclude Include="Library\Debugger\DebugTimer\DebugTimer.h" />
     <ClInclude Include="Library\DirectX11\FbxFileManager\Dx11FbxFileManager.h" />
@@ -180,6 +181,7 @@
     <None Include="Library\TaskManager\TaskManager_private.inl" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Library\DirectX11\MultipleVertex2D\Dx11MultipleVertex2DUV.cpp" />
     <ClCompile Include="Library\Debugger\ConsoleWindow\ConsoleWindow.cpp" />
     <ClCompile Include="Library\DirectX11\FbxFileManager\Dx11FbxFileManager.cpp" />
     <ClCompile Include="Library\DirectX11\FbxFileManager\FbxLoader\Dx11FbxLoader.cpp" />
@@ -248,20 +250,6 @@
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Library\DirectX11\Font\Effect\Font.fx">
-      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </EntryPointName>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
-      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </EntryPointName>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Effect</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
-      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='MyDebug|Win32'">
-      </EntryPointName>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='MyDebug|Win32'">Effect</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='MyDebug|Win32'">5.0</ShaderModel>
-    </FxCompile>
-    <FxCompile Include="Library\DirectX11\MultipleVertex2D\Effect\Vertex2D.fx">
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </EntryPointName>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>

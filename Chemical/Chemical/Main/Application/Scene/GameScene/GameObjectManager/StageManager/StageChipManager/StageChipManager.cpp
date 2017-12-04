@@ -11,15 +11,9 @@
 
 #include "Application\GamePlayFile\GamePlayFile.h"
 #include "StageChipBase\EmptyChip\EmptyChip.h"
-#include "StageChipBase\Soil\SoilChip\SoilChip.h"
-#include "StageChipBase\Soil\SoilChipLeftSide\SoilChipLeftSide.h"
-#include "StageChipBase\Soil\SoilChipRightSide\SoilChipRightSide.h"
-#include "StageChipBase\Soil\SoilGroundBottom\SoilGroundBottom.h"
-#include "StageChipBase\Soil\SoilGroundBottomLeftSide\SoilGroundBottomLeftSide.h"
-#include "StageChipBase\Soil\SoilGroundBottomRightSide\SoilGroundBottomRightSide.h"
-#include "StageChipBase\Soil\SoilGroundTop\SoilGroundTop.h"
-#include "StageChipBase\Soil\SoilGroundTopLeftSide\SoilGroundTopLeftSide.h"
-#include "StageChipBase\Soil\SoilGroundTopRightSide\SoilGroundTopRightSide.h"
+#include "StageChipBase\Soil\Soil\Soil.h"
+#include "StageChipBase\Soil\SoilBottom\SoilBottom.h"
+#include "StageChipBase\Soil\SoilTop\SoilTop.h"
 #include "Debugger\Debugger.h"
 
 
@@ -39,15 +33,9 @@ namespace Game
 		m_pCsvFile(nullptr)
 	{
 		m_pChips[NONE_CHIP] = new EmptyChip();
-		m_pChips[SOIL_CHIP] = new SoilChip();
-		m_pChips[SOIL_BOTTOM_CHIP] = new SoilGroundBottom();
-		m_pChips[SOIL_BOTTOM_LEFT_CHIP] = new SoilGroundBottomLeftSide();
-		m_pChips[SOIL_BOTTOM_RIGHT_CHIP] = new SoilGroundBottomRightSide();
-		m_pChips[SOIL_TOP_CHIP] = new SoilGroundTop();
-		m_pChips[SOIL_TOP_LEFT_CHIP] = new SoilGroundTopLeftSide();
-		m_pChips[SOIL_TOP_RIGHT_CHIP] = new SoilGroundTopRightSide();
-		m_pChips[SOIL_LEFT_CHIP] = new SoilChipLeftSide();
-		m_pChips[SOIL_RIGHT_CHIP] = new SoilChipRightSide();
+		m_pChips[SOIL_CHIP] = new Soil();
+		m_pChips[SOIL_BOTTOM_CHIP] = new SoilBottom();
+		m_pChips[SOIL_TOP_CHIP] = new SoilTop();
 	}
 
 	StageChipManager::~StageChipManager()

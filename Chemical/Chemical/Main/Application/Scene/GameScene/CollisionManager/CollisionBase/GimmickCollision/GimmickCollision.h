@@ -19,26 +19,41 @@ namespace Game
 	{
 	public:
 		/*** 矩形データ構造体 */
-		struct RECTANGLE
+		struct GIMMICK_RECTANGLE
 		{
-			RECTANGLE() :
+			GIMMICK_RECTANGLE(int _id) :
 				Left(0),
 				Top(0),
 				Right(0),
-				Bottom(0)
+				Bottom(0),
+				ID(_id)
 			{}
 
-			RECTANGLE(float _left, float _top, float _right, float _bottom) :
+			GIMMICK_RECTANGLE(float _left, float _top, float _right, float _bottom, int _id) :
 				Left(_left),
 				Top(_top),
 				Right(_right),
-				Bottom(_bottom)
+				Bottom(_bottom),
+				ID(_id)
 			{}
 
 			float Left;
 			float Top;
 			float Right;
 			float Bottom;
+			int	ID;
+		};
+
+		/*** 衝突時のデータ */
+		struct COLLISION_DATA
+		{
+			COLLISION_DATA(int _otherId, int _id) :
+				OtherId(_otherId),
+				Id(_id)
+			{}
+
+			int OtherId;	//!< 衝突した外部オブジェクトID.
+			int Id;			//!< オブジェクトID.
 		};
 
 		/**
@@ -56,33 +71,69 @@ namespace Game
 		 */
 		virtual void Dispatch(CollisionBase* _pOther);
 
-		/*** プレイヤーオブジェクトとの当たり判定を行う */
-		virtual void Collide(PlayerCollision* _pOther);
-
 		/**
 		 * 矩形の追加
 		 * @param[in] _rect 追加する矩形
+		 * @return 矩形のID
 		 */
-		void AddRect(RECTANGLE _rect) { m_Rectangles.push_back(_rect); }
+		int AddRect(GIMMICK_RECTANGLE _rect)
+		{ 
+			int ID = m_Rectangles.size();
+			m_Rectangles.push_back(_rect); 
+			return ID;
+		}
 
 		/**
 		 * 矩形の取得
-		 * @param[in] _index 矩形のindex番号
+		 * @param[in] _index 矩形のID
 		 * @return 矩形情報
 		 */
-		RECTANGLE GetRect(int _index) { return m_Rectangles[_index]; }
+		GIMMICK_RECTANGLE GetRect(int _id)
+		{
+			return m_Rectangles[_id]; 
+		}
 
 		/**
 		 * 矩形の取得
 		 * @return 矩形情報
 		 */
-		const std::vector<RECTANGLE>* GetRect() { return &m_Rectangles; }
+		std::vector<GIMMICK_RECTANGLE>* GetRect() { return &m_Rectangles; }
 
 		/*** 矩形情報のクリア */
 		void ClearRect() { m_Rectangles.clear(); }
 
-	private:
-		std::vector<RECTANGLE> m_Rectangles;	//!< 当たり判定用矩形.
+		/**
+		 * 衝突時のデータをキーにプッシュ
+		 * @param[in] _data 衝突データ
+		 */
+		void PushCollisionData(COLLISION_DATA _data)
+		{
+			m_CollisionData.push(_data);
+		}
+
+		/***
+		 * 衝突時のデータをポップ 
+		 * @return 衝突データ
+		 */
+		COLLISION_DATA PopCollisionData()
+		{
+			COLLISION_DATA Data = m_CollisionData.front();
+			m_CollisionData.pop();
+			return Data;
+		}
+
+		/**
+		 * 衝突データの中身が空かどうか
+		 * @return 空であればtrue
+		 */
+		bool IsCollisionDataEmpty()
+		{
+			return m_CollisionData.empty();
+		}
+
+	protected:
+		std::vector<GIMMICK_RECTANGLE>	m_Rectangles;	//!< 当たり判定用矩形.
+		std::queue<COLLISION_DATA>		m_CollisionData;//!< 衝突時の情報	キュー.
 
 	};
 }

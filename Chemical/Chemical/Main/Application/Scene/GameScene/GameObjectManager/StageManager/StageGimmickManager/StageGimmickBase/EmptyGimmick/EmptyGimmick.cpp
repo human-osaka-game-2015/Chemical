@@ -16,7 +16,7 @@ namespace Game
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
 	EmptyGimmick::EmptyGimmick() :
-		StageGimmickBase(EMPTY_COLLISION_ID, "", "EmptyGimmick")
+		StageGimmickBase("", "EmptyGimmick")
 	{
 	}
 

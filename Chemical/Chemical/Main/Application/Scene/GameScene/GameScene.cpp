@@ -21,6 +21,7 @@
 #include "TaskManager\TaskBase\DrawTask\DrawTask.h"
 #include "CollisionManager\CollisionManager.h"
 #include "CollisionTask\CollisionTask.h"
+#include "EventManager\EventManager.h"
 
 
 namespace Game
@@ -84,6 +85,7 @@ namespace Game
 			return false;
 		}
 
+		SINGLETON_CREATE(Lib::EventManager);
 		SINGLETON_CREATE(CollisionManager);
 		SINGLETON_CREATE(CollisionTaskManager);
 
@@ -106,6 +108,7 @@ namespace Game
 
 		SINGLETON_DELETE(CollisionTaskManager);
 		SINGLETON_DELETE(CollisionManager);
+		SINGLETON_DELETE(Lib::EventManager);
 
 		if (SINGLETON_INSTANCE(Lib::SoundManager) != nullptr)
 		{
