@@ -107,6 +107,8 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmick.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\EnemyGeneratorCollision\EnemyGeneratorCollision.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator\EnemyGeneratorEvent\EnemyGeneratorEvent.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\GaugeUIBase.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\ChemicalGauge\ChemicalGauge.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ChemicalCollision\ChemicalCollision.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\ExplosionChemical\ExplosionChemical.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalFactory.cpp" />
@@ -179,6 +181,11 @@
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmick.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\EnemyGeneratorCollision\EnemyGeneratorCollision.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator\EnemyGeneratorEvent\EnemyGeneratorEvent.h" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\PlayerGauge\PlayerGauge.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\GaugeUIBase.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\ChemicalGauge\ChemicalGauge.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ChemicalCollision\ChemicalCollision.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\ExplosionChemical\ExplosionChemical.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalFactory.h" />
@@ -205,6 +212,7 @@
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\MushroomGimmickCollision\MushroomGimmickCollision.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RecoveryGimmick\RecoveryGimmick.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision\RecoveryGimmickCollision.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\PlayerGauge\PlayerGauge.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip\EmptyChip.h" />

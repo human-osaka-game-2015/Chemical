@@ -4,6 +4,7 @@
  * @author kotani
  */
 #include "ExplosionChemical.h"
+#include "..\..\ChemicalFactory.h"
 #include "Application\Scene\GameScene\GameDefine.h"
 #include "Application\Scene\GameScene\CollisionManager\CollisionManager.h"
 #include "..\..\..\..\..\GameDataManager\GameDataManager.h"
@@ -12,6 +13,22 @@
 
 namespace Game
 {
+	namespace
+	{
+		ChemicalBase* CreateExplosionChemical(int _textureIndex, const D3DXVECTOR2& _pos, bool _isLeft)
+		{
+			ChemicalBase* pChemical = new ExplosionChemical(_textureIndex, _pos, _isLeft);
+			pChemical->Initialize();
+			return pChemical;
+		}
+
+		const bool registered = ChemicalFactory::GetInstance().
+			RegisterCreateFunc(
+			ChemicalFactory::Types(ChemicalBase::BLUE, ChemicalBase::RED),
+			CreateExplosionChemical);
+	}
+
+
 	ExplosionChemical::ExplosionChemical(int _textureIndex, const D3DXVECTOR2&  _pos, bool _isLeft) :
 		ChemicalBase(_textureIndex, _pos, _isLeft)
 	{

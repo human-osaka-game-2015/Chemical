@@ -28,7 +28,7 @@ namespace Game
 {
 	const float Player::m_Gravity = 0.8f;
 	const float Player::m_JumpPower = -25;
-	const float Player::m_MoveSpeed = 6;
+	const float Player::m_MoveSpeed = 10;
 
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
@@ -44,12 +44,19 @@ namespace Game
 	{
 		m_Size = D3DXVECTOR2(120.f, 240.f);
 		m_Pos = D3DXVECTOR2(960.f, 400.f);
+
+		m_PlayerState.Pos = m_Pos;
+		m_PlayerState.Life = 100;
+		m_PlayerState.ChemicalRemain[0]= 0;
+		m_PlayerState.ChemicalRemain[1] = 0;
+		m_PlayerState.MixChemicalRemain[0] = 0;
+		m_PlayerState.MixChemicalRemain[1] = 0;
+
 		// プレイヤーの初期位置がスクロールの左端より左の場合
 		if (m_WorldPos.x < Application::m_WindowWidth / 2)
 		{
 			m_Pos = m_WorldPos;
 		}
-
 	}
 
 	Player::~Player()
@@ -66,11 +73,10 @@ namespace Game
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->AddTask(m_pUpdateTask);
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->AddTask(m_pDrawTask);
 		m_pDrawTask->SetPriority(GAME_DRAW_CHARACTER);
-		
-		m_pChemicalFactory = new ChemicalFactory();
-		m_pChemicalFactory->Initialize();
+		ChemicalFactory::GetInstance().Initialize();
 
-		m_pPlayerUI = new PlayerUI();
+		m_pPlayerUI = new PlayerUI(&m_PlayerState);
+		m_pPlayerUI->Initialize();
 
 		m_pCollisionTask = new CollisionTask();
 		m_pCollisionTask->SetObject(this);
@@ -127,10 +133,11 @@ namespace Game
 		
 		SINGLETON_INSTANCE(CollisionTaskManager)->RemoveStartUpTask(m_pCollisionTask);
 		SafeDelete(m_pCollisionTask);
+
+		m_pPlayerUI->Finalize();
 		SafeDelete(m_pPlayerUI);
 
-		m_pChemicalFactory->Finalize();
-		SafeDelete(m_pChemicalFactory);
+		ChemicalFactory::GetInstance().Finalize();
 
 		SafeDelete(m_pCollision);
 
@@ -154,7 +161,7 @@ namespace Game
 		}
 
 		m_Pos.y += m_pCollision->GetCollisionDiff().y;
-		if (m_WorldPos.x < X)
+		if (m_WorldPos.x <= X)
 		{
 			m_Pos.x += m_pCollision->GetCollisionDiff().x;
 		}
@@ -193,6 +200,8 @@ namespace Game
 		RectAngle.Bottom = m_WorldPos.y + m_Size.y / 2;
 		m_pCollision->SetRect(RectAngle);
 		m_pCollision->ResetCollisionDiff();
+		
+		m_PlayerState.Pos = m_Pos;
 	}
 	
 	void Player::Draw()
@@ -262,9 +271,10 @@ namespace Game
 			m_Animations[m_AnimationState].pData->Update();
 			m_IsLeft = true;
 			m_WorldPos.x -= m_MoveSpeed;
-			if (m_WorldPos.x < X)
+			if (m_WorldPos.x <= X)
 			{
 				m_Pos.x -= m_MoveSpeed;
+				m_WorldPos.x = m_Pos.x;
 			}
 		}
 		else if (pKeyState[DIK_RIGHTARROW] == Lib::KeyDevice::KEY_ON)
@@ -273,9 +283,10 @@ namespace Game
 			m_Animations[m_AnimationState].pData->Update();
 			m_IsLeft = false;
 			m_WorldPos.x += m_MoveSpeed;
-			if (m_WorldPos.x < X)
+			if (m_WorldPos.x <= X)
 			{
 				m_Pos.x += m_MoveSpeed;
+				m_WorldPos.x = m_Pos.x;
 			}
 		}
 		else
@@ -287,7 +298,10 @@ namespace Game
 
 	void Player::AttackControl()
 	{
-		m_pChemicals.push_back(m_pChemicalFactory->Create(ChemicalFactory::BLUE, ChemicalFactory::RED, m_WorldPos,m_IsLeft));
+		m_pChemicals.push_back(
+			ChemicalFactory::GetInstance().
+			Create(ChemicalFactory::Types(ChemicalBase::BLUE, ChemicalBase::RED), m_WorldPos, m_IsLeft));
+
 		pControl = &Player::NormalControl;
 	}
 }

@@ -20,12 +20,19 @@ namespace Game
 	class PlayerCollision;
 	class PlayerUI;
 	class ChemicalBase;
-	class ChemicalFactory;
 
 	/*** プレイヤークラス */
 	class Player : public Object2DBase
 	{
 	public:
+		struct PlayerState
+		{
+			D3DXVECTOR2 Pos;
+			float Life;
+			float ChemicalRemain[2];
+			float MixChemicalRemain[2];
+		};
+
 		/**
 		 * コンストラクタ
 		 * @param[in] _worldPos プレイヤーのワールド座標
@@ -67,6 +74,7 @@ namespace Game
 			int					   Index;
 		};
 
+
 		using AnimationArray = std::array<AnimationData, ANIMATION_MAX>;
 		static const float m_Gravity;
 		static const float m_JumpPower;
@@ -93,6 +101,7 @@ namespace Game
 		void AttackControl();
 
 		PlayerUI*				 m_pPlayerUI;
+		PlayerState				 m_PlayerState;
 		CollisionTask*			 m_pCollisionTask;
 		PlayerCollision*	     m_pCollision;
 		D3DXVECTOR2			     m_WorldPos;
@@ -101,7 +110,6 @@ namespace Game
 		bool				     m_IsLanding; //!< 着地しているか?
 		ANIMATION_STATE		     m_AnimationState;
 		AnimationArray			 m_Animations;
-		ChemicalFactory*		 m_pChemicalFactory;
 		std::vector<ChemicalBase*> m_pChemicals;
 
 	};
