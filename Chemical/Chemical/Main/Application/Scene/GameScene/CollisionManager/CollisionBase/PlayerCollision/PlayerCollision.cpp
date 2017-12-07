@@ -42,8 +42,8 @@ namespace Game
 
 		for (const auto& itr : Rect)
 		{
-			if (itr.Left  < GetRect().Right - 10 &&
-				itr.Right > GetRect().Left + 10 &&
+			if (itr.Left  < GetRect().Right - 30 &&
+				itr.Right > GetRect().Left + 30 &&
 				itr.Top		< GetRect().Bottom &&
 				itr.Bottom	> GetRect().Top &&
 				_pOther->GetCollisionID() == SOIL_COLLISION_ID)

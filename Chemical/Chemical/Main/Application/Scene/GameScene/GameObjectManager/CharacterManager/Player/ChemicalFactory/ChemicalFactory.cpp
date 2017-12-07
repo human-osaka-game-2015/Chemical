@@ -11,15 +11,6 @@
 
 namespace Game
 {
-	ChemicalFactory::ChemicalFactory()
-	{
-	}
-
-	ChemicalFactory::~ChemicalFactory()
-	{
-	}
-
-
 	//----------------------------------------------------------------------------------------------------
 	// Public Functions
 	//----------------------------------------------------------------------------------------------------
@@ -28,26 +19,32 @@ namespace Game
 	{
 		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
 			"Resource\\GameScene\\Texture\\Explosion.png",
-			&m_TextureIndex[EXPLOSION])) return false;
+			&m_TextureIndex[Types(ChemicalBase::BLUE, ChemicalBase::RED)])) return false;
 
 		return true;
 	}
 
 	void ChemicalFactory::Finalize()
 	{
-		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->ReleaseTexture(m_TextureIndex[EXPLOSION]);
+		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->
+			ReleaseTexture(m_TextureIndex[Types(ChemicalBase::BLUE, ChemicalBase::RED)]);
 	}
 
-	ChemicalBase* ChemicalFactory::Create(Type _type1, Type _type2,const D3DXVECTOR2& _pos, bool _isLeft)
+	bool ChemicalFactory::RegisterCreateFunc(Types _types, CreateFunc _createFunc)
+	{
+		return m_CreateFuncs.insert(std::make_pair(_types, _createFunc)).second;
+	}
+
+	bool ChemicalFactory::UnRegisterCreateFunc(Types _types)
+	{
+		return m_CreateFuncs.erase(_types) == 1;
+	}
+
+	ChemicalBase* ChemicalFactory::Create(Types _types, const D3DXVECTOR2& _pos, bool _isLeft)
 	{
 		ChemicalBase* pChemicalBase = nullptr;
 
-		if ((_type1 == RED  && _type2 == BLUE) ||
-			(_type1 == BLUE && _type2 == RED) )
-		{
-			pChemicalBase = new ExplosionChemical(m_TextureIndex[EXPLOSION], _pos, _isLeft);
-			pChemicalBase->Initialize();
-		}
+		pChemicalBase = m_CreateFuncs[_types](m_TextureIndex[_types], _pos, _isLeft);
 
 		return pChemicalBase;
 	}

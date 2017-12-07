@@ -13,7 +13,8 @@ namespace Game
 	enum DRAW_PRIORITY
 	{
 		TITLE_DRAW_BACKGROUND = -1,	//!< 背景描画プライオリティ.
-		GAME_DRAW_CHARACTER = 1     //!< キャラクター描画プライオリティ.
+		GAME_DRAW_CHARACTER = 1,    //!< キャラクター描画プライオリティ.
+		GAME_DRAW_UI = 2			//!< UI描画プライオリティ
 	};
 
 	/*** イベントの識別子 */

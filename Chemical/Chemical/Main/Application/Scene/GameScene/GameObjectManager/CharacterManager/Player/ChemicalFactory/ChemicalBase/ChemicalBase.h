@@ -16,6 +16,15 @@ namespace Game
 	class ChemicalBase : public Object2DBase
 	{
 	public:
+		/*** 薬品の種類 */
+		enum Type
+		{
+			BLUE,     // 蒼
+			RED,      // 紅
+			EXPLOSION,// 爆発
+			EMPTY,	  // 空
+		};
+
 		/**
 		 * コンストラクタ
 		 * @param[in] 使用するテクスチャのインデックス
