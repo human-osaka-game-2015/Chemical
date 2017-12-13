@@ -63,6 +63,18 @@ namespace Game
 		STAGE_EIGHT,
 		STAGE_MAX
 	};
+
+	/*** 薬品の種類 */
+	enum CHEMICAL_TYPE
+	{
+		BLUE_CHEMICAL,     // 蒼
+		RED_CHEMICAL,      // 紅
+		YELLOW_CHEMICAL,   // 黃
+		EXPLOSION_CHEMICAL,// 爆発
+		MOVEUP_CHEMICAL,   // 移動速度アップ
+		RAIN_CHEMICAL,	   // 雨が降る
+		EMPTY_CHEMICAL	   // 空
+	};
 }
 
 

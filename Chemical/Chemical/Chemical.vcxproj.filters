@@ -74,9 +74,6 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Enemy\EnemyUI">
       <UniqueIdentifier>{4bdcdfb0-fdb2-4cd5-8c29-d5ec09285b9b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI">
-      <UniqueIdentifier>{765ca45d-85d9-4802-80f6-53c3e2f2d865}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager">
       <UniqueIdentifier>{e6d9a6e3-9cdb-478d-8794-33d82c808336}</UniqueIdentifier>
     </Filter>
@@ -254,13 +251,22 @@
     <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision">
       <UniqueIdentifier>{4dc2cbec-fd7d-40fe-aecf-087be67c6250}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase">
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical">
+      <UniqueIdentifier>{cdccbb85-b03a-47f5-a4ec-43452f4c45e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical">
+      <UniqueIdentifier>{03a28f28-c46b-4f13-a4af-1a3910486b1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager">
+      <UniqueIdentifier>{765ca45d-85d9-4802-80f6-53c3e2f2d865}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase">
       <UniqueIdentifier>{71181760-cff6-4471-b896-c4227d57821d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\ChemicalGauge">
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\ChemicalGauge">
       <UniqueIdentifier>{be379104-d3a5-4693-b206-c640c1c9d063}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\PlayerGauge">
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\PlayerGauge">
       <UniqueIdentifier>{caf0b72f-d99b-4d70-b61a-16ad2b2da266}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -330,9 +336,6 @@
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\CharacterManager.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\PlayerUI.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI</Filter>
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipManager.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager</Filter>
@@ -514,14 +517,23 @@
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision\RecoveryGimmickCollision.cpp">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\GaugeUIBase.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase</Filter>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical\MoveUpChemical.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\PlayerGauge\PlayerGauge.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\PlayerGauge</Filter>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemical.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\ChemicalGauge\ChemicalGauge.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\ChemicalGauge</Filter>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\ChemicalGauge\ChemicalGauge.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\ChemicalGauge</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\PlayerGauge\PlayerGauge.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\PlayerGauge</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\GaugeUIBase.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\PlayerUIManager.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -602,9 +614,6 @@
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\CharacterManager.h">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\PlayerUI.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI</Filter>
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipManager.h">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager</Filter>
@@ -782,14 +791,23 @@
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision\RecoveryGimmickCollision.h">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\GaugeUIBase.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase</Filter>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical\MoveUpChemical.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\PlayerGauge\PlayerGauge.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\PlayerGauge</Filter>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemical.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\ChemicalGauge\ChemicalGauge.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI\GaugeUIBase\ChemicalGauge</Filter>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\ChemicalGauge\ChemicalGauge.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\ChemicalGauge</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\PlayerGauge\PlayerGauge.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\PlayerGauge</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\GaugeUIBase.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\PlayerUIManager.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -17,7 +17,7 @@ namespace Game
 	class ChemicalFactory
 	{
 	public:
-		using CreateFunc = ChemicalBase* (*)(int _textureIndex, const D3DXVECTOR2& _pos, bool _isLeft);
+		using CreateFunc = ChemicalBase* (*)(int _textureIndex);
 		struct Types
 		{
 			Types(int _type1, int _type2)
@@ -29,8 +29,8 @@ namespace Game
 
 			Types(int _type)
 			{
-				Type[0] = (std::min)(_type, static_cast<int>(ChemicalBase::EMPTY));
-				Type[1] = (std::max)(_type, static_cast<int>(ChemicalBase::EMPTY));
+				Type[0] = (std::min)(_type, static_cast<int>(EMPTY_CHEMICAL));
+				Type[1] = (std::max)(_type, static_cast<int>(EMPTY_CHEMICAL));
 			}
 
 			bool operator == (const Types& _obj) const
@@ -79,6 +79,7 @@ namespace Game
 			static ChemicalFactory Instance;
 			return Instance;
 		}
+
 		/**
 		 * 初期化処理
 		 * @return 初期化に成功したらtrue 失敗したらfalse
@@ -106,11 +107,9 @@ namespace Game
 		/**
 		 * 2種類を混ぜた薬品を生成する
 		 * @param[in] _types 薬品の組み合わせ
-		 * @param[in] _pos プレイヤーの座標
-		 * @param[in] _isLeft プレイヤーの向き
 		 * @return 生成されたChemicalクラスのポインタ
 		 */
-		ChemicalBase* Create(Types _types, const D3DXVECTOR2& _pos, bool _isLeft);
+		ChemicalBase* Create(Types _types);
 
 	private:
 		/*** コンストラクタ */

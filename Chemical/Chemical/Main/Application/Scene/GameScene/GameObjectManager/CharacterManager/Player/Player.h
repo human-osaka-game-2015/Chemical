@@ -11,6 +11,8 @@
 //----------------------------------------------------------------------
 #include "Object2DBase\Object2DBase.h"
 #include "Application\Scene\GameScene\CollisionTask\CollisionTask.h"
+#include "Application\Scene\GameScene\GameDefine.h"
+
 #include <array>
 #include <vector>
 
@@ -18,7 +20,7 @@
 namespace Game
 {
 	class PlayerCollision;
-	class PlayerUI;
+	class PlayerUIManager;
 	class ChemicalBase;
 
 	/*** プレイヤークラス */
@@ -65,6 +67,9 @@ namespace Game
 		{
 			WALK_ANIMATION,
 			WAIT_ANIMATION,
+			MIXIN_ANIMATION,
+			SPRINKLE_ANIMATION,
+			DOWN_ANIMATION,
 			ANIMATION_MAX
 		};
 
@@ -74,19 +79,19 @@ namespace Game
 			int					   Index;
 		};
 
-
 		using AnimationArray = std::array<AnimationData, ANIMATION_MAX>;
 		static const float m_Gravity;
 		static const float m_JumpPower;
 		static const float m_MoveSpeed;
+		static const int   m_MixChemicalStockMax = 2;
+		// 合成する前の薬品だけなのでその分引いている.
+		static const int   m_NormalChemicalMax = EMPTY_CHEMICAL - EXPLOSION_CHEMICAL;
 
 		/**
-		 * アニメーションの読み込み関数
-		 * @param[in] _fileName アニメーションファイルの名前
-		 * @param[in] _animationState 読み込むアニメーションのenum
+		 * アニメーションの初期化
 		 * @return 読み込みに成功したらtrue 失敗したらfalse
 		 */
-		bool LoadAnimation(std::string _fileName, ANIMATION_STATE _animationState);
+		bool InitAnimatin();
 
 		/*** 重力制御更新 */
 		void GravityUpdate();
@@ -97,20 +102,32 @@ namespace Game
 		/*** 移動・待機時の制御関数 */
 		void NormalControl();
 
-		/*** 攻撃時制御関数 */
-		void AttackControl();
+		/*** 薬品をかける時の制御関数 */
+		void SprinkleControl();
 
-		PlayerUI*				 m_pPlayerUI;
-		PlayerState				 m_PlayerState;
-		CollisionTask*			 m_pCollisionTask;
-		PlayerCollision*	     m_pCollision;
-		D3DXVECTOR2			     m_WorldPos;
-		float				     m_Acceleration;
-		bool				     m_IsLeft;
-		bool				     m_IsLanding; //!< 着地しているか?
-		ANIMATION_STATE		     m_AnimationState;
-		AnimationArray			 m_Animations;
-		std::vector<ChemicalBase*> m_pChemicals;
+		/*** 混ぜた薬品を生成する制御関数 */
+		void ChemicalCreateControl();
+
+		/*** 薬品を混ぜているときの制御関数 */
+		void MixControl();
+
+		/*** 攻撃を受けた時の制御関数 */
+		void DamageControl();
+
+		PlayerUIManager* m_pPlayerUIManager;
+		PlayerState		 m_PlayerState;
+		float			 m_ChemicalStock[m_NormalChemicalMax];
+		ChemicalBase*	 m_pMixChemical[m_MixChemicalStockMax];
+		int				 m_SelectChemicalIndex[2];
+		int				 m_SelectMixChemicalIndex;
+		CollisionTask*	 m_pCollisionTask;
+		PlayerCollision* m_pCollision;
+		D3DXVECTOR2		 m_WorldPos;
+		float			 m_Acceleration;
+		bool			 m_IsLeft;
+		bool			 m_IsLanding; //!< 着地しているか?
+		ANIMATION_STATE	 m_AnimationState;
+		AnimationArray	 m_Animations;
 
 	};
 }

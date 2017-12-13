@@ -19,7 +19,7 @@ namespace Game
 	{
 		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
 			"Resource\\GameScene\\Texture\\Explosion.png",
-			&m_TextureIndex[Types(ChemicalBase::BLUE, ChemicalBase::RED)])) return false;
+			&m_TextureIndex[Types(BLUE_CHEMICAL, RED_CHEMICAL)])) return false;
 
 		return true;
 	}
@@ -27,7 +27,7 @@ namespace Game
 	void ChemicalFactory::Finalize()
 	{
 		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->
-			ReleaseTexture(m_TextureIndex[Types(ChemicalBase::BLUE, ChemicalBase::RED)]);
+			ReleaseTexture(m_TextureIndex[Types(BLUE_CHEMICAL, RED_CHEMICAL)]);
 	}
 
 	bool ChemicalFactory::RegisterCreateFunc(Types _types, CreateFunc _createFunc)
@@ -40,11 +40,11 @@ namespace Game
 		return m_CreateFuncs.erase(_types) == 1;
 	}
 
-	ChemicalBase* ChemicalFactory::Create(Types _types, const D3DXVECTOR2& _pos, bool _isLeft)
+	ChemicalBase* ChemicalFactory::Create(Types _types)
 	{
 		ChemicalBase* pChemicalBase = nullptr;
 
-		pChemicalBase = m_CreateFuncs[_types](m_TextureIndex[_types], _pos, _isLeft);
+		pChemicalBase = m_CreateFuncs[_types](m_TextureIndex[_types]);
 
 		return pChemicalBase;
 	}

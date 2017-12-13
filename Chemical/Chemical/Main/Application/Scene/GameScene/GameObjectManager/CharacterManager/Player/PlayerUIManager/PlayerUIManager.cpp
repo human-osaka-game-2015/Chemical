@@ -1,5 +1,5 @@
 ﻿/**
- * @file	PlayerUI.cpp
+ * @file	PlayerUIManager.cpp
  * @brief	プレイヤーUIクラス実装
  * @author	morimoto
  */
@@ -7,7 +7,7 @@
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "PlayerUI.h"
+#include "PlayerUIManager.h"
 #include "GaugeUIBase\PlayerGauge\PlayerGauge.h"
 #include "GaugeUIBase\ChemicalGauge\ChemicalGauge.h"
 
@@ -17,12 +17,12 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
-	PlayerUI::PlayerUI(const Player::PlayerState* _pPlayerState) :
+	PlayerUIManager::PlayerUIManager(const Player::PlayerState* _pPlayerState) :
 		m_pPlayerState(_pPlayerState)
 	{
 	}
 
-	PlayerUI::~PlayerUI()
+	PlayerUIManager::~PlayerUIManager()
 	{
 	}
 
@@ -30,7 +30,7 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Public Functions
 	//----------------------------------------------------------------------
-	bool PlayerUI::Initialize()
+	bool PlayerUIManager::Initialize()
 	{
 		m_pGaugeUIs[PLAYER_GAUGE] = new PlayerGauge(m_pPlayerState);
 		if (!m_pGaugeUIs[PLAYER_GAUGE]->Initialize()) return false;
@@ -50,20 +50,12 @@ namespace Game
 		return true;
 	}
 
-	void PlayerUI::Finalize()
+	void PlayerUIManager::Finalize()
 	{
 		for (auto pGaugeUIs : m_pGaugeUIs)
 		{
 			pGaugeUIs->Finalize();
 			SafeDelete(pGaugeUIs);
 		}
-	}
-
-	void PlayerUI::Update()
-	{
-	}
-
-	void PlayerUI::Draw()
-	{
 	}
 }
