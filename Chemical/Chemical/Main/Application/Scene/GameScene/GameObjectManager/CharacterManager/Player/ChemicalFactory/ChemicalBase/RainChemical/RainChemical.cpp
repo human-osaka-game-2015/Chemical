@@ -1,9 +1,9 @@
 ﻿/**
- * @file   ExplosionChemical.cpp
- * @brief  ExplosionChemicalクラスの実装
+ * @file   RainChemical.cpp
+ * @brief  RainChemicalクラスの実装
  * @author kotani
  */
-#include "ExplosionChemical.h"
+#include "RainChemical.h"
 #include "..\..\ChemicalFactory.h"
 #include "Application\Scene\GameScene\GameDefine.h"
 #include "Application\Scene\GameScene\CollisionManager\CollisionManager.h"
@@ -15,34 +15,32 @@ namespace Game
 {
 	namespace
 	{
-		ChemicalBase* CreateExplosionChemical(int _textureIndex)
+		ChemicalBase* CreateRainChemical(int _textureIndex)
 		{
-			ChemicalBase* pChemical = new ExplosionChemical(_textureIndex);
+			ChemicalBase* pChemical = new RainChemical(_textureIndex);
 			pChemical->Initialize();
 			return pChemical;
 		}
 
 		const bool registered = ChemicalFactory::GetInstance().
 			RegisterCreateFunc(
-			ChemicalFactory::Types(BLUE_CHEMICAL, RED_CHEMICAL),
-			CreateExplosionChemical);
+			ChemicalFactory::Types(BLUE_CHEMICAL, YELLOW_CHEMICAL),
+			CreateRainChemical);
 	}
 
 
-	ExplosionChemical::ExplosionChemical(int _textureIndex) :
-		ChemicalBase(_textureIndex, EXPLOSION_CHEMICAL)
+	RainChemical::RainChemical(int _textureIndex) :
+		ChemicalBase(_textureIndex, RAIN_CHEMICAL)
 	{
 		m_Size = D3DXVECTOR2(80,80);
 	}
 
-	ExplosionChemical::~ExplosionChemical()
+	RainChemical::~RainChemical()
 	{
 	}
 
-	void ExplosionChemical::Update()
+	void RainChemical::Update()
 	{
-		if (!m_IsSprinkle) return;
-
 		if (m_Acceleration > 23.f)
 		{
 			m_Acceleration = 23.f;

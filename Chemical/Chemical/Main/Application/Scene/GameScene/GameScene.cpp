@@ -155,6 +155,11 @@ namespace Game
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_LEFTARROW);
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_RIGHTARROW);
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_Z);
+		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_X);
+		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_A);
+		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_S);
+		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_D);
+		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_C);
 
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->Run();
 		SINGLETON_INSTANCE(CollisionManager)->Run();

@@ -9,6 +9,7 @@
 //----------------------------------------------------------------------
 #include "PlayerCollision.h"
 #include "..\ChipCollision\ChipCollision.h"
+#include "..\GimmickCollision\MushroomGimmickCollision\MushroomGimmickCollision.h"
 
 
 namespace Game
@@ -68,6 +69,50 @@ namespace Game
 				itr.Top	  < GetRect().Bottom - abs(m_CollisionDiff.y) - 1 &&
 				itr.Bottom > GetRect().Top + abs(m_CollisionDiff.y) + 1 &&
 				_pOther->GetCollisionID() == SOIL_COLLISION_ID)
+			{
+				if (itr.Right >= GetRect().Right &&
+					itr.Left >= GetRect().Left)
+				{
+					m_CollisionDiff.x = itr.Left - GetRect().Right;
+				}
+				else
+				{
+					m_CollisionDiff.x = itr.Right - GetRect().Left;
+				}
+				break;
+			}
+		}
+	}
+
+	void PlayerCollision::Collide(MushroomGimmickCollision* _pOther)
+	{
+		std::vector<GimmickCollision::GIMMICK_RECTANGLE> Rect = *_pOther->GetRect();
+		for (const auto& itr : Rect)
+		{
+			if (itr.Left  < GetRect().Right - 30 &&
+				itr.Right > GetRect().Left + 30 &&
+				itr.Top		< GetRect().Bottom &&
+				itr.Bottom	> GetRect().Top)
+			{
+				if (itr.Bottom >= GetRect().Bottom &&
+					itr.Top >= GetRect().Top)
+				{
+					m_CollisionDiff.y = itr.Top - GetRect().Bottom;
+				}
+				else
+				{
+					m_CollisionDiff.y = itr.Bottom - GetRect().Top;
+				}
+				break;
+			}
+		}
+
+		for (const auto& itr : Rect)
+		{
+			if (itr.Left  < GetRect().Right &&
+				itr.Right > GetRect().Left &&
+				itr.Top	  < GetRect().Bottom - abs(m_CollisionDiff.y) - 1 &&
+				itr.Bottom > GetRect().Top + abs(m_CollisionDiff.y) + 1)
 			{
 				if (itr.Right >= GetRect().Right &&
 					itr.Left >= GetRect().Left)

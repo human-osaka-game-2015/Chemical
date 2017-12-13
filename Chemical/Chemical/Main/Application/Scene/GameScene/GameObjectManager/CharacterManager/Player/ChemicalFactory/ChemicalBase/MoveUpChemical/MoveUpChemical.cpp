@@ -1,9 +1,9 @@
 ﻿/**
- * @file   ExplosionChemical.cpp
- * @brief  ExplosionChemicalクラスの実装
+ * @file   MoveUpChemical.cpp
+ * @brief  MoveUpChemicalクラスの実装
  * @author kotani
  */
-#include "ExplosionChemical.h"
+#include "MoveUpChemical.h"
 #include "..\..\ChemicalFactory.h"
 #include "Application\Scene\GameScene\GameDefine.h"
 #include "Application\Scene\GameScene\CollisionManager\CollisionManager.h"
@@ -15,34 +15,32 @@ namespace Game
 {
 	namespace
 	{
-		ChemicalBase* CreateExplosionChemical(int _textureIndex)
+		ChemicalBase* CreateMoveUpChemical(int _textureIndex)
 		{
-			ChemicalBase* pChemical = new ExplosionChemical(_textureIndex);
+			ChemicalBase* pChemical = new MoveUpChemical(_textureIndex);
 			pChemical->Initialize();
 			return pChemical;
 		}
 
 		const bool registered = ChemicalFactory::GetInstance().
 			RegisterCreateFunc(
-			ChemicalFactory::Types(BLUE_CHEMICAL, RED_CHEMICAL),
-			CreateExplosionChemical);
+			ChemicalFactory::Types(RED_CHEMICAL, YELLOW_CHEMICAL),
+			CreateMoveUpChemical);
 	}
 
 
-	ExplosionChemical::ExplosionChemical(int _textureIndex) :
-		ChemicalBase(_textureIndex, EXPLOSION_CHEMICAL)
+	MoveUpChemical::MoveUpChemical(int _textureIndex) :
+		ChemicalBase(_textureIndex, MOVEUP_CHEMICAL)
 	{
 		m_Size = D3DXVECTOR2(80,80);
 	}
 
-	ExplosionChemical::~ExplosionChemical()
+	MoveUpChemical::~MoveUpChemical()
 	{
 	}
 
-	void ExplosionChemical::Update()
+	void MoveUpChemical::Update()
 	{
-		if (!m_IsSprinkle) return;
-
 		if (m_Acceleration > 23.f)
 		{
 			m_Acceleration = 23.f;

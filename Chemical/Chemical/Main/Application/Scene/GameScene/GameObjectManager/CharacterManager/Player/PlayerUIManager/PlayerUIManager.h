@@ -1,15 +1,14 @@
 ﻿/**
- * @file	PlayerUI.h
+ * @file	PlayerUIManager.h
  * @brief	プレイヤーUIクラス定義
  * @author	morimoto
  */
-#ifndef GAME_PLAYERUI_H
-#define GAME_PLAYERUI_H
+#ifndef GAME_PLAYER_UI_MANAGER_H
+#define GAME_PLAYER_UI_MANAGER_H
 
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "Object2DBase\Object2DBase.h"
 #include "..\Player.h"
 
 #include <array>
@@ -19,14 +18,14 @@ namespace Game
 	class GaugeUIBase;
 
 	/*** プレイヤーUIクラス */
-	class PlayerUI : public Object2DBase
+	class PlayerUIManager
 	{
 	public:
 		/*** コンストラクタ */
-		PlayerUI(const Player::PlayerState* _pPlayerState);
+		PlayerUIManager(const Player::PlayerState* _pPlayerState);
 
 		/*** デストラクタ */
-		virtual ~PlayerUI();
+		virtual ~PlayerUIManager();
 
 		/**
 		 * 初期化処理
@@ -37,14 +36,8 @@ namespace Game
 		/*** 終了処理 */
 		virtual void Finalize();
 
-		/*** 更新処理 */
-		virtual void Update();
-
-		/*** 描画処理 */
-		virtual void Draw();
-
 	private:
-		enum Type
+		enum TYPE
 		{
 			CHEMICAL_GAUGE1,	 //!< 1つ目の薬品ゲージ
 			CHEMICAL_GAUGE2,	 //!< 2つ目の薬品ゲージ
@@ -62,4 +55,4 @@ namespace Game
 }
 
 
-#endif // !GAME_PLAYERUI_H
+#endif // !GAME_PlayerUIManager_H

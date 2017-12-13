@@ -27,8 +27,17 @@ namespace Game
 		 */
 		virtual void Dispatch(CollisionBase* _pOther);
 
-		/*** チップオブジェクトとの当たり判定を行う */
+		/**
+		 * チップオブジェクトとの当たり判定を行う 
+		 * @param[in] _pOther 他オブジェクト
+		 */
 		virtual void Collide(ChipCollision* _pOther);
+
+		/**
+		 * きのこと当たり判定を行う 
+		 * @param[in] _pOther 他オブジェクト
+		 */
+		virtual void Collide(MushroomGimmickCollision* _pOther);
 
 		/*** 当たり判定差分の初期化 */
 		void ResetCollisionDiff()

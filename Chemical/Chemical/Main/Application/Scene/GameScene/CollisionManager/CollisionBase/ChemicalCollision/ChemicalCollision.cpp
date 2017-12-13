@@ -16,8 +16,9 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
-	ChemicalCollision::ChemicalCollision() :
+	ChemicalCollision::ChemicalCollision(CHEMICAL_TYPE _chemicalType) :
 		RectangleCollisionBase(PLAYER_COLLISION_ID),
+		m_ChemicalType(_chemicalType),
 		m_IsHit(false)
 	{
 	}

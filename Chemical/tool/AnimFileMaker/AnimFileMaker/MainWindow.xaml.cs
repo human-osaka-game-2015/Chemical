@@ -97,13 +97,13 @@ namespace AnimFileMaker
             // 必要なデータが揃っているかチェック
             if(!DataCheck()) return;
 
-            int IntegrationTextureHeight = int.Parse(integrationTextureHeight.Text);
-            int IntegrationTextureWidth = int.Parse(integrationTextureWidth.Text);
-            int TextureHeight = int.Parse(textureHeight.Text);
-            int TextureWidth = int.Parse(textureWidth.Text);
-            int TextureLeft = int.Parse(textureXPos.Text);
-            int TextureTop = int.Parse(textureYPos.Text);
-            int AnimNum = int.Parse(animNum.Text);
+            float IntegrationTextureHeight = float.Parse(integrationTextureHeight.Text);
+            float IntegrationTextureWidth = float.Parse(integrationTextureWidth.Text);
+            float TextureHeight = float.Parse(textureHeight.Text);
+            float TextureWidth = float.Parse(textureWidth.Text);
+            float TextureLeft = float.Parse(textureXPos.Text);
+            float TextureTop = float.Parse(textureYPos.Text);
+            float AnimNum = float.Parse(animNum.Text);
             float AddU = (TextureWidth / IntegrationTextureWidth);
             int Digit;
             float UvPos;
@@ -112,7 +112,7 @@ namespace AnimFileMaker
             {
                 Str += i.ToString() + ",";
                 UvPos = ((TextureLeft / IntegrationTextureWidth) + (AddU * i));
-                UvPos += TextureLeft / IntegrationTextureWidth;
+                //UvPos += TextureLeft / IntegrationTextureWidth;
                 Digit = UvPos.ToString().Length;
                 if (Digit != 1) Digit -= 2;
                 Str += UvPos.ToString("f" + Digit.ToString()) + ",";
@@ -123,7 +123,7 @@ namespace AnimFileMaker
                 Str += UvPos.ToString("f" + Digit.ToString()) + ",";
 
                 UvPos = (TextureLeft / IntegrationTextureWidth) + (AddU * (i + 1));
-                UvPos += TextureLeft / IntegrationTextureWidth;
+                //UvPos += TextureLeft / IntegrationTextureWidth;
                 Digit = UvPos.ToString().Length;
                 if (Digit != 1) Digit -= 2;
                 Str += UvPos.ToString("f" + Digit.ToString()) + ",";
@@ -138,8 +138,8 @@ namespace AnimFileMaker
                textureYPos2.Text != "" &&
                animNum2.Text != "")
             {
-                int TextureLeft2 = int.Parse(textureXPos2.Text);
-                int TextureTop2 = int.Parse(textureYPos2.Text);
+                float TextureLeft2 = float.Parse(textureXPos2.Text);
+                float TextureTop2 = float.Parse(textureYPos2.Text);
                 int AnimNum2 = int.Parse(animNum2.Text);
 
                 for (int i = 0; i < AnimNum2; i++)
@@ -149,22 +149,23 @@ namespace AnimFileMaker
                     UvPos = ((TextureLeft2 / IntegrationTextureWidth) + (AddU * i));
                     Digit = UvPos.ToString().Length;
                     if (Digit != 1) Digit -= 2;
-                    Str += ((TextureLeft2 / IntegrationTextureWidth) + (AddU * i)).ToString("f" + Digit.ToString()) + ",";
+                    Str += UvPos.ToString("f" + Digit.ToString()) + ",";
 
                     UvPos = (TextureTop2 / IntegrationTextureHeight);
                     Digit = UvPos.ToString().Length;
                     if (Digit != 1) Digit -= 2;
-                    Str += (TextureTop2 / IntegrationTextureHeight).ToString("f" + Digit.ToString()) + ",";
+                    Str += UvPos.ToString("f" + Digit.ToString()) + ",";
 
                     UvPos = (TextureLeft2 / IntegrationTextureWidth) + (AddU * (i + 1));
                     Digit = UvPos.ToString().Length;
                     if (Digit != 1) Digit -= 2;
-                    Str += ((TextureLeft2 / IntegrationTextureWidth) + (AddU * (i + 1))).ToString("f" + Digit.ToString()) + ",";
+                    Str += UvPos.ToString("f" + Digit.ToString()) + ",";
 
-                    UvPos = TextureHeight / IntegrationTextureHeight;
+                    UvPos = (TextureHeight + TextureTop2) / IntegrationTextureHeight;
                     Digit = UvPos.ToString().Length;
                     if (Digit != 1) Digit -= 2;
-                    Str += (TextureHeight / IntegrationTextureHeight).ToString("f" + Digit.ToString()) + "\n";
+                    
+                    Str += UvPos.ToString("f" + Digit.ToString()) + "\n";
                 }
             }
 

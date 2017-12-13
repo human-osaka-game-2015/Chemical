@@ -7,6 +7,7 @@
 #define GAME_CHEMICAL_COLLISION_H
 
 #include "..\RectangleCollisionBase\RectangleCollisionBase.h"
+#include "Application\Scene\GameScene\GameDefine.h"
 #include <D3DX11.h>
 #include <D3DX10.h>
 
@@ -16,7 +17,7 @@ namespace Game
 	{
 	public:
 		/*** コンストラクタ */
-		ChemicalCollision();
+		ChemicalCollision(CHEMICAL_TYPE _chemicalType);
 
 		/*** デストラクタ */
 		virtual ~ChemicalCollision();
@@ -44,8 +45,19 @@ namespace Game
 		{
 			return m_IsHit;
 		}
+
+		/**
+		 * 薬品の種類を取得する
+		 * @return 薬品の種類
+		 */
+		CHEMICAL_TYPE GetChemicalType()
+		{
+			return m_ChemicalType;
+		}
+
 	private:
-		bool m_IsHit;
+		bool		  m_IsHit;
+		CHEMICAL_TYPE m_ChemicalType;
 
 	};
 }

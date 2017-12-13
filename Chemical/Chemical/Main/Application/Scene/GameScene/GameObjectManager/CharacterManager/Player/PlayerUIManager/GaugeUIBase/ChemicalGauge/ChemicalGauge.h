@@ -29,6 +29,9 @@ namespace Game
 		/*** 更新処理 */
 		virtual void Update();
 
+		/*** 描画処理 */
+		virtual void Draw();
+
 	private:
 		const float* m_pChemicaRemain;
 

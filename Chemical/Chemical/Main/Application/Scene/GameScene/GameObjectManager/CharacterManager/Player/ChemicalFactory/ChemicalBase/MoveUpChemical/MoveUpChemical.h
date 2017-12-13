@@ -1,25 +1,25 @@
 ﻿/**
- * @file   ExplosionChemical.h
- * @brief  ExplosionChemicalクラスのヘッダファイル
+ * @file   MoveUpChemical.h
+ * @brief  MoveUpChemicalクラスのヘッダファイル
  * @author kotani
  */
-#ifndef GAME_EXPLOSIONCHEMICAL_H
-#define GAME_EXPLOSIONCHEMICAL_H
+#ifndef GAME_MOVEUPCHEMICAL_H
+#define GAME_MOVEUPCHEMICAL_H
 #include "..\ChemicalBase.h"
 
 namespace Game
 {
-	class ExplosionChemical : public ChemicalBase
+	class MoveUpChemical : public ChemicalBase
 	{
 	public:
 		/**
 		 * コンストラクタ
 		 * @param[in] _textureIndex 使用するテクスチャのインデックス
 		 */
-		ExplosionChemical(int _textureIndex);
+		MoveUpChemical(int _textureIndex);
 
 		/*** デストラクタ */
-		virtual ~ExplosionChemical();
+		virtual ~MoveUpChemical();
 
 		/*** 更新処理 */
 		virtual void Update();

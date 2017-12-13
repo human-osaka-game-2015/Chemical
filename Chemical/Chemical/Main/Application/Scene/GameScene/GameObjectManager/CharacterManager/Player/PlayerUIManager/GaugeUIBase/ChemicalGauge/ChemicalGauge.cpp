@@ -64,4 +64,32 @@ namespace Game
 		m_GaugeValue = *m_pChemicaRemain;
 	}
 
+	void ChemicalGauge::Draw()
+	{
+		D3DXVECTOR2 Vertex[4];
+		Vertex[0] = D3DXVECTOR2(-m_Size.x / 2, -m_Size.y / 2);
+		Vertex[1] = D3DXVECTOR2(m_Size.x / 2, -m_Size.y / 2);
+		Vertex[2] = D3DXVECTOR2(-m_Size.x / 2, m_Size.y / 2);
+		Vertex[3] = D3DXVECTOR2(m_Size.x / 2, m_Size.y / 2);
+
+		Vertex[0].y += m_Size.y - ((m_GaugeValue / m_GaugeMaxValue) * m_Size.y);
+		Vertex[1].y = Vertex[0].y;
+
+		m_pVertex->ShaderSetup();
+		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_GaugeTextureIndex));
+		m_pVertex->SetVertexPos(Vertex);
+		m_pVertex->WriteVertexBuffer();
+		m_pVertex->WriteConstantBuffer(&m_Pos);
+
+		m_pVertex->Draw();
+
+		Vertex[0] = D3DXVECTOR2(-m_Size.x / 2, -m_Size.y / 2);
+		Vertex[1] = D3DXVECTOR2(m_Size.x / 2, -m_Size.y / 2);
+		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_FrameTextureIndex));
+		m_pVertex->SetVertexPos(Vertex);
+		m_pVertex->WriteVertexBuffer();
+		m_pVertex->WriteConstantBuffer(&m_Pos);
+
+		m_pVertex->Draw();
+	}
 }
