@@ -21,7 +21,7 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Static Private Variables
 	//----------------------------------------------------------------------
-	const D3DXVECTOR2 WoodGimmick::m_WoodGimmickSize = D3DXVECTOR2(120, 240);
+	const D3DXVECTOR2 WoodGimmick::m_WoodGimmickSize = D3DXVECTOR2(120, 120);
 
 
 	//----------------------------------------------------------------------
@@ -111,12 +111,12 @@ namespace Game
 		m_pMultipleVertexUV->DefaultDraw(&m_Positions[0], &m_GimmickUV[0], m_GimmickNum);
 	}
 
-	void WoodGimmick::AddGimmick(int _x, int _y)
+	void WoodGimmick::AddGimmick(int _x, int _y, int _data)
 	{
 		float X = StageGimmickManager::m_DefaultGimmickSize.x;
 		float Y = StageGimmickManager::m_DefaultGimmickSize.y;
 
-		D3DXVECTOR2 Pos(_x * X + X / 2, _y * Y + Y / 2 - 60);
+		D3DXVECTOR2 Pos(_x * X + X / 2, _y * Y + Y / 2);
 
 		GIMMICK_RECTANGLE Rect(
 			Pos.x - X / 2,

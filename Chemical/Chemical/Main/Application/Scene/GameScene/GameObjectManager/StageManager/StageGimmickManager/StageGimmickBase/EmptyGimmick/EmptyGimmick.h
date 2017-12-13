@@ -43,8 +43,9 @@ namespace Game
 		 * ギミックの追加 
 		 * @param[in] _x 追加するチップのx位置
 		 * @param[in] _y 追加するチップのy位置
+		 * @param[in] _data ギミックに対する付加情報
 		 */
-		virtual void AddGimmick(int _x, int _y);
+		virtual void AddGimmick(int _x, int _y, int _data);
 
 		/*** チップのクリア */
 		virtual void ClearChip();

@@ -27,6 +27,15 @@ namespace Game
 		/*** デストラクタ */
 		virtual ~ButtonGimmickEvent();
 
+		/*** IDの設定関数 */
+		void SetOpenGeteId(int _id){ m_OpenGateId = _id; }
+
+		/*** IDの取得関数 */
+		int GetOpenGateId(){ return m_OpenGateId; }
+
+	private:
+		int m_OpenGateId;	//!< イベントを受け取る門のID.
+
 	};
 }
 

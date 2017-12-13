@@ -25,6 +25,7 @@ namespace Game
 	class RecoveryGimmickCollision;
 	class EnemyGeneratorCollision;
 	class ButtonGimmickCollision;
+	class GateGimmickCollision;
 	class PlayerCollision;
 	class ChemicalCollision;
 
@@ -73,6 +74,9 @@ namespace Game
 
 		/*** ボタンギミックオブジェクトとの当たり判定を行う */
 		virtual void Collide(ButtonGimmickCollision* _pOther);
+
+		/*** 門ギミックオブジェクトとの当たり判定を行う */
+		virtual void Collide(GateGimmickCollision* _pOther);
 
 		/*** プレイヤーオブジェクトとの当たり判定を行う */
 		virtual void Collide(PlayerCollision* _pOther);

@@ -95,9 +95,9 @@ namespace Game
 		m_Time++;
 		for (auto& UV : m_GimmickUV)
 		{
-			if (m_Time % 10 == 0)
+			if (m_Time % 7 == 0)
 			{
-				if (UV.x >= 0.5f)
+				if (UV.x >= 0.75f)
 					UV = D3DXVECTOR2(0, 0);
 				else
 					UV.x += 0.25f;
@@ -107,7 +107,7 @@ namespace Game
 		while (!m_pCollision->IsCollisionDataEmpty())
 		{
 			GimmickCollision::COLLISION_DATA Data = m_pCollision->PopCollisionData();
-			if (Data.OtherId == PLAYER_COLLISION_ID)
+			if (Data.OtherId == WATER_COLLISION_ID)
 			{
 				auto pRectangles = m_pCollision->GetRect();
 				for (unsigned int i = 0; i < pRectangles->size(); i++)
@@ -133,7 +133,7 @@ namespace Game
 		m_pMultipleVertexUV->DefaultDraw(&m_Positions[0], &m_GimmickUV[0], m_GimmickNum);
 	}
 
-	void FireGimmick::AddGimmick(int _x, int _y)
+	void FireGimmick::AddGimmick(int _x, int _y, int _data)
 	{
 		float X = StageGimmickManager::m_DefaultGimmickSize.x;
 		float Y = StageGimmickManager::m_DefaultGimmickSize.y;
@@ -150,7 +150,7 @@ namespace Game
 		// 初期UV値はランダム.
 		D3DXVECTOR2 UV(0, 0);
 		srand(unsigned(time(NULL) + m_GimmickNum));
-		UV.x = rand() % 3 * 0.25f;
+		UV.x = rand() % 4 * 0.25f;
 
 		// ギミックの追加.
 		m_Positions.emplace_back(Pos);

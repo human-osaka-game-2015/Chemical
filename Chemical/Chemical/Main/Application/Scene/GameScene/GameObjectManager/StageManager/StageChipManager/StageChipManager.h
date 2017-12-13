@@ -28,6 +28,12 @@ namespace Game
 			SOIL_CHIP,				//!< 土チップ.
 			SOIL_BOTTOM_CHIP,		//!< 土の下部チップ.
 			SOIL_TOP_CHIP,			//!< 土の上部チップ.
+			ROCK_CHIP,				//!< 岩場チップ.
+			ROCK_BOTTOM_CHIP,		//!< 岩場の下部チップ.
+			ROCK_TOP_CHIP,			//!< 岩場の上部チップ.
+			LAVA_CHIP,				//!< 溶岩チップ.
+			LAVA_BOTTOM_CHIP,		//!< 溶岩の下部チップ.
+			LAVA_TOP_CHIP,			//!< 溶岩の上部チップ.
 			STAGE_CHIP_MAX			//!< ステージチップ最大値.
 		};
 

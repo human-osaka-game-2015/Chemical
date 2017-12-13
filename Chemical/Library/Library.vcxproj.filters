@@ -38,12 +38,6 @@
     <Filter Include="Library\InputDeviceManager">
       <UniqueIdentifier>{6f099fcd-1dd7-4e84-8d7d-c31698145c98}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Library\EventManagerBase">
-      <UniqueIdentifier>{99776e76-b5bc-45a4-9e2a-365d05cd1c2e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\EventManagerBase\EventBase">
-      <UniqueIdentifier>{7ec68a45-7e99-4618-9ab6-d5c870954323}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Library\SingletonBase">
       <UniqueIdentifier>{1c5dee1c-d05f-4bd1-a99f-f274fed46c65}</UniqueIdentifier>
     </Filter>
@@ -188,9 +182,6 @@
     <Filter Include="Library\DirectX11\FbxFileManager\FbxModel">
       <UniqueIdentifier>{040d6c05-40fd-42da-9b25-abb3fa8ceee4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Library\EventManagerBase\EventListenerBase">
-      <UniqueIdentifier>{e65f01cc-3869-4bce-8287-f549dc0049b6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Library\DirectX12">
       <UniqueIdentifier>{0d67f097-903b-494a-84d2-264d0c52e48e}</UniqueIdentifier>
     </Filter>
@@ -235,6 +226,15 @@
     </Filter>
     <Filter Include="Library\Math\Matrix">
       <UniqueIdentifier>{dd738579-f1b6-41aa-b943-f10c515132b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\EventManager">
+      <UniqueIdentifier>{99776e76-b5bc-45a4-9e2a-365d05cd1c2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\EventManager\EventBase">
+      <UniqueIdentifier>{7ec68a45-7e99-4618-9ab6-d5c870954323}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\EventManager\EventListener">
+      <UniqueIdentifier>{e65f01cc-3869-4bce-8287-f549dc0049b6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -311,10 +311,10 @@
       <Filter>Library\ObjectManagerBase</Filter>
     </ClCompile>
     <ClCompile Include="Library\EventManager\EventBase\EventBase.cpp">
-      <Filter>Library\EventManagerBase\EventBase</Filter>
+      <Filter>Library\EventManager\EventBase</Filter>
     </ClCompile>
     <ClCompile Include="Library\EventManager\EventManager.cpp">
-      <Filter>Library\EventManagerBase</Filter>
+      <Filter>Library\EventManager</Filter>
     </ClCompile>
     <ClCompile Include="Library\SoundDevice\SoundDevice.cpp">
       <Filter>Library\DirectX11\SoundDevice</Filter>
@@ -380,7 +380,7 @@
       <Filter>Library\Math</Filter>
     </ClCompile>
     <ClCompile Include="Library\EventManager\EventListener\EventListener.cpp">
-      <Filter>Library\EventManagerBase\EventListenerBase</Filter>
+      <Filter>Library\EventManager\EventListener</Filter>
     </ClCompile>
     <ClCompile Include="Library\DirectX11\FbxFileManager\Dx11FbxFileManager.cpp">
       <Filter>Library\DirectX11\FbxFileManager</Filter>
@@ -513,10 +513,10 @@
       <Filter>Library\ObjectManagerBase</Filter>
     </ClInclude>
     <ClInclude Include="Library\EventManager\EventBase\EventBase.h">
-      <Filter>Library\EventManagerBase\EventBase</Filter>
+      <Filter>Library\EventManager\EventBase</Filter>
     </ClInclude>
     <ClInclude Include="Library\EventManager\EventManager.h">
-      <Filter>Library\EventManagerBase</Filter>
+      <Filter>Library\EventManager</Filter>
     </ClInclude>
     <ClInclude Include="Library\SoundDevice\SoundDevice.h">
       <Filter>Library\DirectX11\SoundDevice</Filter>
@@ -579,7 +579,7 @@
       <Filter>Library\Math</Filter>
     </ClInclude>
     <ClInclude Include="Library\EventManager\EventListener\EventListener.h">
-      <Filter>Library\EventManagerBase\EventListenerBase</Filter>
+      <Filter>Library\EventManager\EventListener</Filter>
     </ClInclude>
     <ClInclude Include="Library\DirectX11\FbxFileManager\Dx11FbxFileManager.h">
       <Filter>Library\DirectX11\FbxFileManager</Filter>

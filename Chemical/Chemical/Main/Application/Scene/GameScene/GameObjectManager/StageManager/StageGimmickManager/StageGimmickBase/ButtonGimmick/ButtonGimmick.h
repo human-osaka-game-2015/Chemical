@@ -46,8 +46,9 @@ namespace Game
 		 * ギミックの追加 
 		 * @param[in] _x 追加するチップのx位置
 		 * @param[in] _y 追加するチップのy位置
+		 * @param[in] _data ギミックに対する付加情報
 		 */
-		virtual void AddGimmick(int _x, int _y);
+		virtual void AddGimmick(int _x, int _y, int _data);
 
 		/*** チップのクリア */
 		virtual void ClearChip();
@@ -63,6 +64,7 @@ namespace Game
 
 		std::vector<D3DXVECTOR2>			m_Positions;	//!< ギミックの座標.
 		std::vector<D3DXVECTOR2>			m_GimmickUV;	//!< ギミックのUV.
+		std::vector<int>					m_GimmickData;	//!< ギミックの付加情報.
 		ButtonGimmickCollision*				m_pCollision;	//!< ギミックの当たり判定オブジェクト.
 		Lib::Dx11::MultipleVertex2DUV*		m_pMultipleVertexUV;
 

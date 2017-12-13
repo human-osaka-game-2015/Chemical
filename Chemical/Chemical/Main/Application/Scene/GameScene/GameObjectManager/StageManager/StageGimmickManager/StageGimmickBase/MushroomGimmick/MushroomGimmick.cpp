@@ -125,7 +125,7 @@ namespace Game
 		while (!m_pCollision->IsCollisionDataEmpty())
 		{
 			GimmickCollision::COLLISION_DATA Data = m_pCollision->PopCollisionData();
-			if (Data.OtherId == PLAYER_COLLISION_ID)
+			if (Data.OtherId == WATER_COLLISION_ID)
 			{
 				auto pRectangles = m_pCollision->GetRect();
 				for (unsigned int i = 0; i < pRectangles->size(); i++)
@@ -133,7 +133,9 @@ namespace Game
 					if ((*pRectangles)[i].ID == Data.Id)
 					{
 						///@todo テストのためプレイヤーと衝突したら状態を変える.
-						m_pCollision2->AddRect((*pRectangles)[i]);
+						GIMMICK_RECTANGLE Rectangle = (*pRectangles)[i];
+						Rectangle.Top -= m_MushroomSize.y / 2;
+						m_pCollision2->AddRect(Rectangle);
 						m_Positions2.push_back(m_Positions[i]);
 						m_GimmickUV2.push_back(m_GimmickUV[i]);
 						m_GimmickNum2++;
@@ -170,7 +172,7 @@ namespace Game
 		}
 	}
 
-	void MushroomGimmick::AddGimmick(int _x, int _y)
+	void MushroomGimmick::AddGimmick(int _x, int _y, int _data)
 	{
 		float X = StageGimmickManager::m_DefaultGimmickSize.x;
 		float Y = StageGimmickManager::m_DefaultGimmickSize.y;

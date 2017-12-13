@@ -3,6 +3,8 @@
  * @brief	土クラス定義
  * @author	morimoto
  */
+#ifndef GAME_SOIL_H
+#define GAME_SOIL_H
 
 //----------------------------------------------------------------------
 // Include
@@ -12,7 +14,7 @@
 
 namespace Game
 {
-	/*** 土の左端クラス */
+	/*** 土クラス */
 	class Soil : public StageChipBase
 	{
 	public:
@@ -39,3 +41,5 @@ namespace Game
 	};
 }
 
+
+#endif // !GAME_SOIL_H

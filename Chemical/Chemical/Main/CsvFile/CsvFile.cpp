@@ -38,7 +38,7 @@ CsvFile::~CsvFile()
 //----------------------------------------------------------------------
 void CsvFile::Load(LPCTSTR _pFilePath)
 {
-	std::vector<BYTE> MapData;
+	std::vector<int> MapData;
 
 	FILE* pFile = nullptr;
 	fopen_s(&pFile, _pFilePath, "r");
@@ -66,6 +66,7 @@ void CsvFile::Load(LPCTSTR _pFilePath)
 		{
 			char* pContext;
 			char* pNext = strtok_s(Buffer, ",\n", &pContext);
+			int A = *pNext;
 			while (pNext)
 			{
 				MapData.push_back(atoi(pNext));

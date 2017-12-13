@@ -17,6 +17,9 @@
 #include "StageGimmickBase\RecoveryGimmick\RecoveryGimmick.h"
 #include "StageGimmickBase\EnemyGenerator\EnemyGenerator.h"
 #include "StageGimmickBase\ButtonGimmick\ButtonGimmick.h"
+#include "StageGimmickBase\GateGimmick\GateGimmick.h"
+#include "StageGimmickBase\WarpGimmick\WarpEntranceGimmick\WarpEntranceGimmick.h"
+#include "StageGimmickBase\WarpGimmick\WarpExitGimmick\WarpExitGimmick.h"
 #include "Debugger\Debugger.h"
 
 
@@ -42,6 +45,9 @@ namespace Game
 		m_pGimmicks[RECOVERY_GIMMICK] = new RecoveryGimmick();
 		m_pGimmicks[ENEMY_GENERATOR_GIMMICK] = new EnemyGenerator();
 		m_pGimmicks[BUTTON_GIMMICK] = new ButtonGimmick();
+		m_pGimmicks[GATE_GIMMICK] = new GateGimmick();
+		m_pGimmicks[WARP_ENTRANCE_GIMMICK] = new WarpEntranceGimmick();
+		m_pGimmicks[WARP_EXIT_GIMMICK] = new WarpExitGimmick();
 	}
 
 	StageGimmickManager::~StageGimmickManager()
@@ -82,8 +88,11 @@ namespace Game
 		{
 			for (int j = 0; j < RowNumNum; j++)
 			{
+				int Gimmick = m_pCsvFile->GetData()[i][j] / 100;
+				int GimmickData = m_pCsvFile->GetData()[i][j] % 100;
+
 				// 取得したデータに対応したチップを追加.
-				m_pGimmicks[m_pCsvFile->GetData()[i][j]]->AddGimmick(j, i);
+				m_pGimmicks[Gimmick]->AddGimmick(j, i, GimmickData);
 			}
 		}
 

@@ -13,6 +13,7 @@
 #include "..\..\..\..\GameDataManager\GameDataManager.h"
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
 #include "CollisionManager\CollisionManager.h"
+#include "EventManager\EventManager.h"
 
 
 namespace Game
@@ -52,7 +53,7 @@ namespace Game
 			return false;
 		}
 
-		if (!m_pMultipleVertexUV->CreateVertexBuffer(&m_Size, &D3DXVECTOR2(0, 0), &D3DXVECTOR2(1, 1)))
+		if (!m_pMultipleVertexUV->CreateVertexBuffer(&m_Size, &D3DXVECTOR2(0, 0), &D3DXVECTOR2(0.5, 1)))
 		{
 			OutputErrorLog("頂点バッファの生成に失敗しました");
 			return false;
@@ -99,13 +100,15 @@ namespace Game
 				auto pRectangles = m_pCollision->GetRect();
 				for (unsigned int i = 0; i < pRectangles->size(); i++)
 				{
-					if ((*pRectangles)[i].ID == Data.Id)
+					if ((*pRectangles)[i].ID == Data.Id &&
+						(*(m_GimmickUV.begin() + i)) != D3DXVECTOR2(0.5f, 0.0f))
 					{
-						// 現状はプレイヤーと衝突したら消えるようにしてる.
-						pRectangles->erase(pRectangles->begin() + i);	// 当たり判定から削除.
-						m_Positions.erase(m_Positions.begin() + i);
-						m_GimmickUV.erase(m_GimmickUV.begin() + i);
-						m_GimmickNum--;
+						///@todo スイッチ切り替え.
+						m_pEvent->SetOpenGeteId(*(m_GimmickData.begin() + i));
+						SINGLETON_INSTANCE(Lib::EventManager)->SendEventMessage(
+							m_pEvent, 
+							TO_STRING(BUTTON_EVENT_GROUP));
+						(*(m_GimmickUV.begin() + i)) = D3DXVECTOR2(0.5f, 0.0f);
 						break;
 					}
 				}
@@ -120,7 +123,7 @@ namespace Game
 		m_pMultipleVertexUV->DefaultDraw(&m_Positions[0], &m_GimmickUV[0], m_GimmickNum);
 	}
 
-	void ButtonGimmick::AddGimmick(int _x, int _y)
+	void ButtonGimmick::AddGimmick(int _x, int _y, int _data)
 	{
 		float X = StageGimmickManager::m_DefaultGimmickSize.x;
 		float Y = StageGimmickManager::m_DefaultGimmickSize.y;
@@ -137,6 +140,7 @@ namespace Game
 		// ギミックの追加.
 		m_Positions.emplace_back(Pos);
 		m_GimmickUV.emplace_back(D3DXVECTOR2(0.0f, 0.0f));
+		m_GimmickData.emplace_back(_data);
 		m_pCollision->AddRect(Rect);
 		m_GimmickNum++;
 	}
@@ -144,6 +148,7 @@ namespace Game
 	void ButtonGimmick::ClearChip()
 	{
 		m_pCollision->ClearRect();
+		m_GimmickData.clear();
 		m_GimmickUV.clear();
 		m_Positions.clear();
 	}
