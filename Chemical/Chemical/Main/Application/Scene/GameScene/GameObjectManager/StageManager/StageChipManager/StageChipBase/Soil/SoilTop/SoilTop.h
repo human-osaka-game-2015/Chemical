@@ -3,6 +3,8 @@
  * @brief	土の上部クラス定義
  * @author	morimoto
  */
+#ifndef GAME_SOILTOP_H
+#define GAME_SOILTOP_H
 
 //----------------------------------------------------------------------
 // Include
@@ -29,3 +31,5 @@ namespace Game
 	};
 }
 
+
+#endif // !GAME_SOILTOP_H

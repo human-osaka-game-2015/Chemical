@@ -14,6 +14,12 @@
 #include "StageChipBase\Soil\Soil\Soil.h"
 #include "StageChipBase\Soil\SoilBottom\SoilBottom.h"
 #include "StageChipBase\Soil\SoilTop\SoilTop.h"
+#include "StageChipBase\Rock\Rock\Rock.h"
+#include "StageChipBase\Rock\RockBottom\RockBottom.h"
+#include "StageChipBase\Rock\RockTop\RockTop.h"
+#include "StageChipBase\Lava\Lava\Lava.h"
+#include "StageChipBase\Lava\LavaBottom\LavaBottom.h"
+#include "StageChipBase\Lava\LavaTop\LavaTop.h"
 #include "Debugger\Debugger.h"
 
 
@@ -36,6 +42,12 @@ namespace Game
 		m_pChips[SOIL_CHIP] = new Soil();
 		m_pChips[SOIL_BOTTOM_CHIP] = new SoilBottom();
 		m_pChips[SOIL_TOP_CHIP] = new SoilTop();
+		m_pChips[ROCK_CHIP] = new Rock();
+		m_pChips[ROCK_BOTTOM_CHIP] = new RockBottom();
+		m_pChips[ROCK_TOP_CHIP] = new RockTop();
+		m_pChips[LAVA_CHIP] = new Lava();
+		m_pChips[LAVA_BOTTOM_CHIP] = new LavaBottom();
+		m_pChips[LAVA_TOP_CHIP] = new LavaTop();
 	}
 
 	StageChipManager::~StageChipManager()

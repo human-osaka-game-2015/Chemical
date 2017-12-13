@@ -45,7 +45,7 @@ namespace Game
 	{
 	}
 
-	void EmptyGimmick::AddGimmick(int _x, int _y)
+	void EmptyGimmick::AddGimmick(int _x, int _y, int _data)
 	{
 	}
 

@@ -145,7 +145,7 @@ namespace Game
 		m_pMultipleVertexUV->DefaultDraw(&m_Positions[0], &m_GimmickUV[0], m_GimmickNum);
 	}
 
-	void RecoveryGimmick::AddGimmick(int _x, int _y)
+	void RecoveryGimmick::AddGimmick(int _x, int _y, int _data)
 	{
 		float X = StageGimmickManager::m_DefaultGimmickSize.x;
 		float Y = StageGimmickManager::m_DefaultGimmickSize.y;

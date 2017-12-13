@@ -73,7 +73,7 @@ namespace Game
 	{
 	}
 
-	void StageGimmickBase::AddGimmick(int _x, int _y)
+	void StageGimmickBase::AddGimmick(int _x, int _y, int _data)
 	{
 	}
 

@@ -112,7 +112,7 @@ namespace Game
 					m_pEvent->SetEventPos(m_Positions[i]);
 					SINGLETON_INSTANCE(Lib::EventManager)->SendEventMessage(
 						m_pEvent,
-						TO_STRING(GIMMICK_EVENT_GROUP));
+						TO_STRING(ENEMYGENERATOR_EVENT_GROUP));
 
 					m_Times[i] = 0;
 				}
@@ -127,7 +127,7 @@ namespace Game
 		m_pMultipleVertexUV->DefaultDraw(&m_Positions[0], &m_GimmickUV[0], m_GimmickNum);
 	}
 
-	void EnemyGenerator::AddGimmick(int _x, int _y)
+	void EnemyGenerator::AddGimmick(int _x, int _y, int _data)
 	{
 		float X = StageGimmickManager::m_DefaultGimmickSize.x;
 		float Y = StageGimmickManager::m_DefaultGimmickSize.y;

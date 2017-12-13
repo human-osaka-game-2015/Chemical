@@ -33,9 +33,6 @@ namespace Game
 		 */
 		virtual void Dispatch(CollisionBase* _pOther);
 
-		/*** プレイヤーオブジェクトとの当たり判定を行う */
-		virtual void Collide(PlayerCollision* _pOther);
-
 	};
 }
 

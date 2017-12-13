@@ -269,6 +269,69 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\PlayerGauge">
       <UniqueIdentifier>{caf0b72f-d99b-4d70-b61a-16ad2b2da266}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Lava">
+      <UniqueIdentifier>{8e45f5c8-6153-4d52-a99b-52641563374d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Lava\Lava">
+      <UniqueIdentifier>{c804f8e3-566f-411d-9d04-60b0873b2905}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Lava\LavaTop">
+      <UniqueIdentifier>{ebfbf904-c1bc-4f17-badf-87735d15d27b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Lava\LavaBottom">
+      <UniqueIdentifier>{49eb7350-eecf-43cf-82bb-371a6b94221f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Rock">
+      <UniqueIdentifier>{233c7f8f-80d1-4958-87a7-940aeddee8e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Rock\Rock">
+      <UniqueIdentifier>{5d9ed1f9-6845-44d4-adb0-27d55774d6b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Rock\RockTop">
+      <UniqueIdentifier>{b05e1911-9a08-4238-9cd1-2d5f8c4b2ee3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Rock\RockBottom">
+      <UniqueIdentifier>{9c5f8adc-7145-44c1-8e31-aba2ddf974b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Sea">
+      <UniqueIdentifier>{14c22960-f70b-4314-9dff-862063dcac29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Sea\Sea">
+      <UniqueIdentifier>{fd5c0ab1-d157-4cfb-ab70-67cf6ae98a3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Sea\SeaTop">
+      <UniqueIdentifier>{1e3b4303-cebf-4870-9b96-583aae79ea38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Sea\SeaBottom">
+      <UniqueIdentifier>{8d3534ba-52b7-4146-853f-2c17b1861bd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick">
+      <UniqueIdentifier>{5684de83-865a-489e-b7b9-2c0defbea406}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick">
+      <UniqueIdentifier>{3426656d-52e9-44d2-aa31-bf6c2bf6d415}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEntranceGimmick">
+      <UniqueIdentifier>{34390f65-a919-4ab8-b218-e52342a399b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpExitGimmick">
+      <UniqueIdentifier>{17084fcf-a3da-4eea-b29e-bf6f7a0ae33b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEntranceEvent">
+      <UniqueIdentifier>{9f937d35-bba1-420a-95cc-15aa0a79bd8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpExitEvent">
+      <UniqueIdentifier>{5f2bf24d-5c36-4030-8da0-9c5a2d06bde6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEvent">
+      <UniqueIdentifier>{4ec62917-5c42-4de9-b5cf-11a8ce7390a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\GateGimmickCollision">
+      <UniqueIdentifier>{160dd1a6-a486-4238-bb4c-85205579e889}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\WarpGimmickCollision">
+      <UniqueIdentifier>{d4a1baa2-1ebe-44b5-bbff-81bf75359932}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -526,14 +589,65 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\ChemicalGauge\ChemicalGauge.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\ChemicalGauge</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\PlayerGauge\PlayerGauge.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\PlayerGauge</Filter>
-    </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\GaugeUIBase.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase</Filter>
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\PlayerUIManager.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\PlayerGauge\PlayerGauge.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\PlayerGauge</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Lava\Lava\Lava.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Lava\Lava</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Lava\LavaBottom\LavaBottom.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Lava\LavaBottom</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Lava\LavaTop\LavaTop.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Lava\LavaTop</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Rock\Rock\Rock.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Rock\Rock</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Rock\RockBottom\RockBottom.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Rock\RockBottom</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Rock\RockTop\RockTop.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Rock\RockTop</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Sea\Sea\Sea.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Sea\Sea</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Sea\SeaBottom\SeaBottom.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Sea\SeaBottom</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Sea\SeaTop\SeaTop.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Sea\SeaTop</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmick.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEntranceGimmick\WarpEntranceGimmick.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEntranceGimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpExitGimmick\WarpExitGimmick.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpExitGimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpExitEvent\WarpExitEvent.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpExitEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEvent\WarpEvent.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEntranceEvent\WarpEntranceEvent.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEntranceEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\GateGimmickCollision\GateGimmickCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\GateGimmickCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\WarpGimmickCollision\WarpGimmickCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\WarpGimmickCollision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -797,17 +911,68 @@
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemical.h">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical</Filter>
     </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\PlayerGauge\PlayerGauge.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\PlayerGauge</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\PlayerUIManager.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager</Filter>
+    </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\ChemicalGauge\ChemicalGauge.h">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\ChemicalGauge</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\PlayerGauge\PlayerGauge.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\PlayerGauge</Filter>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Lava\Lava\Lava.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Lava\Lava</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Lava\LavaBottom\LavaBottom.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Lava\LavaBottom</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Lava\LavaTop\LavaTop.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Lava\LavaTop</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Rock\Rock\Rock.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Rock\Rock</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Rock\RockBottom\RockBottom.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Rock\RockBottom</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Rock\RockTop\RockTop.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Rock\RockTop</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Sea\Sea\Sea.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Sea\Sea</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Sea\SeaBottom\SeaBottom.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Sea\SeaBottom</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Sea\SeaTop\SeaTop.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Sea\SeaTop</Filter>
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\GaugeUIBase.h">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\PlayerUIManager.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager</Filter>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmick.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpExitEvent\WarpExitEvent.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpExitEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEntranceGimmick\WarpEntranceGimmick.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEntranceGimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpExitGimmick\WarpExitGimmick.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpExitGimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEvent\WarpEvent.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEntranceEvent\WarpEntranceEvent.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEntranceEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\GateGimmickCollision\GateGimmickCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\GateGimmickCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\WarpGimmickCollision\WarpGimmickCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\WarpGimmickCollision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

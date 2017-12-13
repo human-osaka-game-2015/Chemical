@@ -3,6 +3,8 @@
  * @brief	土の下部クラス定義
  * @author	morimoto
  */
+#ifndef GAME_SOILBOTTOM_H
+#define GAME_SOILBOTTOM_H
 
 //----------------------------------------------------------------------
 // Include
@@ -39,3 +41,5 @@ namespace Game
 	};
 }
 
+
+#endif // !GAME_SOILBOTTOM_H
