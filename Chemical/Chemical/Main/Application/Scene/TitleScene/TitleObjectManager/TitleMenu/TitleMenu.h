@@ -19,20 +19,14 @@ namespace Title
 	class MenuButtonBase;
 	class MenuCursorEvent;
 
-	/**
-	 * タイトルメニュークラス
-	 */
+	/*** タイトルメニュークラス */
 	class Menu : public Lib::ObjectBase
 	{
 	public:
-		/**
-		 * コンストラクタ
-		 */
+		/*** コンストラクタ */
 		Menu();
 
-		/**
-		 * デストラクタ
-		 */
+		/*** デストラクタ */
 		virtual ~Menu();
 
 		/**
@@ -41,46 +35,33 @@ namespace Title
 		 */
 		virtual bool Initialize();
 
-		/**
-		 * 終了処理
-		 */
+		/*** 終了処理 */
 		virtual void Finalize();
 
-		/**
-		 * オブジェクトの更新
-		 */
+		/*** オブジェクトの更新 */
 		virtual void Update();
 
-		/**
-		 * オブジェクトの描画
-		 */
+		/*** オブジェクトの描画 */
 		virtual void Draw();
 
 	private:
 		static const int m_ItemMax = 4;	//!< メニューのアイテム数.
 
-		/**
-		 * メニューを上方向に移動
-		 */
+		/*** メニューを上方向に移動 */
 		void MenuUp();
 		
-		/**
-		 * メニューを下方向に移動
-		 */
+		/*** メニューを下方向に移動 */
 		void MenuDown();
 
+		Lib::UpdateTask* m_pUpdateTask;				//!< 更新タスクオブジェクト.
+		Lib::Draw2DTask* m_pDrawTask;				//!< 描画タスクオブジェクト.
+		MenuCursorEvent* m_pEvent;					//!< メニュー内UIイベント.
+		MenuButtonBase* m_pMenuButtons[m_ItemMax];	//!< メニュー内ボタン.
 
-		Lib::UpdateTask* m_pUpdateTask;
-		Lib::Draw2DTask* m_pDrawTask;
-		MenuCursorEvent* m_pEvent;
-
-		MenuButtonBase* m_pMenuButtons[m_ItemMax];
-
-		bool m_IsMenuUp;
-		bool m_IsUp;
-		bool m_IsMenuDown;
-		bool m_IsDown;
-
+		bool m_IsMenuUp;		//!< メニュー上昇フラグ.
+		bool m_IsUp;			//!< 上昇フラグ.
+		bool m_IsMenuDown;		//!< メニュー降下フラグ.
+		bool m_IsDown;			//!< 降下フラグ.
 
 	};
 }

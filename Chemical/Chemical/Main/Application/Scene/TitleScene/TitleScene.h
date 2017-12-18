@@ -19,9 +19,7 @@
 
 namespace Title
 {
-	/**
-	 * タイトルシーンクラス
-	 */
+	/*** タイトルシーンクラス */
 	class TitleScene : public Lib::SceneBase
 	{
 	public:
@@ -31,9 +29,7 @@ namespace Title
 		 */
 		TitleScene(int _sceneId);
 
-		/**
-		 * デストラクタ
-		 */
+		/*** デストラクタ */
 		virtual ~TitleScene();
 
 		/**
@@ -42,14 +38,10 @@ namespace Title
 		 */
 		virtual bool Initialize();
 
-		/**
-		 * 終了処理
-		 */
+		/*** 終了処理 */
 		virtual void Finalize();
 
-		/**
-		 * シーンの更新
-		 */
+		/*** シーンの更新 */
 		virtual void Update();
 
 	private:
@@ -58,7 +50,6 @@ namespace Title
 		 * @param[in] _pEvent 受信したイベント
 		 */
 		void ReciveEvent(Lib::EventBase* _pEvent);
-
 
 		Lib::ObjectManagerBase*					m_pObjectManager;
 		std::function<void(Lib::EventBase*)>	m_pReciveFunc;
