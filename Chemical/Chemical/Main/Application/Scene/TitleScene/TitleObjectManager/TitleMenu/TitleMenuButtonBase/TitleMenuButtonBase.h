@@ -15,20 +15,14 @@
 
 namespace Title
 {
-	/**
-	 * タイトルメニューアイテム既定クラス
-	 */
+	/*** タイトルメニューアイテム既定クラス */
 	class MenuButtonBase : public Object2DBase
 	{
 	public:
-		/**
-		 * コンストラクタ
-		 */
+		/*** コンストラクタ */
 		MenuButtonBase();
 
-		/**
-		 * デストラクタ
-		 */
+		/*** デストラクタ */
 		virtual ~MenuButtonBase();
 
 		/**
@@ -37,19 +31,13 @@ namespace Title
 		 */
 		virtual bool Initialize();
 
-		/**
-		 * 終了処理
-		 */
+		/*** 終了処理 */
 		virtual void Finalize();
 
-		/**
-		 * オブジェクトの更新
-		 */
+		/*** オブジェクトの更新 */
 		virtual void Update();
 
-		/**
-		 * オブジェクトの描画
-		 */
+		/*** オブジェクトの描画 */
 		virtual void Draw();
 
 		/**

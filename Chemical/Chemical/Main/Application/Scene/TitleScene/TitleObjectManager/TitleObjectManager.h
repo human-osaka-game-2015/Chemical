@@ -14,20 +14,14 @@
 
 namespace Title
 {
-	/**
-	 * タイトルオブジェクトクラス
-	 */
+	/*** タイトルオブジェクトクラス */
 	class ObjectManager : public Lib::ObjectManagerBase
 	{
 	public:
-		/**
-		 * コンストラクタ
-		 */
+		/*** コンストラクタ */
 		ObjectManager();
 
-		/**
-		 * デストラクタ
-		 */
+		/*** デストラクタ */
 		virtual ~ObjectManager();
 
 		/**
@@ -36,9 +30,7 @@ namespace Title
 		 */
 		virtual bool Initialize();
 
-		/**
-		 * 終了処理
-		 */
+		/*** 終了処理 */
 		virtual void Finalize();
 
 	};

@@ -42,9 +42,9 @@ namespace Title
 
 	Menu::~Menu()
 	{
-		for (int i = m_ItemMax - 1; i >= 0; i--)
+		for (auto& Button : m_pMenuButtons)
 		{
-			SafeDelete(m_pMenuButtons[i]);
+			SafeDelete(Button);
 		}
 
 		SafeDelete(m_pEvent);
@@ -64,9 +64,9 @@ namespace Title
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->AddTask(m_pUpdateTask);
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->AddTask(m_pDrawTask);
 
-		for (int i = 0; i < m_ItemMax; i++)
+		for (auto& Button : m_pMenuButtons)
 		{
-			if (!m_pMenuButtons[i]->Initialize())	return false;
+			if (!Button->Initialize())	return false;
 		}
 
 		return true;
@@ -74,9 +74,9 @@ namespace Title
 
 	void Menu::Finalize()
 	{
-		for (int i = 0; i < m_ItemMax; i++)
+		for (auto& Button : m_pMenuButtons)
 		{
-			m_pMenuButtons[i]->Finalize();
+			Button->Finalize();
 		}
 
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->RemoveTask(m_pDrawTask);
@@ -117,9 +117,9 @@ namespace Title
 
 	void Menu::Draw()
 	{
-		for (int i = 0; i < m_ItemMax; i++)
+		for (auto& Button : m_pMenuButtons)
 		{
-			m_pMenuButtons[i]->Draw();
+			Button->Draw();
 		}
 	}
 

@@ -56,10 +56,10 @@ namespace Select
 		SelectManager() :
 			m_SelectStageNumber(1),
 			m_SelectState(STAGE_BOARD_SELECT)
-		{};
+		{}
 
 		/*** デストラクタ */
-		virtual ~SelectManager(){};
+		virtual ~SelectManager(){}
 
 		std::vector<SelectBoard*> m_pSelectBoardList;
 		int						  m_SelectStageNumber; //!< 選択されているステージの番号
