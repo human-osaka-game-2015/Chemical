@@ -14,22 +14,24 @@ namespace Game
 	{
 	public:
 		/*** コンストラクタ */
-		GaugeUIBase();
+		GaugeUIBase() :
+			m_GaugeMaxValue(100.f),
+			m_GaugeValue(100.f){}
 
 		/*** デストラクタ */
-		virtual ~GaugeUIBase();
+		virtual ~GaugeUIBase(){}
 		
 		/**
 		 * 初期化処理
 		 * @return 初期化に成功したらtrue 失敗したらfalse
 		 */
-		virtual bool Initialize();
+		virtual bool Initialize() = 0;
 
 		/*** 終了処理 */
-		virtual void Finalize();
+		virtual void Finalize(){}
 
 		/*** 更新処理 */
-		virtual void Update();
+		virtual void Update(){}
 
 		/*** 描画処理 */
 		virtual void Draw();

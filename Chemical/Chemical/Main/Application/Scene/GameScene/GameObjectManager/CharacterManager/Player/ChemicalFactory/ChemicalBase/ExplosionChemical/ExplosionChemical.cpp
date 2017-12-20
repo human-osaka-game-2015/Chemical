@@ -24,13 +24,16 @@ namespace Game
 
 		const bool registered = ChemicalFactory::GetInstance().
 			RegisterCreateFunc(
-			ChemicalFactory::Types(BLUE_CHEMICAL, RED_CHEMICAL),
+			ChemicalFactory::Types(CHEMICAL_BLUE, CHEMICAL_RED),
 			CreateExplosionChemical);
 	}
 
+	//----------------------------------------------------------------------
+	// Constructor	Destructor
+	//----------------------------------------------------------------------
 
 	ExplosionChemical::ExplosionChemical(int _textureIndex) :
-		ChemicalBase(_textureIndex, EXPLOSION_CHEMICAL)
+		ChemicalBase(_textureIndex, CHEMICAL_EXPLOSION)
 	{
 		m_Size = D3DXVECTOR2(80,80);
 	}
@@ -39,33 +42,24 @@ namespace Game
 	{
 	}
 
+
+	//----------------------------------------------------------------------
+	// Public Functions
+	//----------------------------------------------------------------------
+
 	void ExplosionChemical::Update()
 	{
-		if (!m_IsSprinkle) return;
+		m_Acceleration = (std::min)(m_Acceleration, 23.f);
 
-		if (m_Acceleration > 23.f)
-		{
-			m_Acceleration = 23.f;
-		}
+		m_Pos.x += m_IsLeft ? -10.f : 10.f;
+		m_Pos.y += (m_Acceleration += m_Gravity);
 
-		if (m_IsLeft)
-		{
-			m_Pos.x -= 10.f;
-		}
-		else
-		{
-			m_Pos.x += 10.f;
-		}
-
-		m_Acceleration += m_Gravity;
-		m_Pos.y += m_Acceleration;
-
-		RectangleCollisionBase::RECTANGLE RectAngle;
-		RectAngle.Left = m_Pos.x - m_Size.x / 2;
-		RectAngle.Top = m_Pos.y - m_Size.y / 2;
-		RectAngle.Right = m_Pos.x + m_Size.x / 2;
-		RectAngle.Bottom = m_Pos.y + m_Size.y / 2;
-		m_pCollision->SetRect(RectAngle);
+		RectangleCollisionBase::RECTANGLE Rectangle(
+			m_Pos.x - m_Size.x / 2,
+			m_Pos.y - m_Size.y / 2,
+			m_Pos.x + m_Size.x / 2,
+			m_Pos.y + m_Size.y / 2);
+		m_pCollision->SetRect(Rectangle);
 		m_pCollision->ResetCollision();
 	}
 }

@@ -1,9 +1,9 @@
 ﻿/**
- * @file   RainChemical.cpp
- * @brief  RainChemicalクラスの実装
+ * @file   SpeedUpChemical.cpp
+ * @brief  SpeedUpChemicalクラスの実装
  * @author kotani
  */
-#include "RainChemical.h"
+#include "SpeedUpChemical.h"
 #include "..\..\ChemicalFactory.h"
 #include "Application\Scene\GameScene\GameDefine.h"
 #include "Application\Scene\GameScene\CollisionManager\CollisionManager.h"
@@ -15,17 +15,17 @@ namespace Game
 {
 	namespace
 	{
-		ChemicalBase* CreateRainChemical(int _textureIndex)
+		ChemicalBase* CreateMoveUpChemical(int _textureIndex)
 		{
-			ChemicalBase* pChemical = new RainChemical(_textureIndex);
+			ChemicalBase* pChemical = new SpeedUpChemical(_textureIndex);
 			pChemical->Initialize();
 			return pChemical;
 		}
 
 		const bool registered = ChemicalFactory::GetInstance().
 			RegisterCreateFunc(
-			ChemicalFactory::Types(CHEMICAL_BLUE, CHEMICAL_YELLOW),
-			CreateRainChemical);
+			ChemicalFactory::Types(CHEMICAL_RED, CHEMICAL_YELLOW),
+			CreateMoveUpChemical);
 	}
 
 
@@ -33,13 +33,13 @@ namespace Game
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
 
-	RainChemical::RainChemical(int _textureIndex) :
-		ChemicalBase(_textureIndex, CHEMICAL_RAIN)
+	SpeedUpChemical::SpeedUpChemical(int _textureIndex) :
+		ChemicalBase(_textureIndex, CHEMICAL_MOVEUP)
 	{
 		m_Size = D3DXVECTOR2(80,80);
 	}
 
-	RainChemical::~RainChemical()
+	SpeedUpChemical::~SpeedUpChemical()
 	{
 	}
 
@@ -48,7 +48,7 @@ namespace Game
 	// Public Functions
 	//----------------------------------------------------------------------
 
-	void RainChemical::Update()
+	void SpeedUpChemical::Update()
 	{
 		m_Acceleration = (std::min)(m_Acceleration, 23.f);
 

@@ -14,6 +14,10 @@ namespace Game
 	class PlayerGauge : public GaugeUIBase
 	{
 	public:
+		/**
+		 * コンストラクタ
+		 * @param[in] _pPlayerState プレイヤーの状態
+		 */
 		PlayerGauge(const Player::PlayerState* _pPlayerState);
 		~PlayerGauge();
 

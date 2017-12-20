@@ -254,9 +254,6 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical">
       <UniqueIdentifier>{cdccbb85-b03a-47f5-a4ec-43452f4c45e7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical">
-      <UniqueIdentifier>{03a28f28-c46b-4f13-a4af-1a3910486b1c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager">
       <UniqueIdentifier>{765ca45d-85d9-4802-80f6-53c3e2f2d865}</UniqueIdentifier>
     </Filter>
@@ -331,6 +328,9 @@
     </Filter>
     <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\WarpGimmickCollision">
       <UniqueIdentifier>{d4a1baa2-1ebe-44b5-bbff-81bf75359932}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical">
+      <UniqueIdentifier>{03a28f28-c46b-4f13-a4af-1a3910486b1c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -580,9 +580,6 @@
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision\RecoveryGimmickCollision.cpp">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical\MoveUpChemical.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical</Filter>
-    </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemical.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical</Filter>
     </ClCompile>
@@ -648,6 +645,9 @@
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\WarpGimmickCollision\WarpGimmickCollision.cpp">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\WarpGimmickCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemical.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -905,9 +905,6 @@
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision\RecoveryGimmickCollision.h">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical\MoveUpChemical.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical</Filter>
-    </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemical.h">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical</Filter>
     </ClInclude>
@@ -973,6 +970,9 @@
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\WarpGimmickCollision\WarpGimmickCollision.h">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\WarpGimmickCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemical.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

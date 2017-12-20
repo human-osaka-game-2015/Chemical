@@ -102,7 +102,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical\MoveUpChemical.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemical.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemical.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\GateGimmickCollision\GateGimmickCollision.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\PlayerGauge\PlayerGauge.cpp" />
@@ -196,7 +196,7 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpExitEvent\WarpExitEvent.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical\MoveUpChemical.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemical.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemical.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\GateGimmickCollision\GateGimmickCollision.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager\GaugeUIBase\ChemicalGauge\ChemicalGauge.h" />

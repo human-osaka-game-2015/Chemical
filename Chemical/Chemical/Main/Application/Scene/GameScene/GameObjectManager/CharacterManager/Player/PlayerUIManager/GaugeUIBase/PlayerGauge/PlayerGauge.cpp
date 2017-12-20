@@ -15,6 +15,10 @@
 
 namespace Game
 {
+	//----------------------------------------------------------------------
+	// Constructor	Destructor
+	//----------------------------------------------------------------------
+
 	PlayerGauge::PlayerGauge(const Player::PlayerState* _pPlayerState) :
 		m_pPlayerState(_pPlayerState)
 	{
@@ -29,6 +33,11 @@ namespace Game
 	PlayerGauge::~PlayerGauge()
 	{
 	}
+
+
+	//----------------------------------------------------------------------
+	// Public Functions
+	//----------------------------------------------------------------------
 
 	bool PlayerGauge::Initialize()
 	{

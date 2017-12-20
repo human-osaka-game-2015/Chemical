@@ -17,9 +17,17 @@ namespace Game
 		/*** 薬品の等級 */
 		enum GRADE
 		{
-			NORMAL,
-			GOOD,
-			GREAT
+			GRADE_NORMAL,
+			GRADE_GOOD,
+			GRADE_GREAT,
+			GRADE_BAD
+		};
+
+		struct ChemicalData
+		{
+			CHEMICAL_TYPE Type;
+			GRADE		  Grade;
+			float		  Remain;
 		};
 
 		/**
@@ -42,9 +50,6 @@ namespace Game
 		/*** 終了処理 */
 		virtual void Finalize();
 
-		/*** オブジェクトの当たり判定更新 */
-		virtual void CollisionTaskUpdate();
-
 		/*** オブジェクトの更新前処理 */
 		virtual void UpdateStartUp();
 
@@ -62,6 +67,11 @@ namespace Game
 		void Sprinkle(const D3DXVECTOR2& _pos, bool _isLeft);
 
 		/**
+		 * 薬品を振る
+		 */
+		void Shake();
+
+		/**
 		 * 当たっているかのflagを取得する 
 		 * @return 当たっていたらtrue 当たっていなかったらfalse 
 		 */
@@ -71,12 +81,12 @@ namespace Game
 		}
 
 		/**
-		 * 薬品の残量を取得する
-		 * @return 残量
+		 * 薬品の情報を取得する
+		 * @return 種類
 		 */
-		float GetRemain()
+		ChemicalData GetChemicalData()
 		{
-			return m_Remain;
+			return m_ChemicalData;
 		}
 
 	protected:
@@ -89,12 +99,13 @@ namespace Game
 		CollisionTask*			m_pCollisionTask;
 		ChemicalCollision*		m_pCollision;
 		float					m_Acceleration;
+		ChemicalData			m_ChemicalData; //!< 薬品の情報
+		bool					m_IsSprinkle;		//!< かけられているか?
+		bool					m_IsLeft;			//!< 左に向いているか?
 
-		CHEMICAL_TYPE			m_ChemicalType; //!< 薬品の種類
-		GRADE					m_Grade;		//!< 薬品の等級
-		float					m_Remain;		//!< 薬品の現在量
-		bool					m_IsSprinkle;   //!< かけられているか?
-		bool					m_IsLeft;		//!< 左に向いているか?
+	private:
+		int m_ShakeFrame; //!< 何フレーム振っているか?
+
 		
 	};
 }

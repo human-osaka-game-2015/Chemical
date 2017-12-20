@@ -29,8 +29,8 @@ namespace Game
 
 			Types(int _type)
 			{
-				Type[0] = (std::min)(_type, static_cast<int>(EMPTY_CHEMICAL));
-				Type[1] = (std::max)(_type, static_cast<int>(EMPTY_CHEMICAL));
+				Type[0] = (std::min)(_type, static_cast<int>(CHEMICAL_EMPTY));
+				Type[1] = (std::max)(_type, static_cast<int>(CHEMICAL_EMPTY));
 			}
 
 			bool operator == (const Types& _obj) const

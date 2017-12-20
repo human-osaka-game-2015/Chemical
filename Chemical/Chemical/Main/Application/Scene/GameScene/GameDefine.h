@@ -80,13 +80,13 @@ namespace Game
 	/*** 薬品の種類 */
 	enum CHEMICAL_TYPE
 	{
-		BLUE_CHEMICAL,     // 蒼
-		RED_CHEMICAL,      // 紅
-		YELLOW_CHEMICAL,   // 黃
-		EXPLOSION_CHEMICAL,// 爆発
-		MOVEUP_CHEMICAL,   // 移動速度アップ
-		RAIN_CHEMICAL,	   // 雨が降る
-		EMPTY_CHEMICAL	   // 空
+		CHEMICAL_BLUE,     // 蒼
+		CHEMICAL_RED,      // 紅
+		CHEMICAL_YELLOW,   // 黃
+		CHEMICAL_EXPLOSION,// 爆発
+		CHEMICAL_MOVEUP,   // 移動速度アップ
+		CHEMICAL_RAIN,	   // 雨が降る
+		CHEMICAL_EMPTY     // 空
 	};
 }
 

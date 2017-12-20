@@ -12,6 +12,7 @@
 #include "Object2DBase\Object2DBase.h"
 #include "Application\Scene\GameScene\CollisionTask\CollisionTask.h"
 #include "Application\Scene\GameScene\GameDefine.h"
+#include "ChemicalFactory\ChemicalBase\ChemicalBase.h"
 
 #include <array>
 #include <vector>
@@ -21,7 +22,6 @@ namespace Game
 {
 	class PlayerCollision;
 	class PlayerUIManager;
-	class ChemicalBase;
 
 	/*** プレイヤークラス */
 	class Player : public Object2DBase
@@ -31,8 +31,8 @@ namespace Game
 		{
 			D3DXVECTOR2 Pos;
 			float Life;
-			float ChemicalRemain[2];
-			float MixChemicalRemain[2];
+			ChemicalBase::ChemicalData ChemicalData[2];
+			ChemicalBase::ChemicalData MixChemicalData[2];
 		};
 
 		/**
@@ -42,7 +42,7 @@ namespace Game
 		Player(const D3DXVECTOR2& _worldPos);
 
 		/*** デストラクタ */
-		virtual ~Player();
+		virtual ~Player(){}
 
 		/**
 		 * 初期化処理
@@ -80,12 +80,14 @@ namespace Game
 		};
 
 		using AnimationArray = std::array<AnimationData, ANIMATION_MAX>;
+		using ANIMATION_PATTERN = Lib::Dx11::IAnimation::ANIMATION_PATTERN;
+
 		static const float m_Gravity;
 		static const float m_JumpPower;
 		static const float m_MoveSpeed;
 		static const int   m_MixChemicalStockMax = 2;
 		// 合成する前の薬品だけなのでその分引いている.
-		static const int   m_NormalChemicalMax = EMPTY_CHEMICAL - EXPLOSION_CHEMICAL;
+		static const int   m_NormalChemicalMax = CHEMICAL_EMPTY - CHEMICAL_EXPLOSION;
 
 		/**
 		 * アニメーションの初期化
@@ -93,10 +95,27 @@ namespace Game
 		 */
 		bool InitAnimatin();
 
+		/**
+		 * アニメーションファイルの読み込み
+		 * @param[in] _fileName ファイル名
+		 * @param[in] _animationState アニメーションのenum
+		 * @param[in] _animationPattern 再生パターン
+		 * @param[in] _animationSpeed 再生スピード
+		 * @return 読み込みに成功したらtrue 失敗したらfalse
+		 */
+		bool LoadAnimationFile(
+			std::string		  _fileName,
+			ANIMATION_STATE   _animationState,
+			ANIMATION_PATTERN _animationPattern,
+			float			  _animationSpeed);
+
 		/*** 重力制御更新 */
 		void GravityUpdate();
 
-		/*** 制御用関数ポインタ */
+		/**
+		 * 制御用関数ポインタ 
+		 * 下が使用している関数
+		 */
 		void (Player::*pControl)();
 
 		/*** 移動・待機時の制御関数 */
@@ -108,8 +127,8 @@ namespace Game
 		/*** 混ぜた薬品を生成する制御関数 */
 		void ChemicalCreateControl();
 
-		/*** 薬品を混ぜているときの制御関数 */
-		void MixControl();
+		/*** 薬品を振っているときの制御関数 */
+		void ShakeControl();
 
 		/*** 攻撃を受けた時の制御関数 */
 		void DamageControl();

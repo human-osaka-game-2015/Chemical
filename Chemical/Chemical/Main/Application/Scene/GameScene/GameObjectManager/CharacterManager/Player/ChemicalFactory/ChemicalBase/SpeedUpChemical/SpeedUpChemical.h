@@ -1,6 +1,6 @@
 ﻿/**
- * @file   MoveUpChemical.h
- * @brief  MoveUpChemicalクラスのヘッダファイル
+ * @file   SpeedUpChemical.h
+ * @brief  SpeedUpChemicalクラスのヘッダファイル
  * @author kotani
  */
 #ifndef GAME_MOVEUPCHEMICAL_H
@@ -9,17 +9,17 @@
 
 namespace Game
 {
-	class MoveUpChemical : public ChemicalBase
+	class SpeedUpChemical : public ChemicalBase
 	{
 	public:
 		/**
 		 * コンストラクタ
 		 * @param[in] _textureIndex 使用するテクスチャのインデックス
 		 */
-		MoveUpChemical(int _textureIndex);
+		SpeedUpChemical(int _textureIndex);
 
 		/*** デストラクタ */
-		virtual ~MoveUpChemical();
+		virtual ~SpeedUpChemical();
 
 		/*** 更新処理 */
 		virtual void Update();
