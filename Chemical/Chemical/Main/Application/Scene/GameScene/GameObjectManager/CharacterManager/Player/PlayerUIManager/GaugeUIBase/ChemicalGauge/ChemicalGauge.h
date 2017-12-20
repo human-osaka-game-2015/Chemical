@@ -14,7 +14,14 @@ namespace Game
 	class ChemicalGauge : public GaugeUIBase
 	{
 	public:
-		ChemicalGauge(const D3DXVECTOR2* _pos, const float* _chemicalRemain);
+		/**
+		 * コンストラクタ
+		 * @param[in] _pPos 表示位置
+		 * @param[in] _pChemicalData 薬品の情報
+		 */
+		ChemicalGauge(const D3DXVECTOR2* _pPos, const ChemicalBase::ChemicalData* _pChemicalData);
+
+		/*** デストラクタ */
 		virtual ~ChemicalGauge();
 
 		/**
@@ -33,7 +40,7 @@ namespace Game
 		virtual void Draw();
 
 	private:
-		const float* m_pChemicaRemain;
+		const ChemicalBase::ChemicalData* m_pChemicaData;
 
 	};
 }

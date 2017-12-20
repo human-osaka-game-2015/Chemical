@@ -51,13 +51,10 @@ namespace Game
 			{
 				if (itr.Bottom >= GetRect().Bottom &&
 					itr.Top >= GetRect().Top)
-				{
 					m_CollisionDiff.y = itr.Top - GetRect().Bottom;
-				}
 				else
-				{
 					m_CollisionDiff.y = itr.Bottom - GetRect().Top;
-				}
+
 				break;
 			}
 		}
@@ -72,13 +69,10 @@ namespace Game
 			{
 				if (itr.Right >= GetRect().Right &&
 					itr.Left >= GetRect().Left)
-				{
 					m_CollisionDiff.x = itr.Left - GetRect().Right;
-				}
 				else
-				{
 					m_CollisionDiff.x = itr.Right - GetRect().Left;
-				}
+
 				break;
 			}
 		}
@@ -96,13 +90,10 @@ namespace Game
 			{
 				if (itr.Bottom >= GetRect().Bottom &&
 					itr.Top >= GetRect().Top)
-				{
 					m_CollisionDiff.y = itr.Top - GetRect().Bottom;
-				}
 				else
-				{
 					m_CollisionDiff.y = itr.Bottom - GetRect().Top;
-				}
+
 				break;
 			}
 		}
@@ -116,13 +107,10 @@ namespace Game
 			{
 				if (itr.Right >= GetRect().Right &&
 					itr.Left >= GetRect().Left)
-				{
 					m_CollisionDiff.x = itr.Left - GetRect().Right;
-				}
 				else
-				{
 					m_CollisionDiff.x = itr.Right - GetRect().Left;
-				}
+
 				break;
 			}
 		}

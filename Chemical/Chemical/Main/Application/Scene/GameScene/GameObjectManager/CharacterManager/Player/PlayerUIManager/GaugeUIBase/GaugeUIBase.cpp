@@ -10,36 +10,17 @@
 
 namespace Game
 {
-	GaugeUIBase::GaugeUIBase() :
-		m_GaugeMaxValue(100.f),
-		m_GaugeValue(100.f)
-	{
-	}
-
-	GaugeUIBase::~GaugeUIBase()
-	{
-	}
-
-	bool GaugeUIBase::Initialize()
-	{
-		return true;
-	}
-
-	void GaugeUIBase::Finalize()
-	{
-	}
-
-	void GaugeUIBase::Update()
-	{
-	}
+	//----------------------------------------------------------------------
+	// Public Functions
+	//----------------------------------------------------------------------
 
 	void GaugeUIBase::Draw()
 	{
 		D3DXVECTOR2 Vertex[4];
 		Vertex[0] = D3DXVECTOR2(-m_Size.x / 2, -m_Size.y / 2);
-		Vertex[1] = D3DXVECTOR2(m_Size.x / 2, -m_Size.y / 2);
-		Vertex[2] = D3DXVECTOR2(-m_Size.x / 2, m_Size.y / 2);
-		Vertex[3] = D3DXVECTOR2(m_Size.x / 2, m_Size.y / 2);
+		Vertex[1] = D3DXVECTOR2( m_Size.x / 2, -m_Size.y / 2);
+		Vertex[2] = D3DXVECTOR2(-m_Size.x / 2,  m_Size.y / 2);
+		Vertex[3] = D3DXVECTOR2( m_Size.x / 2,  m_Size.y / 2);
 
 		Vertex[1].x -= m_Size.x - ((m_GaugeValue / m_GaugeMaxValue) * m_Size.x);
 		Vertex[3].x = Vertex[1].x;

@@ -11,15 +11,15 @@
 
 namespace Game
 {
-	//----------------------------------------------------------------------------------------------------
+	//----------------------------------------------------------------------
 	// Public Functions
-	//----------------------------------------------------------------------------------------------------
+	//----------------------------------------------------------------------
 
 	bool ChemicalFactory::Initialize()
 	{
 		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
 			"Resource\\GameScene\\Texture\\Explosion.png",
-			&m_TextureIndex[Types(BLUE_CHEMICAL, RED_CHEMICAL)])) return false;
+			&m_TextureIndex[Types(CHEMICAL_BLUE, CHEMICAL_RED)])) return false;
 
 		return true;
 	}
@@ -27,7 +27,7 @@ namespace Game
 	void ChemicalFactory::Finalize()
 	{
 		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->
-			ReleaseTexture(m_TextureIndex[Types(BLUE_CHEMICAL, RED_CHEMICAL)]);
+			ReleaseTexture(m_TextureIndex[Types(CHEMICAL_BLUE, CHEMICAL_RED)]);
 	}
 
 	bool ChemicalFactory::RegisterCreateFunc(Types _types, CreateFunc _createFunc)

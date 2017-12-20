@@ -14,17 +14,26 @@
 
 namespace Game
 {
-	ChemicalGauge::ChemicalGauge(const D3DXVECTOR2* _pos, const float* _chemicalRemain) :
-		m_pChemicaRemain(_chemicalRemain)
+	//----------------------------------------------------------------------
+	// Constructor	Destructor
+	//----------------------------------------------------------------------
+
+	ChemicalGauge::ChemicalGauge(const D3DXVECTOR2* _pPos, const ChemicalBase::ChemicalData* _pChemicalData) :
+		m_pChemicaData(_pChemicalData)
 	{
 		m_GaugeMaxValue = 100;
 		m_Size = D3DXVECTOR2(60.f, 180.f);
-		m_Pos = *_pos;
+		m_Pos = *_pPos;
 	}
 
 	ChemicalGauge::~ChemicalGauge()
 	{
 	}
+
+
+	//----------------------------------------------------------------------
+	// Public Functions
+	//----------------------------------------------------------------------
 
 	bool ChemicalGauge::Initialize()
 	{
@@ -61,7 +70,7 @@ namespace Game
 
 	void ChemicalGauge::Update()
 	{
-		m_GaugeValue = *m_pChemicaRemain;
+		m_GaugeValue = m_pChemicaData->Remain;
 	}
 
 	void ChemicalGauge::Draw()

@@ -26,9 +26,14 @@
 
 namespace Game
 {
+	//----------------------------------------------------------------------
+	// Static Private Variables
+	//----------------------------------------------------------------------
+
 	const float Player::m_Gravity = 0.8f;
 	const float Player::m_JumpPower = -25;
 	const float Player::m_MoveSpeed = 10;
+
 
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
@@ -56,20 +61,13 @@ namespace Game
 
 		m_PlayerState.Pos = m_Pos;
 		m_PlayerState.Life = 100;
-		m_PlayerState.ChemicalRemain[0] = m_ChemicalStock[0];
-		m_PlayerState.ChemicalRemain[1] = m_ChemicalStock[1];
-		m_PlayerState.MixChemicalRemain[0] = 0;
-		m_PlayerState.MixChemicalRemain[1] = 0;
+		m_PlayerState.ChemicalData[0].Remain = m_ChemicalStock[0];
+		m_PlayerState.ChemicalData[1].Remain = m_ChemicalStock[1];
+		m_PlayerState.MixChemicalData[0].Remain = 0;
+		m_PlayerState.MixChemicalData[1].Remain = 0;
 
-		// プレイヤーの初期位置がスクロールの左端より左の場合
-		if (m_WorldPos.x < Application::m_WindowWidth / 2)
-		{
-			m_Pos = m_WorldPos;
-		}
-	}
-
-	Player::~Player()
-	{
+		// プレイヤーの初期位置がスクロールの左端より左の場合.
+		if (m_WorldPos.x < Application::m_WindowWidth / 2) m_Pos = m_WorldPos;
 	}
 
 
@@ -121,6 +119,7 @@ namespace Game
 				SafeDelete(m_pMixChemical[i]);
 			}
 		}
+
 		SINGLETON_INSTANCE(CollisionManager)->RemoveCollision(m_pCollision);
 
 		ReleaseVertex2D();
@@ -161,42 +160,37 @@ namespace Game
 			m_IsLanding = false;
 		}
 
+		// 当たった分の差分を足す.
 		m_Pos.y += m_pCollision->GetCollisionDiff().y;
-		if (m_WorldPos.x <= X)
-		{
-			m_Pos.x += m_pCollision->GetCollisionDiff().x;
-		}
-		m_WorldPos += m_pCollision->GetCollisionDiff() ;
+		if (m_WorldPos.x <= X) m_Pos.x += m_pCollision->GetCollisionDiff().x;
+		m_WorldPos += m_pCollision->GetCollisionDiff();
 	}
 
 	void Player::Update()
 	{
-		m_PlayerState.ChemicalRemain[0] = m_ChemicalStock[m_SelectChemicalIndex[0]];
-		m_PlayerState.ChemicalRemain[1] = m_ChemicalStock[m_SelectChemicalIndex[1]];
+		m_PlayerState.ChemicalData[0].Remain = m_ChemicalStock[m_SelectChemicalIndex[0]];
+		m_PlayerState.ChemicalData[1].Remain = m_ChemicalStock[m_SelectChemicalIndex[1]];
 
 		for (int i = 0; i < 2; i++)
 		{
 			if (m_pMixChemical[i] != nullptr)
-			{
-				m_PlayerState.MixChemicalRemain[i] = m_pMixChemical[i]->GetRemain();
-			}
+				m_PlayerState.MixChemicalData[i] = m_pMixChemical[i]->GetChemicalData();
 			else
-			{
-				m_PlayerState.MixChemicalRemain[i] = 0;
-			}
+				m_PlayerState.MixChemicalData[i].Remain = 0;
 		}
 
 		(this->*pControl)();
+
 		GravityUpdate();
 
 		m_pVertex->SetAnimation(m_Animations[m_AnimationState].pData);
 
-		RectangleCollisionBase::RECTANGLE RectAngle;
-		RectAngle.Left = m_WorldPos.x - m_Size.x / 2;
-		RectAngle.Top = m_WorldPos.y - m_Size.y / 2;
-		RectAngle.Right = m_WorldPos.x + m_Size.x / 2;
-		RectAngle.Bottom = m_WorldPos.y + m_Size.y / 2;
-		m_pCollision->SetRect(RectAngle);
+		RectangleCollisionBase::RECTANGLE Rectangle;
+		Rectangle.Left = m_WorldPos.x - m_Size.x / 2;
+		Rectangle.Top = m_WorldPos.y - m_Size.y / 2;
+		Rectangle.Right = m_WorldPos.x + m_Size.x / 2;
+		Rectangle.Bottom = m_WorldPos.y + m_Size.y / 2;
+		m_pCollision->SetRect(Rectangle);
 		m_pCollision->ResetCollisionDiff();
 		
 		m_PlayerState.Pos = m_Pos;
@@ -216,56 +210,54 @@ namespace Game
 	// Private Functions
 	//----------------------------------------------------------------------
 
+	bool Player::LoadAnimationFile(
+		std::string		  _fileName,
+		ANIMATION_STATE   _animationState,
+		ANIMATION_PATTERN _animationPattern,
+		float			  _animationSpeed)
+	{
+		std::string FileName = "Resource\\GameScene\\Animation\\" + _fileName;
+		if (!SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->LoadAnimation(
+			FileName.c_str(),
+			&m_Animations[_animationState].Index)) return false;
+
+		m_Animations[_animationState].pData =
+			SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->GetAnimation(m_Animations[_animationState].Index);
+
+		m_Animations[_animationState].pData->
+			SetAnimationPattern(_animationPattern);
+		m_Animations[_animationState].pData->SetAnimationSpeed(_animationSpeed);
+
+		return true;
+	}
+
 	bool Player::InitAnimatin()
 	{
-		using ANIMATION_PATTERN = Lib::Dx11::IAnimation::ANIMATION_PATTERN;
-
-		auto LoadAnimation = [this](
-			std::string		  _fileName,
-			ANIMATION_STATE   _animationState,
-			ANIMATION_PATTERN _animationPattern,
-			float			  _animationSpeed)
-		{
-			std::string FileName = "Resource\\GameScene\\Animation\\" + _fileName;
-			if (!SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->LoadAnimation(
-				FileName.c_str(),
-				&m_Animations[_animationState].Index)) return false;
-
-			m_Animations[_animationState].pData =
-				SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->GetAnimation(m_Animations[_animationState].Index);
-			
-			m_Animations[_animationState].pData->
-				SetAnimationPattern(_animationPattern);
-			m_Animations[_animationState].pData->SetAnimationSpeed(_animationSpeed);
-
-			return true;
-		};
-
-		if (!LoadAnimation(
+		if (!LoadAnimationFile(
 			"PlayerWalk.anim",
 			WALK_ANIMATION,
 			ANIMATION_PATTERN::LOOP_ANIMATION,
 			0.1f)) return false;
 
-		if (!LoadAnimation(
+		if (!LoadAnimationFile(
 			"PlayerWait.anim",
 			WAIT_ANIMATION,
 			ANIMATION_PATTERN::LOOP_ANIMATION,
 			0.1f)) return false;
 
-		if (!LoadAnimation(
+		if (!LoadAnimationFile(
 			"PlayerMixIn.anim",
 			MIXIN_ANIMATION,
 			ANIMATION_PATTERN::ONE_ANIMATION,
 			0.07f)) return false;
 
-		if (!LoadAnimation(
+		if (!LoadAnimationFile(
 			"PlayerSprinkle.anim",
 			SPRINKLE_ANIMATION,
 			ANIMATION_PATTERN::ONE_ANIMATION,
 			0.1f)) return false;
 
-		if (!LoadAnimation(
+		if (!LoadAnimationFile(
 			"PlayerDown.anim",
 			DOWN_ANIMATION,
 			ANIMATION_PATTERN::ONE_ANIMATION,
@@ -276,14 +268,10 @@ namespace Game
 
 	void Player::GravityUpdate()
 	{
-		if (m_Acceleration > 23.f)
-		{
-			m_Acceleration = 23.f;
-		}
-
+		m_Acceleration = (std::min)(m_Acceleration, 23.f);
 		m_Acceleration += m_Gravity;
-		m_Pos.y += m_Acceleration;
-		m_WorldPos.y = m_Pos.y;
+
+		m_WorldPos.y = (m_Pos.y += m_Acceleration);
 	}
 
 	void Player::NormalControl()
@@ -294,11 +282,7 @@ namespace Game
 		if (pKeyState[DIK_X] == Lib::KeyDevice::KEY_PUSH)
 		{
 			//混ぜた薬品の切り替え.
-			m_SelectMixChemicalIndex++;
-			if (m_SelectMixChemicalIndex >= m_MixChemicalStockMax)
-			{
-				m_SelectMixChemicalIndex = 0;
-			}
+			if (++m_SelectMixChemicalIndex >= m_MixChemicalStockMax) m_SelectMixChemicalIndex = 0;
 		}
 
 		if(pKeyState[DIK_D] == Lib::KeyDevice::KEY_PUSH)
@@ -307,6 +291,13 @@ namespace Game
 			m_AnimationState = MIXIN_ANIMATION;
 			m_Animations[m_AnimationState].pData->AnimationStart();
 			pControl = &Player::ChemicalCreateControl;
+		}
+		else if (pKeyState[DIK_C] == Lib::KeyDevice::KEY_PUSH)
+		{
+			//振る動作.
+			m_AnimationState = WALK_ANIMATION;
+			m_Animations[m_AnimationState].pData->AnimationStart();
+			pControl = &Player::ShakeControl;
 		}
 		else if (pKeyState[DIK_Z] == Lib::KeyDevice::KEY_PUSH)
 		{
@@ -329,11 +320,8 @@ namespace Game
 			m_Animations[m_AnimationState].pData->Update();
 			m_IsLeft = true;
 			m_WorldPos.x -= m_MoveSpeed;
-			if (m_WorldPos.x <= X)
-			{
-				m_Pos.x -= m_MoveSpeed;
-				m_WorldPos.x = m_Pos.x;
-			}
+
+			if (m_WorldPos.x <= X) m_WorldPos.x = (m_Pos.x -= m_MoveSpeed);
 		}
 		else if (pKeyState[DIK_RIGHTARROW] == Lib::KeyDevice::KEY_ON)
 		{
@@ -341,11 +329,8 @@ namespace Game
 			m_Animations[m_AnimationState].pData->Update();
 			m_IsLeft = false;
 			m_WorldPos.x += m_MoveSpeed;
-			if (m_WorldPos.x <= X)
-			{
-				m_Pos.x += m_MoveSpeed;
-				m_WorldPos.x = m_Pos.x;
-			}
+
+			if (m_WorldPos.x <= X) m_WorldPos.x = (m_Pos.x += m_MoveSpeed);
 		}
 		else
 		{
@@ -356,11 +341,10 @@ namespace Game
 
 	void Player::SprinkleControl()
 	{
-		if (m_Animations[m_AnimationState].pData->Update())
-		{
-			m_pMixChemical[m_SelectMixChemicalIndex]->Sprinkle(m_WorldPos, m_IsLeft);
-			pControl = &Player::NormalControl;
-		}
+		if (!m_Animations[m_AnimationState].pData->Update()) return;
+
+		m_pMixChemical[m_SelectMixChemicalIndex]->Sprinkle(m_WorldPos, m_IsLeft);
+		pControl = &Player::NormalControl;
 	}
 
 	void Player::ChemicalCreateControl()
@@ -370,12 +354,12 @@ namespace Game
 			if (m_pMixChemical[0] == nullptr)
 			{
 				m_pMixChemical[0] = ChemicalFactory::GetInstance().
-					Create(ChemicalFactory::Types(BLUE_CHEMICAL, RED_CHEMICAL));
+					Create(ChemicalFactory::Types(CHEMICAL_BLUE, CHEMICAL_RED));
 			}
 			else if (m_pMixChemical[1] == nullptr)
 			{
 				m_pMixChemical[1] = ChemicalFactory::GetInstance().
-					Create(ChemicalFactory::Types(BLUE_CHEMICAL, RED_CHEMICAL));
+					Create(ChemicalFactory::Types(CHEMICAL_BLUE, CHEMICAL_RED));
 			}
 			else
 			{
@@ -383,14 +367,25 @@ namespace Game
 				SafeDelete(m_pMixChemical[m_SelectMixChemicalIndex]);
 
 				m_pMixChemical[m_SelectMixChemicalIndex] = ChemicalFactory::GetInstance().
-					Create(ChemicalFactory::Types(BLUE_CHEMICAL, RED_CHEMICAL));
+					Create(ChemicalFactory::Types(CHEMICAL_BLUE, CHEMICAL_RED));
 			}
 			pControl = &Player::NormalControl;
 		}
 	}
 
-	void Player::MixControl()
+	void Player::ShakeControl()
 	{
+		const Lib::KeyDevice::KEYSTATE* pKeyState = SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState();
+		if (pKeyState[DIK_C] == Lib::KeyDevice::KEY_ON &&
+			m_pMixChemical[m_SelectMixChemicalIndex] != nullptr)
+		{
+			m_Animations[m_AnimationState].pData->Update(); 
+			m_pMixChemical[m_SelectMixChemicalIndex]->Shake();
+		}
+		else
+		{
+			pControl = &Player::NormalControl;
+		}
 	}
 
 	void Player::DamageControl()

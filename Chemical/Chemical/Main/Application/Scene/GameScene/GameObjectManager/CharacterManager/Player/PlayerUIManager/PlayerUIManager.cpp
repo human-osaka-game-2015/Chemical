@@ -35,16 +35,16 @@ namespace Game
 		m_pGaugeUIs[PLAYER_GAUGE] = new PlayerGauge(m_pPlayerState);
 		if (!m_pGaugeUIs[PLAYER_GAUGE]->Initialize()) return false;
 
-		m_pGaugeUIs[CHEMICAL_GAUGE1] = new ChemicalGauge(&D3DXVECTOR2(100,100), &m_pPlayerState->ChemicalRemain[0]);
+		m_pGaugeUIs[CHEMICAL_GAUGE1] = new ChemicalGauge(&D3DXVECTOR2(100,100), &m_pPlayerState->ChemicalData[0]);
 		if (!m_pGaugeUIs[CHEMICAL_GAUGE1]->Initialize()) return false;
 
-		m_pGaugeUIs[CHEMICAL_GAUGE2] = new ChemicalGauge(&D3DXVECTOR2(200, 100), &m_pPlayerState->ChemicalRemain[1]);
+		m_pGaugeUIs[CHEMICAL_GAUGE2] = new ChemicalGauge(&D3DXVECTOR2(200, 100), &m_pPlayerState->ChemicalData[1]);
 		if (!m_pGaugeUIs[CHEMICAL_GAUGE2]->Initialize()) return false;
 
-		m_pGaugeUIs[MIX_CHEMICAL_GAUGE1] = new ChemicalGauge(&D3DXVECTOR2(1720, 100), &m_pPlayerState->MixChemicalRemain[0]);
+		m_pGaugeUIs[MIX_CHEMICAL_GAUGE1] = new ChemicalGauge(&D3DXVECTOR2(1720, 100), &m_pPlayerState->MixChemicalData[0]);
 		if (!m_pGaugeUIs[MIX_CHEMICAL_GAUGE1]->Initialize()) return false;
 
-		m_pGaugeUIs[MIX_CHEMICAL_GAUGE2] = new ChemicalGauge(&D3DXVECTOR2(1820, 100), &m_pPlayerState->MixChemicalRemain[1]);
+		m_pGaugeUIs[MIX_CHEMICAL_GAUGE2] = new ChemicalGauge(&D3DXVECTOR2(1820, 100), &m_pPlayerState->MixChemicalData[1]);
 		if (!m_pGaugeUIs[MIX_CHEMICAL_GAUGE2]->Initialize()) return false;
 
 		return true;
