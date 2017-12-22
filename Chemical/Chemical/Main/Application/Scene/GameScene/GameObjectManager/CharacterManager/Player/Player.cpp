@@ -7,6 +7,7 @@
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
+
 #include "Player.h"
 #include "PlayerUIManager\PlayerUIManager.h"
 #include "Application\Application.h"
@@ -23,6 +24,7 @@
 #include "TaskManager\TaskManager.h"
 
 #include <algorithm>
+
 
 namespace Game
 {
@@ -302,7 +304,8 @@ namespace Game
 		else if (pKeyState[DIK_Z] == Lib::KeyDevice::KEY_PUSH)
 		{
 			// 薬品をかける動作に移行.
-			if (m_pMixChemical[m_SelectMixChemicalIndex] != nullptr)
+			if (m_pMixChemical[m_SelectMixChemicalIndex] != nullptr &&
+				!m_pMixChemical[m_SelectMixChemicalIndex]->GetIsSprinkle())
 			{
 				m_AnimationState = SPRINKLE_ANIMATION;
 				m_Animations[m_AnimationState].pData->AnimationStart();
@@ -354,12 +357,12 @@ namespace Game
 			if (m_pMixChemical[0] == nullptr)
 			{
 				m_pMixChemical[0] = ChemicalFactory::GetInstance().
-					Create(ChemicalFactory::Types(CHEMICAL_BLUE, CHEMICAL_RED));
+					Create(ChemicalFactory::Types(CHEMICAL_BLUE, CHEMICAL_YELLOW));
 			}
 			else if (m_pMixChemical[1] == nullptr)
 			{
 				m_pMixChemical[1] = ChemicalFactory::GetInstance().
-					Create(ChemicalFactory::Types(CHEMICAL_BLUE, CHEMICAL_RED));
+					Create(ChemicalFactory::Types(CHEMICAL_BLUE, CHEMICAL_YELLOW));
 			}
 			else
 			{
@@ -367,7 +370,7 @@ namespace Game
 				SafeDelete(m_pMixChemical[m_SelectMixChemicalIndex]);
 
 				m_pMixChemical[m_SelectMixChemicalIndex] = ChemicalFactory::GetInstance().
-					Create(ChemicalFactory::Types(CHEMICAL_BLUE, CHEMICAL_RED));
+					Create(ChemicalFactory::Types(CHEMICAL_BLUE, CHEMICAL_YELLOW));
 			}
 			pControl = &Player::NormalControl;
 		}

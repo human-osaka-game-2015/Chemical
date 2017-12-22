@@ -64,7 +64,7 @@ namespace Game
 		 * @param[in] _pos プレイヤー座標
 		 * @param[in] _isLeft プレイヤーが左を向いているか
 		 */
-		void Sprinkle(const D3DXVECTOR2& _pos, bool _isLeft);
+		virtual void Sprinkle(const D3DXVECTOR2& _pos, bool _isLeft);
 
 		/**
 		 * 薬品を振る
@@ -89,6 +89,12 @@ namespace Game
 			return m_ChemicalData;
 		}
 
+		/*** かけられているかを取得する */
+		bool GetIsSprinkle()
+		{
+			return m_IsSprinkle;
+		}
+
 	protected:
 		static const float m_Gravity;
 		
@@ -99,9 +105,9 @@ namespace Game
 		CollisionTask*			m_pCollisionTask;
 		ChemicalCollision*		m_pCollision;
 		float					m_Acceleration;
-		ChemicalData			m_ChemicalData; //!< 薬品の情報
-		bool					m_IsSprinkle;		//!< かけられているか?
-		bool					m_IsLeft;			//!< 左に向いているか?
+		ChemicalData			m_ChemicalData;	  //!< 薬品の情報
+		bool					m_IsSprinkle;	  //!< かけられているか?
+		bool					m_IsLeft;		  //!< 左に向いているか?
 
 	private:
 		int m_ShakeFrame; //!< 何フレーム振っているか?
