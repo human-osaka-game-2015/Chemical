@@ -194,6 +194,7 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEntranceEvent\WarpEntranceEvent.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEvent\WarpEvent.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpExitEvent\WarpExitEvent.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemicalEvent\RainChemicalEvent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemical.h" />
@@ -221,6 +222,7 @@
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEntranceEvent\WarpEntranceEvent.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEvent\WarpEvent.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpExitEvent\WarpExitEvent.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemicalEvent\RainChemicalEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ChemicalCollision\ChemicalCollision.h" />

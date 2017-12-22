@@ -332,6 +332,15 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical">
       <UniqueIdentifier>{03a28f28-c46b-4f13-a4af-1a3910486b1c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RainGimmick">
+      <UniqueIdentifier>{72a185d0-cb5a-45be-9b40-09d76ab7bb57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RainGimmick\RainChemicalEvent">
+      <UniqueIdentifier>{11b14d9e-04e8-47ec-ad0a-880dcff63bfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemicalEvent">
+      <UniqueIdentifier>{91f51b96-13b5-4634-b482-3d06e85e1098}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -648,6 +657,9 @@
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemical.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemicalEvent\RainChemicalEvent.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemicalEvent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -973,6 +985,9 @@
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemical.h">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemicalEvent\RainChemicalEvent.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemicalEvent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

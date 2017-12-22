@@ -21,6 +21,10 @@ namespace Game
 			"Resource\\GameScene\\Texture\\Explosion.png",
 			&m_TextureIndex[Types(CHEMICAL_BLUE, CHEMICAL_RED)])) return false;
 
+		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
+			"Resource\\GameScene\\Texture\\Explosion.png",
+			&m_TextureIndex[Types(CHEMICAL_BLUE, CHEMICAL_YELLOW)])) return false;
+
 		return true;
 	}
 
@@ -28,6 +32,9 @@ namespace Game
 	{
 		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->
 			ReleaseTexture(m_TextureIndex[Types(CHEMICAL_BLUE, CHEMICAL_RED)]);
+
+		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->
+			ReleaseTexture(m_TextureIndex[Types(CHEMICAL_BLUE, CHEMICAL_YELLOW)]);
 	}
 
 	bool ChemicalFactory::RegisterCreateFunc(Types _types, CreateFunc _createFunc)
