@@ -1,7 +1,7 @@
 ﻿/**
  * @file	Player.cpp
  * @brief	プレイヤークラス実装
- * @author	morimoto
+ * @author	kotani
  */
 
 //----------------------------------------------------------------------
@@ -171,7 +171,10 @@ namespace Game
 	void Player::Update()
 	{
 		m_PlayerState.ChemicalData[0].Remain = m_ChemicalStock[m_SelectChemicalIndex[0]];
+		m_PlayerState.ChemicalData[0].Type = static_cast<CHEMICAL_TYPE>(m_SelectChemicalIndex[0]);
+
 		m_PlayerState.ChemicalData[1].Remain = m_ChemicalStock[m_SelectChemicalIndex[1]];
+		m_PlayerState.ChemicalData[1].Type = static_cast<CHEMICAL_TYPE>(m_SelectChemicalIndex[1]);
 
 		for (int i = 0; i < 2; i++)
 		{
@@ -284,7 +287,20 @@ namespace Game
 		if (pKeyState[DIK_X] == Lib::KeyDevice::KEY_PUSH)
 		{
 			//混ぜた薬品の切り替え.
-			if (++m_SelectMixChemicalIndex >= m_MixChemicalStockMax) m_SelectMixChemicalIndex = 0;
+			if (++m_SelectMixChemicalIndex >= m_MixChemicalStockMax) 
+				m_SelectMixChemicalIndex = 0;
+		}
+
+		if (pKeyState[DIK_A] == Lib::KeyDevice::KEY_PUSH)
+		{
+			if (++m_SelectChemicalIndex[0] >= m_NormalChemicalMax)
+				m_SelectChemicalIndex[0] = 0;
+		}
+
+		if (pKeyState[DIK_S] == Lib::KeyDevice::KEY_PUSH)
+		{
+			if (++m_SelectChemicalIndex[1] >= m_NormalChemicalMax)
+				m_SelectChemicalIndex[1] = 0;
 		}
 
 		if(pKeyState[DIK_D] == Lib::KeyDevice::KEY_PUSH)
@@ -354,15 +370,18 @@ namespace Game
 	{
 		if (m_Animations[m_AnimationState].pData->Update())
 		{
+			CHEMICAL_TYPE Type1 = static_cast<CHEMICAL_TYPE>(m_SelectChemicalIndex[0]);
+			CHEMICAL_TYPE Type2 = static_cast<CHEMICAL_TYPE>(m_SelectChemicalIndex[1]);
+
 			if (m_pMixChemical[0] == nullptr)
 			{
 				m_pMixChemical[0] = ChemicalFactory::GetInstance().
-					Create(ChemicalFactory::Types(CHEMICAL_BLUE, CHEMICAL_YELLOW));
+					Create(ChemicalFactory::Types(Type1,Type2));
 			}
 			else if (m_pMixChemical[1] == nullptr)
 			{
 				m_pMixChemical[1] = ChemicalFactory::GetInstance().
-					Create(ChemicalFactory::Types(CHEMICAL_BLUE, CHEMICAL_YELLOW));
+					Create(ChemicalFactory::Types(Type1, Type2));
 			}
 			else
 			{
@@ -370,7 +389,7 @@ namespace Game
 				SafeDelete(m_pMixChemical[m_SelectMixChemicalIndex]);
 
 				m_pMixChemical[m_SelectMixChemicalIndex] = ChemicalFactory::GetInstance().
-					Create(ChemicalFactory::Types(CHEMICAL_BLUE, CHEMICAL_YELLOW));
+					Create(ChemicalFactory::Types(Type1, Type2));
 			}
 			pControl = &Player::NormalControl;
 		}
