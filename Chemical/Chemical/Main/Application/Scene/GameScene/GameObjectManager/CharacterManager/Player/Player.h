@@ -1,7 +1,7 @@
 ﻿/**
  * @file	Player.h
  * @brief	プレイヤークラス定義
- * @author	morimoto
+ * @author	kotani
  */
 #ifndef GAME_PLAYER_H
 #define GAME_PLAYER_H

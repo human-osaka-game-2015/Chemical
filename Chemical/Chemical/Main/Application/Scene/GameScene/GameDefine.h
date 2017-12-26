@@ -86,7 +86,7 @@ namespace Game
 		CHEMICAL_RED,      // 紅
 		CHEMICAL_YELLOW,   // 黃
 		CHEMICAL_EXPLOSION,// 爆発
-		CHEMICAL_MOVEUP,   // 移動速度アップ
+		CHEMICAL_SPEEDUP,   // 移動速度アップ
 		CHEMICAL_RAIN,	   // 雨が降る
 		CHEMICAL_EMPTY     // 空
 	};

@@ -18,8 +18,11 @@ namespace Game
 		 * コンストラクタ
 		 * @param[in] _pPos 表示位置
 		 * @param[in] _pChemicalData 薬品の情報
+		 * @param[in] _pTextureIndexs 薬品のテクスチャインデックスの配列
 		 */
-		ChemicalGauge(const D3DXVECTOR2* _pPos, const ChemicalBase::ChemicalData* _pChemicalData);
+		ChemicalGauge(const D3DXVECTOR2* _pPos,
+			const ChemicalBase::ChemicalData* _pChemicalData, 
+			std::array<int, CHEMICAL_EMPTY> _textureIndexs);
 
 		/*** デストラクタ */
 		virtual ~ChemicalGauge();
@@ -41,6 +44,7 @@ namespace Game
 
 	private:
 		const ChemicalBase::ChemicalData* m_pChemicaData;
+		std::array<int, CHEMICAL_EMPTY>   m_TextureIndexs;
 
 	};
 }

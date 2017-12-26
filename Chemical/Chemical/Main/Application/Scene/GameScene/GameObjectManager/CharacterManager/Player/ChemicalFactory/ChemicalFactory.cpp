@@ -51,7 +51,10 @@ namespace Game
 	{
 		ChemicalBase* pChemicalBase = nullptr;
 
-		pChemicalBase = m_CreateFuncs[_types](m_TextureIndex[_types]);
+		auto itr = m_CreateFuncs.find(_types);
+
+		if (itr != m_CreateFuncs.end())
+			pChemicalBase = m_CreateFuncs[_types](m_TextureIndex[_types]);
 
 		return pChemicalBase;
 	}

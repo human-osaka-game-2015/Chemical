@@ -1,7 +1,7 @@
 ﻿/**
  * @file	PlayerUIManager.h
  * @brief	プレイヤーUIクラス定義
- * @author	morimoto
+ * @author	kotani
  */
 #ifndef GAME_PLAYER_UI_MANAGER_H
 #define GAME_PLAYER_UI_MANAGER_H
@@ -48,8 +48,20 @@ namespace Game
 		};
 
 		std::array<GaugeUIBase*, MAX_TYPE> m_pGaugeUIs;
+		std::array<int, CHEMICAL_EMPTY>    m_TextureIndexs;
 		const Player::PlayerState*		   m_pPlayerState;
 
+		/**
+		 * ChemicalGaugeに必要なテクスチャを全て読み込む 
+		 * @return 読み込みに成功したらtrue 失敗したらfalse
+		 */
+		bool LoadTextures();
+
+		/**
+		* ChemicalGaugeを生成する
+		* @return 初期化に成功したらtrue 失敗したらfalse
+		*/
+		bool CreateGaugeUIs();
 
 	};
 }
