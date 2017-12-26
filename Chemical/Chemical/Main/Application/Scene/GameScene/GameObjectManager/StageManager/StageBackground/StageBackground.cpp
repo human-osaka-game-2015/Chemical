@@ -11,6 +11,7 @@
 
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
 #include "..\..\GameDataManager\GameDataManager.h"
+#include "GameDefine.h"
 
 
 namespace Game
@@ -52,6 +53,8 @@ namespace Game
 
 		m_pUpdateTask->SetName("StageBackground");
 		m_pDrawTask->SetName("StageBackground");
+
+		m_pDrawTask->SetPriority(GAME_DRAW_BACKGROUND);
 
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->AddTask(m_pUpdateTask);
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->AddTask(m_pDrawTask);

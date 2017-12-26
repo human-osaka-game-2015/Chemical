@@ -20,6 +20,10 @@
 #include "StageGimmickBase\GateGimmick\GateGimmick.h"
 #include "StageGimmickBase\WarpGimmick\WarpEntranceGimmick\WarpEntranceGimmick.h"
 #include "StageGimmickBase\WarpGimmick\WarpExitGimmick\WarpExitGimmick.h"
+#include "StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmick\BeltConveyorGimmick.h"
+#include "StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickLeft\BeltConveyorGimmickLeft.h"
+#include "StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickRight\BeltConveyorGimmickRight.h"
+#include "StageGimmickBase\RainCloud\RainCloud.h"
 #include "Debugger\Debugger.h"
 
 
@@ -48,6 +52,10 @@ namespace Game
 		m_pGimmicks[GATE_GIMMICK] = new GateGimmick();
 		m_pGimmicks[WARP_ENTRANCE_GIMMICK] = new WarpEntranceGimmick();
 		m_pGimmicks[WARP_EXIT_GIMMICK] = new WarpExitGimmick();
+		m_pGimmicks[BELTCONVEYOR_GIMMICK] = new BeltConveyorGimmick();
+		m_pGimmicks[BELTCONVEYOR_LEFT_GIMMICK] = new BeltConveyorGimmickLeft();
+		m_pGimmicks[BELTCONVEYOR_RIGHT_GIMMICK] = new BeltConveyorGimmickRight();
+		m_pGimmicks[RAINCLOUD_GIMMICK] = new RainCloud();
 	}
 
 	StageGimmickManager::~StageGimmickManager()

@@ -76,6 +76,14 @@ namespace Game
 	{
 	}
 
+	void CollisionBase::Collide(RainCloudGimmickCollision* _pOther)
+	{
+	}
+
+	void CollisionBase::Collide(RainGimmickCollision* _pOther)
+	{
+	}
+
 	void CollisionBase::Collide(PlayerCollision* _pOther)
 	{
 	}

@@ -20,6 +20,15 @@
 #include "StageChipBase\Lava\Lava\Lava.h"
 #include "StageChipBase\Lava\LavaBottom\LavaBottom.h"
 #include "StageChipBase\Lava\LavaTop\LavaTop.h"
+#include "StageChipBase\Sea\Sea\Sea.h"
+#include "StageChipBase\Sea\SeaBottom\SeaBottom.h"
+#include "StageChipBase\Sea\SeaTop\SeaTop.h"
+#include "StageChipBase\Wall\Wall\Wall.h"
+#include "StageChipBase\Wall\WallBottom\WallBottom.h"
+#include "StageChipBase\Wall\WallTop\WallTop.h"
+#include "StageChipBase\Cave\Cave\Cave.h"
+#include "StageChipBase\Cave\CaveBottom\CaveBottom.h"
+#include "StageChipBase\Cave\CaveTop\CaveTop.h"
 #include "Debugger\Debugger.h"
 
 
@@ -48,6 +57,15 @@ namespace Game
 		m_pChips[LAVA_CHIP] = new Lava();
 		m_pChips[LAVA_BOTTOM_CHIP] = new LavaBottom();
 		m_pChips[LAVA_TOP_CHIP] = new LavaTop();
+		m_pChips[SEA_CHIP] = new Sea();
+		m_pChips[SEA_BOTTOM_CHIP] = new SeaBottom();
+		m_pChips[SEA_TOP_CHIP] = new SeaTop();
+		m_pChips[WALL_CHIP] = new Wall();
+		m_pChips[WALL_BOTTOM_CHIP] = new WallBottom();
+		m_pChips[WALL_TOP_CHIP] = new WallTop();
+		m_pChips[CAVE_CHIP] = new Cave();
+		m_pChips[CAVE_BOTTOM_CHIP] = new CaveBottom();
+		m_pChips[CAVE_TOP_CHIP] = new CaveTop();
 	}
 
 	StageChipManager::~StageChipManager()

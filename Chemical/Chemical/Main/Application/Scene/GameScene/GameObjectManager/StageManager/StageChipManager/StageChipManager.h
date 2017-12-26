@@ -34,6 +34,15 @@ namespace Game
 			LAVA_CHIP,				//!< 溶岩チップ.
 			LAVA_BOTTOM_CHIP,		//!< 溶岩の下部チップ.
 			LAVA_TOP_CHIP,			//!< 溶岩の上部チップ.
+			SEA_CHIP,				//!< 水中ブロックチップ.
+			SEA_BOTTOM_CHIP,		//!< 水中ブロックの下部チップ.
+			SEA_TOP_CHIP,			//!< 水中ブロックの上部チップ.
+			WALL_CHIP,				//!< 塔壁チップ.
+			WALL_BOTTOM_CHIP,		//!< 塔壁の下部チップ.
+			WALL_TOP_CHIP,			//!< 塔壁の上部チップ.
+			CAVE_CHIP,				//!< 洞窟壁チップ.
+			CAVE_BOTTOM_CHIP,		//!< 洞窟壁の下部チップ.
+			CAVE_TOP_CHIP,			//!< 洞窟壁の上部チップ.
 			STAGE_CHIP_MAX			//!< ステージチップ最大値.
 		};
 
