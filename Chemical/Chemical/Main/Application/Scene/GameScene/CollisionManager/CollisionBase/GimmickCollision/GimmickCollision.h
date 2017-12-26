@@ -21,6 +21,14 @@ namespace Game
 		/*** 矩形データ構造体 */
 		struct GIMMICK_RECTANGLE
 		{
+			GIMMICK_RECTANGLE() :
+				Left(0),
+				Top(0),
+				Right(0),
+				Bottom(0),
+				ID(0)
+			{}
+
 			GIMMICK_RECTANGLE(int _id) :
 				Left(0),
 				Top(0),
@@ -70,6 +78,15 @@ namespace Game
 		 * @param[in] _pOther 他オブジェクト
 		 */
 		virtual void Dispatch(CollisionBase* _pOther);
+
+		/**
+		 * 当たり判定矩形の数を変更
+		 * @param[in] _size サイズ
+		 */
+		void ResizeRect(int _size)
+		{
+			m_Rectangles.resize(_size);
+		}
 
 		/**
 		 * 矩形の追加

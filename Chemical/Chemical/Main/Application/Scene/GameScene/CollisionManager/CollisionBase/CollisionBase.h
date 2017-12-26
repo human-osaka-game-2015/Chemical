@@ -26,6 +26,8 @@ namespace Game
 	class EnemyGeneratorCollision;
 	class ButtonGimmickCollision;
 	class GateGimmickCollision;
+	class RainCloudGimmickCollision;
+	class RainGimmickCollision;
 	class PlayerCollision;
 	class ChemicalCollision;
 
@@ -77,6 +79,12 @@ namespace Game
 
 		/*** 門ギミックオブジェクトとの当たり判定を行う */
 		virtual void Collide(GateGimmickCollision* _pOther);
+
+		/*** 雨雲ギミックオブジェクトとの当たり判定を行う */
+		virtual void Collide(RainCloudGimmickCollision* _pOther);
+
+		/*** 雨ギミックオブジェクトとの当たり判定を行う */
+		virtual void Collide(RainGimmickCollision* _pOther);
 
 		/*** プレイヤーオブジェクトとの当たり判定を行う */
 		virtual void Collide(PlayerCollision* _pOther);

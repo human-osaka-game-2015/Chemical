@@ -25,6 +25,8 @@ namespace Game
 		m_GimmickNum(0)
 	{
 		m_Size = StageGimmickManager::m_DefaultGimmickSize;
+
+		m_pDrawTask->SetPriority(GAME_DRAW_GIMMICK);
 	}
 
 	StageGimmickBase::~StageGimmickBase()

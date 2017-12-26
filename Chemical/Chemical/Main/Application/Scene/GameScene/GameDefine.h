@@ -12,9 +12,13 @@ namespace Game
 	/*** 描画プライオリティ */
 	enum DRAW_PRIORITY
 	{
-		TITLE_DRAW_BACKGROUND = -1,	//!< 背景描画プライオリティ.
-		GAME_DRAW_CHARACTER = 1,    //!< キャラクター描画プライオリティ.
-		GAME_DRAW_UI = 2			//!< UI描画プライオリティ
+		GAME_DRAW_BACKGROUND = 0,	//!< 背景描画プライオリティ.
+		GAME_DRAW_RAIN = 1,			//!< 雨描画プライオリティ.
+		GAME_DRAW_CHIP = 2,			//!< チップ描画プライオリティ.
+		GAME_DRAW_CHARACTER = 3,    //!< キャラクター描画プライオリティ.
+		GAME_DRAW_GIMMICK = 4,		//!< ギミック描画プライオリティ.
+		GAME_DRAW_UI = 5,			//!< UI描画プライオリティ.
+		DRAW_PRIORITY_MAX = 6
 	};
 
 	/*** イベントの識別子 */
@@ -46,23 +50,30 @@ namespace Game
 	/*** 当たり判定オブジェクトID */
 	enum COLLISION_ID
 	{
-		EMPTY_COLLISION_ID,				//!< 空オブジェクトID(エラー値).
-		PLAYER_COLLISION_ID,			//!< プレイヤー当たり判定ID.
-		ROAD_COLLISION_ID,				//!< 道の当たり判定ID.
-		SOIL_COLLISION_ID,				//!< 土の当たり判定ID.
-		ROCK_COLLISION_ID,				//!< 岩場の当たり判定ID.
-		LAVA_COLLISION_ID,				//!< 溶岩の当たり判定ID.
-		SEA_COLLISION_ID,				//!< 水中ブロックの当たり判定ID.
-		ENEMYGENERATOR_COLLISION_ID,	//!< エネミー生成ギミック当たり判定ID.
-		FIRE_GIMMICK_COLLISION_ID,		//!< 火ギミック当たり判定ID.
-		MUSHROOM_GIMMICK_COLLISION_ID,	//!< キノコギミック当たり判定ID.
-		WOOD_GIMMICK_COLLISION_ID,		//!< 木ギミック当たり判定ID.
-		RECOVERY_GIMMICK_COLLISION_ID,	//!< 回復ギミック当たり判定ID.
-		BUTTON_GIMMICK_COLLISION_ID,	//!< ボタンギミック当たり判定ID.
-		GATE_GIMMICK_COLLISION_ID,		//!< 門ギミック当たり判定ID.
-		WARP_GIMMICK_COLLISION_ID,		//!< ワープギミック当たり判定ID.
-		WATER_COLLISION_ID,				//!< 水の当たり判定ID.
-		COLLISION_ID_MAX				//!< 当たり判定ID最大値.
+		EMPTY_COLLISION_ID,					//!< 空オブジェクトID(エラー値).
+		PLAYER_COLLISION_ID,				//!< プレイヤー当たり判定ID.
+		ROAD_COLLISION_ID,					//!< 道の当たり判定ID.
+		SOIL_COLLISION_ID,					//!< 土の当たり判定ID.
+		ROCK_COLLISION_ID,					//!< 岩場の当たり判定ID.
+		LAVA_COLLISION_ID,					//!< 溶岩の当たり判定ID.
+		SEA_COLLISION_ID,					//!< 水中ブロックの当たり判定ID.
+		WALL_COLLISION_ID,					//!< 塔壁の当たり判定ID.
+		CAVE_COLLISION_ID,					//!< 洞窟壁の当たり判定ID.
+		STONEWALL_COLLISION_ID,				//!< 石壁の当たり判定ID.
+		ELECTRON_COLLISION_ID,				//!< 電子壁の当たり判定ID.
+		ENEMYGENERATOR_COLLISION_ID,		//!< エネミー生成ギミック当たり判定ID.
+		FIRE_GIMMICK_COLLISION_ID,			//!< 火ギミック当たり判定ID.
+		MUSHROOM_GIMMICK_COLLISION_ID,		//!< キノコギミック当たり判定ID.
+		WOOD_GIMMICK_COLLISION_ID,			//!< 木ギミック当たり判定ID.
+		RECOVERY_GIMMICK_COLLISION_ID,		//!< 回復ギミック当たり判定ID.
+		BUTTON_GIMMICK_COLLISION_ID,		//!< ボタンギミック当たり判定ID.
+		GATE_GIMMICK_COLLISION_ID,			//!< 門ギミック当たり判定ID.
+		WARP_GIMMICK_COLLISION_ID,			//!< ワープギミック当たり判定ID.
+		BELTCONVEYOR_GIMMICK_COLLISION_ID,	//!< ベルトコンベアギミック当たり判定ID.
+		RAINCLOUD_GIMMICK_COLLISION_ID,		//!< 雨雲ギミック当たり判定ID.
+		RAIN_GIMMICK_COLLISION_ID,			//!< 雨ギミック当たり判定ID.
+		WATER_COLLISION_ID,					//!< 水の当たり判定ID.
+		COLLISION_ID_MAX					//!< 当たり判定ID最大値.
 	};
 
 	/*** ステージナンバー */
