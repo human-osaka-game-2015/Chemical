@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="JoyconManager">
+      <UniqueIdentifier>{0dc1b980-d8d2-4ec8-b1d0-a403d977015f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JoyconManager\Joycon">
+      <UniqueIdentifier>{cb4f5908-67a5-4964-82f6-1877eb21a6a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JoyconManager\Joycon\hid">
+      <UniqueIdentifier>{d2c3c695-edc3-4d06-b6a3-1233b4d04dc1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="JoyconManager\Joycon\hid\hidapi.h">
+      <Filter>JoyconManager\Joycon\hid</Filter>
+    </ClInclude>
+    <ClInclude Include="JoyconManager\Joycon\Joycon.h">
+      <Filter>JoyconManager\Joycon</Filter>
+    </ClInclude>
+    <ClInclude Include="JoyconManager\JoyconManager.h">
+      <Filter>JoyconManager</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Sample.cpp" />
+    <ClCompile Include="JoyconManager\Joycon\hid\hid.cpp">
+      <Filter>JoyconManager\Joycon\hid</Filter>
+    </ClCompile>
+    <ClCompile Include="JoyconManager\Joycon\Joycon.cpp">
+      <Filter>JoyconManager\Joycon</Filter>
+    </ClCompile>
+    <ClCompile Include="JoyconManager\JoyconManager.cpp">
+      <Filter>JoyconManager</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

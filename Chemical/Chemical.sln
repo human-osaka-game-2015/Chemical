@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Library", "Library\Library.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DebugConsoleWindow", "DebugConsoleWindow\DebugConsoleWindow.vcxproj", "{57822D18-4444-4E7A-A285-4E010C5253E1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JoyconLib", "JoyconLib\JoyconLib.vcxproj", "{2D8FB8F3-0C47-4D9C-BA1A-3475611B933A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -34,6 +36,12 @@ Global
 		{57822D18-4444-4E7A-A285-4E010C5253E1}.MyDebug|Win32.Build.0 = MyDebug|Win32
 		{57822D18-4444-4E7A-A285-4E010C5253E1}.Release|Win32.ActiveCfg = Release|Win32
 		{57822D18-4444-4E7A-A285-4E010C5253E1}.Release|Win32.Build.0 = Release|Win32
+		{2D8FB8F3-0C47-4D9C-BA1A-3475611B933A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2D8FB8F3-0C47-4D9C-BA1A-3475611B933A}.Debug|Win32.Build.0 = Debug|Win32
+		{2D8FB8F3-0C47-4D9C-BA1A-3475611B933A}.MyDebug|Win32.ActiveCfg = Debug|Win32
+		{2D8FB8F3-0C47-4D9C-BA1A-3475611B933A}.MyDebug|Win32.Build.0 = Debug|Win32
+		{2D8FB8F3-0C47-4D9C-BA1A-3475611B933A}.Release|Win32.ActiveCfg = Release|Win32
+		{2D8FB8F3-0C47-4D9C-BA1A-3475611B933A}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
