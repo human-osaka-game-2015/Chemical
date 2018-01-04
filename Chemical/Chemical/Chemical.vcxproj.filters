@@ -254,9 +254,6 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical">
       <UniqueIdentifier>{cdccbb85-b03a-47f5-a4ec-43452f4c45e7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical">
-      <UniqueIdentifier>{03a28f28-c46b-4f13-a4af-1a3910486b1c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUIManager">
       <UniqueIdentifier>{765ca45d-85d9-4802-80f6-53c3e2f2d865}</UniqueIdentifier>
     </Filter>
@@ -344,6 +341,69 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemicalEvent">
       <UniqueIdentifier>{91f51b96-13b5-4634-b482-3d06e85e1098}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick">
+      <UniqueIdentifier>{34be5d3a-b0be-4d53-be76-8640aaa563f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmick">
+      <UniqueIdentifier>{32bd9635-a12a-4a23-9903-ca6ab0c2c4fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickRight">
+      <UniqueIdentifier>{a3d59e55-c6ab-486b-83ef-f6fa12ecd940}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickLeft">
+      <UniqueIdentifier>{bf631194-1a06-41ec-8fa9-297c6029a03c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\BeltConveyorGimmickCollision">
+      <UniqueIdentifier>{94b65133-e35a-4b17-acbf-dcdbc9e6ba8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RainCloud">
+      <UniqueIdentifier>{fd4bb1ce-adc5-448a-8b13-17d08a306951}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RainCloud\Rain">
+      <UniqueIdentifier>{b819ab81-bdb4-4960-a5c7-888bc954f99c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainGimmickCollision">
+      <UniqueIdentifier>{db4e2373-ca6c-4a58-bc7d-86abf1cb33d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainCloudGimmickCollision">
+      <UniqueIdentifier>{925481e3-25cb-4820-8787-0e9fc771b1ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave">
+      <UniqueIdentifier>{ddf5f7b0-1093-4f28-bcc1-f0250a902443}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\CaveBottom">
+      <UniqueIdentifier>{10dbe2d8-0e4d-4714-9435-ac2b7755ec27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\CaveTop">
+      <UniqueIdentifier>{7d1e1e16-7800-4a2f-81c6-79f2ff49f3fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron">
+      <UniqueIdentifier>{5889a4e7-5865-4f94-ad5a-8b58dd684879}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\ElectronBottom">
+      <UniqueIdentifier>{8dfb0a5d-aff5-479b-9c59-d23baf9184b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\ElectronTop">
+      <UniqueIdentifier>{45d27546-e4d1-4a63-bafb-7bbb254b012c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall">
+      <UniqueIdentifier>{d11c4aee-c941-49a8-9e33-413fed01b97c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\WallBottom">
+      <UniqueIdentifier>{0db7c622-6b83-40c3-b96f-025a6d685834}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\WallTop">
+      <UniqueIdentifier>{1cfb8658-48b3-4295-b96b-0ed774107aa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall">
+      <UniqueIdentifier>{a2188619-a4d9-4fab-bd21-373c3c6f97c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWallBottom">
+      <UniqueIdentifier>{ef73227b-52e9-44fb-bd93-51b6bd610171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWallTop">
+      <UniqueIdentifier>{c6d6d9d6-d714-4e79-8a44-68e58dcdba6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -396,7 +456,6 @@
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameObjectManager.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageManager.cpp" />
     <ClCompile Include="Main\CsvFile\CsvFile.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\Player.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Enemy\Enemy.cpp" />
@@ -535,9 +594,6 @@
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision\RecoveryGimmickCollision.cpp">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical\MoveUpChemical.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical</Filter>
-    </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemical.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical</Filter>
     </ClCompile>
@@ -559,16 +615,9 @@
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\WarpGimmickCollision\WarpGimmickCollision.cpp">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\WarpGimmickCollision</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\BeltConveyorGimmickCollision\BeltConveyorGimmickCollision.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageBackground\StageBackground.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageBackground</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\Cave\Cave.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\CaveBottom\CaveBottom.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\CaveTop\CaveTop.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\Electron\Electron.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\ElectronBottom\ElectronBottom.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\ElectronTop\ElectronTop.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip\EmptyChip.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip</Filter>
     </ClCompile>
@@ -608,21 +657,12 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilTop\SoilTop.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilTop</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWall\StoneWall.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWallBottom\StoneWallBottom.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWallTop\StoneWallTop.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\Wall\Wall.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\WallBottom\WallBottom.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\WallTop\WallTop.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StageChipBase.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase</Filter>
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipManager.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmick\BeltConveyorGimmick.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickLeft\BeltConveyorGimmickLeft.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickRight\BeltConveyorGimmickRight.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmickEvent\ButtonGimmickEvent.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmickEvent</Filter>
     </ClCompile>
@@ -680,10 +720,72 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemicalEvent\RainChemicalEvent.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemicalEvent</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainCloudGimmickCollision\RainCloudGimmickCollision.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RainCloud\Rain\Rain.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainGimmickCollision\RainGimmickCollision.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RainCloud\RainCloud.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemical.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmick\BeltConveyorGimmick.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickLeft\BeltConveyorGimmickLeft.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickLeft</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickRight\BeltConveyorGimmickRight.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickRight</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\BeltConveyorGimmickCollision\BeltConveyorGimmickCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\BeltConveyorGimmickCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RainCloud\RainCloud.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RainCloud</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RainCloud\Rain\Rain.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RainCloud\Rain</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainGimmickCollision\RainGimmickCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainGimmickCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainCloudGimmickCollision\RainCloudGimmickCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainCloudGimmickCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageManager.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\Cave\Cave.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\CaveBottom\CaveBottom.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\CaveBottom</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\CaveTop\CaveTop.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\CaveTop</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\Electron\Electron.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\ElectronBottom\ElectronBottom.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\ElectronBottom</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\ElectronTop\ElectronTop.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\ElectronTop</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\Wall\Wall.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\WallBottom\WallBottom.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\WallBottom</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\WallTop\WallTop.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\WallTop</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWall\StoneWall.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWallBottom\StoneWallBottom.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWallBottom</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWallTop\StoneWallTop.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWallTop</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Application.h">
@@ -745,7 +847,6 @@
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameObjectManager.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageManager.h" />
     <ClInclude Include="Main\CsvFile\CsvFile.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\Player.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Enemy\Enemy.h" />
@@ -883,9 +984,6 @@
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision\RecoveryGimmickCollision.h">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\RecoveryGimmickCollision</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical\MoveUpChemical.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\MoveUpChemical</Filter>
-    </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemical.h">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical</Filter>
     </ClInclude>
@@ -907,16 +1005,9 @@
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\WarpGimmickCollision\WarpGimmickCollision.h">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\WarpGimmickCollision</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\BeltConveyorGimmickCollision\BeltConveyorGimmickCollision.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageBackground\StageBackground.h">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageBackground</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\Cave\Cave.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\CaveBottom\CaveBottom.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\CaveTop\CaveTop.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\Electron\Electron.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\ElectronBottom\ElectronBottom.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\ElectronTop\ElectronTop.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip\EmptyChip.h">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\EmptyChip</Filter>
     </ClInclude>
@@ -956,21 +1047,12 @@
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilTop\SoilTop.h">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Soil\SoilTop</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWall\StoneWall.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWallBottom\StoneWallBottom.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWallTop\StoneWallTop.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\Wall\Wall.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\WallBottom\WallBottom.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\WallTop\WallTop.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StageChipBase.h">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase</Filter>
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipManager.h">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmick\BeltConveyorGimmick.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickLeft\BeltConveyorGimmickLeft.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickRight\BeltConveyorGimmickRight.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmickEvent\ButtonGimmickEvent.h">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\ButtonGimmick\ButtonGimmickEvent</Filter>
     </ClInclude>
@@ -1028,10 +1110,72 @@
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemicalEvent\RainChemicalEvent.h">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\RainChemical\RainChemicalEvent</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RainCloud\RainCloud.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainCloudGimmickCollision\RainCloudGimmickCollision.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RainCloud\Rain\Rain.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainGimmickCollision\RainGimmickCollision.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemical.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmick\BeltConveyorGimmick.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickLeft\BeltConveyorGimmickLeft.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickLeft</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickRight\BeltConveyorGimmickRight.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickRight</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\BeltConveyorGimmickCollision\BeltConveyorGimmickCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\BeltConveyorGimmickCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RainCloud\RainCloud.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RainCloud</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RainCloud\Rain\Rain.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\RainCloud\Rain</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainGimmickCollision\RainGimmickCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainGimmickCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainCloudGimmickCollision\RainCloudGimmickCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainCloudGimmickCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageManager.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\Cave\Cave.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\CaveBottom\CaveBottom.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\CaveBottom</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\CaveTop\CaveTop.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Cave\CaveTop</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\Electron\Electron.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\ElectronBottom\ElectronBottom.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\ElectronBottom</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\ElectronTop\ElectronTop.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Electron\ElectronTop</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\Wall\Wall.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\WallBottom\WallBottom.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\WallBottom</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\WallTop\WallTop.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\Wall\WallTop</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWall\StoneWall.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWallBottom\StoneWallBottom.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWallBottom</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWallTop\StoneWallTop.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager\StageChipBase\StoneWall\StoneWallTop</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask_private.inl">
