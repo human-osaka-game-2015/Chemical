@@ -16,9 +16,10 @@ namespace Game
 		GAME_DRAW_RAIN = 1,			//!< 雨描画プライオリティ.
 		GAME_DRAW_CHIP = 2,			//!< チップ描画プライオリティ.
 		GAME_DRAW_CHARACTER = 3,    //!< キャラクター描画プライオリティ.
-		GAME_DRAW_GIMMICK = 4,		//!< ギミック描画プライオリティ.
-		GAME_DRAW_UI = 5,			//!< UI描画プライオリティ.
-		DRAW_PRIORITY_MAX = 6
+		GAME_DRAW_EFFECT = 4,		//!< エフェクト描画プライオリティ.
+		GAME_DRAW_GIMMICK = 5,		//!< ギミック描画プライオリティ.
+		GAME_DRAW_UI = 6,			//!< UI描画プライオリティ.
+		DRAW_PRIORITY_MAX = 7
 	};
 
 	/*** イベントの識別子 */
@@ -52,6 +53,7 @@ namespace Game
 	{
 		EMPTY_COLLISION_ID,					//!< 空オブジェクトID(エラー値).
 		PLAYER_COLLISION_ID,				//!< プレイヤー当たり判定ID.
+		EXPLOSION_COLLISION_ID,				//!< 爆発の当たり判定ID.
 		ROAD_COLLISION_ID,					//!< 道の当たり判定ID.
 		SOIL_COLLISION_ID,					//!< 土の当たり判定ID.
 		ROCK_COLLISION_ID,					//!< 岩場の当たり判定ID.

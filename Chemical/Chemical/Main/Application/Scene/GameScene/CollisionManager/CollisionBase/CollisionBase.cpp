@@ -91,4 +91,8 @@ namespace Game
 	void CollisionBase::Collide(ChemicalCollision* _pOther)
 	{
 	}
+
+	void CollisionBase::Collide(ExplosionCollision* _pOther)
+	{
+	}
 }
