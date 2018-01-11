@@ -57,14 +57,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)Chemical\Main;$(SolutionDir)Library\Library;$(DXSDK_DIR)Include;$(SolutionDir)Chemical\Main\Application\Scene\GameScene;$(SolutionDir)JoyconLib\Joycon;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Chemical\Main;$(SolutionDir)Library\Library;$(DXSDK_DIR)Include;$(SolutionDir)Chemical\Main\Application\Scene\GameScene;$(SolutionDir)JoyconLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DisableSpecificWarnings>4005</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(DXSDK_DIR)Lib\x86;$(SolutionDir)Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>d3d11.lib;d3dx11.lib;d3dx10.lib;dxguid.lib;Library.lib;JoyconLib.lib;dinput8.lib;winmm.lib;dsound.lib;XInput.lib;Dbghelp.lib;Imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;d3dx11.lib;d3dx10.lib;dxguid.lib;Library.lib;dinput8.lib;winmm.lib;dsound.lib;XInput.lib;Dbghelp.lib;Imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MyDebug|Win32'">
@@ -102,6 +102,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Main\JoyconManager\JoyconManager.cpp" />
+    <ClCompile Include="Main\JoyconManager\Joycon\hid\hid.cpp" />
+    <ClCompile Include="Main\JoyconManager\Joycon\Joycon.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ExplosionCollision\ExplosionCollision.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\BeltConveyorGimmickCollision\BeltConveyorGimmickCollision.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainCloudGimmickCollision\RainCloudGimmickCollision.cpp" />
@@ -218,6 +221,9 @@
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainGimmickCollision\RainGimmickCollision.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Main\JoyconManager\JoyconManager.h" />
+    <ClInclude Include="Main\JoyconManager\Joycon\hid\hidapi.h" />
+    <ClInclude Include="Main\JoyconManager\Joycon\Joycon.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ExplosionCollision\ExplosionCollision.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\BeltConveyorGimmickCollision\BeltConveyorGimmickCollision.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainCloudGimmickCollision\RainCloudGimmickCollision.h" />

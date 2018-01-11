@@ -22,7 +22,7 @@
 #include "CollisionManager\CollisionManager.h"
 #include "CollisionTask\CollisionTask.h"
 #include "EventManager\EventManager.h"
-
+#include "JoyconManager\JoyconManager.h"
 
 namespace Game
 {
@@ -89,6 +89,10 @@ namespace Game
 		SINGLETON_CREATE(CollisionManager);
 		SINGLETON_CREATE(CollisionTaskManager);
 
+		SINGLETON_CREATE(JoyconManager);
+		SINGLETON_INSTANCE(JoyconManager)->Connect(Joycon::LEFT_CONTROLLER);
+		SINGLETON_INSTANCE(JoyconManager)->Connect(Joycon::RIGHT_CONTROLLER);
+
 		m_pObjectManager = new ObjectManager();
 		if (!m_pObjectManager->Initialize())
 		{
@@ -105,6 +109,10 @@ namespace Game
 	{
 		m_pObjectManager->Finalize();
 		SafeDelete(m_pObjectManager);
+
+		SINGLETON_INSTANCE(JoyconManager)->Disconnect(Joycon::LEFT_CONTROLLER);
+		SINGLETON_INSTANCE(JoyconManager)->Disconnect(Joycon::RIGHT_CONTROLLER);
+		SINGLETON_DELETE(JoyconManager);
 
 		SINGLETON_DELETE(CollisionTaskManager);
 		SINGLETON_DELETE(CollisionManager);
@@ -160,6 +168,14 @@ namespace Game
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_S);
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_D);
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_C);
+
+		SINGLETON_INSTANCE(JoyconManager)->CheckButton(Joycon::RIGHT_CONTROLLER, Joycon::B_BUTTON);
+		SINGLETON_INSTANCE(JoyconManager)->CheckButton(Joycon::RIGHT_CONTROLLER, Joycon::X_BUTTON);
+		SINGLETON_INSTANCE(JoyconManager)->CheckButton(Joycon::RIGHT_CONTROLLER, Joycon::ZR_BUTTON);
+		SINGLETON_INSTANCE(JoyconManager)->CheckButton(Joycon::RIGHT_CONTROLLER, Joycon::R_BUTTON);
+		SINGLETON_INSTANCE(JoyconManager)->CheckButton(Joycon::LEFT_CONTROLLER, Joycon::ZL_BUTTON);
+		SINGLETON_INSTANCE(JoyconManager)->CheckButton(Joycon::LEFT_CONTROLLER, Joycon::L_BUTTON);
+
 
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->Run();
 		SINGLETON_INSTANCE(CollisionManager)->Run();

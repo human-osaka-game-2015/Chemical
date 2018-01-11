@@ -1,6 +1,6 @@
-/**
+ï»¿/**
  * @file   JoyconManager.cpp
- * @brief  JoyconManagerƒNƒ‰ƒX‚ÌÀ‘•
+ * @brief  JoyconManagerã‚¯ãƒ©ã‚¹ã®å®Ÿè£…
  * @author kotani
  */
 #include "JoyconManager.h"
@@ -24,4 +24,5 @@ JoyconManager::~JoyconManager()
 		delete m_pJoycon[i];
 		m_pJoycon[i] = nullptr;
 	}
+	hid_exit();
 }
