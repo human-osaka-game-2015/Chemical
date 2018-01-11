@@ -94,6 +94,7 @@ public:
 	{ 
 		m_IsConnect = false; 
 		m_Thread.join();
+		hid_close(m_Handle[m_ControllerType]);
 	}
 
 	/**
@@ -106,7 +107,7 @@ public:
 	 * アナログスティックの値を取得する
 	 * @return アナログスティックの値
 	 */
-	D3DXVECTOR2 GetAnalogStick()
+	D3DXVECTOR2 GetAnalogStick() const
 	{
 		return m_AnalogStick;
 	}
@@ -115,7 +116,7 @@ public:
 	 * 角速度を取得する
 	 * @return 角速度
 	 */
-	D3DXVECTOR3 GetGyroSensor()
+	D3DXVECTOR3 GetGyroSensor()const
 	{
 		return m_GyroSensor;
 	}
@@ -124,7 +125,7 @@ public:
 	 * 加速度を取得する
 	 * @return 加速度
 	 */
-	D3DXVECTOR3 GetAccelerometer()
+	D3DXVECTOR3 GetAccelerometer()const
 	{
 		return m_Accelerometer;
 	}
@@ -134,9 +135,9 @@ public:
 	 * @param[in] _button 取得するボタン
 	 * @return ボタンの状態
 	 */
-	BUTTON_STATE GetButtonState(int _button)
+	const BUTTON_STATE* GetButtonState() const
 	{
-		return m_ButtonState[_button];
+		return m_ButtonState;
 	}
 private:
 	/*** 更新関数 */

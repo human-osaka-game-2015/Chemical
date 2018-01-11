@@ -1,5 +1,5 @@
 ﻿#include "Joycon.h"
-#include <Windows.h>
+//#include <Windows.h>
 
 namespace
 {
@@ -119,7 +119,6 @@ m_IsConnect(false)
 
 Joycon::~Joycon()
 {
-	Disconnect();
 }
 
 bool Joycon::Connect(CONTROLLER_TYPE _controllerType)

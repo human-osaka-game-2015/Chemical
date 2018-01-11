@@ -22,7 +22,7 @@
 #include "InputDeviceManager\InputDeviceManager.h"
 #include "InputDeviceManager\KeyDevice\KeyDevice.h"
 #include "TaskManager\TaskManager.h"
-
+#include "JoyconManager\JoyconManager.h"
 #include <algorithm>
 
 
@@ -282,6 +282,12 @@ namespace Game
 	void Player::NormalControl()
 	{
 		const Lib::KeyDevice::KEYSTATE* pKeyState = SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState();
+		const Joycon::BUTTON_STATE* pLeftButtonState = SINGLETON_INSTANCE(JoyconManager)->GetJoycon(Joycon::LEFT_CONTROLLER)->GetButtonState();
+		const Joycon::BUTTON_STATE* pRightButtonState = SINGLETON_INSTANCE(JoyconManager)->GetJoycon(Joycon::RIGHT_CONTROLLER)->GetButtonState();
+		const Joycon* pLeftJoycon = SINGLETON_INSTANCE(JoyconManager)->GetJoycon(Joycon::LEFT_CONTROLLER);
+		const Joycon* pRightJoycon = SINGLETON_INSTANCE(JoyconManager)->GetJoycon(Joycon::RIGHT_CONTROLLER);
+
+
 		float X = static_cast<float>(Application::m_WindowWidth / 2);	//!< 画面中央からスクロール.
 
 		if (pKeyState[DIK_X] == Lib::KeyDevice::KEY_PUSH)
@@ -291,33 +297,43 @@ namespace Game
 				m_SelectMixChemicalIndex = 0;
 		}
 
-		if (pKeyState[DIK_A] == Lib::KeyDevice::KEY_PUSH)
+		if (pLeftButtonState[Joycon::L_BUTTON] == Joycon::PUSH_BUTTON)
+			m_SelectMixChemicalIndex = 0;
+		else if (pRightButtonState[Joycon::R_BUTTON] == Joycon::PUSH_BUTTON)
+			m_SelectMixChemicalIndex = 1;
+
+		if (pKeyState[DIK_A] == Lib::KeyDevice::KEY_PUSH ||
+			pLeftButtonState[Joycon::ZL_BUTTON] == Joycon::PUSH_BUTTON)
 		{
 			if (++m_SelectChemicalIndex[0] >= m_NormalChemicalMax)
 				m_SelectChemicalIndex[0] = 0;
 		}
 
-		if (pKeyState[DIK_S] == Lib::KeyDevice::KEY_PUSH)
+		if (pKeyState[DIK_S] == Lib::KeyDevice::KEY_PUSH ||
+			pRightButtonState[Joycon::ZR_BUTTON] == Joycon::PUSH_BUTTON)
 		{
 			if (++m_SelectChemicalIndex[1] >= m_NormalChemicalMax)
 				m_SelectChemicalIndex[1] = 0;
 		}
 
-		if(pKeyState[DIK_D] == Lib::KeyDevice::KEY_PUSH)
+		if(pKeyState[DIK_D] == Lib::KeyDevice::KEY_PUSH ||
+			pRightButtonState[Joycon::X_BUTTON] == Joycon::PUSH_BUTTON)
 		{
 			//混ぜる動作.
 			m_AnimationState = MIXIN_ANIMATION;
 			m_Animations[m_AnimationState].pData->AnimationStart();
 			pControl = &Player::ChemicalCreateControl;
 		}
-		else if (pKeyState[DIK_C] == Lib::KeyDevice::KEY_PUSH)
+		else if (pKeyState[DIK_C] == Lib::KeyDevice::KEY_PUSH ||
+			abs(pRightJoycon->GetGyroSensor().z) > 7.3)
 		{
 			//振る動作.
 			m_AnimationState = WALK_ANIMATION;
 			m_Animations[m_AnimationState].pData->AnimationStart();
 			pControl = &Player::ShakeControl;
 		}
-		else if (pKeyState[DIK_Z] == Lib::KeyDevice::KEY_PUSH)
+		else if (pKeyState[DIK_Z] == Lib::KeyDevice::KEY_PUSH ||
+			pRightJoycon->GetGyroSensor().y < -5.3)
 		{
 			// 薬品をかける動作に移行.
 			if (m_pMixChemical[m_SelectMixChemicalIndex] != nullptr &&
@@ -328,12 +344,14 @@ namespace Game
 				pControl = &Player::SprinkleControl;
 			}
 		}
-		else if (pKeyState[DIK_UPARROW] == Lib::KeyDevice::KEY_PUSH &&
+		else if (pKeyState[DIK_UPARROW] == Lib::KeyDevice::KEY_PUSH ||
+			pRightButtonState[Joycon::B_BUTTON] == Joycon::PUSH_BUTTON &&
 			m_IsLanding)
 		{
 			m_Acceleration = m_JumpPower;
 		}
-		else if (pKeyState[DIK_LEFTARROW] == Lib::KeyDevice::KEY_ON)
+		else if (pKeyState[DIK_LEFTARROW] == Lib::KeyDevice::KEY_ON ||
+			pLeftJoycon->GetAnalogStick().x < -0.5)
 		{
 			m_AnimationState = WALK_ANIMATION;
 			m_Animations[m_AnimationState].pData->Update();
@@ -342,7 +360,8 @@ namespace Game
 
 			if (m_WorldPos.x <= X) m_WorldPos.x = (m_Pos.x -= m_MoveSpeed);
 		}
-		else if (pKeyState[DIK_RIGHTARROW] == Lib::KeyDevice::KEY_ON)
+		else if (pKeyState[DIK_RIGHTARROW] == Lib::KeyDevice::KEY_ON ||
+			pLeftJoycon->GetAnalogStick().x > +0.5)
 		{
 			m_AnimationState = WALK_ANIMATION;
 			m_Animations[m_AnimationState].pData->Update();
