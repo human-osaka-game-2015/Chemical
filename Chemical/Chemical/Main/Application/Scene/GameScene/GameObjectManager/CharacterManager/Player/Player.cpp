@@ -323,8 +323,9 @@ namespace Game
 				m_SelectChemicalIndex[1] = 0;
 		}
 
-		if(pKeyState[DIK_D] == Lib::KeyDevice::KEY_PUSH ||
-			pRightButtonState[Joycon::X_BUTTON] == Joycon::PUSH_BUTTON)
+		if ((pKeyState[DIK_D] == Lib::KeyDevice::KEY_PUSH ||
+			pRightButtonState[Joycon::X_BUTTON] == Joycon::PUSH_BUTTON) &&
+			m_IsLanding)
 		{
 			//混ぜる動作.
 			m_AnimationState = MIXIN_ANIMATION;
@@ -333,15 +334,17 @@ namespace Game
 		}
 		else if ((pKeyState[DIK_C] == Lib::KeyDevice::KEY_PUSH ||
 			abs(pRightJoycon->GetGyroSensor().z) > 7.3) &&
-			m_pMixChemical[m_SelectMixChemicalIndex] != nullptr)
+			m_pMixChemical[m_SelectMixChemicalIndex] != nullptr &&
+			m_IsLanding)
 		{
 			//振る動作.
 			m_AnimationState = WALK_ANIMATION; // 仮動作.
 			m_Animations[m_AnimationState].pData->AnimationStart();
 			pControl = &Player::ShakeControl;
 		}
-		else if (pKeyState[DIK_Z] == Lib::KeyDevice::KEY_PUSH ||
-			pRightJoycon->GetGyroSensor().y < -5.3)
+		else if ((pKeyState[DIK_Z] == Lib::KeyDevice::KEY_PUSH ||
+			pRightJoycon->GetGyroSensor().y < -5.3) &&
+			m_IsLanding)
 		{
 			// 薬品をかける動作に移行.
 			if (m_pMixChemical[m_SelectMixChemicalIndex] != nullptr &&
@@ -352,8 +355,8 @@ namespace Game
 				pControl = &Player::SprinkleControl;
 			}
 		}
-		else if (pKeyState[DIK_UPARROW] == Lib::KeyDevice::KEY_PUSH ||
-			pRightButtonState[Joycon::B_BUTTON] == Joycon::PUSH_BUTTON &&
+		else if ((pKeyState[DIK_UPARROW] == Lib::KeyDevice::KEY_PUSH ||
+			pRightButtonState[Joycon::B_BUTTON] == Joycon::PUSH_BUTTON) &&
 			m_IsLanding)
 		{
 			m_AnimationState = JUMP_ANIMATION;
