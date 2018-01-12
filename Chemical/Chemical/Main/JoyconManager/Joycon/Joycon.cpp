@@ -109,6 +109,10 @@ m_IsConnect(false)
 	cal_x[0] = 0.f;
 	cal_y[0] = 0.f;
 
+	m_AnalogStick = D3DXVECTOR2(0, 0);
+	m_GyroSensor = D3DXVECTOR3(0, 0, 0);
+	m_Accelerometer = D3DXVECTOR3(0, 0, 0);
+
 	for (int i = 0; i < MAX_BUTTON; i++)
 	{
 		m_ButtonState[i] = OFF_BUTTON;
@@ -312,6 +316,7 @@ void Joycon::Update()
 
 void Joycon::CheckButton(int _button)
 {
+	if (!m_IsConnect) return;
 	auto CheckButtonState = [&](bool _buttonCheck)
 	{
 		if (_buttonCheck)

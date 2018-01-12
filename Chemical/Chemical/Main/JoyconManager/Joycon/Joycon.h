@@ -92,9 +92,12 @@ public:
 	/*** 接続を終了する */
 	void Disconnect()
 	{ 
-		m_IsConnect = false; 
-		m_Thread.join();
-		hid_close(m_Handle[m_ControllerType]);
+		if (m_IsConnect)
+		{
+			m_IsConnect = false; 
+			m_Thread.join();
+			hid_close(m_Handle[m_ControllerType]);
+		}
 	}
 
 	/**

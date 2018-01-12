@@ -159,6 +159,7 @@ namespace Game
 		}
 		else
 		{
+			m_AnimationState = JUMP_ANIMATION;
 			m_IsLanding = false;
 		}
 
@@ -267,6 +268,12 @@ namespace Game
 			DOWN_ANIMATION,
 			ANIMATION_PATTERN::ONE_ANIMATION,
 			0.1f)) return false;
+		
+		if (!LoadAnimationFile(
+			"PlayerJump.anim",
+			JUMP_ANIMATION,
+			ANIMATION_PATTERN::ONE_ANIMATION,
+			0.15f)) return false;
 
 		return true;
 	}
@@ -324,11 +331,12 @@ namespace Game
 			m_Animations[m_AnimationState].pData->AnimationStart();
 			pControl = &Player::ChemicalCreateControl;
 		}
-		else if (pKeyState[DIK_C] == Lib::KeyDevice::KEY_PUSH ||
-			abs(pRightJoycon->GetGyroSensor().z) > 7.3)
+		else if ((pKeyState[DIK_C] == Lib::KeyDevice::KEY_PUSH ||
+			abs(pRightJoycon->GetGyroSensor().z) > 7.3) &&
+			m_pMixChemical[m_SelectMixChemicalIndex] != nullptr)
 		{
 			//振る動作.
-			m_AnimationState = WALK_ANIMATION;
+			m_AnimationState = WALK_ANIMATION; // 仮動作.
 			m_Animations[m_AnimationState].pData->AnimationStart();
 			pControl = &Player::ShakeControl;
 		}
@@ -348,12 +356,14 @@ namespace Game
 			pRightButtonState[Joycon::B_BUTTON] == Joycon::PUSH_BUTTON &&
 			m_IsLanding)
 		{
+			m_AnimationState = JUMP_ANIMATION;
+			m_Animations[m_AnimationState].pData->AnimationStart();
 			m_Acceleration = m_JumpPower;
 		}
 		else if (pKeyState[DIK_LEFTARROW] == Lib::KeyDevice::KEY_ON ||
 			pLeftJoycon->GetAnalogStick().x < -0.5)
 		{
-			m_AnimationState = WALK_ANIMATION;
+			if (m_IsLanding) m_AnimationState = WALK_ANIMATION;
 			m_Animations[m_AnimationState].pData->Update();
 			m_IsLeft = true;
 			m_WorldPos.x -= m_MoveSpeed;
@@ -363,7 +373,7 @@ namespace Game
 		else if (pKeyState[DIK_RIGHTARROW] == Lib::KeyDevice::KEY_ON ||
 			pLeftJoycon->GetAnalogStick().x > +0.5)
 		{
-			m_AnimationState = WALK_ANIMATION;
+			if (m_IsLanding) m_AnimationState = WALK_ANIMATION;
 			m_Animations[m_AnimationState].pData->Update();
 			m_IsLeft = false;
 			m_WorldPos.x += m_MoveSpeed;
@@ -372,7 +382,7 @@ namespace Game
 		}
 		else
 		{
-			m_AnimationState = WAIT_ANIMATION;
+			if (m_IsLanding) m_AnimationState = WAIT_ANIMATION;
 			m_Animations[m_AnimationState].pData->Update();
 		}
 	}
@@ -417,8 +427,12 @@ namespace Game
 	void Player::ShakeControl()
 	{
 		const Lib::KeyDevice::KEYSTATE* pKeyState = SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState();
-		if (pKeyState[DIK_C] == Lib::KeyDevice::KEY_ON &&
-			m_pMixChemical[m_SelectMixChemicalIndex] != nullptr)
+		const Joycon* pRightJoycon = SINGLETON_INSTANCE(JoyconManager)->GetJoycon(Joycon::RIGHT_CONTROLLER);
+
+		if (pKeyState[DIK_C] == Lib::KeyDevice::KEY_ON ||
+			abs(pRightJoycon->GetGyroSensor().z) > 1.5f ||
+			abs(pRightJoycon->GetGyroSensor().x) > 1.5f ||
+			abs(pRightJoycon->GetGyroSensor().y) > 1.5f)
 		{
 			m_Animations[m_AnimationState].pData->Update(); 
 			m_pMixChemical[m_SelectMixChemicalIndex]->Shake();
