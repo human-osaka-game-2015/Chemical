@@ -222,6 +222,10 @@ namespace Game
 			m_pRains[ID] = new Rain(D3DXVECTOR2(pEvent->GetRainPos().x, 300), Rain::HIGH_GRADE);
 			m_pRains[ID]->Initialize();
 			break;
+		default:
+			OutputErrorLog("薬品のグレードが不正です");
+			return;
+			break;
 		}
 
 
