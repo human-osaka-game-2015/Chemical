@@ -15,11 +15,12 @@ namespace Game
 		GAME_DRAW_BACKGROUND = 0,	//!< 背景描画プライオリティ.
 		GAME_DRAW_RAIN = 1,			//!< 雨描画プライオリティ.
 		GAME_DRAW_CHIP = 2,			//!< チップ描画プライオリティ.
-		GAME_DRAW_CHARACTER = 3,    //!< キャラクター描画プライオリティ.
-		GAME_DRAW_EFFECT = 4,		//!< エフェクト描画プライオリティ.
-		GAME_DRAW_GIMMICK = 5,		//!< ギミック描画プライオリティ.
-		GAME_DRAW_UI = 6,			//!< UI描画プライオリティ.
-		DRAW_PRIORITY_MAX = 7
+		GAME_DRAW_BACK_GIMMICK = 3,	//!< 背景ギミック描画プライオリティ.
+		GAME_DRAW_CHARACTER = 4,    //!< キャラクター描画プライオリティ.
+		GAME_DRAW_EFFECT = 5,		//!< エフェクト描画プライオリティ.
+		GAME_DRAW_GIMMICK = 6,		//!< ギミック描画プライオリティ.
+		GAME_DRAW_UI = 7,			//!< UI描画プライオリティ.
+		DRAW_PRIORITY_MAX
 	};
 
 	/*** イベントの識別子 */

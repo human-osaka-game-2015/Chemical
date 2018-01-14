@@ -413,6 +413,12 @@
     <Filter Include="Main\JoyconManager\Joycon">
       <UniqueIdentifier>{fa056c88-d6a8-4b31-86d2-b95556004deb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickLeft">
+      <UniqueIdentifier>{f54db73e-3874-4317-b698-031e038bbe74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight">
+      <UniqueIdentifier>{5d81d2cc-8f42-432e-b29b-9021da088749}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -806,6 +812,12 @@
     </ClCompile>
     <ClCompile Include="Main\JoyconManager\Joycon\Joycon.cpp">
       <Filter>Main\JoyconManager\Joycon</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickLeft\GateGimmickLeft.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickLeft</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight\GateGimmickRight.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1208,6 +1220,12 @@
     </ClInclude>
     <ClInclude Include="Main\JoyconManager\Joycon\hid\hidapi.h">
       <Filter>Main\JoyconManager\Joycon</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickLeft\GateGimmickLeft.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickLeft</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight\GateGimmickRight.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
