@@ -102,6 +102,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickLeft\GateGimmickLeft.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight\GateGimmickRight.cpp" />
     <ClCompile Include="Main\JoyconManager\JoyconManager.cpp" />
     <ClCompile Include="Main\JoyconManager\Joycon\hid\hid.cpp" />
     <ClCompile Include="Main\JoyconManager\Joycon\Joycon.cpp" />
@@ -221,6 +223,8 @@
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainGimmickCollision\RainGimmickCollision.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickLeft\GateGimmickLeft.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight\GateGimmickRight.h" />
     <ClInclude Include="Main\JoyconManager\JoyconManager.h" />
     <ClInclude Include="Main\JoyconManager\Joycon\hid\hidapi.h" />
     <ClInclude Include="Main\JoyconManager\Joycon\Joycon.h" />

@@ -24,6 +24,8 @@
 #include "StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickLeft\BeltConveyorGimmickLeft.h"
 #include "StageGimmickBase\BeltConveyorGimmick\BeltConveyorGimmickRight\BeltConveyorGimmickRight.h"
 #include "StageGimmickBase\RainCloud\RainCloud.h"
+#include "StageGimmickBase\GateGimmick\GateGimmickLeft\GateGimmickLeft.h"
+#include "StageGimmickBase\GateGimmick\GateGimmickRight\GateGimmickRight.h"
 #include "Debugger\Debugger.h"
 
 
@@ -56,6 +58,8 @@ namespace Game
 		m_pGimmicks[BELTCONVEYOR_LEFT_GIMMICK] = new BeltConveyorGimmickLeft();
 		m_pGimmicks[BELTCONVEYOR_RIGHT_GIMMICK] = new BeltConveyorGimmickRight();
 		m_pGimmicks[RAINCLOUD_GIMMICK] = new RainCloud();
+		m_pGimmicks[GATE_LEFT_GIMMICK] = new GateGimmickLeft();
+		m_pGimmicks[GATE_RIGHT_GIMMICK] = new GateGimmickRight();
 	}
 
 	StageGimmickManager::~StageGimmickManager()
