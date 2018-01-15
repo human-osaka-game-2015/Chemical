@@ -98,65 +98,71 @@ namespace Select
 	void StageUpWindow::Update()
 	{
 		if (!m_IsEnable) return;
-		
+		const Lib::KeyDevice::KEYSTATE* KeyState = SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState();
+
 		m_Alpha += 0.009f;
 		if (m_Alpha > 1) m_Alpha = 1;
 		else if (m_Alpha != 1) return;
 
 		if (m_ButtonState != NONE_BUTTON) m_pButtons[m_ButtonState]->OnCusor();
 		
-		if (m_IsRankingDraw)
-		{
-			m_pRankingWindow->Update();
-			m_pScoreRanking->Update();
-			m_pRankingButton->Update();
-		}
 
 		for (auto itr : m_pButtons)
 		{
 			itr->Update();
 		}
 
-		const Lib::KeyDevice::KEYSTATE* KeyState = SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState();
-
-		if (KeyState[DIK_LEFT] == Lib::KeyDevice::KEY_PUSH)
+		if (m_IsRankingDraw)
 		{
-			if (m_ButtonState > 0) m_ButtonState--;
-			else m_ButtonState = RETURN_BUTTON;
-		}
-
-		if (KeyState[DIK_RIGHT] == Lib::KeyDevice::KEY_PUSH)
-		{
-			if (m_ButtonState < RETURN_BUTTON) m_ButtonState++;
-			else m_ButtonState = START_BUTTON;
-		}
-
-		if (KeyState[DIK_RETURN] == Lib::KeyDevice::KEY_PUSH &&
-			!m_IsRankingDraw)
-		{
-			switch (m_ButtonState)
+			if (KeyState[DIK_RETURN] == Lib::KeyDevice::KEY_PUSH)
 			{
-			case START_BUTTON:
-				m_pButtons[START_BUTTON]->OnClick();
-				m_Alpha = 0.f;
-				m_ButtonState = NONE_BUTTON;
-				break;
-			case RANKING_BUTTON:
-				m_pButtons[RANKING_BUTTON]->OnClick();
-				m_IsRankingDraw = true;
-				m_Alpha = 0.f;
-				SINGLETON_INSTANCE(SelectManager)->SetSelectState(SelectManager::RANKING_SELECT);
-				m_ButtonState = NONE_BUTTON;
-				break;
-			case RETURN_BUTTON:
-				m_pButtons[RETURN_BUTTON]->OnClick();
-				m_Alpha = 0.f;
-				SINGLETON_INSTANCE(SelectManager)->SetSelectState(SelectManager::STAGE_BOARD_SELECT);
-				m_IsEnable = false;
-				m_ButtonState = NONE_BUTTON;
-				break;
-			default:
-				break;
+				m_IsRankingDraw = false;
+			}
+			m_pRankingWindow->Update();
+			m_pScoreRanking->Update();
+			m_pRankingButton->Update();
+		}
+		else
+		{
+			if (KeyState[DIK_LEFT] == Lib::KeyDevice::KEY_PUSH)
+			{
+				if (m_ButtonState > 0) m_ButtonState--;
+				else m_ButtonState = RETURN_BUTTON;
+			}
+
+			if (KeyState[DIK_RIGHT] == Lib::KeyDevice::KEY_PUSH)
+			{
+				if (m_ButtonState < RETURN_BUTTON) m_ButtonState++;
+				else m_ButtonState = START_BUTTON;
+			}
+
+			if (KeyState[DIK_RETURN] == Lib::KeyDevice::KEY_PUSH &&
+				!m_IsRankingDraw)
+			{
+				switch (m_ButtonState)
+				{
+				case START_BUTTON:
+					m_pButtons[START_BUTTON]->OnClick();
+					m_Alpha = 0.f;
+					m_ButtonState = NONE_BUTTON;
+					break;
+				case RANKING_BUTTON:
+					m_pButtons[RANKING_BUTTON]->OnClick();
+					m_IsRankingDraw = true;
+					m_Alpha = 0.f;
+					SINGLETON_INSTANCE(SelectManager)->SetSelectState(SelectManager::RANKING_SELECT);
+					m_ButtonState = NONE_BUTTON;
+					break;
+				case RETURN_BUTTON:
+					m_pButtons[RETURN_BUTTON]->OnClick();
+					m_Alpha = 0.f;
+					SINGLETON_INSTANCE(SelectManager)->SetSelectState(SelectManager::STAGE_BOARD_SELECT);
+					m_IsEnable = false;
+					m_ButtonState = NONE_BUTTON;
+					break;
+				default:
+					break;
+				}
 			}
 		}
 	}
