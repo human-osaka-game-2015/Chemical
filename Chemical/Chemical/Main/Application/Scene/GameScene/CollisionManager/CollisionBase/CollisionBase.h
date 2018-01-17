@@ -31,6 +31,7 @@ namespace Game
 	class PlayerCollision;
 	class ChemicalCollision;
 	class ExplosionCollision;
+	class BlockGimmickCollision;
 
 	/*** 当たり判定基底クラス */
 	class CollisionBase
@@ -95,6 +96,9 @@ namespace Game
 
 		/*** 薬品との当たり判定を行う */
 		virtual void Collide(ExplosionCollision* _pOther);
+
+		/*** ブロックとの当たり判定を行う */
+		virtual void Collide(BlockGimmickCollision* _pOther);
 
 		/**
 		 * 当たり判定ID取得

@@ -95,4 +95,8 @@ namespace Game
 	void CollisionBase::Collide(ExplosionCollision* _pOther)
 	{
 	}
+
+	void CollisionBase::Collide(BlockGimmickCollision* _pOther)
+	{
+	}
 }

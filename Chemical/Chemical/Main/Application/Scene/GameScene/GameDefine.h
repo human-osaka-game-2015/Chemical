@@ -26,15 +26,19 @@ namespace Game
 	/*** イベントの識別子 */
 	enum EVENT_ID
 	{
-		PLAYER_EVENT = 0,			//!< プレイヤーイベント.
-		ENEMY_GENERATE_EVENT = 1,	//!< エネミー生成イベント.
-		BUTTON_GIMMICK_EVENT = 2,	//!< ボタンギミックイベント.
-		WARP_ENTRANCE_EVENT = 3,	//!< ワープ入口イベント.
-		WARP_EXIT_EVENT = 4,		//!< ワープ出口イベント.
-		WARP_GIMMICK_EVENT = 5,		//!< ワープギミックイベント.
-		RAIN_EVENT = 6,				//!< 雨を降らせるイベント.
-		SPEEDUP_EVENT = 7,			//!< 移動速度が上がるイベント.
-		EVENT_ID_MAX				//!< イベント識別子最大数.
+		PLAYER_EVENT = 0,				//!< プレイヤーイベント.
+		ENEMY_GENERATE_EVENT = 1,		//!< エネミー生成イベント.
+		BUTTON_GIMMICK_EVENT = 2,		//!< ボタンギミックイベント.
+		WARP_ENTRANCE_EVENT = 3,		//!< ワープ入口イベント.
+		WARP_EXIT_EVENT = 4,			//!< ワープ出口イベント.
+		WARP_GIMMICK_EVENT = 5,			//!< ワープギミックイベント.
+		RAIN_EVENT = 6,					//!< 雨を降らせるイベント.
+		BLUE_BLOCK_GIMMICK_EVENT = 7,	//!< 青ブロックギミックイベント.
+		RED_BLOCK_GIMMICK_EVENT = 8,	//!< 赤ブロックギミックイベント.
+		BLUE_BUTTON_GIMMICK_EVENT = 9,	//!< 青ボタンギミックイベント.
+		RED_BUTTON_GIMMICK_EVENT = 10,	//!< 赤ボタンギミックイベント.
+		SPEEDUP_EVENT = 11,				//!< 移動速度が上がるイベント.
+		EVENT_ID_MAX					//!< イベント識別子最大数.
 	};
 
 	/*** イベントグループ名 */
@@ -48,6 +52,7 @@ namespace Game
 		WARP_EVENT_GROUP = 5,			//!< ワープイベントグループ.
 		RAIN_EVENT_GROUP = 6,			//!< 雨を降らせるイベント.
 		SPEEDUP_EVENT_GROUP = 7,		//!< 移動速度が上がるイベントグループ.
+		BLOCK_EVENT_GROUP = 8,			//!< ブロックイベント.
 		EVENT_GROUP_MAX					//!< イベントグループの最大数.
 	};
 
@@ -78,6 +83,7 @@ namespace Game
 		RAINCLOUD_GIMMICK_COLLISION_ID,		//!< 雨雲ギミック当たり判定ID.
 		RAIN_GIMMICK_COLLISION_ID,			//!< 雨ギミック当たり判定ID.
 		WATER_COLLISION_ID,					//!< 水の当たり判定ID.
+		BLOCK_GIMMICK_COLLISION_ID,			//!< ブロックギミック当たり判定ID.
 		COLLISION_ID_MAX					//!< 当たり判定ID最大値.
 	};
 
@@ -100,7 +106,7 @@ namespace Game
 	{
 		CHEMICAL_BLUE,     // 蒼
 		CHEMICAL_RED,      // 紅
-		CHEMICAL_YELLOW,   // 黃
+		CHEMICAL_YELLOW,   // 鮟茀
 		CHEMICAL_EXPLOSION,// 爆発
 		CHEMICAL_SPEEDUP,   // 移動速度アップ
 		CHEMICAL_RAIN,	   // 雨が降る
