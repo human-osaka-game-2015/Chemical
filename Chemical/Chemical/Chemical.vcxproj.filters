@@ -419,6 +419,9 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight">
       <UniqueIdentifier>{5d81d2cc-8f42-432e-b29b-9021da088749}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemical">
+      <UniqueIdentifier>{9e9522d6-abca-43e6-b868-f2731c393b7a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -818,6 +821,9 @@
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight\GateGimmickRight.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemicalEvent\SpeedUpChemicalEvent.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemical</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1226,6 +1232,9 @@
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight\GateGimmickRight.h">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemicalEvent\SpeedUpChemicalEvent.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemical</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

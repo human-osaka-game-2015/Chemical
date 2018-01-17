@@ -264,8 +264,27 @@ bool Joycon::Connect(CONTROLLER_TYPE _controllerType)
 
 void Joycon::Update()
 {
+	LARGE_INTEGER Time1;
+	Time1.HighPart = 0;
+	Time1.LowPart = 0;
+	Time1.QuadPart = 0;
+	Time1.u.HighPart = 0;
+	Time1.u.LowPart = 0;
+
 	while (m_IsConnect)
 	{
+		LARGE_INTEGER Frq, Time2;
+		double TotalTime = 0;
+		QueryPerformanceFrequency(&Frq);
+		double MicroSec = 1000000 / (double)Frq.QuadPart;
+
+		while (TotalTime<(1000000 / 120))
+		{
+			QueryPerformanceCounter(&Time2);
+			TotalTime = (Time2.QuadPart - Time1.QuadPart)*MicroSec;
+		}
+		QueryPerformanceCounter(&Time1);
+
 		memset(buf_cmd, 0, sizeof(buf_cmd));
 		if (m_Handle[m_ControllerType] != nullptr)
 		{

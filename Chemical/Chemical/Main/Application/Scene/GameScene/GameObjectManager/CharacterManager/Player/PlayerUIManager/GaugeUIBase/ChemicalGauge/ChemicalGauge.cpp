@@ -94,6 +94,28 @@ namespace Game
 		m_pVertex->ShaderSetup();
 		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndexs[m_pChemicaData->Type]));
 		m_pVertex->SetVertexPos(Vertex);
+		D3DXCOLOR Color = D3DXCOLOR(1.f, 1.f, 1.f, 1.f);
+		if (m_pChemicaData->Type > CHEMICAL_YELLOW)
+		{
+			switch (m_pChemicaData->Grade)
+			{
+			case ChemicalBase::GRADE_NORMAL:
+				Color = D3DXCOLOR(0.5f, 0.5f, 0.5f, 1.f);
+				break;
+			case ChemicalBase::GRADE_GOOD:
+				Color = D3DXCOLOR(0.7f, 0.7f, 0.7f, 1.f);
+				break;
+			case ChemicalBase::GRADE_GREAT:
+				Color = D3DXCOLOR(1.f, 1.f, 1.f, 1.f);
+				break;
+			case ChemicalBase::GRADE_BAD:
+				Color = D3DXCOLOR(0.1f, 0.1f, 0.1f, 1.f);
+				break;
+			default:
+				break;
+			}
+		}
+		m_pVertex->SetColor(&Color);
 		m_pVertex->WriteVertexBuffer();
 		m_pVertex->WriteConstantBuffer(&m_Pos);
 
@@ -103,6 +125,7 @@ namespace Game
 		Vertex[1] = D3DXVECTOR2(m_Size.x / 2, -m_Size.y / 2);
 		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_FrameTextureIndex));
 		m_pVertex->SetVertexPos(Vertex);
+		m_pVertex->SetColor(&D3DXCOLOR(1, 1, 1, 1));
 		m_pVertex->WriteVertexBuffer();
 		m_pVertex->WriteConstantBuffer(&m_Pos);
 

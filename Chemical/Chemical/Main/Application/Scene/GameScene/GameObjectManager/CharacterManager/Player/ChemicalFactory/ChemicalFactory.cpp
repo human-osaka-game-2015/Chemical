@@ -25,6 +25,10 @@ namespace Game
 			"Resource\\GameScene\\Texture\\Explosion.png",
 			&m_TextureIndex[Types(CHEMICAL_BLUE, CHEMICAL_YELLOW)])) return false;
 
+		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
+			"Resource\\GameScene\\Texture\\Explosion.png",
+			&m_TextureIndex[Types(CHEMICAL_RED, CHEMICAL_YELLOW)])) return false;
+
 		return true;
 	}
 

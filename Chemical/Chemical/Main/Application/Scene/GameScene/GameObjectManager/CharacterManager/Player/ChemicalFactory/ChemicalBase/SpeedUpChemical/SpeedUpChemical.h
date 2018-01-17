@@ -9,6 +9,8 @@
 
 namespace Game
 {
+	class SpeedUpChemicalEvent;
+
 	class SpeedUpChemical : public ChemicalBase
 	{
 	public:
@@ -21,8 +23,23 @@ namespace Game
 		/*** デストラクタ */
 		virtual ~SpeedUpChemical();
 
+		/**
+		 * 初期化処理
+		 * @return 初期化に成功したらtrue 失敗したらfalse
+		 */
+		virtual bool Initialize();
+
+		/*** 終了処理 */
+		virtual void Finalize();
+
+		/*** オブジェクトの更新前処理 */
+		virtual void UpdateStartUp();
+
 		/*** 更新処理 */
 		virtual void Update();
+
+	private:
+		SpeedUpChemicalEvent* m_pSpeedUpChemicalEvent;
 
 	};
 }

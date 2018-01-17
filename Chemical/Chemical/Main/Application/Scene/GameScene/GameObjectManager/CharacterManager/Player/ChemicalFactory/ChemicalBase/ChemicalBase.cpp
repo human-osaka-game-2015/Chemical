@@ -128,22 +128,18 @@ namespace Game
 	{
 		m_ShakeFrame++;
 
-		if (m_ShakeFrame > 20)
+		if (m_ShakeFrame > 270)
 		{
 			m_ChemicalData.Grade = GRADE_BAD;
-			m_ShakeFrame = 20;
+			m_ShakeFrame = 360;
 		}
-		else if (m_ShakeFrame > 15)
+		else if (m_ShakeFrame > 180)
 		{
 			m_ChemicalData.Grade = GRADE_GREAT;
 		}
-		else if (m_ShakeFrame > 10)
+		else if (m_ShakeFrame > 90)
 		{
 			m_ChemicalData.Grade = GRADE_GOOD;
-		}
-		else if (m_ShakeFrame > 5)
-		{
-			m_ChemicalData.Grade = GRADE_NORMAL;
 		}
 	}
 }
