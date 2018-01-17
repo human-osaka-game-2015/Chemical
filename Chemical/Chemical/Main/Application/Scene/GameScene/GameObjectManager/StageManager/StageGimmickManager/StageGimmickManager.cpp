@@ -26,6 +26,10 @@
 #include "StageGimmickBase\RainCloud\RainCloud.h"
 #include "StageGimmickBase\GateGimmick\GateGimmickLeft\GateGimmickLeft.h"
 #include "StageGimmickBase\GateGimmick\GateGimmickRight\GateGimmickRight.h"
+#include "StageGimmickBase\Block\BlueBlock\BlueBlock.h"
+#include "StageGimmickBase\Block\RedBlock\RedBlock.h"
+#include "StageGimmickBase\Block\BlueButtonGimmick\BlueButtonGimmick.h"
+#include "StageGimmickBase\Block\RedButtonGimmick\RedButtonGimmick.h"
 #include "Debugger\Debugger.h"
 
 
@@ -60,6 +64,10 @@ namespace Game
 		m_pGimmicks[RAINCLOUD_GIMMICK] = new RainCloud();
 		m_pGimmicks[GATE_LEFT_GIMMICK] = new GateGimmickLeft();
 		m_pGimmicks[GATE_RIGHT_GIMMICK] = new GateGimmickRight();
+		m_pGimmicks[RED_BLOCK_GIMMICK] = new RedBlock();
+		m_pGimmicks[BLUE_BLOCK_GIMMICK] = new BlueBlock();
+		m_pGimmicks[RED_BUTTON_GIMMICK] = new RedButtonGimmick();
+		m_pGimmicks[BLUE_BUTTON_GIMMICK] = new BlueButtonGimmick();
 	}
 
 	StageGimmickManager::~StageGimmickManager()
