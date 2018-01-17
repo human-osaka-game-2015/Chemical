@@ -33,6 +33,7 @@ namespace Game
 		WARP_EXIT_EVENT = 4,		//!< ワープ出口イベント.
 		WARP_GIMMICK_EVENT = 5,		//!< ワープギミックイベント.
 		RAIN_EVENT = 6,				//!< 雨を降らせるイベント.
+		SPEEDUP_EVENT = 7,			//!< 移動速度が上がるイベント.
 		EVENT_ID_MAX				//!< イベント識別子最大数.
 	};
 
@@ -46,6 +47,7 @@ namespace Game
 		WARP_EXIT_EVENT_GROUP = 4,		//!< ワープ出口イベントグループ.
 		WARP_EVENT_GROUP = 5,			//!< ワープイベントグループ.
 		RAIN_EVENT_GROUP = 6,			//!< 雨を降らせるイベント.
+		SPEEDUP_EVENT_GROUP = 7,		//!< 移動速度が上がるイベントグループ.
 		EVENT_GROUP_MAX					//!< イベントグループの最大数.
 	};
 

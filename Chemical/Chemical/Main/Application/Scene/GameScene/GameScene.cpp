@@ -173,9 +173,9 @@ namespace Game
 		SINGLETON_INSTANCE(JoyconManager)->CheckButton(Joycon::RIGHT_CONTROLLER, Joycon::X_BUTTON);
 		SINGLETON_INSTANCE(JoyconManager)->CheckButton(Joycon::RIGHT_CONTROLLER, Joycon::ZR_BUTTON);
 		SINGLETON_INSTANCE(JoyconManager)->CheckButton(Joycon::RIGHT_CONTROLLER, Joycon::R_BUTTON);
+		SINGLETON_INSTANCE(JoyconManager)->CheckButton(Joycon::RIGHT_CONTROLLER, Joycon::MINUS_PLUS_BUTTON);
 		SINGLETON_INSTANCE(JoyconManager)->CheckButton(Joycon::LEFT_CONTROLLER, Joycon::ZL_BUTTON);
 		SINGLETON_INSTANCE(JoyconManager)->CheckButton(Joycon::LEFT_CONTROLLER, Joycon::L_BUTTON);
-
 
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->Run();
 		SINGLETON_INSTANCE(CollisionManager)->Run();

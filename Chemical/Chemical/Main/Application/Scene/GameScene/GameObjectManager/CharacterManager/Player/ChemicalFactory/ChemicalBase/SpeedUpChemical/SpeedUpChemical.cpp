@@ -8,8 +8,10 @@
 #include "Application\Scene\GameScene\GameDefine.h"
 #include "Application\Scene\GameScene\CollisionManager\CollisionManager.h"
 #include "..\..\..\..\..\GameDataManager\GameDataManager.h"
+#include "SpeedUpChemicalEvent\SpeedUpChemicalEvent.h"
 
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
+#include "EventManager\EventManager.h"
 
 namespace Game
 {
@@ -47,6 +49,38 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Public Functions
 	//----------------------------------------------------------------------
+
+	bool SpeedUpChemical::Initialize()
+	{
+		m_pSpeedUpChemicalEvent = new SpeedUpChemicalEvent(SPEEDUP_EVENT);
+		return ChemicalBase::Initialize();
+	}
+
+	void SpeedUpChemical::Finalize()
+	{
+		ChemicalBase::Finalize();
+		SafeDelete(m_pSpeedUpChemicalEvent);
+	}
+
+	void SpeedUpChemical::UpdateStartUp()
+	{
+		if (!m_IsSprinkle) return;
+
+		if (!m_pCollision->GetHit()) return;
+
+		m_IsSprinkle = false;
+		m_pSpeedUpChemicalEvent->SetSpeedUpPos(m_Pos);
+		m_pSpeedUpChemicalEvent->SetChemicalGrade(m_ChemicalData.Grade);
+
+		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->RemoveTask(m_pDrawTask);
+		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->RemoveTask(m_pUpdateTask);
+		SINGLETON_INSTANCE(CollisionTaskManager)->RemoveTask(m_pCollisionTask);
+		SINGLETON_INSTANCE(CollisionManager)->RemoveCollision(m_pCollision);
+
+		SINGLETON_INSTANCE(Lib::EventManager)->SendEventMessage(
+			m_pSpeedUpChemicalEvent,
+			TO_STRING(SPEEDUP_EVENT_GROUP));
+	}
 
 	void SpeedUpChemical::Update()
 	{
