@@ -33,6 +33,15 @@ namespace Game
 		 */
 		virtual void Dispatch(CollisionBase* _pOther);
 
+		/*** 活性状態フラグ設定 */
+		void SetIsActive(bool _isActive){ m_IsActives = _isActive; }
+
+		/*** 活性状態フラグ取得 */
+		bool GetIsActive(){ return m_IsActives; }
+
+	private:
+		bool	m_IsActives;	//!< 当たり判定が活性状態か.
+
 	};
 }
 

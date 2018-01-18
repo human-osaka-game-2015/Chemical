@@ -16,7 +16,8 @@ namespace Game
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
 	BlockGimmickCollision::BlockGimmickCollision(int _id) :
-		GimmickCollision(_id)
+		GimmickCollision(_id),
+		m_IsActives(true)
 	{
 	}
 

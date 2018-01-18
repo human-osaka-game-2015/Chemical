@@ -422,9 +422,6 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemical">
       <UniqueIdentifier>{9e9522d6-abca-43e6-b868-f2731c393b7a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Block">
-      <UniqueIdentifier>{4ce7504f-ace2-4ca6-bf7a-fb707cf322fc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block">
       <UniqueIdentifier>{cef171f3-aa4d-4e5c-9893-d5d16746673d}</UniqueIdentifier>
     </Filter>
