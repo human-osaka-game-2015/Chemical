@@ -1,10 +1,10 @@
 ﻿/**
- * @file	MushroomGimmickCollision.h
- * @brief	キノコギミック当たり判定クラス定義
+ * @file	GoalGimmickCollision.h
+ * @brief	ゴールギミック当たり判定クラス定義
  * @author	morimoto
  */
-#ifndef GAME_MUSHROOMGIMMICKCOLLISION_H
-#define GAME_MUSHROOMGIMMICKCOLLISION_H
+#ifndef GAME_GOALGIMMICKCOLLISION_H
+#define GAME_GOALGIMMICKCOLLISION_H
 
 //----------------------------------------------------------------------
 // Include
@@ -14,18 +14,17 @@
 
 namespace Game
 {
-	/*** キノコギミック当たり判定クラス */
-	class MushroomGimmickCollision : public GimmickCollision
+	/*** ゴールギミック当たり判定クラス */
+	class GoalGimmickCollision : public GimmickCollision
 	{
 	public:
 		/**
 		 * コンストラクタ
 		 * @param[in] _id 当たり判定ID
 		 */
-		MushroomGimmickCollision(int _id);
-
-		/*** デストラクタ */
-		virtual ~MushroomGimmickCollision();
+		GoalGimmickCollision(int _id);
+		
+		virtual ~GoalGimmickCollision();
 
 		/**
 		 * Collide関数へのDispatch関数
@@ -35,9 +34,8 @@ namespace Game
 
 		/*** プレイヤーオブジェクトとの当たり判定を行う */
 		virtual void Collide(PlayerCollision* _pOther);
-
 	};
 }
 
 
-#endif // !GAME_MUSHROOMGIMMICKCOLLISION_H
+#endif //! GAME_GOALGIMMICKCOLLISION_H
