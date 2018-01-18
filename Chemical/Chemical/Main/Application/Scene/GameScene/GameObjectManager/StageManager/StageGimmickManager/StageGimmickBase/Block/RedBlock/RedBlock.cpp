@@ -65,6 +65,7 @@ namespace Game
 			return false;
 		}
 
+		m_pCollision->SetIsActive(false);
 		SINGLETON_INSTANCE(CollisionManager)->AddCollision(m_pCollision);
 
 		m_pReciveFunc = std::bind(&RedBlock::ReciveEvent, this, std::placeholders::_1);
@@ -181,6 +182,7 @@ namespace Game
 		{
 			for (auto itr = m_GimmickUV.begin(); itr != m_GimmickUV.end(); itr++)
 			{
+				m_pCollision->SetIsActive(true);
 				(*itr) = D3DXVECTOR2(0.0f, 0.0f);
 			}
 		}
@@ -188,6 +190,7 @@ namespace Game
 		{
 			for (auto itr = m_GimmickUV.begin(); itr != m_GimmickUV.end(); itr++)
 			{
+				m_pCollision->SetIsActive(false);
 				(*itr) = D3DXVECTOR2(0.5f, 0.0f);
 			}
 		}
