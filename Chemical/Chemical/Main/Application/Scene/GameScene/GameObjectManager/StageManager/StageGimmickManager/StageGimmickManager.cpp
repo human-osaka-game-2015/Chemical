@@ -30,6 +30,7 @@
 #include "StageGimmickBase\Block\RedBlock\RedBlock.h"
 #include "StageGimmickBase\Block\BlueButtonGimmick\BlueButtonGimmick.h"
 #include "StageGimmickBase\Block\RedButtonGimmick\RedButtonGimmick.h"
+#include "StageGimmickBase\Goal\Goal.h"
 #include "Debugger\Debugger.h"
 
 
@@ -68,6 +69,7 @@ namespace Game
 		m_pGimmicks[BLUE_BLOCK_GIMMICK] = new BlueBlock();
 		m_pGimmicks[RED_BUTTON_GIMMICK] = new RedButtonGimmick();
 		m_pGimmicks[BLUE_BUTTON_GIMMICK] = new BlueButtonGimmick();
+		m_pGimmicks[GOAL_GIMMICK] = new Goal();
 	}
 
 	StageGimmickManager::~StageGimmickManager()

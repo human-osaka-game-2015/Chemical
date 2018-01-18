@@ -446,6 +446,15 @@
     <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\BlockGimmickCollision">
       <UniqueIdentifier>{4525fc8d-185f-4eed-b934-da5813f4c472}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Goal">
+      <UniqueIdentifier>{e36bd486-5c4b-4520-a62d-ee3c7c38c9a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Goal\GoalEvent">
+      <UniqueIdentifier>{e44bfd95-1f40-4c9e-b394-6e05b23c06ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\GoalGimmickCollision">
+      <UniqueIdentifier>{e3b1ca5a-8311-402f-8f05-f8322c085899}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -869,6 +878,22 @@
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\BlockGimmickCollision\BlockGimmickCollision.cpp">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\BlockGimmickCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\BlueBlock\BlueBlock.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\RedBlock\RedBlock.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\BlockGimmickCollision\BlockGimmickCollision.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\BlueButtonGimmick\BlueButtonGimmick.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\RedButtonGimmick\RedButtonGimmick.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\RedButtonGimmick\RedButtonGimmickEvent\RedButtonGimmickEvent.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\BlueButtonGimmick\BlueButtonGimmickEvent\BlueButtonGimmickEvent.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Goal\Goal.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Goal</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Goal\GoalEvent\GoalEvent.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Goal\GoalEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\GoalGimmickCollision\GoalGimmickCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\GoalGimmickCollision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1301,6 +1326,22 @@
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\BlockGimmickCollision\BlockGimmickCollision.h">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\BlockGimmickCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\BlueBlock\BlueBlock.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\RedBlock\RedBlock.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\BlockGimmickCollision\BlockGimmickCollision.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\BlueButtonGimmick\BlueButtonGimmick.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\RedButtonGimmick\RedButtonGimmick.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\RedButtonGimmick\RedButtonGimmickEvent\RedButtonGimmickEvent.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\BlueButtonGimmick\BlueButtonGimmickEvent\BlueButtonGimmickEvent.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Goal\Goal.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Goal</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Goal\GoalEvent\GoalEvent.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Goal\GoalEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\GoalGimmickCollision\GoalGimmickCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\GoalGimmickCollision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

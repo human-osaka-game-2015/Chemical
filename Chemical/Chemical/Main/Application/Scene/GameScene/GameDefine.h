@@ -38,6 +38,7 @@ namespace Game
 		BLUE_BUTTON_GIMMICK_EVENT = 9,	//!< 青ボタンギミックイベント.
 		RED_BUTTON_GIMMICK_EVENT = 10,	//!< 赤ボタンギミックイベント.
 		SPEEDUP_EVENT = 11,				//!< 移動速度が上がるイベント.
+		GOAL_EVENT = 12,				//!< ゴールイベント.
 		EVENT_ID_MAX					//!< イベント識別子最大数.
 	};
 
@@ -53,6 +54,7 @@ namespace Game
 		RAIN_EVENT_GROUP = 6,			//!< 雨を降らせるイベント.
 		SPEEDUP_EVENT_GROUP = 7,		//!< 移動速度が上がるイベントグループ.
 		BLOCK_EVENT_GROUP = 8,			//!< ブロックイベント.
+		GOAL_EVENT_GROUP = 9,			//!< ゴールイベントグループ.
 		EVENT_GROUP_MAX					//!< イベントグループの最大数.
 	};
 
@@ -84,6 +86,7 @@ namespace Game
 		RAIN_GIMMICK_COLLISION_ID,			//!< 雨ギミック当たり判定ID.
 		WATER_COLLISION_ID,					//!< 水の当たり判定ID.
 		BLOCK_GIMMICK_COLLISION_ID,			//!< ブロックギミック当たり判定ID.
+		GOAL_GIMMICK_COLLISION_ID,			//!< ゴールギミック当たり判定ID.
 		COLLISION_ID_MAX					//!< 当たり判定ID最大値.
 	};
 
