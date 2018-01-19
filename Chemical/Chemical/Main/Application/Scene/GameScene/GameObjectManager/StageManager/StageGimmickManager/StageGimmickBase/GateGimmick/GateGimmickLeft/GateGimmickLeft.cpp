@@ -146,7 +146,7 @@ namespace Game
 		D3DXVECTOR2 Pos(_x * X, _y * Y - m_GateGimmickSize.y / 2 + Y);
 
 		GIMMICK_RECTANGLE Rect(
-			Pos.x - X / 2,
+			Pos.x - X / 4,
 			Pos.y - Y / 2,
 			Pos.x + X / 2,
 			Pos.y + Y / 2,
