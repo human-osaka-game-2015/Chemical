@@ -132,7 +132,7 @@ namespace Game
 
 		GIMMICK_RECTANGLE Rect(
 			Pos.x - X / 2,
-			Pos.y - Y / 2,
+			Pos.y - Y / 4,
 			Pos.x + X / 2,
 			Pos.y + Y / 2,
 			m_GimmickNum);
