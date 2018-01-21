@@ -33,6 +33,8 @@ namespace Game
 	class ExplosionCollision;
 	class BlockGimmickCollision;
 	class GoalGimmickCollision;
+	class BeltConveyorGimmickCollision;
+	class WarpGimmickCollision;
 
 	/*** 当たり判定基底クラス */
 	class CollisionBase
@@ -103,6 +105,12 @@ namespace Game
 
 		/*** ゴールギミックとの当たり判定を行う */
 		virtual void Collide(GoalGimmickCollision* _pOther);
+
+		/*** ベルトコンベアとの当たり判定を行う */
+		virtual void Collide(BeltConveyorGimmickCollision* _pOther);
+
+		/*** ワープオブジェクトとの当たり判定を行う */
+		virtual void Collide(WarpGimmickCollision* _pOther);
 
 		/**
 		 * 当たり判定ID取得

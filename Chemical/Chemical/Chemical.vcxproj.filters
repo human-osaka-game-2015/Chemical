@@ -455,6 +455,9 @@
     <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\GoalGimmickCollision">
       <UniqueIdentifier>{e3b1ca5a-8311-402f-8f05-f8322c085899}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\CurrentSceneEvent">
+      <UniqueIdentifier>{bab700ee-0cb2-42eb-92a7-9c8054ae9ec0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -894,6 +897,9 @@
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\GoalGimmickCollision\GoalGimmickCollision.cpp">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\GoalGimmickCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\CurrentSceneEvent\CurrentSceneEvent.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\CurrentSceneEvent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1342,6 +1348,9 @@
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\GoalGimmickCollision\GoalGimmickCollision.h">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\GoalGimmickCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\CurrentSceneEvent\CurrentSceneEvent.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\CurrentSceneEvent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -39,6 +39,7 @@ namespace Game
 		RED_BUTTON_GIMMICK_EVENT = 10,	//!< 赤ボタンギミックイベント.
 		SPEEDUP_EVENT = 11,				//!< 移動速度が上がるイベント.
 		GOAL_EVENT = 12,				//!< ゴールイベント.
+		CURRENT_SCENE_EVENT = 13,		//!< シーン遷移演出開始イベント.
 		EVENT_ID_MAX					//!< イベント識別子最大数.
 	};
 
@@ -55,6 +56,7 @@ namespace Game
 		SPEEDUP_EVENT_GROUP = 7,		//!< 移動速度が上がるイベントグループ.
 		BLOCK_EVENT_GROUP = 8,			//!< ブロックイベント.
 		GOAL_EVENT_GROUP = 9,			//!< ゴールイベントグループ.
+		CURRENT_SCENE_EVENT_GROUP = 10,	//!< シーン遷移演出開始イベントグループ.
 		EVENT_GROUP_MAX					//!< イベントグループの最大数.
 	};
 
