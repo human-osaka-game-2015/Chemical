@@ -15,6 +15,7 @@
 #include "Application\Scene\GameScene\GameDefine.h"
 #include "..\..\GameDataManager\GameDataManager.h"
 #include "..\..\..\CollisionManager\CollisionManager.h"
+#include "GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEvent\WarpEvent.h"
 #include "Application\Scene\GameScene\CollisionManager\CollisionBase\PlayerCollision\PlayerCollision.h"
 
 #include "DirectX11\AnimationManager\Dx11AnimationManager.h"
@@ -22,9 +23,9 @@
 #include "InputDeviceManager\InputDeviceManager.h"
 #include "InputDeviceManager\KeyDevice\KeyDevice.h"
 #include "TaskManager\TaskManager.h"
+#include "EventManager\EventManager.h"
 #include "JoyconManager\JoyconManager.h"
 #include <algorithm>
-
 
 namespace Game
 {
@@ -48,7 +49,8 @@ namespace Game
 		m_Acceleration(0),
 		m_IsLeft(false),
 		m_IsLanding(false),
-		m_AnimationState(WAIT_ANIMATION)
+		m_AnimationState(WAIT_ANIMATION),
+		m_WarpPos(D3DXVECTOR2(0,0))
 	{
 		m_Size = D3DXVECTOR2(120.f, 240.f);
 		m_Pos = D3DXVECTOR2(960.f, 400.f);
@@ -108,11 +110,27 @@ namespace Game
 
 		pControl = &Player::NormalControl;
 
+		m_ReciveFunc = std::bind(&Player::ReciveEvent, this, std::placeholders::_1);
+		m_pEventListener = new Lib::EventListener(&m_ReciveFunc);
+
+		SINGLETON_INSTANCE(Lib::EventManager)->AddEventListener(
+			m_pEventListener,
+			TO_STRING(GOAL_EVENT_GROUP));
+
+		SINGLETON_INSTANCE(Lib::EventManager)->AddEventListener(
+			m_pEventListener,
+			TO_STRING(WARP_EVENT_GROUP));
+
+		m_pCurrentSceneEvent = new CurrentSceneEvent(CURRENT_SCENE_EVENT);
+
 		return true;
 	}
 	
 	void Player::Finalize()
 	{
+		SafeDelete(m_pCurrentSceneEvent);
+		SafeDelete(m_pEventListener);
+
 		for (int i = 0; i < m_MixChemicalStockMax; i++)
 		{
 			if (m_pMixChemical[i] != nullptr)
@@ -171,11 +189,20 @@ namespace Game
 
 	void Player::Update()
 	{
+		float X = static_cast<float>(Application::m_WindowWidth / 2);	//!< 画面中央からスクロール.
+		
 		m_PlayerState.ChemicalData[0].Remain = m_ChemicalStock[m_SelectChemicalIndex[0]];
 		m_PlayerState.ChemicalData[0].Type = static_cast<CHEMICAL_TYPE>(m_SelectChemicalIndex[0]);
 
 		m_PlayerState.ChemicalData[1].Remain = m_ChemicalStock[m_SelectChemicalIndex[1]];
 		m_PlayerState.ChemicalData[1].Type = static_cast<CHEMICAL_TYPE>(m_SelectChemicalIndex[1]);
+
+		if (m_pCollision->GetIsWarp())
+		{
+			m_WorldPos = m_WarpPos;
+			m_Pos.y = m_WarpPos.y;
+			if (m_WorldPos.x <= X) m_WorldPos = (m_Pos += m_WarpPos);
+		}
 
 		for (int i = 0; i < 2; i++)
 		{
@@ -185,9 +212,14 @@ namespace Game
 				m_PlayerState.MixChemicalData[i].Remain = 0;
 		}
 
-		(this->*pControl)();
+		if (pControl != nullptr)(this->*pControl)();
+		
 
 		GravityUpdate();
+
+		m_WorldPos.x += m_pCollision->GetConveyorMove().x;
+		if (m_WorldPos.x <= X) m_WorldPos.x = (m_Pos.x += m_pCollision->GetConveyorMove().x);
+
 
 		m_pVertex->SetAnimation(m_Animations[m_AnimationState].pData);
 
@@ -196,9 +228,11 @@ namespace Game
 		Rectangle.Top = m_WorldPos.y - m_Size.y / 2;
 		Rectangle.Right = m_WorldPos.x + m_Size.x / 2;
 		Rectangle.Bottom = m_WorldPos.y + m_Size.y / 2;
+
 		m_pCollision->SetRect(Rectangle);
 		m_pCollision->ResetCollisionDiff();
-		
+		m_pCollision->ResetConveyorMove();
+		m_pCollision->ResetWarpHit();
 		m_PlayerState.Pos = m_Pos;
 	}
 	
@@ -215,6 +249,23 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Private Functions
 	//----------------------------------------------------------------------
+
+	void Player::ReciveEvent(Lib::EventBase* _pEvent)
+	{
+		switch (_pEvent->GetEventID())
+		{
+		case GOAL_EVENT:
+			m_AnimationState = GOAL_ANIMATION;
+			pControl = &Player::GoalControl;
+			break;
+		case WARP_GIMMICK_EVENT:
+			WarpEvent* pWarpEvent = reinterpret_cast<WarpEvent*>(_pEvent);
+			m_WarpPos = pWarpEvent->GetWarpPos();
+
+			break;
+		}
+	}
+
 
 	bool Player::LoadAnimationFile(
 		std::string		  _fileName,
@@ -274,6 +325,12 @@ namespace Game
 			JUMP_ANIMATION,
 			ANIMATION_PATTERN::ONE_ANIMATION,
 			0.15f)) return false;
+
+		if (!LoadAnimationFile(
+			"PlayerGoal.anim",
+			GOAL_ANIMATION,
+			ANIMATION_PATTERN::ONE_ANIMATION,
+			0.2f)) return false;
 
 		return true;
 	}
@@ -462,5 +519,17 @@ namespace Game
 
 	void Player::DamageControl()
 	{
+	}
+
+	void Player::GoalControl()
+	{
+		if (!m_Animations[m_AnimationState].pData->Update()) return;
+
+		// ゴールアニメーションが終わったらシーン遷移演出が始まる.
+		SINGLETON_INSTANCE(Lib::EventManager)->SendEventMessage(
+			m_pCurrentSceneEvent,
+			TO_STRING(GOAL_EVENT_GROUP));
+
+		pControl = nullptr;
 	}
 }

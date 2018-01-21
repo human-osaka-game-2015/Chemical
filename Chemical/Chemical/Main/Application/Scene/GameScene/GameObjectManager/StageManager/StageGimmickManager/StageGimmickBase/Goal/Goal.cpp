@@ -95,7 +95,7 @@ namespace Game
 		while (!m_pCollision->IsCollisionDataEmpty())
 		{
 			GimmickCollision::COLLISION_DATA Data = m_pCollision->PopCollisionData();
-			if (Data.OtherId == WATER_COLLISION_ID)
+			if (Data.OtherId == PLAYER_COLLISION_ID)
 			{
 				auto pRectangles = m_pCollision->GetRect();
 				for (unsigned int i = 0; i < pRectangles->size(); i++)

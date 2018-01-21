@@ -103,4 +103,12 @@ namespace Game
 	void CollisionBase::Collide(GoalGimmickCollision* _pOther)
 	{
 	}
+
+	void CollisionBase::Collide(BeltConveyorGimmickCollision* _pOther)
+	{
+	}
+
+	void CollisionBase::Collide(WarpGimmickCollision* _pOther)
+	{
+	}
 }

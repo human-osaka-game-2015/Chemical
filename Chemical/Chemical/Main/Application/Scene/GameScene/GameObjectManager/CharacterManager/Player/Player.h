@@ -13,6 +13,9 @@
 #include "Application\Scene\GameScene\CollisionTask\CollisionTask.h"
 #include "Application\Scene\GameScene\GameDefine.h"
 #include "ChemicalFactory\ChemicalBase\ChemicalBase.h"
+#include "CurrentSceneEvent\CurrentSceneEvent.h"
+#include "EventManager\EventBase\EventBase.h"
+#include "EventManager\EventListener\EventListener.h"
 
 #include <array>
 #include <vector>
@@ -71,6 +74,7 @@ namespace Game
 			SPRINKLE_ANIMATION,
 			DOWN_ANIMATION,
 			JUMP_ANIMATION,
+			GOAL_ANIMATION,
 			ANIMATION_MAX
 		};
 
@@ -82,6 +86,7 @@ namespace Game
 
 		using AnimationArray = std::array<AnimationData, ANIMATION_MAX>;
 		using ANIMATION_PATTERN = Lib::Dx11::IAnimation::ANIMATION_PATTERN;
+		using EventFunction = std::function<void(Lib::EventBase*)>;
 
 		static const float m_Gravity;
 		static const float m_JumpPower;
@@ -89,6 +94,9 @@ namespace Game
 		static const int   m_MixChemicalStockMax = 2;
 		// 合成する前の薬品だけなのでその分引いている.
 		static const int   m_NormalChemicalMax = CHEMICAL_EMPTY - CHEMICAL_EXPLOSION;
+
+		/*** イベントの受信関数 */
+		void ReciveEvent(Lib::EventBase* _pEvent);
 
 		/**
 		 * アニメーションの初期化
@@ -134,20 +142,31 @@ namespace Game
 		/*** 攻撃を受けた時の制御関数 */
 		void DamageControl();
 
+		/*** ゴールした時の制御関数 */
+		void GoalControl();
+
 		PlayerUIManager* m_pPlayerUIManager;
 		PlayerState		 m_PlayerState;
 		float			 m_ChemicalStock[m_NormalChemicalMax];
 		ChemicalBase*	 m_pMixChemical[m_MixChemicalStockMax];
 		int				 m_SelectChemicalIndex[2];
 		int				 m_SelectMixChemicalIndex;
-		CollisionTask*	 m_pCollisionTask;
-		PlayerCollision* m_pCollision;
 		D3DXVECTOR2		 m_WorldPos;
 		float			 m_Acceleration;
 		bool			 m_IsLeft;
 		bool			 m_IsLanding; //!< 着地しているか?
+		D3DXVECTOR2		 m_WarpPos;
+
 		ANIMATION_STATE	 m_AnimationState;
 		AnimationArray	 m_Animations;
+
+		CollisionTask*	 m_pCollisionTask;
+		PlayerCollision* m_pCollision;
+
+		Lib::EventListener*	m_pEventListener;
+		EventFunction		m_ReciveFunc;
+		CurrentSceneEvent*  m_pCurrentSceneEvent;
+
 
 	};
 }

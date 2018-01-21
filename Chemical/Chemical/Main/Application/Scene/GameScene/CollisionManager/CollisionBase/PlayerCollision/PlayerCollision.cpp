@@ -10,16 +10,77 @@
 #include "PlayerCollision.h"
 #include "..\ChipCollision\ChipCollision.h"
 #include "..\GimmickCollision\MushroomGimmickCollision\MushroomGimmickCollision.h"
+#include "..\GimmickCollision\RecoveryGimmickCollision\RecoveryGimmickCollision.h"
+#include "..\GimmickCollision\GateGimmickCollision\GateGimmickCollision.h"
+#include "..\GimmickCollision\BlockGimmickCollision\BlockGimmickCollision.h"
+#include "..\GimmickCollision\BeltConveyorGimmickCollision\BeltConveyorGimmickCollision.h"
+#include "..\GimmickCollision\WarpGimmickCollision\WarpGimmickCollision.h"
 
 
 namespace Game
 {
+	namespace
+	{
+		template<class Type>
+		bool RectCheck(
+			D3DXVECTOR2* _pCollisionDiff,
+			PlayerCollision::RECTANGLE* _pPlayerRect, 
+			const std::vector<Type>* _rects)
+		{
+			// 衝突判定.
+			std::vector<Type> Rect = *_rects;
+			bool result = false;
+
+			for (const auto& itr : Rect)
+			{
+				if (itr.Left  < _pPlayerRect->Right - 30 &&
+					itr.Right > _pPlayerRect->Left + 30 &&
+					itr.Top		< _pPlayerRect->Bottom &&
+					itr.Bottom	> _pPlayerRect->Top)
+				{
+					if (itr.Bottom >= _pPlayerRect->Bottom &&
+						itr.Top >= _pPlayerRect->Top)
+						_pCollisionDiff->y = itr.Top - _pPlayerRect->Bottom;
+					else
+						_pCollisionDiff->y = itr.Bottom - _pPlayerRect->Top;
+
+					result = true;
+					break;
+				}
+			}
+
+			for (const auto& itr : Rect)
+			{
+				if (itr.Left  < _pPlayerRect->Right &&
+					itr.Right > _pPlayerRect->Left &&
+					itr.Top	  < _pPlayerRect->Bottom - abs(_pCollisionDiff->y) - 1 &&
+					itr.Bottom > _pPlayerRect->Top + abs(_pCollisionDiff->y) + 1)
+				{
+					if (itr.Right >= _pPlayerRect->Right &&
+						itr.Left >= _pPlayerRect->Left)
+						_pCollisionDiff->x = itr.Left - _pPlayerRect->Right;
+					else
+						_pCollisionDiff->x = itr.Right - _pPlayerRect->Left;
+
+					result = true;
+					break;
+				}
+			}
+
+			return result;
+		}
+	}
+
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
 	PlayerCollision::PlayerCollision() :
 		RectangleCollisionBase(PLAYER_COLLISION_ID),
-		m_CollisionDiff(D3DXVECTOR2(0,0))
+		m_CollisionDiff(D3DXVECTOR2(0,0)),
+		m_ConveyorMove(D3DXVECTOR2(0,0)),
+		m_IsWarpHit(false),
+		m_IsOldWarpHit(false),
+		m_IsWarp(false)
 	{
 	}
 
@@ -38,16 +99,80 @@ namespace Game
 
 	void PlayerCollision::Collide(ChipCollision* _pOther)
 	{
-		// 衝突判定.
-		std::vector<ChipCollision::RECTANGLE> Rect = *_pOther->GetRect();
+		RectCheck<ChipCollision::RECTANGLE>(&m_CollisionDiff, &GetRect(), _pOther->GetRect());
+	}
 
-		for (const auto& itr : Rect)
+	void PlayerCollision::Collide(MushroomGimmickCollision* _pOther)
+	{
+		RectCheck<GimmickCollision::GIMMICK_RECTANGLE>(&m_CollisionDiff, &GetRect(), _pOther->GetRect());
+	}
+
+	void PlayerCollision::Collide(RecoveryGimmickCollision* _pOther)
+	{
+		if (RectCheck<GimmickCollision::GIMMICK_RECTANGLE>(&D3DXVECTOR2(0, 0), &GetRect(), _pOther->GetRect()))
+		{
+
+		}
+	}
+
+	void PlayerCollision::Collide(GateGimmickCollision* _pOther)
+	{
+		// 衝突判定.
+		std::vector<GimmickCollision::GIMMICK_RECTANGLE>* pRects = _pOther->GetRect();
+		std::vector<BYTE>* pIsActives = _pOther->GetIsActive();
+		int count = 0;
+		for (const auto& itr : *pRects)
 		{
 			if (itr.Left  < GetRect().Right - 30 &&
 				itr.Right > GetRect().Left + 30 &&
 				itr.Top		< GetRect().Bottom &&
 				itr.Bottom	> GetRect().Top &&
-				_pOther->GetCollisionID() == SOIL_COLLISION_ID)
+				(*pIsActives)[count])
+			{
+				if (itr.Bottom >= GetRect().Bottom &&
+					itr.Top >= GetRect().Top)
+					m_CollisionDiff.y = itr.Top - GetRect().Bottom;
+				else
+					m_CollisionDiff.y = itr.Bottom - GetRect().Top;
+
+				break;
+			}
+			count++;
+		}
+
+		count = 0;
+		for (const auto& itr : *pRects)
+		{
+			if (itr.Left  < GetRect().Right &&
+				itr.Right > GetRect().Left &&
+				itr.Top	  < GetRect().Bottom - abs(m_CollisionDiff.y) - 1 &&
+				itr.Bottom > GetRect().Top + abs(m_CollisionDiff.y) + 1 &&
+				(*pIsActives)[count])
+			{
+				if (itr.Right >= GetRect().Right &&
+					itr.Left >= GetRect().Left)
+					m_CollisionDiff.x = itr.Left - GetRect().Right;
+				else
+					m_CollisionDiff.x = itr.Right - GetRect().Left;
+
+				break;
+			}
+			count++;
+		}
+	}
+
+	void PlayerCollision::Collide(BlockGimmickCollision* _pOther)
+	{
+		// 衝突判定.
+		std::vector<GimmickCollision::GIMMICK_RECTANGLE>* pRects = _pOther->GetRect();
+
+		for (const auto& itr : *pRects)
+		{
+			if (itr.Left  < GetRect().Right - 30 &&
+				itr.Right > GetRect().Left + 30 &&
+				itr.Top		< GetRect().Bottom &&
+				itr.Bottom	> GetRect().Top &&
+				_pOther->GetIsActive())
 			{
 				if (itr.Bottom >= GetRect().Bottom &&
 					itr.Top >= GetRect().Top)
@@ -59,13 +184,13 @@ namespace Game
 			}
 		}
 
-		for (const auto& itr : Rect)
+		for (const auto& itr : *pRects)
 		{
 			if (itr.Left  < GetRect().Right &&
 				itr.Right > GetRect().Left &&
 				itr.Top	  < GetRect().Bottom - abs(m_CollisionDiff.y) - 1 &&
 				itr.Bottom > GetRect().Top + abs(m_CollisionDiff.y) + 1 &&
-				_pOther->GetCollisionID() == SOIL_COLLISION_ID)
+				_pOther->GetIsActive())
 			{
 				if (itr.Right >= GetRect().Right &&
 					itr.Left >= GetRect().Left)
@@ -78,10 +203,14 @@ namespace Game
 		}
 	}
 
-	void PlayerCollision::Collide(MushroomGimmickCollision* _pOther)
+	void PlayerCollision::Collide(BeltConveyorGimmickCollision* _pOther)
 	{
-		std::vector<GimmickCollision::GIMMICK_RECTANGLE> Rect = *_pOther->GetRect();
-		for (const auto& itr : Rect)
+		// 衝突判定.
+		std::vector<GimmickCollision::GIMMICK_RECTANGLE>* pRects = _pOther->GetRect();
+		std::vector<BYTE>* pIsLeft = _pOther->GetIsLeft();
+		int count = 0;
+
+		for (const auto& itr : *pRects)
 		{
 			if (itr.Left  < GetRect().Right - 30 &&
 				itr.Right > GetRect().Left + 30 &&
@@ -90,15 +219,28 @@ namespace Game
 			{
 				if (itr.Bottom >= GetRect().Bottom &&
 					itr.Top >= GetRect().Top)
+				{
 					m_CollisionDiff.y = itr.Top - GetRect().Bottom;
+					if ((*pIsLeft)[count])
+						m_ConveyorMove.x = -10;
+					else
+						m_ConveyorMove.x = +10;
+				}
 				else
+				{
 					m_CollisionDiff.y = itr.Bottom - GetRect().Top;
+					if ((*pIsLeft)[count])
+						m_ConveyorMove.x = -10;
+					else
+						m_ConveyorMove.x = +10;
+				}
 
 				break;
 			}
+			count++;
 		}
 
-		for (const auto& itr : Rect)
+		for (const auto& itr : *pRects)
 		{
 			if (itr.Left  < GetRect().Right &&
 				itr.Right > GetRect().Left &&
@@ -114,5 +256,38 @@ namespace Game
 				break;
 			}
 		}
+	}
+
+	void PlayerCollision::Collide(WarpGimmickCollision* _pOther)
+	{
+		std::vector<GimmickCollision::GIMMICK_RECTANGLE>* pRects = _pOther->GetRect();
+
+		for (const auto& itr : *pRects)
+		{
+			if (itr.Left  < GetRect().Right - 30 &&
+				itr.Right > GetRect().Left + 30 &&
+				itr.Top		< GetRect().Bottom &&
+				itr.Bottom	> GetRect().Top)
+			{
+				m_IsWarpHit = true;
+				break;
+			}
+		}
+
+		for (const auto& itr : *pRects)
+		{
+			if (itr.Left  < GetRect().Right &&
+				itr.Right > GetRect().Left &&
+				itr.Top	  < GetRect().Bottom - abs(m_CollisionDiff.y) - 1 &&
+				itr.Bottom > GetRect().Top + abs(m_CollisionDiff.y) + 1)
+			{
+				m_IsWarpHit = true;
+				break;
+			}
+		}
+
+		m_IsWarp = (m_IsWarpHit && !m_IsOldWarpHit);
+
+
 	}
 }
