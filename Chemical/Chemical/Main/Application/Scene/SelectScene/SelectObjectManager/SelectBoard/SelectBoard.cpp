@@ -29,7 +29,7 @@ namespace Select
 		m_Alpha(1.f),
 		m_MoveDistance(0.f)
 	{
-		m_Size = D3DXVECTOR2(200, 160);
+		m_Size = D3DXVECTOR2(300, 240);
 		m_Pos = m_DefaultPos;
 
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->AddTask(m_pUpdateTask);
@@ -63,17 +63,23 @@ namespace Select
 			return true;
 		};
 
+		char FilePath[256];
+		sprintf_s(FilePath, 256, "Resource\\StageSelectScene\\Texture\\Panel\\%d.png", m_StageNum);
+
 		if (!LoadTexture(
-			"Resource\\StageSelectScene\\Texture\\StageBoard.png",
+			FilePath,
 			&m_TextureIndex)) return false;
-		
+
+		sprintf_s(FilePath, 256, "Resource\\StageSelectScene\\Texture\\Panel\\%da.png", m_StageNum);
+
+		if (!LoadTexture(
+			FilePath,
+			&m_SelectTextureIndex)) return false;
+
 		if (!LoadTexture(
 			"Resource\\StageSelectScene\\Texture\\StageBoard2.png",
 			&m_BackTextureIndex)) return false;
 
-		if (!LoadTexture(
-			"Resource\\StageSelectScene\\Texture\\StageBoard2.png",
-			&m_SelectFrameTextureIndex)) return false;
 
 		if (!CreateVertex2D()) return false;
 		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
@@ -88,29 +94,15 @@ namespace Select
 		if (!m_pStageUpWindow->Initialize()) return false;
 		m_pStageUpWindow->SetEneble(false);
 
-		m_pSelectFrameVertex = new Lib::Dx11::Vertex2D();
-		if (!m_pSelectFrameVertex->Initialize(SINGLETON_INSTANCE(Lib::Dx11::GraphicsDevice))) return false;
-
-		m_pSelectFrameVertex->CreateVertexBuffer(&D3DXVECTOR2(220, 180));
-		m_pSelectFrameVertex->WriteVertexBuffer();
-		m_pSelectFrameVertex->WriteConstantBuffer(&D3DXVECTOR2(640, 360));
-		m_pSelectFrameVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_SelectFrameTextureIndex));
-		m_pSelectFrameVertex->ShaderSetup();
-		m_pSelectFrameVertex->SetVertex(&D3DXVECTOR2(220,180));
-		
 		return true;
 	}
 
 	void SelectBoard::Finalize()
 	{
-		m_pSelectFrameVertex->ReleaseVertexBuffer();
-		m_pSelectFrameVertex->Finalize();
-		SafeDelete(m_pSelectFrameVertex);
-
 		m_pStageUpWindow->Finalize();
 		SafeDelete(m_pStageUpWindow);
 		ReleaseVertex2D();
-		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->ReleaseTexture(m_SelectFrameTextureIndex);
+		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->ReleaseTexture(m_SelectTextureIndex);
 		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->ReleaseTexture(m_BackTextureIndex);
 		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->ReleaseTexture(m_TextureIndex);
 	}
@@ -144,7 +136,7 @@ namespace Select
 			{
 				m_MoveDistance = 0.f;
 				m_pDrawTask->SetPriority(SELECT_DRAW_SELECT_BOARD);
-				m_Size = D3DXVECTOR2(200, 160);
+				m_Size = D3DXVECTOR2(300, 240);
 				m_Scale = D3DXVECTOR2(1, 1);
 				m_Pos = m_DefaultPos;
 				m_pStageUpWindow->SetEneble(true);
@@ -165,12 +157,10 @@ namespace Select
 	void SelectBoard::Draw()
 	{
 		if (m_OnSelect)
-		{
-			m_pSelectFrameVertex->ShaderSetup();
-			m_pSelectFrameVertex->WriteVertexBuffer();
-			m_pSelectFrameVertex->WriteConstantBuffer(&m_Pos);
-			m_pSelectFrameVertex->Draw();
-		}
+			m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_SelectTextureIndex));
+		else
+			m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
+
 		m_pVertex->SetColor(&D3DXCOLOR(1,1,1,m_Alpha));
 		m_pVertex->ShaderSetup();
 		m_pVertex->WriteVertexBuffer();
@@ -232,7 +222,7 @@ namespace Select
 			m_SpinCount++;
 		}
 
-		if (abs(m_VertexPos[0].x - m_VertexPos[1].x) >= 200.f)
+		if (abs(m_VertexPos[0].x - m_VertexPos[1].x) >= 300.f)
 		{
 			if (m_IsReverse)
 			{

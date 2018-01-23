@@ -60,13 +60,14 @@ namespace Select
 	private:
 		enum BUTTON_STATE
 		{
-			START_BUTTON,
 			RANKING_BUTTON,
+			START_BUTTON,
 			RETURN_BUTTON,
 			NONE_BUTTON
 		};
 
 		const int				  m_StageNum;
+		int						  m_BackGroundTextureIndex;
 		bool					  m_IsEnable; //!< 有効か?
 		bool					  m_IsRankingDraw;
 		float					  m_Alpha;

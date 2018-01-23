@@ -42,14 +42,16 @@ namespace Select
 			m_SelectState = _isSelect;
 		}
 
-		/**
-		 * 選択状態を取得する
-		 * @return 選択状態
-		 */
 		SELECT_STATE GetSelectState() const
 		{
 			return m_SelectState;
 		}
+
+		int GetSelectStageNum() const
+		{
+			return m_SelectStageNumber;
+		}
+
 
 	private:
 		/*** コンストラクタ */
