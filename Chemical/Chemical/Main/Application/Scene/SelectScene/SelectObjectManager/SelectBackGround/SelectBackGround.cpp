@@ -8,6 +8,7 @@
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
 #include "DirectX11\GraphicsDevice\Dx11GraphicsDevice.h"
 #include "TaskManager\TaskManager.h"
+#include "..\..\SelectManager\SelectManager.h"
 
 
 namespace Select
@@ -29,12 +30,22 @@ namespace Select
 
 	bool BackGround::Initialize()
 	{
-		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
-			"Resource\\StageSelectScene\\Texture\\BackGround.png",
-			&m_TextureIndex)) return false;
+
+		char FilePath[256];
+
+		for (int i = 0; i < 8; i++)
+		{
+			sprintf_s(FilePath, 256, "Resource\\StageSelectScene\\Texture\\BackGround\\%d.png", i+1);
+
+			if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
+				FilePath,
+				&m_TextureIndexs[i])) return false;
+		}
 		
 		if (!CreateVertex2D()) return false;
-		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
+
+		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(
+			m_TextureIndexs[SINGLETON_INSTANCE(SelectManager)->GetSelectStageNum() - 1]));
 
 		return true;
 	}
@@ -42,11 +53,24 @@ namespace Select
 	void BackGround::Finalize()
 	{
 		ReleaseVertex2D();
-		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->ReleaseTexture(m_TextureIndex);
+		for (int i = 0; i < 8; i++)
+		{
+			SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->ReleaseTexture(m_TextureIndexs[i]);
+		}
 	}
 
 	void BackGround::Update()
 	{
+	}
+
+	void BackGround::Draw()
+	{
+		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(
+			m_TextureIndexs[SINGLETON_INSTANCE(SelectManager)->GetSelectStageNum() - 1]));
+
+		m_pVertex->ShaderSetup();
+		m_pVertex->WriteConstantBuffer(&m_Pos);
+		m_pVertex->Draw();
 	}
 }
 

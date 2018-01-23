@@ -35,7 +35,10 @@ namespace Select
 		 */
 		virtual void Update();
 
+		virtual void Draw();
+
 	private:
+		int m_TextureIndexs[8];
 
 	};
 }	

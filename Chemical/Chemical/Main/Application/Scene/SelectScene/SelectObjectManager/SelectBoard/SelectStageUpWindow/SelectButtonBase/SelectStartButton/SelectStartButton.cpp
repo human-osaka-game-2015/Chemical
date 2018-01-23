@@ -6,6 +6,7 @@
 #include "SelectStartButton.h"
 #include "Application\Scene\SelectScene\SelectGameStartEvent\SelectGameStartEvent.h"
 #include "Application\GamePlayFile\GamePlayFile.h"
+#include "Application\Application.h"
 
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
 #include "DirectX11\GraphicsDevice\Dx11GraphicsDevice.h"
@@ -18,7 +19,8 @@ namespace Select
 	StartButton::StartButton(int _stageNum) :
 		m_StageNum(_stageNum)
 	{
-		m_Pos.x = 770.f - m_Size.x / 2;
+		m_Pos.x = static_cast<float>(Application::m_WindowWidth / 2);
+		m_Pos.y = static_cast<float>(Application::m_WindowHeight / 2);
 	}
 
 
@@ -34,7 +36,7 @@ namespace Select
 	bool StartButton::Initialize()
 	{
 		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
-			"Resource\\StageSelectScene\\Texture\\StartButton.png",
+			"Resource\\StageSelectScene\\Texture\\button_start.png",
 			&m_TextureIndex)) return false;
 
 		if (!CreateVertex2D()) return false;

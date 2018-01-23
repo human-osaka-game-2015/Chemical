@@ -27,7 +27,7 @@ namespace Select
 		m_IsRankingDraw(false),
 		m_ButtonState(NONE_BUTTON)
 	{
-		m_Size = D3DXVECTOR2(960, 480);
+		m_Size = D3DXVECTOR2(1920, 1080);
 		m_Pos = D3DXVECTOR2(960, 540);
 		m_pDrawTask->SetPriority(SELECT_DRAW_STAGEUP_WINDOW);
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->AddTask(m_pUpdateTask);
@@ -47,9 +47,17 @@ namespace Select
 
 	bool StageUpWindow::Initialize()
 	{
+		char FilePath[256];
+		sprintf_s(FilePath, 256, "Resource\\StageSelectScene\\Texture\\StageUp\\%d.png", m_StageNum);
+
 		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
-			"Resource\\StageSelectScene\\Texture\\StageUp.png",
+			FilePath,
 			&m_TextureIndex)) return false;
+
+		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
+			"Resource\\StageSelectScene\\Texture\\StageUp\\net.png",
+			&m_BackGroundTextureIndex)) return false;
+
 		
 		if (!CreateVertex2D()) return false;
 		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
@@ -133,7 +141,7 @@ namespace Select
 			if (KeyState[DIK_RIGHT] == Lib::KeyDevice::KEY_PUSH)
 			{
 				if (m_ButtonState < RETURN_BUTTON) m_ButtonState++;
-				else m_ButtonState = START_BUTTON;
+				else m_ButtonState = RANKING_BUTTON;
 			}
 
 			if (KeyState[DIK_RETURN] == Lib::KeyDevice::KEY_PUSH &&
@@ -175,6 +183,15 @@ namespace Select
 		m_pVertex->ShaderSetup();
 		m_pVertex->WriteVertexBuffer();
 		m_pVertex->WriteConstantBuffer(&m_Pos);
+		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_BackGroundTextureIndex));
+		m_pVertex->Draw();
+
+
+		m_pVertex->SetColor(&D3DXCOLOR(1, 1, 1, m_Alpha));
+		m_pVertex->ShaderSetup();
+		m_pVertex->WriteVertexBuffer();
+		m_pVertex->WriteConstantBuffer(&m_Pos);
+		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
 		m_pVertex->Draw();
 
 		for (auto itr : m_pButtons)

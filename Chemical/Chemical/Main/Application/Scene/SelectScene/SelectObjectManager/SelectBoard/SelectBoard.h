@@ -74,10 +74,9 @@ namespace Select
 		D3DXVECTOR2		     m_VertexPos[4];
 		D3DXVECTOR2			 m_Scale;
 		int				     m_BackTextureIndex;
-		int					 m_SelectFrameTextureIndex;
+		int					 m_SelectTextureIndex;
 		bool			     m_OnSelect;
 		bool				 m_IsSelectControl;
-		Lib::Dx11::Vertex2D* m_pSelectFrameVertex;
 		StageUpWindow*       m_pStageUpWindow;
 
 	};
