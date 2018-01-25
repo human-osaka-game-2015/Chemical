@@ -39,7 +39,7 @@ namespace Select
 		typedef struct RANKING_DATA
 		{
 			int Score;
-			char Name[255];
+			char Time[255];
 		};
 
 		bool LoadRankingData();
@@ -51,7 +51,7 @@ namespace Select
 		Lib::Dx11::Font* m_pFont;
 		static const float m_FontSize;
 		static const int m_ScoreShift;
-		static const int m_NameShift;
+		static const int m_TimeShift;
 		static const int m_VerticalShift;
 		static const int m_ScrollSpeed;
 
