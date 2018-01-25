@@ -77,7 +77,7 @@ namespace Select
 		m_pRankingButton = new RankingReturnButton();
 		if (!m_pRankingButton->Initialize()) return false;
 
-		m_pRankingWindow = new RankingWindow();
+		m_pRankingWindow = new RankingWindow(m_StageNum);
 		if (!m_pRankingWindow->Initialize()) return false;
 
 		return true;
@@ -203,7 +203,6 @@ namespace Select
 		{
 			m_pRankingWindow->Draw();
 			m_pScoreRanking->Draw();
-			m_pRankingButton->Draw();
 		}
 	}
 }

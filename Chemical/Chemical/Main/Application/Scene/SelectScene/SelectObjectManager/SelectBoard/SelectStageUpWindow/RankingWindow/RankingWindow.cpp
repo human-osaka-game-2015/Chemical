@@ -19,7 +19,8 @@ namespace Select
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
-	RankingWindow::RankingWindow()
+	RankingWindow::RankingWindow(int _stageNum) :
+		m_StageNum(_stageNum)
 	{
 		m_Pos = D3DXVECTOR2(960, 540);
 		m_Size = D3DXVECTOR2(1920, 1080);
@@ -40,12 +41,12 @@ namespace Select
 			return false;
 		}
 
+		char FilePath[256];
+		sprintf_s(FilePath, 256, "Resource\\StageSelectScene\\RankingWindow\\Texture\\%d.png", m_StageNum);
+
 		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
-			"Resource\\StageSelectScene\\RankingWindow\\Texture\\RankingWindow.bmp", 
-			&m_TextureIndex))
-		{
-			return false;
-		}
+			FilePath,
+			&m_TextureIndex)) return false;
 
 		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
 

@@ -13,8 +13,11 @@ namespace Select
 	class RankingWindow: public Object2DBase
 	{
 	public:
-		/*** コンストラクタ */
-		RankingWindow();
+		/**
+		 * コンストラクタ 
+		 * @param[in] _stageNum ステージの番号
+		 */
+		RankingWindow(int _stageNum);
 
 		/*** デストラクタ */
 		virtual ~RankingWindow();
@@ -30,6 +33,9 @@ namespace Select
 
 		/*** 更新処理 */
 		virtual void Update();
+
+	private:
+		int m_StageNum;
 
 	};
 }

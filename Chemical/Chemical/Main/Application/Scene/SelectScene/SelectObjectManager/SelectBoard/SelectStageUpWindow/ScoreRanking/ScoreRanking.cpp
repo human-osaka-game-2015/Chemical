@@ -21,9 +21,9 @@ namespace Select
 	//----------------------------------------------------------------------
 	// Static Private Variables
 	//----------------------------------------------------------------------
-	const float ScoreRanking::m_FontSize = 20.f;
-	const int ScoreRanking::m_ScoreShift = 200;
-	const int ScoreRanking::m_NameShift = 200;
+	const float ScoreRanking::m_FontSize = 30.f;
+	const int ScoreRanking::m_ScoreShift = 720;
+	const int ScoreRanking::m_TimeShift = 560;
 	const int ScoreRanking::m_VerticalShift = 70;
 	const int ScoreRanking::m_ScrollSpeed = 10;
 
@@ -36,7 +36,7 @@ namespace Select
 		m_RankingNum(0),
 		m_pFile(nullptr)
 	{
-		m_BasePosition = D3DXVECTOR2(1960, 200);
+		m_BasePosition = D3DXVECTOR2(1960, 450);
 	}
 
 	ScoreRanking::~ScoreRanking()
@@ -71,7 +71,7 @@ namespace Select
 
 	void ScoreRanking::Update()
 	{
-		if (m_BasePosition.x >= 100)
+		if (m_BasePosition.x >= 350)
 		{
 			m_BasePosition.x -= m_ScrollSpeed;
 		}
@@ -87,7 +87,7 @@ namespace Select
 			}
 
 			if (pKey[DIK_DOWN] == Lib::KeyDevice::KEY_ON &&
-				m_BasePosition.y < 100)
+				m_BasePosition.y < 450)
 			{
 				m_BasePosition.y += m_ScrollSpeed;
 			}
@@ -100,6 +100,8 @@ namespace Select
 		{
 			D3DXVECTOR2 DrawPos = m_BasePosition;
 			DrawPos.y += i * m_VerticalShift;
+
+			if (DrawPos.y < 440 || DrawPos.y > 900) continue;
 
 			char Rank[64] = { 0 };
 
@@ -114,8 +116,8 @@ namespace Select
 			sprintf_s(Score, "%d", m_pRankingData[i].Score);
 			m_pFont->Draw(&DrawPos, Score);
 
-			DrawPos.x += m_NameShift;
-			m_pFont->Draw(&DrawPos, m_pRankingData[i].Name);
+			DrawPos.x += m_TimeShift;
+			m_pFont->Draw(&DrawPos, m_pRankingData[i].Time);
 		}
 	}
 
@@ -151,7 +153,7 @@ namespace Select
 			m_pRankingData[i].Score = 0;
 
 			fscanf_s(m_pFile, "%d,", &m_pRankingData[i].Score);
-			fscanf_s(m_pFile, "%s", &m_pRankingData[i].Name, sizeof(m_pRankingData[i].Name));
+			fscanf_s(m_pFile, "%s", &m_pRankingData[i].Time, sizeof(m_pRankingData[i].Time));
 		}
 
 		fclose(m_pFile);
