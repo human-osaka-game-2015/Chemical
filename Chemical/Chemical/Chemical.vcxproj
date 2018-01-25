@@ -102,8 +102,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClipEvent\GameClipEvent.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\CurrentSceneEvent\CurrentSceneEvent.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\GoalGimmickCollision\GoalGimmickCollision.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClip.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Goal\GoalEvent\GoalEvent.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Goal\Goal.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\BlockGimmickCollision\BlockGimmickCollision.cpp" />
@@ -240,8 +242,10 @@
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\SpeedUpGimmickCollision\SpeedUpGimmickCollision.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClipEvent\GameClipEvent.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\CurrentSceneEvent\CurrentSceneEvent.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\GoalGimmickCollision\GoalGimmickCollision.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClip.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Goal\GoalEvent\GoalEvent.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Goal\Goal.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\BlockGimmickCollision\BlockGimmickCollision.h" />

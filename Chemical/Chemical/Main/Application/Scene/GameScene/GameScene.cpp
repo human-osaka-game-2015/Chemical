@@ -9,6 +9,7 @@
 //----------------------------------------------------------------------
 #include "GameScene.h"
 
+#include "Application\Application.h"
 #include "Debugger\Debugger.h"
 #include "DirectX11\GraphicsDevice\Dx11GraphicsDevice.h"
 #include "DirectX11\ShaderManager\Dx11ShaderManager.h"
@@ -23,6 +24,9 @@
 #include "CollisionTask\CollisionTask.h"
 #include "EventManager\EventManager.h"
 #include "JoyconManager\JoyconManager.h"
+#include "EventManager\EventBase\EventBase.h"
+#include "GameDefine.h"
+
 
 namespace Game
 {
@@ -96,6 +100,12 @@ namespace Game
 			return false;
 		}
 
+		m_pReceiveFunc = std::bind(&GameScene::ReceiveEvent, this, std::placeholders::_1);
+		m_pEventListener = new Lib::EventListener(&m_pReceiveFunc);
+		SINGLETON_INSTANCE(Lib::EventManager)->AddEventListener(
+			m_pEventListener,
+			TO_STRING(CURRENT_SCENE_EVENT_GROUP));
+
 		m_State = UPDATE_STATE;
 
 		return true;
@@ -103,6 +113,11 @@ namespace Game
 
 	void GameScene::Finalize()
 	{
+		SINGLETON_INSTANCE(Lib::EventManager)->RemoveEventListener(
+			m_pEventListener,
+			TO_STRING(CURRENT_SCENE_EVENT_GROUP));
+		SafeDelete(m_pEventListener);
+
 		m_pObjectManager->Finalize();
 		SafeDelete(m_pObjectManager);
 
@@ -176,5 +191,20 @@ namespace Game
 		SINGLETON_INSTANCE(Lib::Dx11::GraphicsDevice)->BeginScene(Lib::Dx11::GraphicsDevice::BACKBUFFER_TARGET);
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->Run();
 		SINGLETON_INSTANCE(Lib::Dx11::GraphicsDevice)->EndScene();
+	}
+
+
+	//----------------------------------------------------------------------
+	// Private Functions
+	//----------------------------------------------------------------------
+	void GameScene::ReceiveEvent(Lib::EventBase* _pEvent)
+	{
+		switch (_pEvent->GetEventID())
+		{
+		case NEXT_SCENE_EVENT:
+			m_NextSceneID = Application::TITLE_SCENE_ID;	// @todo とりあえずタイトルに戻す.
+			m_State = FINAL_STATE;
+			break;
+		}
 	}
 }

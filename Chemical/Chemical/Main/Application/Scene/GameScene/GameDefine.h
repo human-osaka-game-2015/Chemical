@@ -20,6 +20,7 @@ namespace Game
 		GAME_DRAW_EFFECT = 5,		//!< エフェクト描画プライオリティ.
 		GAME_DRAW_GIMMICK = 6,		//!< ギミック描画プライオリティ.
 		GAME_DRAW_UI = 7,			//!< UI描画プライオリティ.
+		GAME_DRAW_CLIP = 8,			//!< クリッピング用描画プライオリティ.
 		DRAW_PRIORITY_MAX
 	};
 
@@ -40,6 +41,7 @@ namespace Game
 		SPEEDUP_EVENT = 11,				//!< 移動速度が上がるイベント.
 		GOAL_EVENT = 12,				//!< ゴールイベント.
 		CURRENT_SCENE_EVENT = 13,		//!< シーン遷移演出開始イベント.
+		NEXT_SCENE_EVENT = 14,			//!< シーン遷移イベント.
 		EVENT_ID_MAX					//!< イベント識別子最大数.
 	};
 

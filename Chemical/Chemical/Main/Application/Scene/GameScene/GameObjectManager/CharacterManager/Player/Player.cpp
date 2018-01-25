@@ -560,7 +560,7 @@ namespace Game
 		// ゴールアニメーションが終わったらシーン遷移演出が始まる.
 		SINGLETON_INSTANCE(Lib::EventManager)->SendEventMessage(
 			m_pCurrentSceneEvent,
-			TO_STRING(GOAL_EVENT_GROUP));
+			TO_STRING(CURRENT_SCENE_EVENT_GROUP));
 
 		pControl = nullptr;
 	}

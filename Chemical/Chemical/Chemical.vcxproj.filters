@@ -933,6 +933,8 @@
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\SpeedUpGimmickCollision\SpeedUpGimmickCollision.cpp">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\SpeedUpGimmickCollision</Filter>
     </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClip.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClipEvent\GameClipEvent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Application.h">
@@ -1401,6 +1403,8 @@
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\SpeedUpGimmickCollision\SpeedUpGimmickCollision.h">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\SpeedUpGimmickCollision</Filter>
     </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClip.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClipEvent\GameClipEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask_private.inl">
