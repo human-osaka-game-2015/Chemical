@@ -14,6 +14,7 @@
 #include "StageManager\StageManager.h"
 #include "GameTimeManager\GameTimeManager.h"
 #include "CharacterManager\CharacterManager.h"
+#include "GameClip\GameClip.h"
 
 
 namespace Game
@@ -28,6 +29,7 @@ namespace Game
 		m_pObjects.push_back(new StageManager());
 		m_pObjects.push_back(new TimeManager());
 		m_pObjects.push_back(new CharacterManager());
+		m_pObjects.push_back(new GameClip());
 	}
 
 	ObjectManager::~ObjectManager()

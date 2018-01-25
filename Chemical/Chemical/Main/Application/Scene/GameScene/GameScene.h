@@ -14,6 +14,7 @@
 #include "Debugger\Debugger.h"
 #include "DirectX11\Font\Dx11Font.h"
 #include "GameObjectManager\GameObjectManager.h"
+#include "EventManager\EventListener\EventListener.h"
 
 
 namespace Game
@@ -44,7 +45,15 @@ namespace Game
 		virtual void Update();
 
 	private:
-		ObjectManager* m_pObjectManager;	//!< 管理オブジェクト.
+		/**
+		 * イベント受信関数
+		 * @param[in] _pEvent 受信したイベント
+		 */
+		void ReceiveEvent(Lib::EventBase* _pEvent);
+
+		ObjectManager*		m_pObjectManager;	//!< 管理オブジェクト.
+		Lib::EventListener*	m_pEventListener;
+		std::function<void(Lib::EventBase*)> m_pReceiveFunc;
 
 	};
 }

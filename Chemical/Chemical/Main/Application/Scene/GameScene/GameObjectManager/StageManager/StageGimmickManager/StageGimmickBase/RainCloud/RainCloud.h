@@ -66,8 +66,11 @@ namespace Game
 		/*** イベントの受信関数 */
 		void ReciveEvent(Lib::EventBase* _pEvent);
 
-		static const int	m_GimmickMax;	//!< ギミックの最大値.
-		static const int	m_InitialTime;	//!< 初期時間.
+		static const int			m_GimmickMax;	//!< ギミックの最大値.
+		static const int			m_InitialTime;	//!< 初期時間.
+		static const D3DXVECTOR2	m_LowSize;		//!< 小さい雲のサイズ.
+		static const D3DXVECTOR2	m_GoodSize;		//!< 普通の雲のサイズ.
+		static const D3DXVECTOR2	m_GreatSize;	//!< 大きい雲のサイズ.
 
 		std::vector<D3DXVECTOR2>			m_Positions;	//!< ギミックの座標.
 		std::vector<D3DXVECTOR2>			m_GimmickUV;	//!< ギミックのUV.

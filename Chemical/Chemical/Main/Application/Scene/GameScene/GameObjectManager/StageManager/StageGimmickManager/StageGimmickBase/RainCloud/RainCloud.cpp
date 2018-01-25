@@ -25,6 +25,9 @@ namespace Game
 	//----------------------------------------------------------------------
 	const int RainCloud::m_GimmickMax = 10;
 	const int RainCloud::m_InitialTime = 360;
+	const D3DXVECTOR2 RainCloud::m_LowSize = D3DXVECTOR2(120, 120);
+	const D3DXVECTOR2 RainCloud::m_GoodSize = D3DXVECTOR2(310, 120);
+	const D3DXVECTOR2 RainCloud::m_GreatSize = D3DXVECTOR2(600, 120);
 
 
 	//----------------------------------------------------------------------
@@ -208,29 +211,36 @@ namespace Game
 			}
 		}
 
+		float X = 0;
+		float Y = 0;
 		switch (pEvent->GetChemicalGrade())
 		{
 		case ChemicalBase::GRADE_NORMAL:
 			m_pRains[ID] = new Rain(D3DXVECTOR2(pEvent->GetRainPos().x, 300), Rain::LOW_GRADE);
 			m_pRains[ID]->Initialize();
+
+			X = m_LowSize.x;
+			Y = m_LowSize.y;
 			break;
 		case ChemicalBase::GRADE_GOOD:
 			m_pRains[ID] = new Rain(D3DXVECTOR2(pEvent->GetRainPos().x, 300), Rain::NORMAL_GRADE);
 			m_pRains[ID]->Initialize();
+
+			X = m_GoodSize.x;
+			Y = m_GoodSize.y;
 			break;
 		case ChemicalBase::GRADE_GREAT:
 			m_pRains[ID] = new Rain(D3DXVECTOR2(pEvent->GetRainPos().x, 300), Rain::HIGH_GRADE);
 			m_pRains[ID]->Initialize();
+
+			X = m_GreatSize.x;
+			Y = m_GreatSize.y;
 			break;
 		default:
 			OutputErrorLog("薬品のグレードが不正です");
 			return;
 			break;
 		}
-
-
-		float X = StageGimmickManager::m_DefaultGimmickSize.x;
-		float Y = StageGimmickManager::m_DefaultGimmickSize.y;
 
 		D3DXVECTOR2 Pos = D3DXVECTOR2(0, 300);
 		Pos.x = pEvent->GetRainPos().x;
