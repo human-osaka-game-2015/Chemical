@@ -35,8 +35,8 @@ namespace Game
 
 	const float Player::m_Gravity = 0.8f;
 	const float Player::m_JumpPower = -25;
-	const float Player::m_MoveSpeed = 10;
-
+	const float Player::m_MoveSpeed = 7;
+	const float Player::m_SpeedUpValue = 10;
 
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
@@ -50,7 +50,8 @@ namespace Game
 		m_IsLeft(false),
 		m_IsLanding(false),
 		m_AnimationState(WAIT_ANIMATION),
-		m_WarpPos(D3DXVECTOR2(0,0))
+		m_WarpPos(D3DXVECTOR2(0,0)),
+		m_SpeedUpTime(0)
 	{
 		m_Size = D3DXVECTOR2(120.f, 240.f);
 		m_Pos = D3DXVECTOR2(960.f, 400.f);
@@ -223,6 +224,30 @@ namespace Game
 
 		m_pVertex->SetAnimation(m_Animations[m_AnimationState].pData);
 
+		while (!m_pCollision->IsCollisionDataEmpty())
+		{
+			PlayerCollision::COLLISION_DATA CollisionData = m_pCollision->PopCollisionData();
+			int id = CollisionData.OtherId;
+			if (id == SPEEDUP_GIMMICK_COLLISION_ID)
+			{
+				switch (CollisionData.Grade)
+				{
+				case ChemicalBase::GRADE_NORMAL:
+					m_SpeedUpTime = 120;
+					break;
+				case ChemicalBase::GRADE_GOOD:
+					m_SpeedUpTime = 180;
+					break;
+				case ChemicalBase::GRADE_GREAT:
+					m_SpeedUpTime = 240;
+					break;
+				default:
+					m_SpeedUpTime = 0;
+					break;
+				}
+			}
+		}
+
 		RectangleCollisionBase::RECTANGLE Rectangle;
 		Rectangle.Left = m_WorldPos.x - m_Size.x / 2;
 		Rectangle.Top = m_WorldPos.y - m_Size.y / 2;
@@ -234,6 +259,7 @@ namespace Game
 		m_pCollision->ResetConveyorMove();
 		m_pCollision->ResetWarpHit();
 		m_PlayerState.Pos = m_Pos;
+		if (m_SpeedUpTime != 0) m_SpeedUpTime--;
 	}
 	
 	void Player::Draw()
@@ -440,9 +466,12 @@ namespace Game
 			if (m_IsLanding) m_AnimationState = WALK_ANIMATION;
 			m_Animations[m_AnimationState].pData->Update();
 			m_IsLeft = true;
-			m_WorldPos.x -= m_MoveSpeed;
 
-			if (m_WorldPos.x <= X) m_WorldPos.x = (m_Pos.x -= m_MoveSpeed);
+			float MoveSpeed = m_MoveSpeed;
+			if (m_SpeedUpTime != 0) MoveSpeed += m_SpeedUpValue;
+
+			m_WorldPos.x -= MoveSpeed;
+			if (m_WorldPos.x <= X) m_WorldPos.x = (m_Pos.x -= MoveSpeed);
 		}
 		else if (pKeyState[DIK_RIGHTARROW] == Lib::KeyDevice::KEY_ON ||
 			pLeftJoycon->GetAnalogStick().x > +0.5)
@@ -450,9 +479,12 @@ namespace Game
 			if (m_IsLanding) m_AnimationState = WALK_ANIMATION;
 			m_Animations[m_AnimationState].pData->Update();
 			m_IsLeft = false;
-			m_WorldPos.x += m_MoveSpeed;
 
-			if (m_WorldPos.x <= X) m_WorldPos.x = (m_Pos.x += m_MoveSpeed);
+			float MoveSpeed = m_MoveSpeed;
+			if (m_SpeedUpTime != 0) MoveSpeed += m_SpeedUpValue;
+
+			m_WorldPos.x += MoveSpeed;
+			if (m_WorldPos.x <= X) m_WorldPos.x = (m_Pos.x += MoveSpeed);
 		}
 		else
 		{

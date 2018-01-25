@@ -15,6 +15,7 @@
 #include "..\GimmickCollision\BlockGimmickCollision\BlockGimmickCollision.h"
 #include "..\GimmickCollision\BeltConveyorGimmickCollision\BeltConveyorGimmickCollision.h"
 #include "..\GimmickCollision\WarpGimmickCollision\WarpGimmickCollision.h"
+#include "..\GimmickCollision\SpeedUpGimmickCollision\SpeedUpGimmickCollision.h"
 
 
 namespace Game
@@ -287,7 +288,28 @@ namespace Game
 		}
 
 		m_IsWarp = (m_IsWarpHit && !m_IsOldWarpHit);
+	}
 
+	void PlayerCollision::Collide(SpeedUpGimmickCollision* _pOther)
+	{
+		std::vector<GimmickCollision::GIMMICK_RECTANGLE>* pRects = _pOther->GetRect();
 
+		int Count = 0;
+		for (const auto& itr : *pRects)
+		{
+			if (itr.Left  < GetRect().Right &&
+				itr.Right > GetRect().Left &&
+				itr.Top		< GetRect().Bottom &&
+				itr.Bottom	> GetRect().Top)
+			{
+				PushCollisionData(
+					COLLISION_DATA(
+					_pOther->GetCollisionID(),
+					itr.ID,
+					(*_pOther->GetGrade())[Count]));
+				break;
+			}
+			Count++;
+		}
 	}
 }

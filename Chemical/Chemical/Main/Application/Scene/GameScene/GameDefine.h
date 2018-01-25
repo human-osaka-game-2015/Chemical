@@ -89,6 +89,7 @@ namespace Game
 		WATER_COLLISION_ID,					//!< 水の当たり判定ID.
 		BLOCK_GIMMICK_COLLISION_ID,			//!< ブロックギミック当たり判定ID.
 		GOAL_GIMMICK_COLLISION_ID,			//!< ゴールギミック当たり判定ID.
+		SPEEDUP_GIMMICK_COLLISION_ID,
 		COLLISION_ID_MAX					//!< 当たり判定ID最大値.
 	};
 

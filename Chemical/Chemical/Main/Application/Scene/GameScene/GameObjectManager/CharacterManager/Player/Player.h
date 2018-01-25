@@ -91,6 +91,7 @@ namespace Game
 		static const float m_Gravity;
 		static const float m_JumpPower;
 		static const float m_MoveSpeed;
+		static const float m_SpeedUpValue;
 		static const int   m_MixChemicalStockMax = 2;
 		// 合成する前の薬品だけなのでその分引いている.
 		static const int   m_NormalChemicalMax = CHEMICAL_EMPTY - CHEMICAL_EXPLOSION;
@@ -162,6 +163,8 @@ namespace Game
 
 		CollisionTask*	 m_pCollisionTask;
 		PlayerCollision* m_pCollision;
+
+		int				 m_SpeedUpTime;
 
 		Lib::EventListener*	m_pEventListener;
 		EventFunction		m_ReciveFunc;
