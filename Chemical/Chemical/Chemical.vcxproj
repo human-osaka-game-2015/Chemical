@@ -114,6 +114,8 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\RedButtonGimmick\RedButtonGimmick.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickLeft\GateGimmickLeft.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight\GateGimmickRight.cpp" />
+    <ClCompile Include="Main\Application\Scene\StaffScene\StaffObjectManager\StaffBackground\TitleBackEvent\TitleBackEvent.cpp" />
+    <ClCompile Include="Main\Application\Scene\StaffScene\StaffObjectManager\StaffBackground\StaffBackground.cpp" />
     <ClCompile Include="Main\JoyconManager\JoyconManager.cpp" />
     <ClCompile Include="Main\JoyconManager\Joycon\hid\hid.cpp" />
     <ClCompile Include="Main\JoyconManager\Joycon\Joycon.cpp" />
@@ -187,7 +189,6 @@
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleObjectManager.cpp" />
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackground\TitleBackground.cpp" />
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenu.cpp" />
-    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackLogo\TitleBackLogo.cpp" />
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StartButton\StartButton.cpp" />
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\OptionButton\OptionButton.cpp" />
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\MenuCursorEvent\MenuCursorEvent.cpp" />
@@ -233,6 +234,8 @@
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainGimmickCollision\RainGimmickCollision.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemicalEvent\SpeedUpChemicalEvent.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\RedBlock\RedBlock.cpp" />
+    <ClCompile Include="Main\Application\Scene\StaffScene\StaffScene.cpp" />
+    <ClCompile Include="Main\Application\Scene\StaffScene\StaffObjectManager\StaffObjectManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\CurrentSceneEvent\CurrentSceneEvent.h" />
@@ -247,6 +250,9 @@
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\RedButtonGimmick\RedButtonGimmick.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickLeft\GateGimmickLeft.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight\GateGimmickRight.h" />
+    <ClInclude Include="Main\Application\Scene\StaffScene\StaffObjectManager\StaffBackground\TitleBackEvent\TitleBackEvent.h" />
+    <ClInclude Include="Main\Application\Scene\StaffScene\StaffObjectManager\StaffBackground\StaffBackground.h" />
+    <ClInclude Include="Main\Application\Scene\StaffScene\StaffDefine.h" />
     <ClInclude Include="Main\JoyconManager\JoyconManager.h" />
     <ClInclude Include="Main\JoyconManager\Joycon\hid\hidapi.h" />
     <ClInclude Include="Main\JoyconManager\Joycon\Joycon.h" />
@@ -299,6 +305,8 @@
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\RainGimmickCollision\RainGimmickCollision.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemicalEvent\SpeedUpChemicalEvent.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\RedBlock\RedBlock.h" />
+    <ClInclude Include="Main\Application\Scene\StaffScene\StaffScene.h" />
+    <ClInclude Include="Main\Application\Scene\StaffScene\StaffObjectManager\StaffObjectManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ChemicalCollision\ChemicalCollision.h" />
@@ -340,7 +348,6 @@
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleObjectManager.h" />
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackground\TitleBackground.h" />
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenu.h" />
-    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackLogo\TitleBackLogo.h" />
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StartButton\StartButton.h" />
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\EndButton\EndButton.h" />
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\OptionButton\OptionButton.h" />

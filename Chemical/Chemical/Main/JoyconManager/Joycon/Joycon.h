@@ -18,7 +18,6 @@ http://opensource.org/licenses/mit-license.php
 #include "hid/hidapi.h"
 
 #pragma comment(lib, "SetupAPI")
-#pragma pack(push, 1)
 
 typedef uint8_t u8;
 typedef uint16_t u16;

@@ -22,7 +22,7 @@ namespace Title
 	StartButton::StartButton()
 	{
 		m_Pos = D3DXVECTOR2(960, 850);
-		m_Size = D3DXVECTOR2(300, 100);
+		m_Size = D3DXVECTOR2(600, 100);
 	}
 
 	StartButton::~StartButton()

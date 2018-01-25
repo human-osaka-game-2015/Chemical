@@ -1,5 +1,6 @@
 ﻿#include "Joycon.h"
 //#include <Windows.h>
+#pragma pack(push, 1)
 
 namespace
 {

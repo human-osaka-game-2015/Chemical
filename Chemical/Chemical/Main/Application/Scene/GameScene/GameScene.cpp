@@ -89,10 +89,6 @@ namespace Game
 		SINGLETON_CREATE(CollisionManager);
 		SINGLETON_CREATE(CollisionTaskManager);
 
-		SINGLETON_CREATE(JoyconManager);
-		SINGLETON_INSTANCE(JoyconManager)->Connect(Joycon::LEFT_CONTROLLER);
-		SINGLETON_INSTANCE(JoyconManager)->Connect(Joycon::RIGHT_CONTROLLER);
-
 		m_pObjectManager = new ObjectManager();
 		if (!m_pObjectManager->Initialize())
 		{
@@ -109,10 +105,6 @@ namespace Game
 	{
 		m_pObjectManager->Finalize();
 		SafeDelete(m_pObjectManager);
-
-		SINGLETON_INSTANCE(JoyconManager)->Disconnect(Joycon::LEFT_CONTROLLER);
-		SINGLETON_INSTANCE(JoyconManager)->Disconnect(Joycon::RIGHT_CONTROLLER);
-		SINGLETON_DELETE(JoyconManager);
 
 		SINGLETON_DELETE(CollisionTaskManager);
 		SINGLETON_DELETE(CollisionManager);

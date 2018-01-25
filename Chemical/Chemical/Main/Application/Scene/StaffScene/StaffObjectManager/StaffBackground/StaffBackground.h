@@ -1,28 +1,30 @@
 ﻿/**
- * @file	TitleBackLogo.h
- * @brief	タイトルロゴクラス定義
+ * @file	StaffBackground.h
+ * @brief	スタッフバックグラウンド定義
  * @author	morimoto
  */
-#ifndef TITLE_BACKLOGO_H
-#define TITLE_BACKLOGO_H
+#ifndef STAFF_BACKGROUND_H
+#define STAFF_BACKGROUND_H
 
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
 #include "Object2DBase\Object2DBase.h"
 
+#include "TitleBackEvent\TitleBackEvent.h"
 
-namespace Title
+
+namespace Staff
 {
-	/*** タイトルロゴクラス */
-	class BackLogo : public Object2DBase
+	/*** スタッフバックグラウンドクラス */
+	class Background : public Object2DBase
 	{
 	public:
 		/*** コンストラクタ */
-		BackLogo();
+		Background();
 
 		/*** デストラクタ */
-		virtual ~BackLogo();
+		virtual ~Background();
 
 		/**
 		 * 初期化処理
@@ -39,8 +41,11 @@ namespace Title
 		/*** オブジェクトの描画 */
 		virtual void Draw();
 
+	private:
+		TitleBackEvent* m_pEvent;
+
 	};
 }
 
 
-#endif // !TITLE_BACKLOGO_H
+#endif // !STAFF_BACKGROUND_H

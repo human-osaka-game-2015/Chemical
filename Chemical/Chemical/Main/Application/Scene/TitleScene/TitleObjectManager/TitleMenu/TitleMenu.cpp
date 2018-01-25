@@ -18,6 +18,7 @@
 #include "StaffButton\StaffButton.h"
 #include "MenuCursorEvent\MenuCursorEvent.h"
 #include "EventManager\EventManager.h"
+#include "JoyconManager\JoyconManager.h"
 
 
 namespace Title
@@ -87,21 +88,28 @@ namespace Title
 	{
 		const Lib::KeyDevice::KEYSTATE* pKeyState =
 			SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState();
+		const Joycon::BUTTON_STATE* pRightButtonState = 
+			SINGLETON_INSTANCE(JoyconManager)->GetJoycon(Joycon::RIGHT_CONTROLLER)->GetButtonState();
+		const Joycon* pLeftJoycon = 
+			SINGLETON_INSTANCE(JoyconManager)->GetJoycon(Joycon::LEFT_CONTROLLER);
 
-		if (pKeyState[DIK_UP] == Lib::KeyDevice::KEY_ON &&
+		if ((pKeyState[DIK_UP] == Lib::KeyDevice::KEY_ON ||
+			pLeftJoycon->GetAnalogStick().y > 0.5f) &&
 			m_IsMenuUp == false && m_IsMenuDown == false)
 		{
 			m_IsMenuUp = true;
 			m_IsUp = true;
 		}
-		else if (pKeyState[DIK_DOWN] == Lib::KeyDevice::KEY_ON &&
+		else if ((pKeyState[DIK_DOWN] == Lib::KeyDevice::KEY_ON ||
+			pLeftJoycon->GetAnalogStick().y < -0.5f) &&
 			m_IsMenuUp == false && m_IsMenuDown == false)
 		{
 			m_IsMenuDown = true;
 			m_IsDown = true;
 		}
 
-		if (pKeyState[DIK_SPACE] == Lib::KeyDevice::KEY_ON &&
+		if ((pKeyState[DIK_SPACE] == Lib::KeyDevice::KEY_PUSH ||
+			pRightButtonState[Joycon::A_BUTTON] == Joycon::PUSH_BUTTON) &&
 			m_IsMenuUp == false && m_IsMenuDown == false)
 		{
 			// 一番前方にあるアイテムからイベントを取得.

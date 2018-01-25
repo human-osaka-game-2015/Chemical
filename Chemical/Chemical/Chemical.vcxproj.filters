@@ -458,6 +458,18 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\CurrentSceneEvent">
       <UniqueIdentifier>{bab700ee-0cb2-42eb-92a7-9c8054ae9ec0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\StaffScene">
+      <UniqueIdentifier>{8e1482a1-c6d4-4e09-831b-270dcc5cff50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\StaffScene\StaffObjectManager">
+      <UniqueIdentifier>{5336b77d-f437-4770-a092-1716b4d60678}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\StaffScene\StaffObjectManager\StaffBackground">
+      <UniqueIdentifier>{3c6c8dd5-98a2-4f11-b23c-8af6887c6376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\StaffScene\StaffObjectManager\StaffBackground\TitleBackEvent">
+      <UniqueIdentifier>{5b5c51bd-ce29-40c2-bfec-e0be6c94bee8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -481,9 +493,6 @@
     <ClCompile Include="Main\Object2DBase\Object2DBase.cpp" />
     <ClCompile Include="Main\CsvFile\CsvFile.cpp">
       <Filter>Main\CsvFile</Filter>
-    </ClCompile>
-    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackLogo\TitleBackLogo.cpp">
-      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleBackLogo</Filter>
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenuButtonBase\TitleMenuButtonBase.cpp">
       <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\TitleMenuButtonBase</Filter>
@@ -525,7 +534,6 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameTimeManager\GameTimeManager.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\GameTimeManager</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackLogo\TitleBackLogo.cpp" />
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StartButton\StartButton.cpp" />
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\OptionButton\OptionButton.cpp" />
     <ClCompile Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\MenuCursorEvent\MenuCursorEvent.cpp" />
@@ -901,6 +909,18 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\CurrentSceneEvent\CurrentSceneEvent.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\CurrentSceneEvent</Filter>
     </ClCompile>
+    <ClCompile Include="Main\Application\Scene\StaffScene\StaffScene.cpp">
+      <Filter>Main\Application\StaffScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\StaffScene\StaffObjectManager\StaffObjectManager.cpp">
+      <Filter>Main\Application\StaffScene\StaffObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\StaffScene\StaffObjectManager\StaffBackground\StaffBackground.cpp">
+      <Filter>Main\Application\StaffScene\StaffObjectManager\StaffBackground</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\StaffScene\StaffObjectManager\StaffBackground\TitleBackEvent\TitleBackEvent.cpp">
+      <Filter>Main\Application\StaffScene\StaffObjectManager\StaffBackground\TitleBackEvent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Application.h">
@@ -930,9 +950,6 @@
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleDefine.h">
       <Filter>Main\Application\TitleScene\TitleObjectManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackLogo\TitleBackLogo.h">
-      <Filter>Main\Application\TitleScene\TitleObjectManager\TitleBackLogo</Filter>
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\TitleMenuButtonBase\TitleMenuButtonBase.h">
       <Filter>Main\Application\TitleScene\TitleObjectManager\TitleMenu\TitleMenuButtonBase</Filter>
@@ -980,7 +997,6 @@
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameTimeManager\GameTimeManager.h">
       <Filter>Main\Application\GameScene\GameObjectManager\GameTimeManager</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleBackLogo\TitleBackLogo.h" />
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\StartButton\StartButton.h" />
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleDefine.h" />
     <ClInclude Include="Main\Application\Scene\TitleScene\TitleObjectManager\TitleMenu\OptionButton\OptionButton.h" />
@@ -1351,6 +1367,21 @@
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\CurrentSceneEvent\CurrentSceneEvent.h">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\CurrentSceneEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\StaffScene\StaffDefine.h">
+      <Filter>Main\Application\StaffScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\StaffScene\StaffScene.h">
+      <Filter>Main\Application\StaffScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\StaffScene\StaffObjectManager\StaffObjectManager.h">
+      <Filter>Main\Application\StaffScene\StaffObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\StaffScene\StaffObjectManager\StaffBackground\StaffBackground.h">
+      <Filter>Main\Application\StaffScene\StaffObjectManager\StaffBackground</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\StaffScene\StaffObjectManager\StaffBackground\TitleBackEvent\TitleBackEvent.h">
+      <Filter>Main\Application\StaffScene\StaffObjectManager\StaffBackground\TitleBackEvent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

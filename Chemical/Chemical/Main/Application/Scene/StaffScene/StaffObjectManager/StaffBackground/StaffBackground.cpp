@@ -1,29 +1,34 @@
 ﻿/**
- * @file	TitleBackLogo.cpp
- * @brief	タイトルロゴクラス実装
+ * @file	StaffBackground.cpp
+ * @brief	スタッフバックグラウンド実装
  * @author	morimoto
  */
+
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "TitleBackLogo.h"
+#include "StaffBackground.h"
 
-#include "..\..\TitleDefine.h"
+#include "Math\Math.h"
+#include "..\..\StaffDefine.h"
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
+#include "InputDeviceManager\InputDeviceManager.h"
+#include "EventManager\EventManager.h"
+#include "JoyconManager\JoyconManager.h"
 
 
-namespace Title
+namespace Staff
 {
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
-	BackLogo::BackLogo()
+	Background::Background()
 	{
-		m_Pos = D3DXVECTOR2(960, 200);
-		m_Size = D3DXVECTOR2(300, 100);
+		m_Pos = D3DXVECTOR2(960, 540);
+		m_Size = D3DXVECTOR2(1920, 1080);
 	}
 
-	BackLogo::~BackLogo()
+	Background::~Background()
 	{
 	}
 
@@ -31,9 +36,9 @@ namespace Title
 	//----------------------------------------------------------------------
 	// Public Functions
 	//----------------------------------------------------------------------
-	bool BackLogo::Initialize()
+	bool Background::Initialize()
 	{
-		m_pDrawTask->SetPriority(TITLE_DRAW_BACK_LOGO);
+		m_pDrawTask->SetPriority(STAFF_DRAW_BACKGROUND);
 
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->AddTask(m_pUpdateTask);
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->AddTask(m_pDrawTask);
@@ -41,17 +46,21 @@ namespace Title
 		if (!CreateVertex2D())	return false;
 
 		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
-			"Resource\\TitleScene\\Texture\\BackLogo.png",
+			"Resource\\StaffScene\\Texture\\Background.png",
 			&m_TextureIndex))
 		{
 			return false;
 		}
 
+		m_pEvent = new TitleBackEvent(STAFF_EVENT);
+
 		return true;
 	}
 
-	void BackLogo::Finalize()
+	void Background::Finalize()
 	{
+		SafeDelete(m_pEvent);
+
 		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->ReleaseTexture(m_TextureIndex);
 
 		ReleaseVertex2D();
@@ -60,11 +69,20 @@ namespace Title
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->RemoveTask(m_pUpdateTask);
 	}
 
-	void BackLogo::Update()
+	void Background::Update()
 	{
+		if (SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState()[DIK_SPACE] == 
+			Lib::KeyDevice::KEY_PUSH ||
+			SINGLETON_INSTANCE(JoyconManager)->GetJoycon(Joycon::RIGHT_CONTROLLER)->GetButtonState()[Joycon::A_BUTTON] ==
+			Joycon::PUSH_BUTTON)
+		{
+			SINGLETON_INSTANCE(Lib::EventManager)->SendEventMessage(
+				m_pEvent, 
+				TO_STRING(STAFF_GROUP));
+		}
 	}
 
-	void BackLogo::Draw()
+	void Background::Draw()
 	{
 		m_pVertex->ShaderSetup();
 		m_pVertex->WriteConstantBuffer(&m_Pos);
@@ -73,4 +91,3 @@ namespace Title
 		m_pVertex->Draw();
 	}
 }
-
