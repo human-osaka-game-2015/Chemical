@@ -236,6 +236,8 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\RedBlock\RedBlock.cpp" />
     <ClCompile Include="Main\Application\Scene\StaffScene\StaffScene.cpp" />
     <ClCompile Include="Main\Application\Scene\StaffScene\StaffObjectManager\StaffObjectManager.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\SpeedUpGimmick\SpeedUpGimmick.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\SpeedUpGimmickCollision\SpeedUpGimmickCollision.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\CurrentSceneEvent\CurrentSceneEvent.h" />
@@ -307,6 +309,8 @@
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\RedBlock\RedBlock.h" />
     <ClInclude Include="Main\Application\Scene\StaffScene\StaffScene.h" />
     <ClInclude Include="Main\Application\Scene\StaffScene\StaffObjectManager\StaffObjectManager.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\SpeedUpGimmick\SpeedUpGimmick.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\SpeedUpGimmickCollision\SpeedUpGimmickCollision.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\ChemicalCollision\ChemicalCollision.h" />
