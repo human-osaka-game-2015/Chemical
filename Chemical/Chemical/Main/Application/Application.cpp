@@ -12,9 +12,11 @@
 #include "Debugger\Debugger.h"
 #include "DirectX11\GraphicsDevice\Dx11GraphicsDevice.h"
 #include "InputDeviceManager\InputDeviceManager.h"
+#include "JoyconManager\JoyconManager.h"
 #include "Scene\TitleScene\TitleScene.h"
 #include "Scene\GameScene\GameScene.h"
 #include "Scene\SelectScene\SelectScene.h"
+#include "Scene\StaffScene\StaffScene.h"
 
 
 //----------------------------------------------------------------------
@@ -155,6 +157,10 @@ bool Application::CreateInputDevice()
 		return false;
 	}
 
+	SINGLETON_CREATE(JoyconManager);
+	SINGLETON_INSTANCE(JoyconManager)->Connect(Joycon::LEFT_CONTROLLER);
+	SINGLETON_INSTANCE(JoyconManager)->Connect(Joycon::RIGHT_CONTROLLER);
+
 	return true;
 }
 
@@ -170,12 +176,14 @@ bool Application::CreateSceneManager()
 	m_pTitleScene = new Title::TitleScene(TITLE_SCENE_ID);
 	m_pGameScene = new Game::GameScene(GAME_SCENE_ID);
 	m_pSelectScene = new Select::SelectScene(SELECT_SCENE_ID);
+	m_pStaffScene = new Staff::StaffScene(STAFF_SCENE_ID);
 
 	m_pSceneManager->AddScene(m_pTitleScene);
 	m_pSceneManager->AddScene(m_pSelectScene);
 	m_pSceneManager->AddScene(m_pGameScene);
+	m_pSceneManager->AddScene(m_pStaffScene);
 
-	m_pSceneManager->SetEntryScene(m_pSelectScene);	// エントリシーンとして設定.
+	m_pSceneManager->SetEntryScene(m_pTitleScene);	// エントリシーンとして設定.
 
 	return true;
 }
@@ -200,6 +208,10 @@ void Application::ReleaseGraphicsDevice()
 
 void Application::ReleaseInputDevice()
 {
+	SINGLETON_INSTANCE(JoyconManager)->Disconnect(Joycon::LEFT_CONTROLLER);
+	SINGLETON_INSTANCE(JoyconManager)->Disconnect(Joycon::RIGHT_CONTROLLER);
+	SINGLETON_DELETE(JoyconManager);
+
 	if (SINGLETON_INSTANCE(Lib::InputDeviceManager) != nullptr)
 	{
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->ReleaseDevice(Lib::InputDeviceManager::GAMEPAD_TYPE);
@@ -215,6 +227,9 @@ void Application::ReleaseSceneManager()
 {
 	if (m_pSceneManager != nullptr)
 	{
+		m_pSceneManager->DeleteScene(m_pStaffScene);
+		SafeDelete(m_pStaffScene);
+
 		m_pSceneManager->DeleteScene(m_pGameScene);
 		SafeDelete(m_pGameScene);
 

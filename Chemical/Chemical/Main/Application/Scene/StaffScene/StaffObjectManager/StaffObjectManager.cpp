@@ -1,30 +1,29 @@
 ﻿/**
- * @file	TitleObjectManager.cpp
- * @brief	タイトルオブジェクトクラス実装
+ * @file	StaffObjectManager.cpp
+ * @brief	スタッフオブジェクト管理クラス実装
  * @author	morimoto
  */
 
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "TitleObjectManager.h"
+#include "StaffObjectManager.h"
 
-#include "TitleBackground\TitleBackground.h"
-#include "TitleMenu\TitleMenu.h"
+#include "StaffBackground\StaffBackground.h"
+#include "Define\Define.h"
 
 
-namespace Title
+namespace Staff
 {
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
-	ObjectManager::ObjectManager()
+	StaffObjectManager::StaffObjectManager()
 	{
 		m_pObjects.push_back(new Background());
-		m_pObjects.push_back(new Menu());
 	}
 
-	ObjectManager::~ObjectManager()
+	StaffObjectManager::~StaffObjectManager()
 	{
 		for (auto itr = m_pObjects.begin(); itr != m_pObjects.end(); itr++)
 		{
@@ -36,7 +35,7 @@ namespace Title
 	//----------------------------------------------------------------------
 	// Public Functions
 	//----------------------------------------------------------------------
-	bool ObjectManager::Initialize()
+	bool StaffObjectManager::Initialize()
 	{
 		for (auto itr = m_pObjects.begin(); itr != m_pObjects.end(); itr++)
 		{
@@ -50,7 +49,7 @@ namespace Title
 		return true;
 	}
 
-	void ObjectManager::Finalize()
+	void StaffObjectManager::Finalize()
 	{
 		for (auto itr = m_pObjects.begin(); itr != m_pObjects.end(); itr++)
 		{
