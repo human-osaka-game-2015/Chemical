@@ -16,7 +16,7 @@
 namespace Game
 {
 	class Player;
-	class Enemy;
+	class EnemyManager;
 
 	/*** キャラクター管理クラス */
 	class CharacterManager : public Lib::ObjectBase
@@ -39,7 +39,7 @@ namespace Game
 
 	private:
 		Player* m_pPlayer;
-		std::vector<Enemy*> m_pEnemys;
+		EnemyManager* m_pEnemyManager;
 
 
 	};

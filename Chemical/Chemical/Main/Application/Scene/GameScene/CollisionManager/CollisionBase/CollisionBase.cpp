@@ -115,4 +115,8 @@ namespace Game
 	void CollisionBase::Collide(SpeedUpGimmickCollision* _pOther)
 	{
 	}
+
+	void CollisionBase::Collide(EnemyCollision* _pOther)
+	{
+	}
 }

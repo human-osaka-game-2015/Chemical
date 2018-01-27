@@ -38,6 +38,11 @@ namespace Game
 			return m_EnemysInitPos;
 		}
 
+		const std::vector<int>& GetEnemysPattern()
+		{
+			return m_EnemysPattern;
+		}
+
 	private:
 		enum
 		{
@@ -54,7 +59,7 @@ namespace Game
 
 		D3DXVECTOR2				 m_PlayerInitPos;
 		std::vector<D3DXVECTOR2> m_EnemysInitPos;
-
+		std::vector<int>		 m_EnemysPattern;
 	};
 }
 

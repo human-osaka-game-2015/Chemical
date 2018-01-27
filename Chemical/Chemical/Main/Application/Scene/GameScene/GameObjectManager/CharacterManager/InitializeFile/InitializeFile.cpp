@@ -36,14 +36,17 @@ namespace Game
 		{
 			switch (pCsvFile->GetData()[_y][_x])
 			{
+			case NONE:
+				break;
 			case PLAYER:
 				m_PlayerInitPos = D3DXVECTOR2(_x * X + X / 2, _y * Y + Y / 2);
 				m_PlayerInitPos.y -= 60;	// プレイヤーのサイズ分上にずらしている.
 				break;
-			case ENEMY:
+			default:
 				D3DXVECTOR2 EnemyInitPos(_x * X + X / 2, _y * Y + Y / 2);
 				EnemyInitPos.y -= 60.f;		// エネミーのサイズ分上にずらしている.
 				m_EnemysInitPos.push_back(EnemyInitPos);
+				m_EnemysPattern.push_back(pCsvFile->GetData()[_y][_x]);
 				break;
 			}
 		};

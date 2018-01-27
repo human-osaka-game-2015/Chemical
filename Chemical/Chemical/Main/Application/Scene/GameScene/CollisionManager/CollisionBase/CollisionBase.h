@@ -36,6 +36,7 @@ namespace Game
 	class BeltConveyorGimmickCollision;
 	class WarpGimmickCollision;
 	class SpeedUpGimmickCollision;
+	class EnemyCollision;
 
 	/*** 当たり判定基底クラス */
 	class CollisionBase
@@ -115,6 +116,8 @@ namespace Game
 
 		/*** 移動速度上昇するオブジェクトとの当たり判定を行う */
 		virtual void Collide(SpeedUpGimmickCollision* _pOther);
+
+		virtual void Collide(EnemyCollision* _pOther);
 
 		/**
 		 * 当たり判定ID取得

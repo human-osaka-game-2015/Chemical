@@ -1,7 +1,7 @@
 ﻿/**
  * @file	EnemyUI.h
  * @brief	エネミークラス定義
- * @author	morimoto
+ * @author	Fujioka
  */
 #ifndef GAME_ENEMYUI_H
 #define GAME_ENEMYUI_H
@@ -11,15 +11,16 @@
 //----------------------------------------------------------------------
 #include "Object2DBase\Object2DBase.h"
 
-
 namespace Game
 {
+
+	class EnemyBase;
 	/*** エネミーUIクラス */
 	class EnemyUI : public Object2DBase
 	{
 	public:
 		/*** コンストラクタ */
-		EnemyUI();
+		EnemyUI(EnemyBase* _pEnemyBase);
 
 		/*** デストラクタ */
 		virtual ~EnemyUI();
@@ -38,6 +39,16 @@ namespace Game
 
 		/*** 描画処理 */
 		virtual void Draw();
+
+	private:
+		EnemyBase* m_pEnemyBase;
+
+		int m_MaxHealth;
+		int m_OldHealth;
+
+		int m_Frame;
+
+		static const int m_DrawFream;
 
 	};
 }

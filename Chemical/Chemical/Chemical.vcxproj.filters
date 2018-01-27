@@ -62,17 +62,14 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player">
       <UniqueIdentifier>{c2c17d1f-e29f-4661-9018-c59cc61fa8c7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Enemy">
-      <UniqueIdentifier>{468dfabd-16a6-4af0-9e17-10ca499c5e41}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager">
       <UniqueIdentifier>{064e73fc-0e68-44d9-95c9-061957c84af1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageBackground">
       <UniqueIdentifier>{27814f08-6caf-415e-b9d9-903922ff2655}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Enemy\EnemyUI">
-      <UniqueIdentifier>{4bdcdfb0-fdb2-4cd5-8c29-d5ec09285b9b}</UniqueIdentifier>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI">
+      <UniqueIdentifier>{765ca45d-85d9-4802-80f6-53c3e2f2d865}</UniqueIdentifier>
     </Filter>
     <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager">
       <UniqueIdentifier>{e6d9a6e3-9cdb-478d-8794-33d82c808336}</UniqueIdentifier>
@@ -518,6 +515,39 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\GameClip\GameClipEvent">
       <UniqueIdentifier>{964021bc-c482-4db8-bd12-1ef216b48f0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\EnemyCollision">
+      <UniqueIdentifier>{f8efc1b2-b441-4f74-a98b-379ad1afda32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager">
+      <UniqueIdentifier>{3c7397ac-d9c3-4713-8162-96a189ff1b37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase">
+      <UniqueIdentifier>{c78a9482-9fb1-43cc-9de8-7561f8e72449}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\WalkEnemy">
+      <UniqueIdentifier>{cee21f7f-98c7-4182-b260-f33182776893}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\WalkEnemy\EnemyUI">
+      <UniqueIdentifier>{a010d3ac-91d9-4655-aed9-7fcb3df0dfa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\FryEnemy">
+      <UniqueIdentifier>{111374ce-9604-476d-9cdf-a35cfee2e682}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\ThrowEnemy">
+      <UniqueIdentifier>{d9dec68f-5498-4d63-8cdd-c5fd7d79d34d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\EggEnemy">
+      <UniqueIdentifier>{d67edf97-c491-4a7c-b3e0-2de4643351de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\SuicideEnemy">
+      <UniqueIdentifier>{40fb660b-e330-4738-b61f-a8c574450daf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\JumpEnemy">
+      <UniqueIdentifier>{0a5d4233-afcd-4aba-8d8d-4a06d9178917}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\ThrowEnemy\Bullet">
+      <UniqueIdentifier>{653f8625-952d-456a-852c-10fda99031e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -563,15 +593,14 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\Player.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Enemy\Enemy.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Enemy</Filter>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageManager.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager</Filter>
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameObjectManager.cpp" />
     <ClCompile Include="Main\CsvFile\CsvFile.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\Player.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Enemy\Enemy.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Enemy\EnemyUI\EnemyUI.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Enemy\EnemyUI</Filter>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageBackground\StageBackground.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageBackground</Filter>
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\CharacterManager.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager</Filter>
@@ -1017,6 +1046,41 @@
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClipEvent\GameClipEvent.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\GameClip\GameClipEvent</Filter>
     </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClip.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClipEvent\GameClipEvent.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\EnemyCollision\EnemyCollision.cpp">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\EnemyCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyManager.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\EnemyBase.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\WalkEnemy\EnemyUI\EnemyUI.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\WalkEnemy\EnemyUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\WalkEnemy\WalkEnemy.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\WalkEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\FryEnemy\FryEnemy.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\FryEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\EggEnemy\EggEnemy.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\EggEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\JumpEnemy\JumpEnemy.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\JumpEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\SuicideEnemy\SuicideEnemy.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\SuicideEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\ThrowEnemy\ThrowEnemy.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\ThrowEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\ThrowEnemy\Bullet\Bullet.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\ThrowEnemy\Bullet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Application.h">
@@ -1071,15 +1135,14 @@
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\Player.h">
       <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Enemy\Enemy.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Enemy</Filter>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageManager.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager</Filter>
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameObjectManager.h" />
     <ClInclude Include="Main\CsvFile\CsvFile.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\Player.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Enemy\Enemy.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Enemy\EnemyUI\EnemyUI.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Enemy\EnemyUI</Filter>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageBackground\StageBackground.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageBackground</Filter>
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameDefine.h">
       <Filter>Main\Application\GameScene</Filter>
@@ -1536,8 +1599,38 @@
       <Filter>Main\Application\GameScene\CollisionUpdateTask</Filter>
     </None>
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\FryEnemy\FryEnemy.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\FryEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\EggEnemy\EggEnemy.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\EggEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\JumpEnemy\JumpEnemy.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\JumpEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\SuicideEnemy\SuicideEnemy.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\SuicideEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\ThrowEnemy\ThrowEnemy.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\ThrowEnemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask_private.inl" />
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\EnemyCollision\EnemyCollision.h">
+      <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\EnemyCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyManager.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\EnemyBase.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\WalkEnemy\EnemyUI\EnemyUI.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\WalkEnemy\EnemyUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\WalkEnemy\WalkEnemy.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\WalkEnemy</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

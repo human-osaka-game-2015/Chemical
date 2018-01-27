@@ -1,28 +1,27 @@
 ﻿/**
  * @file	Enemy.h
  * @brief	エネミークラス定義
- * @author	morimoto
+ * @author	fujioka
  */
-#ifndef GAME_ENEMY_H
-#define GAME_ENEMY_H
+#ifndef GAME_WALKENEMY_H
+#define GAME_WALKENEMY_H
 
 //----------------------------------------------------------------------
 // Include
 //----------------------------------------------------------------------
-#include "Object2DBase\Object2DBase.h"
-
+#include "Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\EnemyBase.h"
 
 namespace Game
 {
 	/*** エネミークラス */
-	class Enemy : public Object2DBase
+	class WalkEnemy : public EnemyBase
 	{
 	public:
 		/*** コンストラクタ */
-		Enemy();
+		WalkEnemy(D3DXVECTOR2* _pPosotion);
 
 		/*** デストラクタ */
-		virtual ~Enemy();
+		virtual ~WalkEnemy();
 
 		/**
 		 * 初期化処理
@@ -38,6 +37,12 @@ namespace Game
 
 		/*** 描画処理 */
 		virtual void Draw();
+
+	private:
+		void GravityUpdate();
+		void CollisionUpdate();
+
+		float m_TestMove;
 
 	};
 }

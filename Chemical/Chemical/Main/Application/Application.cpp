@@ -30,11 +30,11 @@ const int Application::m_WindowHeight = 1080;
 //----------------------------------------------------------------------
 // Static Private Variables
 //----------------------------------------------------------------------
-#ifdef _DEBUG
+//#ifdef _DEBUG
 const DWORD Application::m_WindowStyle = WS_OVERLAPPEDWINDOW & ~WS_THICKFRAME & ~WS_MAXIMIZEBOX | WS_VISIBLE;
-#else
-const DWORD Application::m_WindowStyle = WS_VISIBLE | WS_POPUP;
-#endif 
+//#else
+//const DWORD Application::m_WindowStyle = WS_VISIBLE | WS_POPUP;
+//#endif 
 
 
 //----------------------------------------------------------------------
@@ -120,7 +120,7 @@ bool Application::CreateGraphicsDevice()
 	}
 
 #ifndef _DEBUG
-	SINGLETON_INSTANCE(Lib::Dx11::GraphicsDevice)->SetFullScreen(true);
+	//SINGLETON_INSTANCE(Lib::Dx11::GraphicsDevice)->SetFullScreen(true);
 #endif
 
 	return true;
@@ -181,12 +181,14 @@ bool Application::CreateSceneManager()
 	m_pResultScene	= new Result::ResultScene(RESULT_SCENE_ID);
 
 	m_pSceneManager->AddScene(m_pTitleScene);
-	m_pSceneManager->AddScene(m_pSelectScene);
 	m_pSceneManager->AddScene(m_pGameScene);
 	m_pSceneManager->AddScene(m_pStaffScene);
 	m_pSceneManager->AddScene(m_pResultScene);
 
 	m_pSceneManager->SetEntryScene(m_pTitleScene);	// エントリシーンとして設定.
+	m_pSceneManager->AddScene(m_pSelectScene);
+
+	m_pSceneManager->SetEntryScene(m_pGameScene);	// エントリシーンとして設定.
 
 	return true;
 }

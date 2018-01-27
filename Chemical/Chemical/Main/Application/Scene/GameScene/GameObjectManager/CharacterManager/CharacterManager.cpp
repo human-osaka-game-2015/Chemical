@@ -8,10 +8,11 @@
 //----------------------------------------------------------------------
 #include "CharacterManager.h"
 #include "Player\Player.h"
-#include "Enemy\Enemy.h"
+//#include "Enemy\Enemy.h"
 #include "InitializeFile\InitializeFile.h"
 #include "Application\GamePlayFile\GamePlayFile.h"
 
+#include "EnemyManager\EnemyManager.h"
 
 namespace Game
 {
@@ -26,16 +27,20 @@ namespace Game
 		pPlayFile->Close();
 		m_pPlayer = new Player(pInitializeFile->GetPlayerInitPos());
 
+		m_pEnemyManager = new EnemyManager(pInitializeFile);
+
 		SafeDelete(pPlayFile);
 		SafeDelete(pInitializeFile);
+
+		D3DXVECTOR2 TestPos(900.0f, 200.0f);
+		
 	}
 
 	CharacterManager::~CharacterManager()
 	{
-		for (auto itr : m_pEnemys)
-		{
-			SafeDelete(itr);
-		}
+		
+		SafeDelete(m_pEnemyManager);
+	
 		SafeDelete(m_pPlayer);
 	}
 
@@ -45,22 +50,15 @@ namespace Game
 	bool CharacterManager::Initialize()
 	{
 		if (!m_pPlayer->Initialize()) return false;
-		for (auto itr : m_pEnemys)
-		{
-			if (!itr->Initialize())
-			{
-				Finalize();
-			}
-		}
+		if (!m_pEnemyManager->Initialize()) return false;
+
 		return true;
 	}
 
 	void CharacterManager::Finalize()
 	{
-		for (auto itr : m_pEnemys)
-		{
-			itr->Finalize();
-		}
+		
+		m_pEnemyManager->Finalize();
 		m_pPlayer->Finalize();
 	}
 }

@@ -1,0 +1,54 @@
+﻿/**
+ * @file	Enemy.h
+ * @brief	エネミークラス定義
+ * @author	fujioka
+ */
+#ifndef GAME_WALKENEMY_H
+#define GAME_WALKENEMY_H
+
+//----------------------------------------------------------------------
+// Include
+//----------------------------------------------------------------------
+#include "Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\EnemyBase.h"
+#include "Application\Scene\GameScene\CollisionTask\CollisionTask.h"
+
+namespace Game
+{
+	/*** エネミークラス */
+	class WalkEnemy : public EnemyBase
+	{
+	public:
+		/*** コンストラクタ */
+		WalkEnemy(D3DXVECTOR2* _pPosotion);
+
+		/*** デストラクタ */
+		virtual ~WalkEnemy();
+
+		/**
+		 * 初期化処理
+		 * @return 初期化に成功したらtrue 失敗したらfalse
+		 */
+		virtual bool Initialize();
+
+		/*** 終了処理 */
+		virtual void Finalize();
+
+		/*** オブジェクトの当たり判定更新*/
+		virtual void CollisionTaskUpdate();
+
+		/*** 更新処理 */
+		virtual void Update();
+
+		/*** 描画処理 */
+		virtual void Draw();
+
+	private:
+		void GravityUpdate();
+		CollisionTask* m_pCollisionTask;
+		float		   m_TestMove;
+
+	};
+}
+
+
+#endif // !GAME_ENEMY_H

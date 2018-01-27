@@ -92,6 +92,7 @@ namespace Game
 		BLOCK_GIMMICK_COLLISION_ID,			//!< ブロックギミック当たり判定ID.
 		GOAL_GIMMICK_COLLISION_ID,			//!< ゴールギミック当たり判定ID.
 		SPEEDUP_GIMMICK_COLLISION_ID,
+		ENEMY_COLLISION_ID,					//!< エネミーの当たり判定ID.
 		COLLISION_ID_MAX					//!< 当たり判定ID最大値.
 	};
 
