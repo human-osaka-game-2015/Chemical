@@ -32,6 +32,11 @@ namespace Staff
 	class StaffScene;
 }
 
+namespace Result
+{
+	class ResultScene;
+}
+
 
 /*** アプリケーションクラス */
 class Application
@@ -44,6 +49,7 @@ public:
 		SELECT_SCENE_ID,	//!< ステージ選択シーンID.
 		GAME_SCENE_ID,		//!< ゲームシーンID.
 		STAFF_SCENE_ID,		//!< スタッフシーンID.
+		RESULT_SCENE_ID,	//!< リザルトシーンID.
 		END_SCENE_ID		//!< 終了ID.
 	};
 
@@ -113,7 +119,8 @@ private:
 	Title::TitleScene*		m_pTitleScene;		//!< タイトルシーンオブジェクト.
 	Select::SelectScene*	m_pSelectScene;		//!< ステージ選択シーンオブジェクト.
 	Game::GameScene*		m_pGameScene;		//!< ゲームシーンオブジェクト.
-	Staff::StaffScene*		m_pStaffScene;		//!< スタッフシーンオブジェクト>
+	Staff::StaffScene*		m_pStaffScene;		//!< スタッフシーンオブジェクト.
+	Result::ResultScene*	m_pResultScene;		//!< リザルトシーンオブジェクト.
 
 };
 

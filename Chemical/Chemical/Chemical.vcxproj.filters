@@ -935,6 +935,18 @@
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClip.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClipEvent\GameClipEvent.cpp" />
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultScene.cpp" />
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultBackground\ResultBackground.cpp" />
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\BackButton\BackButton.cpp" />
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\Ranking\Ranking.cpp" />
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\RestartButton\RestartButton.cpp" />
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultScore\ResultScore.cpp" />
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultMenu.cpp" />
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultObjectManager.cpp" />
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\BackCharacter\BackCharacter.cpp" />
+    <ClCompile Include="Main\Application\Resultfile\ResultFile.cpp" />
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultTime\ResultTime.cpp" />
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultMenuEvent\ResultMenuEvent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Application.h">
@@ -1405,6 +1417,19 @@
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClip.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClipEvent\GameClipEvent.h" />
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultScene.h" />
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultBackground\ResultBackground.h" />
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\BackButton\BackButton.h" />
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\Ranking\Ranking.h" />
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\RestartButton\RestartButton.h" />
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultScore\ResultScore.h" />
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultMenu.h" />
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultObjectManager.h" />
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\BackCharacter\BackCharacter.h" />
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultDefine.h" />
+    <ClInclude Include="Main\Application\Resultfile\ResultFile.h" />
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultTime\ResultTime.h" />
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultMenuEvent\ResultMenuEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask_private.inl">
