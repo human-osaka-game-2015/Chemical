@@ -165,7 +165,7 @@ namespace Game
 		PlayerCollision* m_pCollision;
 
 		int				 m_SpeedUpTime;
-
+		int				 m_MixChemicalCreateNum; //!< 混ぜた薬品を生成した回数
 		Lib::EventListener*	m_pEventListener;
 		EventFunction		m_ReciveFunc;
 		CurrentSceneEvent*  m_pCurrentSceneEvent;

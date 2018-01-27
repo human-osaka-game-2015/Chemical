@@ -58,6 +58,16 @@ namespace Game
 			return *m_ScreenPos;
 		}
 
+		void SetTime(int _minute, int _seconds)
+		{
+			m_Seconds = _seconds;
+			m_Minute = _minute;
+		}
+
+		int GetSeconds(){ return m_Seconds; }
+
+		int GetMinute(){ return m_Minute; }
+
 	private:
 		/*** コンストラクタ */
 		GameDataManager();
@@ -67,7 +77,9 @@ namespace Game
 	
 		D3DXVECTOR2* m_PlayerPos;
 		D3DXVECTOR2* m_ScreenPos;
-	
+		int			 m_Seconds;		//!< 経過時間(秒).
+		int			 m_Minute;		//!< 経過時間(分).
+
 	};
 }
 

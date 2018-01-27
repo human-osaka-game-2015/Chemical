@@ -17,6 +17,9 @@
 #include "..\..\..\CollisionManager\CollisionManager.h"
 #include "GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\WarpGimmick\WarpEvent\WarpEvent.h"
 #include "Application\Scene\GameScene\CollisionManager\CollisionBase\PlayerCollision\PlayerCollision.h"
+#include "GameObjectManager\GameTimeManager\GameTimeManager.h"
+#include "Application\ResultFile\ResultFile.h"
+#include "Application\GamePlayFile\GamePlayFile.h"
 
 #include "DirectX11\AnimationManager\Dx11AnimationManager.h"
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
@@ -51,7 +54,8 @@ namespace Game
 		m_IsLanding(false),
 		m_AnimationState(WAIT_ANIMATION),
 		m_WarpPos(D3DXVECTOR2(0,0)),
-		m_SpeedUpTime(0)
+		m_SpeedUpTime(0),
+		m_MixChemicalCreateNum(0)
 	{
 		m_Size = D3DXVECTOR2(120.f, 240.f);
 		m_Pos = D3DXVECTOR2(960.f, 400.f);
@@ -497,8 +501,18 @@ namespace Game
 	{
 		if (!m_Animations[m_AnimationState].pData->Update()) return;
 
-		m_pMixChemical[m_SelectMixChemicalIndex]->Sprinkle(m_WorldPos, m_IsLeft);
-		pControl = &Player::NormalControl;
+		auto ChemicalGrade = m_pMixChemical[m_SelectMixChemicalIndex]->GetChemicalData().Grade;
+
+		if (ChemicalGrade == ChemicalBase::GRADE_BAD)
+		{
+			m_PlayerState.Life -= 10;
+			pControl = &Player::NormalControl;
+		}
+		else
+		{
+			m_pMixChemical[m_SelectMixChemicalIndex]->Sprinkle(m_WorldPos, m_IsLeft);
+			pControl = &Player::NormalControl;
+		}
 	}
 
 	void Player::ChemicalCreateControl()
@@ -526,6 +540,7 @@ namespace Game
 				m_pMixChemical[m_SelectMixChemicalIndex] = ChemicalFactory::GetInstance().
 					Create(ChemicalFactory::Types(Type1, Type2));
 			}
+			m_MixChemicalCreateNum++;
 			pControl = &Player::NormalControl;
 		}
 	}
@@ -561,6 +576,27 @@ namespace Game
 		SINGLETON_INSTANCE(Lib::EventManager)->SendEventMessage(
 			m_pCurrentSceneEvent,
 			TO_STRING(CURRENT_SCENE_EVENT_GROUP));
+
+		// スコア計算.
+		int Minute = SINGLETON_INSTANCE(GameDataManager)->GetMinute();
+		int Seconds = SINGLETON_INSTANCE(GameDataManager)->GetSeconds();
+		Seconds += 60 * Minute;
+		int Score = Seconds + m_MixChemicalCreateNum*60;
+
+		GamePlayFile gamePlayeFile;
+		gamePlayeFile.Open();
+		int StageNum = gamePlayeFile.GetStageNum();
+		gamePlayeFile.Close();
+
+		ResultFile resultFile;
+		resultFile.Open();
+		resultFile.SetClear(true);
+		resultFile.SetSeconds(SINGLETON_INSTANCE(GameDataManager)->GetSeconds());
+		resultFile.SetMinute(Minute);
+		resultFile.SetScore(Score);
+		resultFile.SetStageNum(StageNum);
+		resultFile.Write();
+		resultFile.Close();
 
 		pControl = nullptr;
 	}
