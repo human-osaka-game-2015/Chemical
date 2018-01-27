@@ -21,6 +21,7 @@
 #include "EventManager\EventManager.h"
 #include "ResultObjectManager\ResultMenu\ResultMenuEvent\ResultMenuEvent.h"
 #include "DirectX11\Font\Dx11Font.h"
+#include "JoyconManager\JoyconManager.h"
 #include "ResultDefine.h"
 #include "Application\Application.h"
 
@@ -149,6 +150,8 @@ namespace Result
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_RIGHTARROW);
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_DOWNARROW);
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_RETURN);
+
+		SINGLETON_INSTANCE(JoyconManager)->CheckButton(Joycon::RIGHT_CONTROLLER, Joycon::A_BUTTON);
 
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->Run();
 

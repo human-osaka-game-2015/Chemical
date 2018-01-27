@@ -476,6 +476,48 @@
     <Filter Include="Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\SpeedUpGimmickCollision">
       <UniqueIdentifier>{9b449158-25e7-4cbf-8656-8ee5c1a807bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Application\ResultScene">
+      <UniqueIdentifier>{aabd67c0-382b-4a06-9e94-ac01d55de4df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\ResultScene\ResultObjectManager">
+      <UniqueIdentifier>{93870310-99f8-4af8-9f3e-40b4d8e85702}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\ResultScene\ResultObjectManager\ResultMenu">
+      <UniqueIdentifier>{1e5f41e4-78c2-455b-b6d7-83fcfe2d2657}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\ResultScene\ResultObjectManager\ResultBackground">
+      <UniqueIdentifier>{bdf8e2a8-9417-4a07-a7e7-838606d6de5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\ResultScene\ResultObjectManager\BackCharacter">
+      <UniqueIdentifier>{88ddb964-1f83-41ee-b362-b79d56219bb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\ResultFile">
+      <UniqueIdentifier>{33d403c1-6332-47eb-8c06-d1a6f6f42a51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\ResultScene\ResultObjectManager\ResultMenu\Ranking">
+      <UniqueIdentifier>{c7a79282-0d7c-4407-a315-d7125f7b9b5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\ResultScene\ResultObjectManager\ResultMenu\RestartButton">
+      <UniqueIdentifier>{442cbd93-6f86-431e-bef9-398ec289e2f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\ResultScene\ResultObjectManager\ResultMenu\ResultMenuEvent">
+      <UniqueIdentifier>{193bed9d-0c4a-4d4a-98e0-f9251e05b39b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\ResultScene\ResultObjectManager\ResultMenu\ResultScore">
+      <UniqueIdentifier>{f26d70b7-739c-4b8f-88cc-dcb390a5a7b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\ResultScene\ResultObjectManager\ResultMenu\ResultTime">
+      <UniqueIdentifier>{ea6a6495-2932-47c4-95e1-e608ac685481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\ResultScene\ResultObjectManager\ResultMenu\BackButton">
+      <UniqueIdentifier>{6c1d03e0-160f-4c74-b578-7d11b68a8190}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\GameClip">
+      <UniqueIdentifier>{cd02a980-ed3c-436c-b222-ae944a4570a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\GameClip\GameClipEvent">
+      <UniqueIdentifier>{964021bc-c482-4db8-bd12-1ef216b48f0b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\Main.cpp">
@@ -933,20 +975,48 @@
     <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\SpeedUpGimmickCollision\SpeedUpGimmickCollision.cpp">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\SpeedUpGimmickCollision</Filter>
     </ClCompile>
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClip.cpp" />
-    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClipEvent\GameClipEvent.cpp" />
-    <ClCompile Include="Main\Application\Scene\ResultScene\ResultScene.cpp" />
-    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultBackground\ResultBackground.cpp" />
-    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\BackButton\BackButton.cpp" />
-    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\Ranking\Ranking.cpp" />
-    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\RestartButton\RestartButton.cpp" />
-    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultScore\ResultScore.cpp" />
-    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultMenu.cpp" />
-    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultObjectManager.cpp" />
-    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\BackCharacter\BackCharacter.cpp" />
-    <ClCompile Include="Main\Application\Resultfile\ResultFile.cpp" />
-    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultTime\ResultTime.cpp" />
-    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultMenuEvent\ResultMenuEvent.cpp" />
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultScene.cpp">
+      <Filter>Main\Application\ResultScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultBackground\ResultBackground.cpp">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\ResultBackground</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Resultfile\ResultFile.cpp">
+      <Filter>Main\Application\ResultFile</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultMenu.cpp">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\ResultMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultMenuEvent\ResultMenuEvent.cpp">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\ResultMenu\ResultMenuEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultObjectManager.cpp">
+      <Filter>Main\Application\ResultScene\ResultObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\Ranking\Ranking.cpp">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\ResultMenu\Ranking</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\RestartButton\RestartButton.cpp">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\ResultMenu\RestartButton</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultScore\ResultScore.cpp">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\ResultMenu\ResultScore</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultTime\ResultTime.cpp">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\ResultMenu\ResultTime</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\BackCharacter\BackCharacter.cpp">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\BackCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\BackButton\BackButton.cpp">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\ResultMenu\BackButton</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClip.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\GameClip</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClipEvent\GameClipEvent.cpp">
+      <Filter>Main\Application\GameScene\GameObjectManager\GameClip\GameClipEvent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Application\Application.h">
@@ -1415,21 +1485,51 @@
     <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionBase\GimmickCollision\SpeedUpGimmickCollision\SpeedUpGimmickCollision.h">
       <Filter>Main\Application\GameScene\CollisionManager\CollisionBase\GimmickCollision\SpeedUpGimmickCollision</Filter>
     </ClInclude>
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClip.h" />
-    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClipEvent\GameClipEvent.h" />
-    <ClInclude Include="Main\Application\Scene\ResultScene\ResultScene.h" />
-    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultBackground\ResultBackground.h" />
-    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\BackButton\BackButton.h" />
-    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\Ranking\Ranking.h" />
-    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\RestartButton\RestartButton.h" />
-    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultScore\ResultScore.h" />
-    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultMenu.h" />
-    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultObjectManager.h" />
-    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\BackCharacter\BackCharacter.h" />
-    <ClInclude Include="Main\Application\Scene\ResultScene\ResultDefine.h" />
-    <ClInclude Include="Main\Application\Resultfile\ResultFile.h" />
-    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultTime\ResultTime.h" />
-    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultMenuEvent\ResultMenuEvent.h" />
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultDefine.h">
+      <Filter>Main\Application\ResultScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultScene.h">
+      <Filter>Main\Application\ResultScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultBackground\ResultBackground.h">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\ResultBackground</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Resultfile\ResultFile.h">
+      <Filter>Main\Application\ResultFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultMenu.h">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\ResultMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultMenuEvent\ResultMenuEvent.h">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\ResultMenu\ResultMenuEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultObjectManager.h">
+      <Filter>Main\Application\ResultScene\ResultObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\Ranking\Ranking.h">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\ResultMenu\Ranking</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\RestartButton\RestartButton.h">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\ResultMenu\RestartButton</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultScore\ResultScore.h">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\ResultMenu\ResultScore</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\ResultTime\ResultTime.h">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\ResultMenu\ResultTime</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\BackCharacter\BackCharacter.h">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\BackCharacter</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\ResultScene\ResultObjectManager\ResultMenu\BackButton\BackButton.h">
+      <Filter>Main\Application\ResultScene\ResultObjectManager\ResultMenu\BackButton</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClip.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\GameClip</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClipEvent\GameClipEvent.h">
+      <Filter>Main\Application\GameScene\GameObjectManager\GameClip\GameClipEvent</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask_private.inl">

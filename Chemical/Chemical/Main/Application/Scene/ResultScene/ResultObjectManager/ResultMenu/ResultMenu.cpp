@@ -12,6 +12,7 @@
 #include "..\..\ResultDefine.h"
 #include "InputDeviceManager\InputDeviceManager.h"
 #include "EventManager\EventManager.h"
+#include "JoyconManager\JoyconManager.h"
 
 
 namespace Result
@@ -76,15 +77,21 @@ namespace Result
 	{
 		const Lib::KeyDevice::KEYSTATE* pKeyState = 
 			SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState();
+		const Joycon::BUTTON_STATE* pRightButtonState =
+			SINGLETON_INSTANCE(JoyconManager)->GetJoycon(Joycon::RIGHT_CONTROLLER)->GetButtonState();
+		const Joycon* pLeftJoycon =
+			SINGLETON_INSTANCE(JoyconManager)->GetJoycon(Joycon::LEFT_CONTROLLER);
 
-		if (pKeyState[DIK_RIGHT] == Lib::KeyDevice::KEY_PUSH)
+		if (pKeyState[DIK_RIGHT] == Lib::KeyDevice::KEY_PUSH ||
+			pLeftJoycon->GetAnalogStick().x > 0.5f)
 		{
 			m_IsSelected = false; 
 			m_pBackButton->SetIsSelected(false);
 			m_pRestartButton->SetIsSelected(true);
 			m_pEvent->SetType(ResultMenuEvent::RESTART_EVENT);
 		}
-		else if (pKeyState[DIK_LEFT] == Lib::KeyDevice::KEY_PUSH)
+		else if (pKeyState[DIK_LEFT] == Lib::KeyDevice::KEY_PUSH ||
+			pLeftJoycon->GetAnalogStick().x < -0.5f)
 		{
 			m_IsSelected = true;
 			m_pBackButton->SetIsSelected(true);
@@ -92,7 +99,8 @@ namespace Result
 			m_pEvent->SetType(ResultMenuEvent::STAGESELECT_BACK_EVENT);
 		}
 
-		if (pKeyState[DIK_RETURN] == Lib::KeyDevice::KEY_PUSH)
+		if (pKeyState[DIK_RETURN] == Lib::KeyDevice::KEY_PUSH ||
+			pRightButtonState[Joycon::A_BUTTON] == Joycon::PUSH_BUTTON)
 		{
 			SINGLETON_INSTANCE(Lib::EventManager)->SendEventMessage(
 				m_pEvent,
