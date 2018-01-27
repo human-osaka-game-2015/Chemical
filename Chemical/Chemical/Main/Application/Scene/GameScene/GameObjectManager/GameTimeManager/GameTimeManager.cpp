@@ -8,6 +8,7 @@
 // Include
 //----------------------------------------------------------------------
 #include "GameTimeManager.h"
+#include "Application\Scene\GameScene\GameObjectManager\GameDataManager\GameDataManager.h"
 
 #include "GameTimeUI\GameTimeUI.h"
 #include "Debugger\Debugger.h"
@@ -76,7 +77,7 @@ namespace Game
 	void TimeManager::Update()
 	{
 		TimeUpdate();
-
+		SINGLETON_INSTANCE(GameDataManager)->SetTime(m_Minute, m_Seconds);
 		m_pTimeUI->SetFrame(m_Frame);
 		m_pTimeUI->SetSeconds(m_Seconds);
 		m_pTimeUI->SetMinute(m_Minute);
