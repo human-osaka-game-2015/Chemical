@@ -17,6 +17,7 @@
 #include "Scene\GameScene\GameScene.h"
 #include "Scene\SelectScene\SelectScene.h"
 #include "Scene\StaffScene\StaffScene.h"
+#include "Scene\ResultScene\ResultScene.h"
 
 
 //----------------------------------------------------------------------
@@ -173,17 +174,19 @@ bool Application::CreateSceneManager()
 		return false;
 	}
 
-	m_pTitleScene = new Title::TitleScene(TITLE_SCENE_ID);
-	m_pGameScene = new Game::GameScene(GAME_SCENE_ID);
-	m_pSelectScene = new Select::SelectScene(SELECT_SCENE_ID);
-	m_pStaffScene = new Staff::StaffScene(STAFF_SCENE_ID);
+	m_pTitleScene	= new Title::TitleScene(TITLE_SCENE_ID);
+	m_pGameScene	= new Game::GameScene(GAME_SCENE_ID);
+	m_pSelectScene	= new Select::SelectScene(SELECT_SCENE_ID);
+	m_pStaffScene	= new Staff::StaffScene(STAFF_SCENE_ID);
+	m_pResultScene	= new Result::ResultScene(RESULT_SCENE_ID);
 
 	m_pSceneManager->AddScene(m_pTitleScene);
 	m_pSceneManager->AddScene(m_pSelectScene);
 	m_pSceneManager->AddScene(m_pGameScene);
 	m_pSceneManager->AddScene(m_pStaffScene);
+	m_pSceneManager->AddScene(m_pResultScene);
 
-	m_pSceneManager->SetEntryScene(m_pTitleScene);	// エントリシーンとして設定.
+	m_pSceneManager->SetEntryScene(m_pResultScene);	// エントリシーンとして設定.
 
 	return true;
 }
@@ -227,6 +230,9 @@ void Application::ReleaseSceneManager()
 {
 	if (m_pSceneManager != nullptr)
 	{
+		m_pSceneManager->DeleteScene(m_pResultScene);
+		SafeDelete(m_pResultScene);
+
 		m_pSceneManager->DeleteScene(m_pStaffScene);
 		SafeDelete(m_pStaffScene);
 
