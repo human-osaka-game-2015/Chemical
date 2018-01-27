@@ -186,7 +186,7 @@ bool Application::CreateSceneManager()
 	m_pSceneManager->AddScene(m_pStaffScene);
 	m_pSceneManager->AddScene(m_pResultScene);
 
-	m_pSceneManager->SetEntryScene(m_pSelectScene);	// エントリシーンとして設定.
+	m_pSceneManager->SetEntryScene(m_pTitleScene);	// エントリシーンとして設定.
 
 	return true;
 }
