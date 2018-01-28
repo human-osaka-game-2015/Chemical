@@ -17,7 +17,7 @@ namespace Result
 	//----------------------------------------------------------------------
 	// Static Private Variables
 	//----------------------------------------------------------------------
-	const D3DXVECTOR2 ResultTime::m_DefaultPos = D3DXVECTOR2(100, 550);
+	const D3DXVECTOR2 ResultTime::m_DefaultPos = D3DXVECTOR2(300, 650);
 	const D3DXVECTOR2 ResultTime::m_DefaultSize = D3DXVECTOR2(32, 64);
 
 
@@ -91,7 +91,7 @@ namespace Result
 	void ResultTime::Draw()
 	{
 		char Str[256];
-		sprintf_s(Str, "Time    : %dm %ds", m_Minute, m_Seconds);
+		sprintf_s(Str, "TIME    : %dm %ds", m_Minute, m_Seconds);
 		m_pFont->Draw(&m_DefaultPos, Str);
 	}
 }

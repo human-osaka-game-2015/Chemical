@@ -17,7 +17,7 @@ namespace Result
 	//----------------------------------------------------------------------
 	// Static Private Variables
 	//----------------------------------------------------------------------
-	const D3DXVECTOR2 ResultScore::m_DefaultPos = D3DXVECTOR2(100, 450);
+	const D3DXVECTOR2 ResultScore::m_DefaultPos = D3DXVECTOR2(300, 550);
 	const D3DXVECTOR2 ResultScore::m_DefaultSize = D3DXVECTOR2(32, 64);
 
 
@@ -89,7 +89,7 @@ namespace Result
 	void ResultScore::Draw()
 	{
 		char Str[256];
-		sprintf_s(Str, "Score   : %d", m_Score);
+		sprintf_s(Str, "SCORE   : %d", m_Score);
 		m_pFont->Draw(&m_DefaultPos, Str);
 	}
 }

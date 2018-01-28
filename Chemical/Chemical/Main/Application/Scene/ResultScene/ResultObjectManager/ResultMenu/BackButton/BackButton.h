@@ -43,7 +43,6 @@ namespace Result
 		bool GetIsSelected() { return m_IsSelect; }
 
 	private:
-		int		m_TextureIndex2;
 		bool	m_IsSelect;
 
 	};

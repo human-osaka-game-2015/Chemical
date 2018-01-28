@@ -12,6 +12,7 @@
 
 #include "GameTimeUI\GameTimeUI.h"
 #include "Debugger\Debugger.h"
+#include "GameDefine.h"
 
 
 namespace Game
@@ -49,6 +50,8 @@ namespace Game
 
 		m_pUpdateTask->SetObject(this);
 		m_pDrawTask->SetObject(this);
+
+		m_pDrawTask->SetPriority(GAME_DRAW_UI);
 
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->AddTask(m_pUpdateTask);
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->AddTask(m_pDrawTask);

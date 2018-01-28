@@ -18,7 +18,7 @@ namespace Result
 	//----------------------------------------------------------------------
 	// Static Private Variables
 	//----------------------------------------------------------------------
-	const D3DXVECTOR2 Ranking::m_DefaultPos = D3DXVECTOR2(100, 350);
+	const D3DXVECTOR2 Ranking::m_DefaultPos = D3DXVECTOR2(300, 450);
 	const D3DXVECTOR2 Ranking::m_DefaultSize = D3DXVECTOR2(32, 64);
 
 
@@ -130,7 +130,7 @@ namespace Result
 	void Ranking::Draw()
 	{
 		char Str[256];
-		sprintf_s(Str, "Ranking : %d", m_Ranking);
+		sprintf_s(Str, "RANK    : %d", m_Ranking);
 		m_pFont->Draw(&m_DefaultPos, Str);
 	}
 }

@@ -29,6 +29,7 @@ namespace Result
 		m_pResultScore		= new ResultScore();
 		m_pResultTime		= new ResultTime();
 		m_pEvent			= new ResultMenuEvent(RESULT_MENU_EVENT_ID);
+		m_pEvent->SetType(ResultMenuEvent::STAGESELECT_BACK_EVENT);
 	}
 
 	ResultMenu::~ResultMenu()
@@ -85,18 +86,18 @@ namespace Result
 		if (pKeyState[DIK_RIGHT] == Lib::KeyDevice::KEY_PUSH ||
 			pLeftJoycon->GetAnalogStick().x > 0.5f)
 		{
-			m_IsSelected = false; 
-			m_pBackButton->SetIsSelected(false);
-			m_pRestartButton->SetIsSelected(true);
-			m_pEvent->SetType(ResultMenuEvent::RESTART_EVENT);
-		}
-		else if (pKeyState[DIK_LEFT] == Lib::KeyDevice::KEY_PUSH ||
-			pLeftJoycon->GetAnalogStick().x < -0.5f)
-		{
 			m_IsSelected = true;
 			m_pBackButton->SetIsSelected(true);
 			m_pRestartButton->SetIsSelected(false);
 			m_pEvent->SetType(ResultMenuEvent::STAGESELECT_BACK_EVENT);
+		}
+		else if (pKeyState[DIK_LEFT] == Lib::KeyDevice::KEY_PUSH ||
+			pLeftJoycon->GetAnalogStick().x < -0.5f)
+		{
+			m_IsSelected = false;
+			m_pBackButton->SetIsSelected(false);
+			m_pRestartButton->SetIsSelected(true);
+			m_pEvent->SetType(ResultMenuEvent::RESTART_EVENT);
 		}
 
 		if (pKeyState[DIK_RETURN] == Lib::KeyDevice::KEY_PUSH ||

@@ -21,8 +21,8 @@ namespace Result
 	BackButton::BackButton() : 
 		m_IsSelect(true)
 	{
-		m_Pos = D3DXVECTOR2(300, 950);
-		m_Size = D3DXVECTOR2(350, 130);
+		m_Pos = D3DXVECTOR2(893, 866);
+		m_Size = D3DXVECTOR2(360, 74);
 	}
 
 	BackButton::~BackButton()
@@ -52,19 +52,11 @@ namespace Result
 			return false;
 		}
 
-		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
-			"Resource\\ResultScene\\Texture\\BackButton2.png",
-			&m_TextureIndex2))
-		{
-			return false;
-		}
-
 		return true;
 	}
 
 	void BackButton::Finalize()
 	{
-		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->ReleaseTexture(m_TextureIndex2);
 		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->ReleaseTexture(m_TextureIndex);
 
 		ReleaseVertex2D();
@@ -79,16 +71,12 @@ namespace Result
 
 	void BackButton::Draw()
 	{
+		if (!m_IsSelect) return;
+
 		m_pVertex->ShaderSetup();
 		m_pVertex->WriteConstantBuffer(&m_Pos);
-
-		if (m_IsSelect)
-			m_pVertex->SetTexture(
+		m_pVertex->SetTexture(
 			SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
-		else
-			m_pVertex->SetTexture(
-			SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex2));
-
 		m_pVertex->Draw();
 	}
 }

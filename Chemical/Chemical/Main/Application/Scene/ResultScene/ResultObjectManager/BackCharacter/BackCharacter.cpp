@@ -20,8 +20,8 @@ namespace Result
 	//----------------------------------------------------------------------
 	BackCharacter::BackCharacter()
 	{
-		m_Pos = D3DXVECTOR2(1600, 540);
-		m_Size = D3DXVECTOR2(400, 800);
+		m_Pos = D3DXVECTOR2(1450, 547);
+		m_Size = D3DXVECTOR2(600, 900);
 	}
 
 	BackCharacter::~BackCharacter()

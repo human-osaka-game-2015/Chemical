@@ -95,12 +95,18 @@ namespace Game
 	{
 		D3DXVECTOR2 ScreenPos = SINGLETON_INSTANCE(GameDataManager)->GetScreenPos();
 
-		float Scrool = ScreenPos.x;
-		if (Scrool > m_Size.x)
-			Scrool -= m_Size.x * static_cast<int>(Scrool / m_Size.x);
+		float ScroolX = ScreenPos.x;
+		float ScroolY = ScreenPos.y;
+		if (ScroolX > m_Size.x)
+			ScroolX -= m_Size.x * static_cast<int>(ScroolX / m_Size.x);
 
-		m_BackgroundPos.x = m_Pos.x - Scrool;
-		m_BackgroundPos2.x = m_Pos.x + m_Size.x - Scrool;
+		if (ScroolY > m_Size.y)
+			ScroolY += m_Size.y * static_cast<int>(ScroolY / m_Size.y);
+
+		m_BackgroundPos.x = m_Pos.x - ScroolX;
+		m_BackgroundPos.y = m_Pos.y - ScroolY;
+		m_BackgroundPos2.x = m_Pos.x + m_Size.x - ScroolX;
+		m_BackgroundPos2.y = m_Pos.y - ScroolY;
 	}
 
 	void StageBackground::Draw()
