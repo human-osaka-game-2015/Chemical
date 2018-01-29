@@ -109,6 +109,9 @@ namespace Game
 				if (m_Times[i] > 600)
 				{
 					// イベントの送信.
+					srand(unsigned int(time(nullptr)));
+					m_pEvent->SetEnemyType(EnemyGeneratorEvent::ENEMY_TYPE(
+						rand() % EnemyGeneratorEvent::ENEMY_TYPE_MAX));
 					m_pEvent->SetEventPos(m_Positions[i]);
 					SINGLETON_INSTANCE(Lib::EventManager)->SendEventMessage(
 						m_pEvent,

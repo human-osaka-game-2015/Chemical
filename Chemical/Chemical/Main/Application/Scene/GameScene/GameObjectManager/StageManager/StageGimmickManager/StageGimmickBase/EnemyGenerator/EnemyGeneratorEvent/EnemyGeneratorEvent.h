@@ -27,6 +27,17 @@ namespace Game
 			EVENT_TYPE_MAX			//!< イベント種類の最大数.
 		};
 
+		/*** エネミーの種類 */
+		enum ENEMY_TYPE
+		{
+			SHELL_ENEMY,
+			STONE_ENEMY,
+			BIRD_ENEMY,
+			DRONE_ENEMY,
+			RABBIT_ENEMY,
+			ENEMY_TYPE_MAX
+		};
+
 		/**
 		 * コンストラクタ 
 		 * @param[in] _eventID イベントのID
@@ -48,9 +59,16 @@ namespace Game
 		/*** イベント座標の設定 */
 		void SetEventPos(D3DXVECTOR2 _pos){ m_EventPos = _pos; }
 
+		/*** エネミーの種類取得 */
+		ENEMY_TYPE GetEnemyType(){ return m_EnemyType; }
+
+		/*** エネミーの種類の設定*/
+		void SetEnemyType(ENEMY_TYPE _type){ m_EnemyType = _type; }
+
 	private:
 		EVENT_TYPE	m_EventType;	//!< イベント種類.
 		D3DXVECTOR2 m_EventPos;		//!< イベントが発生した座標.
+		ENEMY_TYPE	m_EnemyType;	//!< エネミータイプ.
 
 	};
 }
