@@ -120,7 +120,7 @@ bool Application::CreateGraphicsDevice()
 	}
 
 #ifndef _DEBUG
-	//SINGLETON_INSTANCE(Lib::Dx11::GraphicsDevice)->SetFullScreen(true);
+	SINGLETON_INSTANCE(Lib::Dx11::GraphicsDevice)->SetFullScreen(true);
 #endif
 
 	return true;
@@ -184,11 +184,9 @@ bool Application::CreateSceneManager()
 	m_pSceneManager->AddScene(m_pGameScene);
 	m_pSceneManager->AddScene(m_pStaffScene);
 	m_pSceneManager->AddScene(m_pResultScene);
-
-	m_pSceneManager->SetEntryScene(m_pTitleScene);	// エントリシーンとして設定.
 	m_pSceneManager->AddScene(m_pSelectScene);
 
-	m_pSceneManager->SetEntryScene(m_pGameScene);	// エントリシーンとして設定.
+	m_pSceneManager->SetEntryScene(m_pTitleScene);	// エントリシーンとして設定.
 
 	return true;
 }

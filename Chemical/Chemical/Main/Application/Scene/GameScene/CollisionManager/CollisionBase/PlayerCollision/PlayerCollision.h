@@ -91,6 +91,18 @@ namespace Game
 		virtual void Collide(SpeedUpGimmickCollision* _pOther);
 
 		/**
+		 * エネミーとの判定
+		 * @param[in] _pOther 他オブジェクト
+		 */
+		virtual void Collide(EnemyCollision* _pOther);
+
+		/**
+		 * 炎ギミックとの判定
+		 * @param[in] _pOther 他オブジェクト
+		 */
+		virtual void Collide(FireGimmickCollision* _pOther);
+
+		/**
 		* 衝突時のデータをキーにプッシュ
 		* @param[in] _data 衝突データ
 		*/
@@ -141,6 +153,9 @@ namespace Game
 
 		bool GetIsWarp(){ return m_IsWarp; }
 
+		void SetDamage(int _damage) { m_Damage = _damage; }
+		int GetDamage() { return m_Damage; }
+
 	private:
 		D3DXVECTOR2				   m_ConveyorMove;  //!< ベルトコンベアを踏んだ際の移動量
 		D3DXVECTOR2				   m_CollisionDiff; //!< 当たった時の差分
@@ -148,6 +163,7 @@ namespace Game
 		bool					   m_IsWarpHit;
 		bool					   m_IsOldWarpHit;
 		bool					   m_IsWarp; //!< ワープ出来るか?
+		int						   m_Damage;
 
 	};
 }

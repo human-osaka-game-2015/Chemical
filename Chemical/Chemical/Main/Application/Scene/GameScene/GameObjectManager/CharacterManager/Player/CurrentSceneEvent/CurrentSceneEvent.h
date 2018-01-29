@@ -17,6 +17,13 @@ namespace Game
 	class CurrentSceneEvent : public Lib::EventBase
 	{
 	public:
+		/*** イベントの種類 */
+		enum EVENT_TYPE
+		{
+			CLEAR_EVENT,
+			OVER_EVENT
+		};
+
 		/**
 		* コンストラクタ
 		* @param[in] _eventID イベントのID
@@ -25,6 +32,12 @@ namespace Game
 
 		/*** デストラクタ */
 		virtual ~CurrentSceneEvent();
+
+		void SetEventType(EVENT_TYPE _event) { m_Type = _event; }
+		EVENT_TYPE GetEventType() { return m_Type; }
+
+	private:
+		EVENT_TYPE m_Type;
 
 	};
 }

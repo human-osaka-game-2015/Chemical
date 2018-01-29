@@ -12,15 +12,16 @@ namespace Game
 	/*** 描画プライオリティ */
 	enum DRAW_PRIORITY
 	{
-		GAME_DRAW_BACKGROUND = 0,	//!< 背景描画プライオリティ.
-		GAME_DRAW_RAIN = 1,			//!< 雨描画プライオリティ.
-		GAME_DRAW_CHIP = 2,			//!< チップ描画プライオリティ.
-		GAME_DRAW_BACK_GIMMICK = 3,	//!< 背景ギミック描画プライオリティ.
-		GAME_DRAW_CHARACTER = 4,    //!< キャラクター描画プライオリティ.
-		GAME_DRAW_EFFECT = 5,		//!< エフェクト描画プライオリティ.
-		GAME_DRAW_GIMMICK = 6,		//!< ギミック描画プライオリティ.
-		GAME_DRAW_UI = 7,			//!< UI描画プライオリティ.
-		GAME_DRAW_CLIP = 8,			//!< クリッピング用描画プライオリティ.
+		GAME_DRAW_BACKGROUND	= 0,	//!< 背景描画プライオリティ.
+		GAME_DRAW_RAIN			= 1,	//!< 雨描画プライオリティ.
+		GAME_DRAW_RAIN_CLOUD	= 2,	//!< 雨描画プライオリティ.
+		GAME_DRAW_CHIP			= 3,	//!< チップ描画プライオリティ.
+		GAME_DRAW_BACK_GIMMICK	= 4,	//!< 背景ギミック描画プライオリティ.
+		GAME_DRAW_CHARACTER		= 5,    //!< キャラクター描画プライオリティ.
+		GAME_DRAW_EFFECT		= 6,	//!< エフェクト描画プライオリティ.
+		GAME_DRAW_GIMMICK		= 7,	//!< ギミック描画プライオリティ.
+		GAME_DRAW_UI			= 8,	//!< UI描画プライオリティ.
+		GAME_DRAW_CLIP			= 9,	//!< クリッピング用描画プライオリティ.
 		DRAW_PRIORITY_MAX
 	};
 

@@ -16,6 +16,8 @@
 #include "..\GimmickCollision\BeltConveyorGimmickCollision\BeltConveyorGimmickCollision.h"
 #include "..\GimmickCollision\WarpGimmickCollision\WarpGimmickCollision.h"
 #include "..\GimmickCollision\SpeedUpGimmickCollision\SpeedUpGimmickCollision.h"
+#include "..\GimmickCollision\FireGimmickCollision\FireGimmickCollision.h"
+#include "..\EnemyCollision\EnemyCollision.h"
 
 
 namespace Game
@@ -310,6 +312,34 @@ namespace Game
 				break;
 			}
 			Count++;
+		}
+	}
+
+	void PlayerCollision::Collide(EnemyCollision* _pOther)
+	{
+		if (_pOther->GetRect().Left		< GetRect().Right &&
+			_pOther->GetRect().Right	> GetRect().Left &&
+			_pOther->GetRect().Top		< GetRect().Bottom &&
+			_pOther->GetRect().Bottom	> GetRect().Top)
+		{
+			m_Damage = 10;	// 敵から受けるダメージ量は固定.
+		}
+	}
+
+	void PlayerCollision::Collide(FireGimmickCollision* _pOther)
+	{
+		std::vector<GimmickCollision::GIMMICK_RECTANGLE>* pRects = _pOther->GetRect();
+
+		for (const auto& itr : *pRects)
+		{
+			if (itr.Left  < GetRect().Right - 30 &&
+				itr.Right > GetRect().Left + 30 &&
+				itr.Top		< GetRect().Bottom &&
+				itr.Bottom	> GetRect().Top)
+			{
+				m_Damage = 10;	// 炎から受けるダメージ量は固定.
+				break;
+			}
 		}
 	}
 }

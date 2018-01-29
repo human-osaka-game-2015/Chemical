@@ -33,6 +33,9 @@ namespace Game
 		 */
 		virtual void Dispatch(CollisionBase* _pOther);
 
+		/*** 雨オブジェクトとの当たり判定を行う */
+		virtual void Collide(RainGimmickCollision* _pOther);
+
 	};
 }
 

@@ -10,6 +10,7 @@
 #include "MushroomGimmickCollision.h"
 
 #include "..\..\PlayerCollision\PlayerCollision.h"
+#include "..\RainGimmickCollision\RainGimmickCollision.h"
 
 
 namespace Game
@@ -35,21 +36,25 @@ namespace Game
 		_pOther->Collide(this);
 	}
 
-	void MushroomGimmickCollision::Collide(PlayerCollision* _pOther)
+	void MushroomGimmickCollision::Collide(RainGimmickCollision* _pOther)
 	{
 		for (auto itr = m_Rectangles.begin(); itr != m_Rectangles.end(); itr++)
 		{
-			if ((*itr).Left  < _pOther->GetRect().Right &&
-				(*itr).Right > _pOther->GetRect().Left)
+			auto Rect = _pOther->GetRect();
+			for (auto RainGimmick : *Rect)
 			{
-				if ((*itr).Top		< _pOther->GetRect().Bottom &&
-					(*itr).Bottom	> _pOther->GetRect().Top)
+				if ((*itr).Left  < RainGimmick.Right &&
+					(*itr).Right > RainGimmick.Left)
 				{
-					PushCollisionData(
-						COLLISION_DATA(
-						PLAYER_COLLISION_ID,
-						(*itr).ID));
-					break;
+					if ((*itr).Top		< RainGimmick.Bottom &&
+						(*itr).Bottom	> RainGimmick.Top)
+					{
+						PushCollisionData(
+							COLLISION_DATA(
+							RAIN_GIMMICK_COLLISION_ID,
+							(*itr).ID));
+						break;
+					}
 				}
 			}
 		}

@@ -10,6 +10,7 @@
 #include "FireGimmickCollision.h"
 
 #include "..\..\PlayerCollision\PlayerCollision.h"
+#include "..\RainGimmickCollision\RainGimmickCollision.h"
 
 
 namespace Game
@@ -33,5 +34,29 @@ namespace Game
 	void FireGimmickCollision::Dispatch(CollisionBase* _pOther)
 	{
 		_pOther->Collide(this);
+	}
+
+	void FireGimmickCollision::Collide(RainGimmickCollision* _pOther)
+	{
+		for (auto itr = m_Rectangles.begin(); itr != m_Rectangles.end(); itr++)
+		{
+			auto Rect = _pOther->GetRect();
+			for (auto RainGimmick : *Rect)
+			{
+				if ((*itr).Left  < RainGimmick.Right &&
+					(*itr).Right > RainGimmick.Left)
+				{
+					if ((*itr).Top		< RainGimmick.Bottom &&
+						(*itr).Bottom	> RainGimmick.Top)
+					{
+						PushCollisionData(
+							COLLISION_DATA(
+							RAIN_GIMMICK_COLLISION_ID,
+							(*itr).ID));
+						break;
+					}
+				}
+			}
+		}
 	}
 }

@@ -43,6 +43,12 @@ namespace Game
 			CAVE_CHIP,				//!< 洞窟壁チップ.
 			CAVE_BOTTOM_CHIP,		//!< 洞窟壁の下部チップ.
 			CAVE_TOP_CHIP,			//!< 洞窟壁の上部チップ.
+			STONE_CHIP,
+			STONE_BOTTOM_CHIP,
+			STONE_TOP_CHIP,
+			ELECTRON_CHIP,
+			ELECTRON_BOTTOM_CHIP,
+			ELECTRON_TOP_CHIP,
 			STAGE_CHIP_MAX			//!< ステージチップ最大値.
 		};
 

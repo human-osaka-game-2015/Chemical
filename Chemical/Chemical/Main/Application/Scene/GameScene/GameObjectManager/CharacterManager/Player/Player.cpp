@@ -37,7 +37,7 @@ namespace Game
 	//----------------------------------------------------------------------
 
 	const float Player::m_Gravity = 0.8f;
-	const float Player::m_JumpPower = -25;
+	const float Player::m_JumpPower = -19.5f;
 	const float Player::m_MoveSpeed = 7;
 	const float Player::m_SpeedUpValue = 10;
 
@@ -55,7 +55,10 @@ namespace Game
 		m_AnimationState(WAIT_ANIMATION),
 		m_WarpPos(D3DXVECTOR2(0,0)),
 		m_SpeedUpTime(0),
-		m_MixChemicalCreateNum(0)
+		m_MixChemicalCreateNum(0),
+		m_InvincibleTime(0),
+		m_AlphaColor(1.f),
+		m_IsFlashing(true)
 	{
 		m_Size = D3DXVECTOR2(120.f, 240.f);
 		m_Pos = D3DXVECTOR2(960.f, 400.f);
@@ -252,6 +255,71 @@ namespace Game
 			}
 		}
 
+		if (m_pCollision->GetDamage() != 0 && m_InvincibleTime == 0)
+		{
+			// ダメージ処理.
+			m_PlayerState.Life -= m_pCollision->GetDamage();
+			m_InvincibleTime = 130;
+			if (m_PlayerState.Life <= 0)
+			{
+				m_pCurrentSceneEvent->SetEventType(CurrentSceneEvent::OVER_EVENT);
+				SINGLETON_INSTANCE(Lib::EventManager)->SendEventMessage(
+					m_pCurrentSceneEvent,
+					TO_STRING(CURRENT_SCENE_EVENT_GROUP));
+
+				GamePlayFile gamePlayeFile;
+				gamePlayeFile.Open();
+				int StageNum = gamePlayeFile.GetStageNum();
+				gamePlayeFile.Close();
+				int Minute = SINGLETON_INSTANCE(GameDataManager)->GetMinute();
+				int Seconds = SINGLETON_INSTANCE(GameDataManager)->GetSeconds();
+				Seconds += 60 * Minute;
+				int Score = Seconds + m_MixChemicalCreateNum * 60;
+				ResultFile resultFile;
+				resultFile.Open();
+				resultFile.SetClear(0);
+				resultFile.SetSeconds(SINGLETON_INSTANCE(GameDataManager)->GetSeconds());
+				resultFile.SetMinute(Minute);
+				resultFile.SetScore(Score);
+				resultFile.SetStageNum(StageNum);
+				resultFile.Write();
+				resultFile.Close();
+			}
+
+			// ダメージ値を初期化.
+			m_pCollision->SetDamage(0);
+		}
+
+		// 無敵時の処理.
+		if (m_InvincibleTime > 0)
+		{
+			m_pCollision->SetDamage(0);	// 無敵時はダメージの蓄積を無効.
+
+			m_InvincibleTime--;
+			if (m_IsFlashing)
+			{
+				m_AlphaColor += 0.05f;
+				if (m_AlphaColor >= 1.0f)
+				{
+					m_AlphaColor = 1.0f;
+					m_IsFlashing = false;
+				}
+			}
+			else
+			{
+				m_AlphaColor -= 0.05f;
+				if (m_AlphaColor <= 0)
+				{
+					m_AlphaColor = 0;
+					m_IsFlashing = true;
+				}
+			}
+		}
+		else
+		{
+			m_AlphaColor = 1.f;
+		}
+
 		RectangleCollisionBase::RECTANGLE Rectangle;
 		Rectangle.Left = m_WorldPos.x - m_Size.x / 2;
 		Rectangle.Top = m_WorldPos.y - m_Size.y / 2;
@@ -269,6 +337,7 @@ namespace Game
 	void Player::Draw()
 	{
 		m_pVertex->SetInverse(m_IsLeft);
+		m_pVertex->SetColor(&D3DXCOLOR(1, 1, 1, m_AlphaColor));
 		m_pVertex->ShaderSetup();
 		m_pVertex->WriteVertexBuffer();
 		m_pVertex->WriteConstantBuffer(&m_Pos);
@@ -570,9 +639,11 @@ namespace Game
 
 	void Player::GoalControl()
 	{
+		m_AnimationState = GOAL_ANIMATION;// ゴール時に別アニメーションが割り込むバグがあるので無理やり変更.
 		if (!m_Animations[m_AnimationState].pData->Update()) return;
 
 		// ゴールアニメーションが終わったらシーン遷移演出が始まる.
+		m_pCurrentSceneEvent->SetEventType(CurrentSceneEvent::CLEAR_EVENT);
 		SINGLETON_INSTANCE(Lib::EventManager)->SendEventMessage(
 			m_pCurrentSceneEvent,
 			TO_STRING(CURRENT_SCENE_EVENT_GROUP));
@@ -590,7 +661,7 @@ namespace Game
 
 		ResultFile resultFile;
 		resultFile.Open();
-		resultFile.SetClear(true);
+		resultFile.SetClear(1);
 		resultFile.SetSeconds(SINGLETON_INSTANCE(GameDataManager)->GetSeconds());
 		resultFile.SetMinute(Minute);
 		resultFile.SetScore(Score);

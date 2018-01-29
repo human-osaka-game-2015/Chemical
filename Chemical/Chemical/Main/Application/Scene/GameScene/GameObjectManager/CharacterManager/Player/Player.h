@@ -170,6 +170,10 @@ namespace Game
 		EventFunction		m_ReciveFunc;
 		CurrentSceneEvent*  m_pCurrentSceneEvent;
 
+		int m_InvincibleTime;
+		float m_AlphaColor;
+		bool m_IsFlashing;//!< 点滅時にアルファ値を増加させるか減少させるか.
+
 
 	};
 }

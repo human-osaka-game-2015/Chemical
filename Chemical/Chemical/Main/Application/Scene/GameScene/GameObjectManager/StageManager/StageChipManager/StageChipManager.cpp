@@ -29,6 +29,12 @@
 #include "StageChipBase\Cave\Cave\Cave.h"
 #include "StageChipBase\Cave\CaveBottom\CaveBottom.h"
 #include "StageChipBase\Cave\CaveTop\CaveTop.h"
+#include "StageChipBase\StoneWall\StoneWall\StoneWall.h"
+#include "StageChipBase\StoneWall\StoneWallBottom\StoneWallBottom.h"
+#include "StageChipBase\StoneWall\StoneWallTop\StoneWallTop.h"
+#include "StageChipBase\Electron\Electron\Electron.h"
+#include "StageChipBase\Electron\ElectronBottom\ElectronBottom.h"
+#include "StageChipBase\Electron\ElectronTop\ElectronTop.h"
 #include "Debugger\Debugger.h"
 
 
@@ -47,25 +53,31 @@ namespace Game
 		m_pPlayFile(nullptr),
 		m_pCsvFile(nullptr)
 	{
-		m_pChips[NONE_CHIP] = new EmptyChip();
-		m_pChips[SOIL_CHIP] = new Soil();
-		m_pChips[SOIL_BOTTOM_CHIP] = new SoilBottom();
-		m_pChips[SOIL_TOP_CHIP] = new SoilTop();
-		m_pChips[ROCK_CHIP] = new Rock();
-		m_pChips[ROCK_BOTTOM_CHIP] = new RockBottom();
-		m_pChips[ROCK_TOP_CHIP] = new RockTop();
-		m_pChips[LAVA_CHIP] = new Lava();
-		m_pChips[LAVA_BOTTOM_CHIP] = new LavaBottom();
-		m_pChips[LAVA_TOP_CHIP] = new LavaTop();
-		m_pChips[SEA_CHIP] = new Sea();
-		m_pChips[SEA_BOTTOM_CHIP] = new SeaBottom();
-		m_pChips[SEA_TOP_CHIP] = new SeaTop();
-		m_pChips[WALL_CHIP] = new Wall();
-		m_pChips[WALL_BOTTOM_CHIP] = new WallBottom();
-		m_pChips[WALL_TOP_CHIP] = new WallTop();
-		m_pChips[CAVE_CHIP] = new Cave();
-		m_pChips[CAVE_BOTTOM_CHIP] = new CaveBottom();
-		m_pChips[CAVE_TOP_CHIP] = new CaveTop();
+		m_pChips[NONE_CHIP]			= new EmptyChip();
+		m_pChips[SOIL_CHIP]			= new Soil();
+		m_pChips[SOIL_BOTTOM_CHIP]	= new SoilBottom();
+		m_pChips[SOIL_TOP_CHIP]		= new SoilTop();
+		m_pChips[ROCK_CHIP]			= new Rock();
+		m_pChips[ROCK_BOTTOM_CHIP]	= new RockBottom();
+		m_pChips[ROCK_TOP_CHIP]		= new RockTop();
+		m_pChips[LAVA_CHIP]			= new Lava();
+		m_pChips[LAVA_BOTTOM_CHIP]	= new LavaBottom();
+		m_pChips[LAVA_TOP_CHIP]		= new LavaTop();
+		m_pChips[SEA_CHIP]			= new Sea();
+		m_pChips[SEA_BOTTOM_CHIP]	= new SeaBottom();
+		m_pChips[SEA_TOP_CHIP]		= new SeaTop();
+		m_pChips[WALL_CHIP]			= new Wall();
+		m_pChips[WALL_BOTTOM_CHIP]	= new WallBottom();
+		m_pChips[WALL_TOP_CHIP]		= new WallTop();
+		m_pChips[CAVE_CHIP]			= new Cave();
+		m_pChips[CAVE_BOTTOM_CHIP]	= new CaveBottom();
+		m_pChips[CAVE_TOP_CHIP]		= new CaveTop();
+		m_pChips[STONE_CHIP]		= new StoneWall();
+		m_pChips[STONE_BOTTOM_CHIP] = new StoneWallBottom();
+		m_pChips[STONE_TOP_CHIP]	= new StoneWallTop();
+		m_pChips[ELECTRON_CHIP]			= new Electron();
+		m_pChips[ELECTRON_BOTTOM_CHIP]	= new ElectronBottom();
+		m_pChips[ELECTRON_TOP_CHIP]		= new ElectronTop();
 	}
 
 	StageChipManager::~StageChipManager()

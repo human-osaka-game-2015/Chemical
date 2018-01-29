@@ -33,8 +33,8 @@ namespace Game
 		 */
 		virtual void Dispatch(CollisionBase* _pOther);
 
-		/*** プレイヤーオブジェクトとの当たり判定を行う */
-		virtual void Collide(PlayerCollision* _pOther);
+		/*** 雨オブジェクトとの当たり判定を行う */
+		virtual void Collide(RainGimmickCollision* _pOther);
 
 	};
 }

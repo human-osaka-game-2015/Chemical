@@ -53,6 +53,8 @@ namespace Game
 		m_pUpdateTask->SetName(m_TaskName);
 		m_pDrawTask->SetName(m_TaskName);
 
+		m_pDrawTask->SetPriority(GAME_DRAW_RAIN_CLOUD);
+
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->AddTask(m_pUpdateTask);
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->AddTask(m_pDrawTask);
 
