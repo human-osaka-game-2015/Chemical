@@ -103,6 +103,12 @@ namespace Game
 		virtual void Collide(FireGimmickCollision* _pOther);
 
 		/**
+		 * 木との判定
+		 * @param[in] _pOther 他オブジェクト
+		 */
+		virtual void Collide(WoodGimmickCollision* _pOther);
+
+		/**
 		* 衝突時のデータをキーにプッシュ
 		* @param[in] _data 衝突データ
 		*/

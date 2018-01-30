@@ -17,6 +17,7 @@
 #include "..\GimmickCollision\WarpGimmickCollision\WarpGimmickCollision.h"
 #include "..\GimmickCollision\SpeedUpGimmickCollision\SpeedUpGimmickCollision.h"
 #include "..\GimmickCollision\FireGimmickCollision\FireGimmickCollision.h"
+#include "..\GimmickCollision\WoodGimmickCollision\WoodGimmickCollision.h"
 #include "..\EnemyCollision\EnemyCollision.h"
 
 
@@ -341,5 +342,10 @@ namespace Game
 				break;
 			}
 		}
+	}
+
+	void PlayerCollision::Collide(WoodGimmickCollision* _pOther)
+	{
+		RectCheck<GimmickCollision::GIMMICK_RECTANGLE>(&m_CollisionDiff, &GetRect(), _pOther->GetRect());
 	}
 }

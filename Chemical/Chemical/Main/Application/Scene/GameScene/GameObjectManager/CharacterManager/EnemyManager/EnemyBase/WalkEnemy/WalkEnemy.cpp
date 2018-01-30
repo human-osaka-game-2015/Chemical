@@ -34,8 +34,8 @@ namespace Game
 		m_IsGuard(false)
 	{
 		m_Pos = *_pPosotion;
-		m_Size = D3DXVECTOR2(220.0f, 220.0f);
-		m_CollisionSize = D3DXVECTOR2(120.0f, 220.0f);
+		m_Size = D3DXVECTOR2(80.0f, 80.0f);
+		m_CollisionSize = D3DXVECTOR2(70.0f, 70.0f);
 
 		m_Acceleration = 0;
 
@@ -70,7 +70,7 @@ namespace Game
 		SINGLETON_INSTANCE(CollisionTaskManager)->AddTask(m_pCollisionTask);
 
 		if (!SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->LoadAnimation(
-			"Resource\\GameScene\\Animation\\PlayerWalk.anim",
+			"Resource\\GameScene\\Animation\\Enemy0.anim",
 			&m_AnimationIndex)) return false;
 
 		m_pWalkAnimation = SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->GetAnimation(m_AnimationIndex);
@@ -79,7 +79,7 @@ namespace Game
 		m_pWalkAnimation->AnimationStart();
 
 		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
-			"Resource\\GameScene\\Texture\\player.png",
+			"Resource\\GameScene\\Texture\\Enemy0.png",
 			&m_TextureIndex)) return false;
 
 		if (!CreateVertex2D()) return false;
@@ -172,7 +172,7 @@ namespace Game
 		{
 			return;
 		}
-		m_pVertex->SetInverse(m_IsLeft);
+		m_pVertex->SetInverse(!m_IsLeft);// テクスチャが反対なので反転.
 
 		m_pVertex->ShaderSetup();
 		m_pVertex->WriteVertexBuffer();
@@ -200,7 +200,7 @@ namespace Game
 	bool WalkEnemy::AiEnable()
 	{
 		if (m_Pos.x - SINGLETON_INSTANCE(GameDataManager)->GetScreenPos().x < m_EnableArea.Left ||
-			m_Pos.x - SINGLETON_INSTANCE(GameDataManager)->GetScreenPos().x>m_EnableArea.Right)
+			m_Pos.x - SINGLETON_INSTANCE(GameDataManager)->GetScreenPos().x > m_EnableArea.Right)
 		{
 			return false;
 		}
@@ -214,7 +214,7 @@ namespace Game
 			m_IsAlive = false;
 		}
 
-		if (m_Frame % (m_GuardTime + m_WalkTime)<m_WalkTime)
+		if (m_Frame % (m_GuardTime + m_WalkTime) < m_WalkTime)
 		{
 			m_IsGuard = false;
 
@@ -234,8 +234,8 @@ namespace Game
 		{
 			m_IsGuard = true;
 		}
-	
-			m_Frame++;
+
+		m_Frame++;
 	}
 
 	void WalkEnemy::DamageDecision()

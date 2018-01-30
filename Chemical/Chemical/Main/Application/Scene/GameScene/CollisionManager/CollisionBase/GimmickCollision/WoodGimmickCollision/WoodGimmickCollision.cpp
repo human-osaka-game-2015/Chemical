@@ -10,6 +10,7 @@
 #include "WoodGimmickCollision.h"
 
 #include "..\..\PlayerCollision\PlayerCollision.h"
+#include "..\..\ExplosionCollision\ExplosionCollision.h"
 
 
 namespace Game
@@ -35,19 +36,20 @@ namespace Game
 		_pOther->Collide(this);
 	}
 
-	void WoodGimmickCollision::Collide(PlayerCollision* _pOther)
+	void WoodGimmickCollision::Collide(ExplosionCollision* _pOther)
 	{
+		auto Circle = _pOther->GetCircle();
 		for (auto itr = m_Rectangles.begin(); itr != m_Rectangles.end(); itr++)
 		{
-			if ((*itr).Left  < _pOther->GetRect().Right &&
-				(*itr).Right > _pOther->GetRect().Left)
+			if ((*itr).Left  < (Circle.Pos.x + Circle.Radius) &&
+				(*itr).Right > (Circle.Pos.x - Circle.Radius))
 			{
-				if ((*itr).Top		< _pOther->GetRect().Bottom &&
-					(*itr).Bottom	> _pOther->GetRect().Top)
+				if ((*itr).Top		< (Circle.Pos.y + Circle.Radius) &&
+					(*itr).Bottom	> (Circle.Pos.y - Circle.Radius))
 				{
 					PushCollisionData(
 						COLLISION_DATA(
-							PLAYER_COLLISION_ID,
+							EXPLOSION_COLLISION_ID,
 							(*itr).ID));
 					break;
 				}

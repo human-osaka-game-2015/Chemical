@@ -54,7 +54,7 @@ namespace Game
 			return false;
 		}
 
-		if (!m_pMultipleVertexUV->CreateVertexBuffer(&m_Size, &D3DXVECTOR2(0, 0), &D3DXVECTOR2(1, 1)))
+		if (!m_pMultipleVertexUV->CreateVertexBuffer(&m_Size, &D3DXVECTOR2(0, 0), &D3DXVECTOR2(0.25, 1)))
 		{
 			OutputErrorLog("頂点バッファの生成に失敗しました");
 			return false;
@@ -106,7 +106,15 @@ namespace Game
 				(m_Positions[i] - ScreenPos).x < 1900.0f)
 			{
 				m_Times[i]++;
-				if (m_Times[i] > 600)
+				if (m_Times[i] % 6 == 0)
+				{
+					if (m_GimmickUV[i].x == 0.5f)
+						m_GimmickUV[i].x = 0.0f;
+					else
+						m_GimmickUV[i].x += 0.25f;
+				}
+
+				if (m_Times[i] > 720)
 				{
 					// イベントの送信.
 					srand(unsigned int(time(nullptr)));

@@ -35,10 +35,13 @@ namespace Game
 	void ChemicalFactory::Finalize()
 	{
 		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->
-			ReleaseTexture(m_TextureIndex[Types(CHEMICAL_BLUE, CHEMICAL_RED)]);
+			ReleaseTexture(m_TextureIndex[Types(CHEMICAL_RED, CHEMICAL_YELLOW)]);
 
 		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->
 			ReleaseTexture(m_TextureIndex[Types(CHEMICAL_BLUE, CHEMICAL_YELLOW)]);
+
+		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->
+			ReleaseTexture(m_TextureIndex[Types(CHEMICAL_BLUE, CHEMICAL_RED)]);
 	}
 
 	bool ChemicalFactory::RegisterCreateFunc(Types _types, CreateFunc _createFunc)

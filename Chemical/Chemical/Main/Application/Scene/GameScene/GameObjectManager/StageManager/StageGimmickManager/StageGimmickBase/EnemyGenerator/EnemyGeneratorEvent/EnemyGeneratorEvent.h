@@ -30,11 +30,12 @@ namespace Game
 		/*** エネミーの種類 */
 		enum ENEMY_TYPE
 		{
-			SHELL_ENEMY,
-			STONE_ENEMY,
-			BIRD_ENEMY,
-			DRONE_ENEMY,
-			RABBIT_ENEMY,
+			WALK_ENEMY,
+			FLY_ENEMY,
+			JUMP_ENEMY,
+			SUICIDE_ENEMY,
+			EGG_ENEMY,
+			THROW_ENEMY,
 			ENEMY_TYPE_MAX
 		};
 

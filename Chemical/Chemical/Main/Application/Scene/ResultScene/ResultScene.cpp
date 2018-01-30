@@ -22,6 +22,7 @@
 #include "ResultObjectManager\ResultMenu\ResultMenuEvent\ResultMenuEvent.h"
 #include "DirectX11\Font\Dx11Font.h"
 #include "JoyconManager\JoyconManager.h"
+#include "Application\ResultFile\ResultFile.h"
 #include "ResultDefine.h"
 #include "Application\Application.h"
 
@@ -166,18 +167,129 @@ namespace Result
 	//----------------------------------------------------------------------
 	void ResultScene::ReceiveEvent(Lib::EventBase* _pEvent)
 	{
+		ResultFile resultFile;
 		switch (_pEvent->GetEventID())
 		{
 		case RESULT_MENU_EVENT_ID:
 			switch (reinterpret_cast<ResultMenuEvent*>(_pEvent)->GetType())
 			{
 			case ResultMenuEvent::STAGESELECT_BACK_EVENT:
+			{
 				m_NextSceneID = Application::SELECT_SCENE_ID;
 				m_State = FINAL_STATE;
-				break;
+
+				resultFile.Open();
+				char FileName[256];
+				sprintf_s(
+					FileName,
+					"Resource\\StageSelectScene\\RankingWindow\\RankingData\\Stage%d.csv",
+					resultFile.GetStageNum());
+
+				FILE* pFile;
+				fopen_s(&pFile, FileName, "r");
+
+				int CSVData;
+				int RankingNum = 0;
+				while ((CSVData = fgetc(pFile)) != EOF)
+				{
+					if (CSVData == '\n')
+					{
+						RankingNum++;
+					}
+				}
+
+				fseek(pFile, 0, SEEK_SET);
+				std::vector<int> Scores;
+				Scores.resize(RankingNum);
+				std::vector<int> Times;
+				Times.resize(RankingNum);
+				for (int i = 0; i < RankingNum; i++)
+				{
+					fscanf_s(pFile, "%d,", &Scores[i]);
+					fscanf_s(pFile, "%d", &Times[i]);
+				}
+
+				for (int i = 0; i < RankingNum; i++)
+				{
+					// ランキングファイルはソートされているので.
+					// 比較で現在のランキングを取得.
+					if (Scores[i] < resultFile.GetScore())
+					{
+						int Rank = i;
+						Scores.insert(Scores.begin() + i, resultFile.GetScore());
+						Times.insert(Times.begin() + i, resultFile.GetSeconds() + resultFile.GetMinute() * 60);
+						break;
+					}
+				}
+				fclose(pFile);
+
+				fopen_s(&pFile, FileName, "w");
+				for (int i = 0; i < RankingNum; i++)
+				{
+					fprintf(pFile, "%d,%d\n", Scores[i], Times[i]);
+				}
+				fclose(pFile);
+
+				resultFile.Close();
+			}
+			break;
 			case ResultMenuEvent::RESTART_EVENT:
 				m_NextSceneID = Application::GAME_SCENE_ID;
 				m_State = FINAL_STATE;
+
+				resultFile.Open();
+				char FileName[256];
+				sprintf_s(
+					FileName,
+					"Resource\\StageSelectScene\\RankingWindow\\RankingData\\Stage%d.csv",
+					resultFile.GetStageNum());
+
+				FILE* pFile;
+				fopen_s(&pFile, FileName, "r");
+
+				int CSVData;
+				int RankingNum = 0;
+				while ((CSVData = fgetc(pFile)) != EOF)
+				{
+					if (CSVData == '\n')
+					{
+						RankingNum++;
+					}
+				}
+
+				fseek(pFile, 0, SEEK_SET);
+				std::vector<int> Scores;
+				Scores.resize(RankingNum);
+				std::vector<int> Times;
+				Times.resize(RankingNum);
+				for (int i = 0; i < RankingNum; i++)
+				{
+					fscanf_s(pFile, "%d,", &Scores[i]);
+					fscanf_s(pFile, "%d", &Times[i]);
+				}
+
+				for (int i = 0; i < RankingNum; i++)
+				{
+					// ランキングファイルはソートされているので.
+					// 比較で現在のランキングを取得.
+					if (Scores[i] < resultFile.GetScore())
+					{
+						int Rank = i;
+						Scores.insert(Scores.begin() + i, resultFile.GetScore());
+						Times.insert(Times.begin() + i, resultFile.GetSeconds() + resultFile.GetMinute() * 60);
+						break;
+					}
+				}
+				fclose(pFile);
+
+				fopen_s(&pFile, FileName, "w");
+				for (int i = 0; i < RankingNum; i++)
+				{
+					fprintf(pFile, "%d,%d\n", Scores[i], Times[i]);
+				}
+				fclose(pFile);
+
+				resultFile.Close();
 				break;
 			}
 			break;

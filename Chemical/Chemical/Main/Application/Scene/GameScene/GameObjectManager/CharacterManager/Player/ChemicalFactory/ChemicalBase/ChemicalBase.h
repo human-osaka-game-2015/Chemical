@@ -33,7 +33,6 @@ namespace Game
 		/**
 		 * コンストラクタ
 		 * @param[in] _textureIndex 使用するテクスチャのインデックス
-		 * @param[in] _pos プレイヤー座標
 		 * @param[in] _chemicalType 薬品の種類
 		 */
 		ChemicalBase(int _textureIndex, CHEMICAL_TYPE _chemicalType);
@@ -95,6 +94,8 @@ namespace Game
 			return m_IsSprinkle;
 		}
 
+		void SetSelected(bool _isSelect) { m_IsSelect = _isSelect; }
+		bool GetSelected() { return m_IsSelect; }
 	protected:
 		static const float m_Gravity;
 		
@@ -111,7 +112,7 @@ namespace Game
 
 	private:
 		int m_ShakeFrame; //!< 何フレーム振っているか?
-
+		bool m_IsSelect;	//!< 選択されてればtrue.
 		
 	};
 }

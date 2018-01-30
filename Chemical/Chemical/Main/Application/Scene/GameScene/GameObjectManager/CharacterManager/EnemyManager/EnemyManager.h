@@ -14,6 +14,7 @@
 
 #include "ObjectManagerBase\ObjectBase\ObjectBase.h"
 #include "TaskManager\TaskBase\UpdateTask\UpdateTask.h"
+#include "EventManager\EventListener\EventListener.h"
 
 #include <D3DX11.h>
 #include <D3DX10.h>
@@ -81,6 +82,12 @@ namespace Game
 		void JumpGenerate(D3DXVECTOR2* _pPosition);
 		void SuicideGenerate(D3DXVECTOR2* _pPosition);
 		void ThrowGenerate(D3DXVECTOR2* _pPosition);
+
+		Lib::EventListener* m_pEventListener;
+		std::function<void(Lib::EventBase*)> m_ReceiveFunc;
+
+		void ReceiveEvent(Lib::EventBase* _pEvent);
+
 	};
 }
 

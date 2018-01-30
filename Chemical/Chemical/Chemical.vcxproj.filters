@@ -68,9 +68,6 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageBackground">
       <UniqueIdentifier>{27814f08-6caf-415e-b9d9-903922ff2655}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\PlayerUI">
-      <UniqueIdentifier>{765ca45d-85d9-4802-80f6-53c3e2f2d865}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageChipManager">
       <UniqueIdentifier>{e6d9a6e3-9cdb-478d-8794-33d82c808336}</UniqueIdentifier>
     </Filter>
@@ -416,9 +413,6 @@
     <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight">
       <UniqueIdentifier>{5d81d2cc-8f42-432e-b29b-9021da088749}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemical">
-      <UniqueIdentifier>{9e9522d6-abca-43e6-b868-f2731c393b7a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block">
       <UniqueIdentifier>{cef171f3-aa4d-4e5c-9893-d5d16746673d}</UniqueIdentifier>
     </Filter>
@@ -547,6 +541,9 @@
     </Filter>
     <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\ThrowEnemy\Bullet">
       <UniqueIdentifier>{653f8625-952d-456a-852c-10fda99031e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemicalEvent">
+      <UniqueIdentifier>{9e9522d6-abca-43e6-b868-f2731c393b7a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -944,7 +941,7 @@
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight</Filter>
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemicalEvent\SpeedUpChemicalEvent.cpp">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemical</Filter>
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemicalEvent</Filter>
     </ClCompile>
     <ClCompile Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\BlueBlock\BlueBlock.cpp">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\BlueBlock</Filter>
@@ -1485,7 +1482,7 @@
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\GateGimmick\GateGimmickRight</Filter>
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemicalEvent\SpeedUpChemicalEvent.h">
-      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemical</Filter>
+      <Filter>Main\Application\GameScene\GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemicalEvent</Filter>
     </ClInclude>
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\BlueBlock\BlueBlock.h">
       <Filter>Main\Application\GameScene\GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\Block\BlueBlock</Filter>
@@ -1593,6 +1590,7 @@
     <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\GameClip\GameClipEvent\GameClipEvent.h">
       <Filter>Main\Application\GameScene\GameObjectManager\GameClip\GameClipEvent</Filter>
     </ClInclude>
+    <ClInclude Include="Main\Application\Scene\GameScene\GameObjectManager\CharacterManager\EnemyManager\EnemyBase\ThrowEnemy\Bullet\Bullet.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Main\Application\Scene\GameScene\CollisionTask\CollisionTask_private.inl">

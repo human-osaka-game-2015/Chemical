@@ -21,7 +21,7 @@ namespace Game
 	//----------------------------------------------------------------------
 	// Static Private Variables
 	//----------------------------------------------------------------------
-	const D3DXVECTOR2 WoodGimmick::m_WoodGimmickSize = D3DXVECTOR2(240, 380);
+	const D3DXVECTOR2 WoodGimmick::m_WoodGimmickSize = D3DXVECTOR2(240, 370);
 
 
 	//----------------------------------------------------------------------
@@ -101,6 +101,21 @@ namespace Game
 		while (!m_pCollision->IsCollisionDataEmpty())
 		{
 			GimmickCollision::COLLISION_DATA Data = m_pCollision->PopCollisionData();
+			if (Data.OtherId == EXPLOSION_COLLISION_ID)
+			{
+				auto pRectangles = m_pCollision->GetRect();
+				for (unsigned int i = 0; i < pRectangles->size(); i++)
+				{
+					if ((*pRectangles)[i].ID == Data.Id)
+					{
+						pRectangles->erase(pRectangles->begin() + i);	// 当たり判定から削除.
+						m_Positions.erase(m_Positions.begin() + i);
+						m_GimmickUV.erase(m_GimmickUV.begin() + i);
+						m_GimmickNum--;
+						break;
+					}
+				}
+			}
 		}
 	}
 
@@ -116,7 +131,7 @@ namespace Game
 		float X = StageGimmickManager::m_DefaultGimmickSize.x;
 		float Y = StageGimmickManager::m_DefaultGimmickSize.y;
 
-		D3DXVECTOR2 Pos(_x * X + X / 2, _y * Y - Y / 2);
+		D3DXVECTOR2 Pos(_x * X + X / 2, _y * Y - Y / 2 + 7);
 
 		GIMMICK_RECTANGLE Rect(
 			Pos.x - X / 2,

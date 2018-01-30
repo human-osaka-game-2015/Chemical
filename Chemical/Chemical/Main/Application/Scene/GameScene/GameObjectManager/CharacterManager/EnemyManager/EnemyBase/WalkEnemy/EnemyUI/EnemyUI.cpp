@@ -16,7 +16,7 @@
 
 namespace Game
 {
-	const int EnemyUI::m_DrawFream = 120;
+	const int EnemyUI::m_DrawFream = 180;
 
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
@@ -44,7 +44,7 @@ namespace Game
 		m_pDrawTask->SetPriority(GAME_DRAW_CHARACTER);
 
 		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
-			"Resource\\GameScene\\Texture\\Soil1.png",
+			"Resource\\GameScene\\Texture\\EnemyLife.png",
 			&m_TextureIndex)) return false;
 
 		if (!CreateVertex2D()) return false;
@@ -65,7 +65,7 @@ namespace Game
 
 	void EnemyUI::Update()
 	{
-		m_Size = D3DXVECTOR2(m_pEnemyBase->GetHealth()*m_pEnemyBase->GetSize().x / m_MaxHealth, 50.0f);
+		m_Size = D3DXVECTOR2(m_pEnemyBase->GetHealth()*m_pEnemyBase->GetSize().x / m_MaxHealth, 20.0f);
 		m_Pos = m_pEnemyBase->GetPosition();
 		m_Pos -= m_pEnemyBase->GetSize() / 2;
 		m_Pos.y -= m_Size.y / 2.0f;

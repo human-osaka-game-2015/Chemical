@@ -20,7 +20,6 @@
 #include "GameObjectManager\GameTimeManager\GameTimeManager.h"
 #include "Application\ResultFile\ResultFile.h"
 #include "Application\GamePlayFile\GamePlayFile.h"
-
 #include "DirectX11\AnimationManager\Dx11AnimationManager.h"
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
 #include "InputDeviceManager\InputDeviceManager.h"
@@ -28,6 +27,8 @@
 #include "TaskManager\TaskManager.h"
 #include "EventManager\EventManager.h"
 #include "JoyconManager\JoyconManager.h"
+#include "SoundManager\SoundManager.h"
+#include "SoundManager\Sound\Sound.h"
 #include <algorithm>
 
 namespace Game
@@ -37,7 +38,7 @@ namespace Game
 	//----------------------------------------------------------------------
 
 	const float Player::m_Gravity = 0.8f;
-	const float Player::m_JumpPower = -19.5f;
+	const float Player::m_JumpPower = -21.5f;
 	const float Player::m_MoveSpeed = 7;
 	const float Player::m_SpeedUpValue = 10;
 
@@ -107,6 +108,10 @@ namespace Game
 			"Resource\\GameScene\\Texture\\Player.png",
 			&m_TextureIndex)) return false;
 
+		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
+			"Resource\\GameScene\\Texture\\GaugeFrame2.png",
+			&m_FrameTextureIndex)) return false;
+
 		if (!CreateVertex2D()) return false;
 		m_pVertex->SetUV(&D3DXVECTOR2(0.f, 0.f), &D3DXVECTOR2(1.f, 1.f));
 		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
@@ -131,11 +136,33 @@ namespace Game
 
 		m_pCurrentSceneEvent = new CurrentSceneEvent(CURRENT_SCENE_EVENT);
 
+		SINGLETON_INSTANCE(Lib::SoundManager)->LoadSound(
+			"Resource\\GameScene\\Sound\\PlayerAction.wav", 
+			&m_ActionSoundIndex);
+
+		SINGLETON_INSTANCE(Lib::SoundManager)->LoadSound(
+			"Resource\\GameScene\\Sound\\PlayerJump.wav",
+			&m_JumpSoundIndex);
+
+		SINGLETON_INSTANCE(Lib::SoundManager)->LoadSound(
+			"Resource\\GameScene\\Sound\\PlayerDamage.wav", 
+			&m_DamageSoundIndex);
+
+		SINGLETON_INSTANCE(Lib::SoundManager)->LoadSound(
+			"Resource\\GameScene\\Sound\\PlayerGoal.wav", 
+			&m_GoalSoundIndex);
+
+
 		return true;
 	}
 	
 	void Player::Finalize()
 	{
+		SINGLETON_INSTANCE(Lib::SoundManager)->ReleaseSound(m_GoalSoundIndex);
+		SINGLETON_INSTANCE(Lib::SoundManager)->ReleaseSound(m_DamageSoundIndex);
+		SINGLETON_INSTANCE(Lib::SoundManager)->ReleaseSound(m_JumpSoundIndex);
+		SINGLETON_INSTANCE(Lib::SoundManager)->ReleaseSound(m_ActionSoundIndex);
+
 		SafeDelete(m_pCurrentSceneEvent);
 		SafeDelete(m_pEventListener);
 
@@ -152,6 +179,7 @@ namespace Game
 
 		ReleaseVertex2D();
 
+		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->ReleaseTexture(m_FrameTextureIndex);
 		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->ReleaseTexture(m_TextureIndex);
 		for (const auto& itr : m_Animations)
 		{
@@ -258,6 +286,11 @@ namespace Game
 		if (m_pCollision->GetDamage() != 0 && m_InvincibleTime == 0)
 		{
 			// ダメージ処理.
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_DamageSoundIndex)->SoundOperation(
+				Lib::SoundManager::STOP_RESET);
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_DamageSoundIndex)->SoundOperation(
+				Lib::SoundManager::PLAY);
+			
 			m_PlayerState.Life -= m_pCollision->GetDamage();
 			m_InvincibleTime = 130;
 			if (m_PlayerState.Life <= 0)
@@ -336,11 +369,28 @@ namespace Game
 	
 	void Player::Draw()
 	{
+		m_pVertex->SetAnimation(m_Animations[m_AnimationState].pData);
+		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
 		m_pVertex->SetInverse(m_IsLeft);
 		m_pVertex->SetColor(&D3DXCOLOR(1, 1, 1, m_AlphaColor));
+		m_pVertex->SetVertex(&m_Size);
 		m_pVertex->ShaderSetup();
 		m_pVertex->WriteVertexBuffer();
 		m_pVertex->WriteConstantBuffer(&m_Pos);
+		m_pVertex->Draw();
+
+		m_pVertex->SetAnimation(nullptr);
+		m_pVertex->SetUV(&D3DXVECTOR2(0, 0), &D3DXVECTOR2(1, 1));
+		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_FrameTextureIndex));
+		m_pVertex->SetColor(&D3DXCOLOR(1, 1, 1, 1));
+		m_pVertex->SetVertex(&D3DXVECTOR2(62.f, 190.f));
+		m_pVertex->ShaderSetup();
+		m_pVertex->WriteVertexBuffer();
+		
+		if (m_SelectMixChemicalIndex == 0)
+			m_pVertex->WriteConstantBuffer(&D3DXVECTOR2(1720, 100));
+		else
+			m_pVertex->WriteConstantBuffer(&D3DXVECTOR2(1820, 100));
 		m_pVertex->Draw();
 	}
 
@@ -354,6 +404,10 @@ namespace Game
 		switch (_pEvent->GetEventID())
 		{
 		case GOAL_EVENT:
+			// ゴール音再生.
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_GoalSoundIndex)->SoundOperation(
+				Lib::SoundManager::PLAY);
+
 			m_AnimationState = GOAL_ANIMATION;
 			pControl = &Player::GoalControl;
 			break;
@@ -431,6 +485,12 @@ namespace Game
 			ANIMATION_PATTERN::ONE_ANIMATION,
 			0.2f)) return false;
 
+		if (!LoadAnimationFile(
+			"PlayerShake.anim",
+			SHAKE_ANIMATION,
+			ANIMATION_PATTERN::LOOP_ANIMATION,
+			0.2f)) return false;
+
 		return true;
 	}
 
@@ -456,7 +516,8 @@ namespace Game
 		if (pKeyState[DIK_X] == Lib::KeyDevice::KEY_PUSH)
 		{
 			//混ぜた薬品の切り替え.
-			if (++m_SelectMixChemicalIndex >= m_MixChemicalStockMax) 
+			m_SelectMixChemicalIndex++;
+			if (m_SelectMixChemicalIndex == m_MixChemicalStockMax)
 				m_SelectMixChemicalIndex = 0;
 		}
 
@@ -506,7 +567,7 @@ namespace Game
 			m_IsLanding)
 		{
 			//振る動作.
-			m_AnimationState = WALK_ANIMATION; // 仮動作.
+			m_AnimationState = SHAKE_ANIMATION;
 			m_Animations[m_AnimationState].pData->AnimationStart();
 			pControl = &Player::ShakeControl;
 		}
@@ -520,6 +581,12 @@ namespace Game
 				!m_pMixChemical[m_SelectMixChemicalIndex]->GetIsSprinkle() &&
 				m_pMixChemical[m_SelectMixChemicalIndex]->GetChemicalData().Remain > 0)
 			{
+				// アクション音再生.
+				SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_ActionSoundIndex)->SoundOperation(
+					Lib::SoundManager::STOP_RESET);
+				SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_ActionSoundIndex)->SoundOperation(
+					Lib::SoundManager::PLAY);
+
 				m_AnimationState = SPRINKLE_ANIMATION;
 				m_Animations[m_AnimationState].pData->AnimationStart();
 				pControl = &Player::SprinkleControl;
@@ -529,6 +596,12 @@ namespace Game
 			pRightButtonState[Joycon::B_BUTTON] == Joycon::PUSH_BUTTON) &&
 			m_IsLanding)
 		{
+			// ジャンプ音再生.
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_JumpSoundIndex)->SoundOperation(
+				Lib::SoundManager::STOP_RESET);
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_JumpSoundIndex)->SoundOperation(
+				Lib::SoundManager::PLAY);
+
 			m_AnimationState = JUMP_ANIMATION;
 			m_Animations[m_AnimationState].pData->AnimationStart();
 			m_Acceleration = m_JumpPower;

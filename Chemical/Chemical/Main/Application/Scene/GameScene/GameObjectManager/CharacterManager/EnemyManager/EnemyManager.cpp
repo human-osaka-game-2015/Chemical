@@ -16,12 +16,17 @@
 #include "..\..\GameDataManager\GameDataManager.h"
 #include "InputDeviceManager\InputDeviceManager.h"
 #include "InputDeviceManager\KeyDevice\KeyDevice.h"
+#include "EventManager\EventManager.h"
+#include "GameObjectManager\StageManager\StageGimmickManager\StageGimmickBase\EnemyGenerator\EnemyGeneratorEvent\EnemyGeneratorEvent.h"
+#include "GameDefine.h"
+
+
 namespace Game
 {
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
-	EnemyManager::EnemyManager(InitializeFile* _pInitializeFile):
+	EnemyManager::EnemyManager(InitializeFile* _pInitializeFile) :
 		m_pInitializeFile(_pInitializeFile),
 		m_InitializeIndex(0)
 	{
@@ -51,14 +56,14 @@ namespace Game
 				(this->*MultipleGenerate[EnemysPattern[m_InitializeIndex] - 2])(&EnemysInitPos[m_InitializeIndex]);
 				m_InitializeIndex++;
 			}
-			
+
 		}
 
 	}
 
 	EnemyManager::~EnemyManager()
 	{
-		
+
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->RemoveTask(m_pUpdateTask);
 		delete m_pUpdateTask;
 	}
@@ -68,18 +73,28 @@ namespace Game
 	//----------------------------------------------------------------------
 	bool EnemyManager::Initialize()
 	{
+		m_ReceiveFunc = std::bind(&EnemyManager::ReceiveEvent, this, std::placeholders::_1);
+		m_pEventListener = new Lib::EventListener(&m_ReceiveFunc);
+		SINGLETON_INSTANCE(Lib::EventManager)->AddEventListener(
+			m_pEventListener,
+			TO_STRING(ENEMYGENERATOR_EVENT_GROUP));
 
 		return true;
 	}
 
 	void EnemyManager::Finalize()
 	{
+		SINGLETON_INSTANCE(Lib::EventManager)->RemoveEventListener(
+			m_pEventListener,
+			TO_STRING(ENEMYGENERATOR_EVENT_GROUP));
+		SafeDelete(m_pEventListener);
+
 		std::vector<WalkEnemy*>::iterator Walkitr;
 		for (Walkitr = m_pWalkEnemys.begin(); Walkitr != m_pWalkEnemys.end();) {
-				(*Walkitr)->Finalize();
-				SafeDelete(*Walkitr);
-				Walkitr = m_pWalkEnemys.erase(Walkitr);
-				continue;
+			(*Walkitr)->Finalize();
+			SafeDelete(*Walkitr);
+			Walkitr = m_pWalkEnemys.erase(Walkitr);
+			continue;
 			Walkitr++;
 		}
 
@@ -94,45 +109,45 @@ namespace Game
 
 		std::vector<EggEnemy*>::iterator Eggitr;
 		for (Eggitr = m_pEggEnemys.begin(); Eggitr != m_pEggEnemys.end();) {
-			
+
 			(*Eggitr)->Finalize();
 			SafeDelete(*Eggitr);
 			Eggitr = m_pEggEnemys.erase(Eggitr);
 
-				continue;
-				Eggitr++;
+			continue;
+			Eggitr++;
 		}
 
 		std::vector<JumpEnemy*>::iterator Jumpitr;
 		for (Jumpitr = m_pJumpEnemys.begin(); Jumpitr != m_pJumpEnemys.end();) {
-				(*Jumpitr)->Finalize();
-				SafeDelete(*Jumpitr);
-				Jumpitr = m_pJumpEnemys.erase(Jumpitr);
-				continue;
-			
+			(*Jumpitr)->Finalize();
+			SafeDelete(*Jumpitr);
+			Jumpitr = m_pJumpEnemys.erase(Jumpitr);
+			continue;
+
 			Jumpitr++;
 		}
 
 		std::vector<SuicideEnemy*>::iterator Suicideitr;
 		for (Suicideitr = m_pSuicideEnemys.begin(); Suicideitr != m_pSuicideEnemys.end();) {
-				(*Suicideitr)->Finalize();
-				SafeDelete(*Suicideitr);
-				Suicideitr = m_pSuicideEnemys.erase(Suicideitr);
-				continue;
-			
+			(*Suicideitr)->Finalize();
+			SafeDelete(*Suicideitr);
+			Suicideitr = m_pSuicideEnemys.erase(Suicideitr);
+			continue;
+
 			Suicideitr++;
 		}
 
 		std::vector<ThrowEnemy*>::iterator Throwitr;
 		for (Throwitr = m_pThrowEnemys.begin(); Throwitr != m_pThrowEnemys.end();) {
-				(*Throwitr)->Finalize();
-				SafeDelete(*Throwitr);
-				Throwitr = m_pThrowEnemys.erase(Throwitr);
-				continue;
+			(*Throwitr)->Finalize();
+			SafeDelete(*Throwitr);
+			Throwitr = m_pThrowEnemys.erase(Throwitr);
+			continue;
 			Throwitr++;
 		}
 
-	
+
 	}
 
 	void EnemyManager::Update()
@@ -150,8 +165,8 @@ namespace Game
 		for (int i = 0; i < MAX_TYPE; i++)
 		{
 			(this->*m_MultipleUpdate[i])();
-		}	
-	
+		}
+
 	}
 
 	void EnemyManager::WalkUpdate()
@@ -168,20 +183,22 @@ namespace Game
 		}
 
 	}
-	
+
 	void EnemyManager::WalkGenerate(D3DXVECTOR2* _pPosition)
 	{
+		if (m_pWalkEnemys.size() > 6) return;
+
 		std::vector<WalkEnemy*>::iterator itr;
 
 		m_pWalkEnemys.push_back(new WalkEnemy(_pPosition));
-			itr = m_pWalkEnemys.end() - 1;
-			if (!(*itr)->Initialize())
-			{
-				(*itr)->Finalize();
-				SafeDelete(*itr);
-				itr = m_pWalkEnemys.erase(itr);
-			}
-		
+		itr = m_pWalkEnemys.end() - 1;
+		if (!(*itr)->Initialize())
+		{
+			(*itr)->Finalize();
+			SafeDelete(*itr);
+			itr = m_pWalkEnemys.erase(itr);
+		}
+
 	}
 
 	void EnemyManager::FryUpdate()
@@ -200,17 +217,22 @@ namespace Game
 
 	void EnemyManager::FryGenerate(D3DXVECTOR2* _pPosition)
 	{
+		/// @todo 未対応.
+		/*
+		if (m_pFryEnemys.size() > 6) return;
+
 		std::vector<FryEnemy*>::iterator itr;
 
-			m_pFryEnemys.push_back(new FryEnemy(_pPosition, &D3DXVECTOR2(300, 0)));
-			itr = m_pFryEnemys.end() - 1;
-			if (!(*itr)->Initialize())
-			{
-				(*itr)->Finalize();
-				SafeDelete(*itr);
-				itr = m_pFryEnemys.erase(itr);
-			}
-		
+		m_pFryEnemys.push_back(new FryEnemy(_pPosition, &D3DXVECTOR2(300, 0)));
+		itr = m_pFryEnemys.end() - 1;
+		if (!(*itr)->Initialize())
+		{
+			(*itr)->Finalize();
+			SafeDelete(*itr);
+			itr = m_pFryEnemys.erase(itr);
+		}
+		*/
+
 	}
 
 	void EnemyManager::EggUpdate()
@@ -227,13 +249,13 @@ namespace Game
 					&Game::EnemyManager::SuicideGenerate,
 					&Game::EnemyManager::ThrowGenerate
 				};
-				
+
 				(this->*m_MultipleGenerate[(*itr)->GetEnemyType()])(&(*itr)->GetPosition());
-				
+
 				(*itr)->Finalize();
 				SafeDelete(*itr);
 				itr = m_pEggEnemys.erase(itr);
-			
+
 				continue;
 			}
 
@@ -250,6 +272,11 @@ namespace Game
 
 	void EnemyManager::EggGenerate(D3DXVECTOR2* _pPosition)
 	{
+		/// @todo 未対応.
+
+		/*
+		if (m_pEggEnemys.size() > 6) return;
+
 		std::vector<EggEnemy*>::iterator itr;
 		{
 			m_pEggEnemys.push_back(new EggEnemy(_pPosition, 4));
@@ -261,6 +288,7 @@ namespace Game
 				itr = m_pEggEnemys.erase(itr);
 			}
 		}
+		*/
 	}
 
 	void EnemyManager::JumpUpdate()
@@ -279,6 +307,8 @@ namespace Game
 
 	void EnemyManager::JumpGenerate(D3DXVECTOR2* _pPosition)
 	{
+		if (m_pJumpEnemys.size() > 6) return;
+
 		std::vector<JumpEnemy*>::iterator itr;
 
 		m_pJumpEnemys.push_back(new JumpEnemy(_pPosition));
@@ -307,6 +337,10 @@ namespace Game
 
 	void EnemyManager::SuicideGenerate(D3DXVECTOR2* _pPosition)
 	{
+		/// @todo 未対応.
+		/*
+		if (m_pSuicideEnemys.size() > 6) return;
+
 		std::vector<SuicideEnemy*>::iterator itr;
 
 		m_pSuicideEnemys.push_back(new SuicideEnemy(_pPosition));
@@ -317,6 +351,7 @@ namespace Game
 			SafeDelete(*itr);
 			itr = m_pSuicideEnemys.erase(itr);
 		}
+		*/
 	}
 
 	void EnemyManager::ThrowUpdate()
@@ -335,6 +370,9 @@ namespace Game
 
 	void EnemyManager::ThrowGenerate(D3DXVECTOR2* _pPosition)
 	{
+		/*
+		if (m_pThrowEnemys.size() > 6) return;
+
 		std::vector<ThrowEnemy*>::iterator itr;
 
 		m_pThrowEnemys.push_back(new ThrowEnemy(_pPosition));
@@ -345,6 +383,29 @@ namespace Game
 			SafeDelete(*itr);
 			itr = m_pThrowEnemys.erase(itr);
 		}
+		*/
 	}
 
+	void EnemyManager::ReceiveEvent(Lib::EventBase* _pEvent)
+	{
+		switch (_pEvent->GetEventID())
+		{
+		case ENEMY_GENERATE_EVENT:
+			D3DXVECTOR2 Pos = reinterpret_cast<EnemyGeneratorEvent*>(_pEvent)->GetEventPos();
+			EnemyGeneratorEvent::ENEMY_TYPE Type = reinterpret_cast<EnemyGeneratorEvent*>(_pEvent)->GetEnemyType();
+			void(EnemyManager::*MultipleGenerate[])(D3DXVECTOR2*) =
+			{
+				&Game::EnemyManager::WalkGenerate,
+				&Game::EnemyManager::FryGenerate,
+				&Game::EnemyManager::JumpGenerate,
+				&Game::EnemyManager::SuicideGenerate,
+				&Game::EnemyManager::EggGenerate,
+				&Game::EnemyManager::ThrowGenerate
+			};
+
+			(this->*MultipleGenerate[Type])(&Pos);
+
+			break;
+		}
+	}
 }

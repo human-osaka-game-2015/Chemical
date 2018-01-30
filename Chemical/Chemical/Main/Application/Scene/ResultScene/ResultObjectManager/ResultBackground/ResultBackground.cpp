@@ -42,7 +42,7 @@ namespace Result
 			FilePath,
 			256,
 			"Resource\\ResultScene\\Texture\\Background_%d.png", 
-			m_ResultFile.GetClear());
+			m_ResultFile.GetStageNum());
 
 		m_pUpdateTask->SetName("ResultBackground");
 		m_pDrawTask->SetName("ResultBackground");

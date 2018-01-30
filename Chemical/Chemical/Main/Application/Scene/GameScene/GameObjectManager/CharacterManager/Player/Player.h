@@ -75,6 +75,7 @@ namespace Game
 			DOWN_ANIMATION,
 			JUMP_ANIMATION,
 			GOAL_ANIMATION,
+			SHAKE_ANIMATION,
 			ANIMATION_MAX
 		};
 
@@ -173,7 +174,12 @@ namespace Game
 		int m_InvincibleTime;
 		float m_AlphaColor;
 		bool m_IsFlashing;//!< 点滅時にアルファ値を増加させるか減少させるか.
+		int m_FrameTextureIndex;
 
+		int m_ActionSoundIndex;
+		int m_JumpSoundIndex;
+		int m_DamageSoundIndex;
+		int m_GoalSoundIndex;
 
 	};
 }

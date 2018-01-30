@@ -21,7 +21,7 @@
 
 namespace Game
 {
-	const float JumpEnemy::m_JumpPower = -25;
+	const float JumpEnemy::m_JumpPower = -22.5;
 
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
@@ -31,8 +31,8 @@ namespace Game
 		m_AiEnable(true)
 	{
 		m_Pos = *_pPosotion;
-		m_Size = D3DXVECTOR2(220.0f, 220.0f);
-		m_CollisionSize = D3DXVECTOR2(120.0f, 220.0f);
+		m_Size = D3DXVECTOR2(120.0f, 120.0f);
+		m_CollisionSize = D3DXVECTOR2(100.0f, 100.0f);
 
 		m_Acceleration = 0;
 
@@ -67,7 +67,7 @@ namespace Game
 		SINGLETON_INSTANCE(CollisionTaskManager)->AddTask(m_pCollisionTask);
 
 		if (!SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->LoadAnimation(
-			"Resource\\GameScene\\Animation\\PlayerWalk.anim",
+			"Resource\\GameScene\\Animation\\Enemy2.anim",
 			&m_AnimationIndex)) return false;
 
 		m_pJumpAnimation = SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->GetAnimation(m_AnimationIndex);
@@ -76,7 +76,7 @@ namespace Game
 		m_pJumpAnimation->AnimationStart();
 
 		if (!SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
-			"Resource\\GameScene\\Texture\\player.png",
+			"Resource\\GameScene\\Texture\\Enemy2.png",
 			&m_TextureIndex)) return false;
 
 		if (!CreateVertex2D()) return false;
@@ -168,7 +168,7 @@ namespace Game
 		{
 			return;
 		}
-		m_pVertex->SetInverse(m_IsLeft);
+		m_pVertex->SetInverse(!m_IsLeft);
 
 		m_pVertex->ShaderSetup();
 		m_pVertex->WriteVertexBuffer();
@@ -217,10 +217,12 @@ namespace Game
 
 		if (m_IsLeft)
 		{
+			m_pJumpAnimation->Update();
 			m_Pos.x -= m_Speed.x;
 		}
 		else
 		{
+			m_pJumpAnimation->Update();
 			m_Pos.x += m_Speed.x;
 		}
 	}

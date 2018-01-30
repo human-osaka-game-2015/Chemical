@@ -114,7 +114,6 @@ namespace Game
 				{
 					if ((*pRectangles)[i].ID == Data.Id)
 					{
-						// 現状はプレイヤーと衝突したら消えるようにしてる.
 						pRectangles->erase(pRectangles->begin() + i);	// 当たり判定から削除.
 						m_Positions.erase(m_Positions.begin() + i);
 						m_GimmickUV.erase(m_GimmickUV.begin() + i);

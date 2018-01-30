@@ -150,9 +150,9 @@ namespace Game
 		D3DXVECTOR2 Pos(_x * X + X / 2, _y * Y + Y / 2);
 
 		GIMMICK_RECTANGLE Rect(
-			Pos.x - X / 2,
+			Pos.x - (X - 100) / 2,
 			Pos.y - Y / 2,
-			Pos.x + X / 2,
+			Pos.x + (X - 100) / 2,
 			Pos.y + Y / 2,
 			m_GimmickNum);
 

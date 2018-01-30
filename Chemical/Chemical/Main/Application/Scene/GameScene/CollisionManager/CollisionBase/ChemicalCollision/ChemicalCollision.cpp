@@ -46,8 +46,7 @@ namespace Game
 			if (itr.Left  < GetRect().Right &&
 				itr.Right > GetRect().Left &&
 				itr.Top		< GetRect().Bottom &&
-				itr.Bottom	> GetRect().Top &&
-				_pOther->GetCollisionID() == SOIL_COLLISION_ID)
+				itr.Bottom	> GetRect().Top)
 			{
 				m_IsHit = true;
 				break;

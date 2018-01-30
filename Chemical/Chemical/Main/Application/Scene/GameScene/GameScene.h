@@ -54,6 +54,7 @@ namespace Game
 		ObjectManager*		m_pObjectManager;	//!< 管理オブジェクト.
 		Lib::EventListener*	m_pEventListener;
 		std::function<void(Lib::EventBase*)> m_pReceiveFunc;
+		int					m_MainBGMIndex;
 
 	};
 }

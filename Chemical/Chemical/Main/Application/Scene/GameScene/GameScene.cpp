@@ -18,9 +18,10 @@
 #include "InputDeviceManager\InputDeviceManager.h"
 #include "SoundDevice\SoundDevice.h"
 #include "SoundManager\SoundManager.h"
+#include "SoundManager\Sound\Sound.h"
+#include "CollisionManager\CollisionManager.h"
 #include "TaskManager\TaskBase\UpdateTask\UpdateTask.h"
 #include "TaskManager\TaskBase\DrawTask\DrawTask.h"
-#include "CollisionManager\CollisionManager.h"
 #include "CollisionTask\CollisionTask.h"
 #include "EventManager\EventManager.h"
 #include "JoyconManager\JoyconManager.h"
@@ -93,6 +94,15 @@ namespace Game
 		SINGLETON_CREATE(CollisionManager);
 		SINGLETON_CREATE(CollisionTaskManager);
 
+		SINGLETON_INSTANCE(Lib::SoundManager)->LoadSound(
+			"Resource\\GameScene\\Sound\\BGM.wav",
+			&m_MainBGMIndex);
+
+		SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_MainBGMIndex)->SoundOperation(
+			Lib::SoundManager::STOP_RESET);
+		SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_MainBGMIndex)->SoundOperation(
+			Lib::SoundManager::PLAY_LOOP);
+
 		m_pObjectManager = new ObjectManager();
 		if (!m_pObjectManager->Initialize())
 		{
@@ -120,6 +130,10 @@ namespace Game
 
 		m_pObjectManager->Finalize();
 		SafeDelete(m_pObjectManager);
+
+		SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_MainBGMIndex)->SoundOperation(
+			Lib::SoundManager::STOP_RESET);
+		SINGLETON_INSTANCE(Lib::SoundManager)->ReleaseSound(m_MainBGMIndex);
 
 		SINGLETON_DELETE(CollisionTaskManager);
 		SINGLETON_DELETE(CollisionManager);

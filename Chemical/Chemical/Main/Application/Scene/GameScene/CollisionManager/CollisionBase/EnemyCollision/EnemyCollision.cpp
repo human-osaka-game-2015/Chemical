@@ -108,8 +108,7 @@ namespace Game
 			if (itr.Left  < GetRect().Right - 10 &&
 				itr.Right > GetRect().Left + 10 &&
 				itr.Top		< GetRect().Bottom &&
-				itr.Bottom	> GetRect().Top &&
-				_pOther->GetCollisionID() == SOIL_COLLISION_ID)
+				itr.Bottom	> GetRect().Top)
 			{
 				if (itr.Bottom >= GetRect().Bottom &&
 					itr.Top >= GetRect().Top)
@@ -129,8 +128,7 @@ namespace Game
 			if (itr.Left  < GetRect().Right &&
 				itr.Right > GetRect().Left &&
 				itr.Top	  < GetRect().Bottom - abs(m_CollisionDiff.y) - 1 &&
-				itr.Bottom > GetRect().Top + abs(m_CollisionDiff.y) + 1 &&
-				_pOther->GetCollisionID() == SOIL_COLLISION_ID)
+				itr.Bottom > GetRect().Top + abs(m_CollisionDiff.y) + 1)
 			{
 				if (itr.Right >= GetRect().Right &&
 					itr.Left >= GetRect().Left)
