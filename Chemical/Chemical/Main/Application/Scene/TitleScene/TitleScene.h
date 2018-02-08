@@ -54,6 +54,7 @@ namespace Title
 		Lib::ObjectManagerBase*					m_pObjectManager;
 		std::function<void(Lib::EventBase*)>	m_pReciveFunc;
 		Lib::EventListener*						m_pEventListener;
+		int										m_MainSoundIndex;
 
 	};
 }

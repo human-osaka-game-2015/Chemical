@@ -13,6 +13,7 @@
 #include "..\GimmickCollision\BeltConveyorGimmickCollision\BeltConveyorGimmickCollision.h"
 #include "..\GimmickCollision\WarpGimmickCollision\WarpGimmickCollision.h"
 #include "..\GimmickCollision\SpeedUpGimmickCollision\SpeedUpGimmickCollision.h"
+#include "..\ExplosionCollision\ExplosionCollision.h"
 
 namespace Game
 {
@@ -156,6 +157,7 @@ namespace Game
 			{
 				m_DamageState.IsDamage = true;
 				m_DamageState.LiquidTtpe = 2;
+				m_DamageState.Damage = 2;
 			}
 			else
 			{
@@ -307,6 +309,22 @@ namespace Game
 					m_CollisionDiff.x = itr.Right - GetRect().Left;
 
 				break;
+			}
+		}
+	}
+
+	void EnemyCollision::Collide(ExplosionCollision* _pOther)
+	{
+		auto Circle = _pOther->GetCircle();
+		if (GetRect().Left  < (Circle.Pos.x + Circle.Radius) &&
+			GetRect().Right >(Circle.Pos.x - Circle.Radius))
+		{
+			if (GetRect().Top		< (Circle.Pos.y + Circle.Radius) &&
+				GetRect().Bottom	>(Circle.Pos.y - Circle.Radius))
+			{
+				m_DamageState.IsDamage = true;
+				m_DamageState.LiquidTtpe = 2;
+				m_DamageState.Damage = 8;
 			}
 		}
 	}

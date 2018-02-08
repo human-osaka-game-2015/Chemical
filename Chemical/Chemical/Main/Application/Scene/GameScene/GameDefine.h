@@ -20,8 +20,9 @@ namespace Game
 		GAME_DRAW_CHARACTER		= 5,    //!< キャラクター描画プライオリティ.
 		GAME_DRAW_EFFECT		= 6,	//!< エフェクト描画プライオリティ.
 		GAME_DRAW_GIMMICK		= 7,	//!< ギミック描画プライオリティ.
-		GAME_DRAW_UI			= 8,	//!< UI描画プライオリティ.
-		GAME_DRAW_CLIP			= 9,	//!< クリッピング用描画プライオリティ.
+		GAME_DRAW_EXPLOSION		= 8,
+		GAME_DRAW_UI			= 9,	//!< UI描画プライオリティ.
+		GAME_DRAW_CLIP			= 10,	//!< クリッピング用描画プライオリティ.
 		DRAW_PRIORITY_MAX
 	};
 

@@ -24,6 +24,9 @@ namespace Select
 			NONE_SELECT
 		};
 
+		bool Initialize();
+		void Finalize();
+
 		/**
 		 * ステージボードを選択出来る対象に追加する
 		 * @param[in] _pSelectBoard 登録するステージボード
@@ -55,17 +58,17 @@ namespace Select
 
 	private:
 		/*** コンストラクタ */
-		SelectManager() :
-			m_SelectStageNumber(1),
-			m_SelectState(STAGE_BOARD_SELECT)
-		{}
+		SelectManager();
 
 		/*** デストラクタ */
-		virtual ~SelectManager(){}
+		virtual ~SelectManager();
 
 		std::vector<SelectBoard*> m_pSelectBoardList;
 		int						  m_SelectStageNumber; //!< 選択されているステージの番号
 		SELECT_STATE			  m_SelectState;
+
+		int m_SelectSEIndex;
+		int m_EnterSEIndex;
 
 	};
 }

@@ -17,6 +17,7 @@
 #include "InputDeviceManager\InputDeviceManager.h"
 #include "SoundDevice\SoundDevice.h"
 #include "SoundManager\SoundManager.h"
+#include "SoundManager\Sound\Sound.h"
 #include "TaskManager\TaskBase\UpdateTask\UpdateTask.h"
 #include "TaskManager\TaskBase\DrawTask\DrawTask.h"
 #include "EventManager\EventManager.h"
@@ -83,6 +84,15 @@ namespace Title
 
 		SINGLETON_CREATE(Lib::EventManager);
 
+		SINGLETON_INSTANCE(Lib::SoundManager)->LoadSound(
+			"Resource\\TitleScene\\Sound\\MainBGM.wav",
+			&m_MainSoundIndex);
+
+		SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_MainSoundIndex)->SoundOperation(
+			Lib::SoundManager::STOP_RESET);
+		SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_MainSoundIndex)->SoundOperation(
+			Lib::SoundManager::PLAY_LOOP);
+
 		m_pObjectManager = new Title::ObjectManager();
 		if (!m_pObjectManager->Initialize())
 		{
@@ -112,6 +122,10 @@ namespace Title
 			m_pObjectManager->Finalize();
 			SafeDelete(m_pObjectManager);
 		}
+
+		SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_MainSoundIndex)->SoundOperation(
+			Lib::SoundManager::STOP_RESET);
+		SINGLETON_INSTANCE(Lib::SoundManager)->ReleaseSound(m_MainSoundIndex);
 
 		SINGLETON_DELETE(Lib::EventManager);
 

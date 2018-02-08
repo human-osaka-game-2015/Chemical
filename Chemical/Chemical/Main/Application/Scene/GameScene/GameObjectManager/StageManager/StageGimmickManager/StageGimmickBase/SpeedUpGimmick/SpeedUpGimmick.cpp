@@ -15,6 +15,7 @@
 #include "..\..\..\..\GameDataManager\GameDataManager.h"
 #include "GameObjectManager\CharacterManager\Player\ChemicalFactory\ChemicalBase\SpeedUpChemical\SpeedUpChemicalEvent\SpeedUpChemicalEvent.h"
 #include "EventManager\EventManager.h"
+#include "GameDefine.h"
 #include <time.h>
 
 
@@ -33,7 +34,7 @@ namespace Game
 	//----------------------------------------------------------------------
 
 	SpeedUpGimmick::SpeedUpGimmick() :
-		StageGimmickBase("Resource\\GameScene\\Texture\\Gimmick3.png", "SpeedUpGimmickGimmick"),
+		StageGimmickBase("Resource\\GameScene\\Texture\\Water.png", "SpeedUpGimmickGimmick"),
 		m_pCollision(new SpeedUpGimmickCollision(SPEEDUP_GIMMICK_COLLISION_ID))
 	{
 	}
@@ -50,6 +51,8 @@ namespace Game
 
 	bool SpeedUpGimmick::Initialize()
 	{
+		m_Size = D3DXVECTOR2(60, 60);
+
 		m_pUpdateTask->SetName(m_TaskName);
 		m_pDrawTask->SetName(m_TaskName);
 
@@ -63,7 +66,7 @@ namespace Game
 			return false;
 		}
 
-		if (!m_pMultipleVertexUV->CreateVertexBuffer(&m_Size, &D3DXVECTOR2(0, 0), &D3DXVECTOR2(0.5f, 1)))
+		if (!m_pMultipleVertexUV->CreateVertexBuffer(&m_Size, &D3DXVECTOR2(0.1, 0.1), &D3DXVECTOR2(1, 1)))
 		{
 			OutputErrorLog("頂点バッファの生成に失敗しました");
 			return false;
@@ -93,6 +96,16 @@ namespace Game
 		for (auto itr = m_Times.begin(); itr != m_Times.end(); itr++)
 		{
 			(*itr) = -1;
+		}
+
+		for (auto itr = m_Positions.begin(); itr != m_Positions.end(); itr++)
+		{
+			(*itr) = D3DXVECTOR2(-100, -100);
+		}
+
+		for (auto itr = m_GimmickUV.begin(); itr != m_GimmickUV.end(); itr++)
+		{
+			(*itr) = D3DXVECTOR2(0, 0);
 		}
 
 		return true;
@@ -137,8 +150,8 @@ namespace Game
 					{
 						// プレイヤーと衝突した場合ギミックを削除.
 						m_Times[i] = -1;
-						m_Positions[i] = D3DXVECTOR2(0, 0);
-						m_GimmickUV[i] = D3DXVECTOR2(0.5f, 0);
+						m_Positions[i] = D3DXVECTOR2(-100, -100);
+						m_GimmickUV[i] = D3DXVECTOR2(0, 0);
 						(*m_pCollision->GetRect())[i] = GIMMICK_RECTANGLE();
 						m_GimmickNum--;
 						break;
@@ -155,8 +168,8 @@ namespace Game
 				if (m_Times[i] > 250)
 				{
 					m_Times[i] = -1;
-					m_Positions[i] = D3DXVECTOR2(0, 0);
-					m_GimmickUV[i] = D3DXVECTOR2(0.5f, 0);
+					m_Positions[i] = D3DXVECTOR2(-100, -100);
+					m_GimmickUV[i] = D3DXVECTOR2(0, 0);
 					(*m_pCollision->GetRect())[i] = GIMMICK_RECTANGLE();
 					m_GimmickNum--;
 				}
@@ -235,8 +248,8 @@ namespace Game
 		}
 
 
-		float X = StageGimmickManager::m_DefaultGimmickSize.x;
-		float Y = StageGimmickManager::m_DefaultGimmickSize.y;
+		float X = m_Size.x;
+		float Y = m_Size.y;
 
 		D3DXVECTOR2 Pos;
 		Pos.x = pEvent->GetSpeedUpPos().x;

@@ -114,7 +114,7 @@ namespace Game
 						m_GimmickUV[i].x += 0.25f;
 				}
 
-				if (m_Times[i] > 720)
+				if (m_Times[i] > 100)
 				{
 					// イベントの送信.
 					srand(unsigned int(time(nullptr)));

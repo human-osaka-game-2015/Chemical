@@ -29,7 +29,7 @@ namespace Game
 		};
 
 		/*** コンストラクタ */
-		ExplosionCollision();
+		ExplosionCollision(int _id);
 
 		/*** デストラクタ */
 		virtual ~ExplosionCollision();

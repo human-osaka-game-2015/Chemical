@@ -19,6 +19,8 @@
 #include "MenuCursorEvent\MenuCursorEvent.h"
 #include "EventManager\EventManager.h"
 #include "JoyconManager\JoyconManager.h"
+#include "SoundManager\SoundManager.h"
+#include "SoundManager\Sound\Sound.h"
 
 
 namespace Title
@@ -65,6 +67,14 @@ namespace Title
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->AddTask(m_pUpdateTask);
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->AddTask(m_pDrawTask);
 
+		SINGLETON_INSTANCE(Lib::SoundManager)->LoadSound(
+			"Resource\\TitleScene\\Sound\\SelectSE.wav",
+			&m_SelectSEIndex);
+
+		SINGLETON_INSTANCE(Lib::SoundManager)->LoadSound(
+			"Resource\\TitleScene\\Sound\\EnterSE.wav",
+			&m_EnterSEIndex);
+
 		for (auto& Button : m_pMenuButtons)
 		{
 			if (!Button->Initialize())	return false;
@@ -79,6 +89,9 @@ namespace Title
 		{
 			Button->Finalize();
 		}
+
+		SINGLETON_INSTANCE(Lib::SoundManager)->ReleaseSound(m_EnterSEIndex);
+		SINGLETON_INSTANCE(Lib::SoundManager)->ReleaseSound(m_SelectSEIndex);
 
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->RemoveTask(m_pDrawTask);
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->RemoveTask(m_pUpdateTask);
@@ -97,6 +110,11 @@ namespace Title
 			pLeftJoycon->GetAnalogStick().y > 0.5f) &&
 			m_IsMenuUp == false && m_IsMenuDown == false)
 		{
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_SelectSEIndex)->SoundOperation(
+				Lib::SoundManager::STOP_RESET);
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_SelectSEIndex)->SoundOperation(
+				Lib::SoundManager::PLAY);
+
 			m_IsMenuUp = true;
 			m_IsUp = true;
 		}
@@ -104,6 +122,11 @@ namespace Title
 			pLeftJoycon->GetAnalogStick().y < -0.5f) &&
 			m_IsMenuUp == false && m_IsMenuDown == false)
 		{
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_SelectSEIndex)->SoundOperation(
+				Lib::SoundManager::STOP_RESET);
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_SelectSEIndex)->SoundOperation(
+				Lib::SoundManager::PLAY);
+
 			m_IsMenuDown = true;
 			m_IsDown = true;
 		}
@@ -112,6 +135,11 @@ namespace Title
 			pRightButtonState[Joycon::A_BUTTON] == Joycon::PUSH_BUTTON) &&
 			m_IsMenuUp == false && m_IsMenuDown == false)
 		{
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_EnterSEIndex)->SoundOperation(
+				Lib::SoundManager::STOP_RESET);
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_EnterSEIndex)->SoundOperation(
+				Lib::SoundManager::PLAY);
+
 			// 一番前方にあるアイテムからイベントを取得.
 			m_pEvent->SetEventType(m_pMenuButtons[3]->GetID());
 			SINGLETON_INSTANCE(Lib::EventManager)->SendEventMessage(

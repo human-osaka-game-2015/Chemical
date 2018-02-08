@@ -56,6 +56,7 @@ namespace Select
 		ObjectManager*						 m_pObjectManager;
 		Lib::EventListener*					 m_pEventListener;
 		std::function<void(Lib::EventBase*)> m_pReciveFunc;
+		int									m_MainSoundIndex;
 
 	};
 }

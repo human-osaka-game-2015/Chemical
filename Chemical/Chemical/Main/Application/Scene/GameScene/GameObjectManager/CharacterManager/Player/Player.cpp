@@ -59,7 +59,8 @@ namespace Game
 		m_MixChemicalCreateNum(0),
 		m_InvincibleTime(0),
 		m_AlphaColor(1.f),
-		m_IsFlashing(true)
+		m_IsFlashing(true),
+		m_StockTime(0)
 	{
 		m_Size = D3DXVECTOR2(120.f, 240.f);
 		m_Pos = D3DXVECTOR2(960.f, 400.f);
@@ -268,13 +269,13 @@ namespace Game
 				switch (CollisionData.Grade)
 				{
 				case ChemicalBase::GRADE_NORMAL:
-					m_SpeedUpTime = 120;
-					break;
-				case ChemicalBase::GRADE_GOOD:
 					m_SpeedUpTime = 180;
 					break;
+				case ChemicalBase::GRADE_GOOD:
+					m_SpeedUpTime = 300;
+					break;
 				case ChemicalBase::GRADE_GREAT:
-					m_SpeedUpTime = 240;
+					m_SpeedUpTime = 500;
 					break;
 				default:
 					m_SpeedUpTime = 0;
@@ -365,6 +366,12 @@ namespace Game
 		m_pCollision->ResetWarpHit();
 		m_PlayerState.Pos = m_Pos;
 		if (m_SpeedUpTime != 0) m_SpeedUpTime--;
+		if (m_PlayerState.Life <= 0)
+		{
+			m_AnimationState = DOWN_ANIMATION;
+			m_Animations[m_AnimationState].pData->Update();
+			m_Size = D3DXVECTOR2(240.f, 240.f);
+		}
 	}
 	
 	void Player::Draw()
@@ -447,7 +454,7 @@ namespace Game
 			"PlayerWalk.anim",
 			WALK_ANIMATION,
 			ANIMATION_PATTERN::LOOP_ANIMATION,
-			0.1f)) return false;
+			0.15f)) return false;
 
 		if (!LoadAnimationFile(
 			"PlayerWait.anim",
@@ -459,13 +466,13 @@ namespace Game
 			"PlayerMixIn.anim",
 			MIXIN_ANIMATION,
 			ANIMATION_PATTERN::ONE_ANIMATION,
-			0.07f)) return false;
+			0.12f)) return false;
 
 		if (!LoadAnimationFile(
 			"PlayerSprinkle.anim",
 			SPRINKLE_ANIMATION,
 			ANIMATION_PATTERN::ONE_ANIMATION,
-			0.1f)) return false;
+			0.15f)) return false;
 
 		if (!LoadAnimationFile(
 			"PlayerDown.anim",
@@ -540,13 +547,29 @@ namespace Game
 				m_SelectChemicalIndex[1] = 0;
 		}
 
+		m_StockTime++;
+		if (m_StockTime > 50)
+		{
+			m_StockTime = 0;
+			m_ChemicalStock[m_SelectChemicalIndex[0]] += 10;
+			m_ChemicalStock[m_SelectChemicalIndex[1]] += 10;
+			if (m_ChemicalStock[m_SelectChemicalIndex[0]] > 100)
+			{
+				m_ChemicalStock[m_SelectChemicalIndex[0]] = 100;
+			}
+			if (m_ChemicalStock[m_SelectChemicalIndex[1]] > 100)
+			{
+				m_ChemicalStock[m_SelectChemicalIndex[1]] = 100;
+			}
+		}
+
 		if ((pKeyState[DIK_D] == Lib::KeyDevice::KEY_PUSH ||
 			pRightButtonState[Joycon::X_BUTTON] == Joycon::PUSH_BUTTON) &&
 			m_IsLanding)
 		{
 			//混ぜる動作.
-			if (m_ChemicalStock[m_SelectChemicalIndex[0]] > 0 &&
-				m_ChemicalStock[m_SelectChemicalIndex[1]] > 0)
+			if (m_ChemicalStock[m_SelectChemicalIndex[0]] >= 50 &&
+				m_ChemicalStock[m_SelectChemicalIndex[1]] >= 50)
 			{
 				m_ChemicalStock[m_SelectChemicalIndex[0]] -= 50;
 				m_ChemicalStock[m_SelectChemicalIndex[1]] -= 50;
@@ -554,11 +577,6 @@ namespace Game
 				m_AnimationState = MIXIN_ANIMATION;
 				m_Animations[m_AnimationState].pData->AnimationStart();
 				pControl = &Player::ChemicalCreateControl;
-			}
-			else
-			{
-				m_ChemicalStock[m_SelectChemicalIndex[0]] = 0;
-				m_ChemicalStock[m_SelectChemicalIndex[1]] = 0;
 			}
 		}
 		else if ((pKeyState[DIK_C] == Lib::KeyDevice::KEY_PUSH ||
@@ -607,7 +625,7 @@ namespace Game
 			m_Acceleration = m_JumpPower;
 		}
 		else if (pKeyState[DIK_LEFTARROW] == Lib::KeyDevice::KEY_ON ||
-			pLeftJoycon->GetAnalogStick().x < -0.5)
+			pLeftJoycon->GetAnalogStick().x < -0.15)
 		{
 			if (m_IsLanding) m_AnimationState = WALK_ANIMATION;
 			m_Animations[m_AnimationState].pData->Update();
@@ -620,7 +638,7 @@ namespace Game
 			if (m_WorldPos.x <= X) m_WorldPos.x = (m_Pos.x -= MoveSpeed);
 		}
 		else if (pKeyState[DIK_RIGHTARROW] == Lib::KeyDevice::KEY_ON ||
-			pLeftJoycon->GetAnalogStick().x > +0.5)
+			pLeftJoycon->GetAnalogStick().x > +0.15)
 		{
 			if (m_IsLanding) m_AnimationState = WALK_ANIMATION;
 			m_Animations[m_AnimationState].pData->Update();
@@ -647,7 +665,18 @@ namespace Game
 
 		if (ChemicalGrade == ChemicalBase::GRADE_BAD)
 		{
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_DamageSoundIndex)->SoundOperation(
+				Lib::SoundManager::STOP_RESET);
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_DamageSoundIndex)->SoundOperation(
+				Lib::SoundManager::PLAY);
 			m_PlayerState.Life -= 10;
+			if (m_PlayerState.Life <= 0)
+			{
+				m_pCurrentSceneEvent->SetEventType(CurrentSceneEvent::OVER_EVENT);
+				SINGLETON_INSTANCE(Lib::EventManager)->SendEventMessage(
+					m_pCurrentSceneEvent,
+					TO_STRING(CURRENT_SCENE_EVENT_GROUP));
+			}
 			pControl = &Player::NormalControl;
 		}
 		else

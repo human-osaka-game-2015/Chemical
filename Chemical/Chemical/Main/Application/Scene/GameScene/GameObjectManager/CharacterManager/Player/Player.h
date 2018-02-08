@@ -181,6 +181,8 @@ namespace Game
 		int m_DamageSoundIndex;
 		int m_GoalSoundIndex;
 
+		int m_StockTime;
+
 	};
 }
 

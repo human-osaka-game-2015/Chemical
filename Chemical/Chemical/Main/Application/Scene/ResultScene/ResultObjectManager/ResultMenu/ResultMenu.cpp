@@ -13,6 +13,8 @@
 #include "InputDeviceManager\InputDeviceManager.h"
 #include "EventManager\EventManager.h"
 #include "JoyconManager\JoyconManager.h"
+#include "SoundManager\SoundManager.h"
+#include "SoundManager\Sound\Sound.h"
 
 
 namespace Result
@@ -59,11 +61,22 @@ namespace Result
 		m_pResultScore->Initialize();
 		m_pResultTime->Initialize();
 
+		SINGLETON_INSTANCE(Lib::SoundManager)->LoadSound(
+			"Resource\\TitleScene\\Sound\\SelectSE.wav",
+			&m_SelectSEIndex);
+
+		SINGLETON_INSTANCE(Lib::SoundManager)->LoadSound(
+			"Resource\\TitleScene\\Sound\\EnterSE.wav",
+			&m_EnterSEIndex);
+
 		return true;
 	}
 
 	void ResultMenu::Finalize()
 	{
+		SINGLETON_INSTANCE(Lib::SoundManager)->ReleaseSound(m_EnterSEIndex);
+		SINGLETON_INSTANCE(Lib::SoundManager)->ReleaseSound(m_SelectSEIndex);
+
 		m_pResultTime->Finalize();
 		m_pResultScore->Finalize();
 		m_pRanking->Finalize();
@@ -86,6 +99,10 @@ namespace Result
 		if (pKeyState[DIK_RIGHT] == Lib::KeyDevice::KEY_PUSH ||
 			pLeftJoycon->GetAnalogStick().x > 0.5f)
 		{
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_SelectSEIndex)->SoundOperation(
+				Lib::SoundManager::STOP_RESET);
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_SelectSEIndex)->SoundOperation(
+				Lib::SoundManager::PLAY);
 			m_IsSelected = true;
 			m_pBackButton->SetIsSelected(true);
 			m_pRestartButton->SetIsSelected(false);
@@ -94,15 +111,23 @@ namespace Result
 		else if (pKeyState[DIK_LEFT] == Lib::KeyDevice::KEY_PUSH ||
 			pLeftJoycon->GetAnalogStick().x < -0.5f)
 		{
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_SelectSEIndex)->SoundOperation(
+				Lib::SoundManager::STOP_RESET);
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_SelectSEIndex)->SoundOperation(
+				Lib::SoundManager::PLAY);
 			m_IsSelected = false;
 			m_pBackButton->SetIsSelected(false);
 			m_pRestartButton->SetIsSelected(true);
 			m_pEvent->SetType(ResultMenuEvent::RESTART_EVENT);
 		}
 
-		if (pKeyState[DIK_RETURN] == Lib::KeyDevice::KEY_PUSH ||
+		if (pKeyState[DIK_SPACE] == Lib::KeyDevice::KEY_PUSH ||
 			pRightButtonState[Joycon::A_BUTTON] == Joycon::PUSH_BUTTON)
 		{
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_EnterSEIndex)->SoundOperation(
+				Lib::SoundManager::STOP_RESET);
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_EnterSEIndex)->SoundOperation(
+				Lib::SoundManager::PLAY);
 			SINGLETON_INSTANCE(Lib::EventManager)->SendEventMessage(
 				m_pEvent,
 				TO_STRING(RESULT_MENU_EVENT_GROUP));

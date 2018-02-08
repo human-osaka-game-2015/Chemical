@@ -20,6 +20,7 @@ namespace Game
 		{
 			bool	IsDamage;
 			int		LiquidTtpe;
+			int		Damage;
 		};
 		/*** コンストラクタ */
 		EnemyCollision();
@@ -66,6 +67,9 @@ namespace Game
 		 * @param[in] _pOther 他オブジェクト
 		 */
 		virtual void Collide(BeltConveyorGimmickCollision* _pOther);
+
+		/*** 爆発オブジェクトとの当たり判定を行う */
+		virtual void Collide(ExplosionCollision* _pOther);
 
 		/*** 当たり判定差分の初期化 */
 		void ResetCollisionDiff()

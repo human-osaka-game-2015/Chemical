@@ -21,7 +21,7 @@
 
 namespace Game
 {
-	const float JumpEnemy::m_JumpPower = -22.5;
+	const float JumpEnemy::m_JumpPower = -10.5;
 
 	//----------------------------------------------------------------------
 	// Constructor	Destructor
@@ -231,7 +231,7 @@ namespace Game
 	{
 		if (m_pCollision->GetDamagestate().IsDamage)
 		{
-			m_Health -= 3;
+			m_Health -= m_pCollision->GetDamagestate().Damage;
 		}
 	}
 }

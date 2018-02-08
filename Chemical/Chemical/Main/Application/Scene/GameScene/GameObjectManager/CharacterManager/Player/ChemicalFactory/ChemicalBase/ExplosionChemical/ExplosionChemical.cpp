@@ -10,6 +10,8 @@
 #include "..\..\..\..\..\GameDataManager\GameDataManager.h"
 
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
+#include "DirectX11\AnimationManager\Dx11AnimationManager.h"
+#include "DirectX11\AnimationManager\IAnimation\Dx11IAnimation.h"
 
 
 namespace Game
@@ -35,20 +37,36 @@ namespace Game
 
 	ExplosionChemical::ExplosionChemical(int _textureIndex) :
 		ChemicalBase(_textureIndex, CHEMICAL_EXPLOSION),
-		m_Scale(1.f)
+		m_Scale(1.f), 
+		m_IsAnimation(false)
 	{
-		m_Size = D3DXVECTOR2(80,80);
-		m_pExplosionCollision = new ExplosionCollision;
+		m_Size = D3DXVECTOR2(40, 40);
+		m_pExplosionCollision = new ExplosionCollision(EXPLOSION_COLLISION_ID);
 		m_pDrawTask->SetPriority(GAME_DRAW_EFFECT);
 		pControl[NORMAL_CONTROL] = &ExplosionChemical::NormalControl;
 		pControl[EXPLOSION_CONTROL] = &ExplosionChemical::ExplosionControl;
 		m_ControlState = NORMAL_CONTROL;
 		//本素材が無いので.
 		m_ExplosionTextureIndex = m_TextureIndex;
+
+		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->LoadTexture(
+			"Resource\\GameScene\\Texture\\Explosion2.png", 
+			&m_TextureIndex2);
+		SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->LoadAnimation(
+			"Resource\\GameScene\\Animation\\Explosion.anim",
+			&m_AnimationIndex);
+
+		SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->GetAnimation(m_AnimationIndex)->SetAnimationPattern(
+			Lib::Dx11::IAnimation::ONE_ANIMATION);
+		SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->GetAnimation(m_AnimationIndex)->SetAnimationSpeed(0.25f);
+		SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->GetAnimation(m_AnimationIndex)->AnimationStart();
 	}
 
 	ExplosionChemical::~ExplosionChemical()
 	{
+		SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->ReleaseAnimation(m_AnimationIndex);
+		SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->ReleaseTexture(m_TextureIndex2);
+
 		SafeDelete(m_pExplosionCollision);
 	}
 
@@ -68,8 +86,10 @@ namespace Game
 			SINGLETON_INSTANCE(CollisionManager)->AddCollision(m_pExplosionCollision);
 		}
 
-		if (m_Scale > 5.f)
+		if (m_IsAnimation)
 		{
+			m_IsAnimation = false;
+			SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->GetAnimation(m_AnimationIndex)->AnimationStart();
 			m_IsSprinkle = false;
 			m_Scale = 1.f;
 			m_ControlState = NORMAL_CONTROL;
@@ -98,11 +118,12 @@ namespace Game
 	void ExplosionChemical::Sprinkle(const D3DXVECTOR2& _pos, bool _isLeft)
 	{
 		if (m_IsSprinkle) return;
-		m_ChemicalData.Remain -= 10;
-		m_ChemicalData.Remain = (std::max)(0.f, m_ChemicalData.Remain);
 
-		if (m_ChemicalData.Remain > 0)
+		if (m_ChemicalData.Remain >= 10)
 		{
+			m_ChemicalData.Remain -= 10;
+			m_ChemicalData.Remain = (std::max)(0.f, m_ChemicalData.Remain);
+
 			m_IsLeft = _isLeft;
 			m_Pos = _pos;
 			m_Acceleration = -7;
@@ -120,6 +141,12 @@ namespace Game
 
 	void ExplosionChemical::NormalControl()
 	{
+		m_pVertex->SetAnimation(nullptr);
+		m_pVertex->SetUV(&D3DXVECTOR2(0, 0), &D3DXVECTOR2(1.0, 1.0));
+		m_pVertex->WriteVertexBuffer();
+		m_pVertex->SetTexture(
+			SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_ExplosionTextureIndex));
+
 		m_Acceleration = (std::min)(m_Acceleration, 23.f);
 
 		m_Pos.x += m_IsLeft ? -10.f : 10.f;
@@ -136,7 +163,24 @@ namespace Game
 
 	void ExplosionChemical::ExplosionControl()
 	{
-		m_Scale += 0.3f;
+		m_IsAnimation = SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->GetAnimation(m_AnimationIndex)->Update();
+		m_pVertex->SetAnimation(
+			SINGLETON_INSTANCE(Lib::Dx11::AnimationManager)->GetAnimation(m_AnimationIndex));
+		m_pVertex->SetTexture(
+			SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex2));
+
+		switch (m_ChemicalData.Grade)
+		{
+			case GRADE_NORMAL:
+				m_Scale += 0.15f;
+				break;
+			case GRADE_GOOD:
+				m_Scale += 0.25f;
+				break;
+			case GRADE_GREAT:
+				m_Scale += 0.35f;
+				break;
+		}
 		m_pExplosionCollision->SetCircle(Circle(m_Pos, 40 * m_Scale));
 	}
 }

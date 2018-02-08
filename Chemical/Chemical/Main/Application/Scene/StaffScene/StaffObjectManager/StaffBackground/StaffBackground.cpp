@@ -24,8 +24,8 @@ namespace Staff
 	//----------------------------------------------------------------------
 	Background::Background()
 	{
-		m_Pos = D3DXVECTOR2(960, 540);
-		m_Size = D3DXVECTOR2(1920, 1080);
+		m_Pos = D3DXVECTOR2(800, 450);
+		m_Size = D3DXVECTOR2(1600, 900);
 	}
 
 	Background::~Background()

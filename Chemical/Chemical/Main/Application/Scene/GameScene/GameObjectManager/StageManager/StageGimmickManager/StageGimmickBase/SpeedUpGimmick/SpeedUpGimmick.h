@@ -77,6 +77,8 @@ namespace Game
 		std::function<void(Lib::EventBase*)>	m_ReciveFunc;
 		Lib::EventListener*						m_pEventListener;
 
+		int m_AnimationIndex;
+
 	};
 }
 

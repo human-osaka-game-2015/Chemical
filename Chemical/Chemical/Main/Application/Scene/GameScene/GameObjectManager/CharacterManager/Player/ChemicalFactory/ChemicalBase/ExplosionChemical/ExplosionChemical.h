@@ -63,6 +63,10 @@ namespace Game
 
 		ExplosionCollision* m_pExplosionCollision;
 
+		int m_TextureIndex2;
+		int m_AnimationIndex;
+		bool m_IsAnimation;
+
 	};
 }
 

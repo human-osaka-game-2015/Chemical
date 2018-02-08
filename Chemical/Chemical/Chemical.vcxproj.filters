@@ -32,9 +32,6 @@
     <Filter Include="Main\CsvFile">
       <UniqueIdentifier>{462822bf-eead-48e6-b347-afa1d05cd543}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Main\Application\TitleScene\TitleObjectManager\TitleBackLogo">
-      <UniqueIdentifier>{796a16f0-f431-4301-9473-bc7b59ffdea4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main\Application\TitleScene\TitleObjectManager\TitleMenu\TitleMenuButtonBase">
       <UniqueIdentifier>{4ceb9bbf-2ec4-4376-b9d7-2d9c1ed877c1}</UniqueIdentifier>
     </Filter>

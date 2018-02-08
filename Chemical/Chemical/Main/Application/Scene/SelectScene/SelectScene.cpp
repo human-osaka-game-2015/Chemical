@@ -17,10 +17,12 @@
 #include "InputDeviceManager\InputDeviceManager.h"
 #include "SoundDevice\SoundDevice.h"
 #include "SoundManager\SoundManager.h"
+#include "SoundManager\Sound\Sound.h"
 #include "TaskManager\TaskBase\UpdateTask\UpdateTask.h"
 #include "TaskManager\TaskBase\DrawTask\DrawTask.h"
 #include "EventManager\EventManager.h"
 #include "DirectX11\Font\Dx11Font.h"
+#include "JoyconManager\JoyconManager.h"
 
 
 namespace Select
@@ -82,6 +84,17 @@ namespace Select
 
 		m_State = UPDATE_STATE;
 
+		SINGLETON_INSTANCE(Lib::SoundManager)->LoadSound(
+			"Resource\\StageSelectScene\\Sound\\MainBGM.wav",
+			&m_MainSoundIndex);
+
+		SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_MainSoundIndex)->SoundOperation(
+			Lib::SoundManager::STOP_RESET);
+		SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_MainSoundIndex)->SoundOperation(
+			Lib::SoundManager::PLAY_LOOP);
+
+		SINGLETON_INSTANCE(SelectManager)->Initialize();
+
 		m_pObjectManager = new ObjectManager();
 		if (!m_pObjectManager->Initialize())
 		{
@@ -98,6 +111,12 @@ namespace Select
 	{
 		m_pObjectManager->Finalize();
 		SafeDelete(m_pObjectManager);
+
+		SINGLETON_INSTANCE(SelectManager)->Finalize();
+
+		SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_MainSoundIndex)->SoundOperation(
+			Lib::SoundManager::STOP_RESET);
+		SINGLETON_INSTANCE(Lib::SoundManager)->ReleaseSound(m_MainSoundIndex);
 
 		SINGLETON_DELETE(Lib::EventManager);
 		SafeDelete(m_pEventListener);
@@ -141,7 +160,9 @@ namespace Select
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_LEFTARROW);
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_RIGHTARROW);
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_DOWNARROW);
-		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_RETURN);
+		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_SPACE);
+
+		SINGLETON_INSTANCE(JoyconManager)->CheckButton(Joycon::RIGHT_CONTROLLER, Joycon::A_BUTTON);
 
 		SINGLETON_INSTANCE(SelectManager)->Update();
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->Run();

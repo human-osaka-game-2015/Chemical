@@ -247,7 +247,7 @@ namespace Game
 	{
 		if (m_pCollision->GetDamagestate().IsDamage)
 		{
-			m_Health -= 3;
+			m_Health -= m_pCollision->GetDamagestate().Damage;
 		}
 	}
 }

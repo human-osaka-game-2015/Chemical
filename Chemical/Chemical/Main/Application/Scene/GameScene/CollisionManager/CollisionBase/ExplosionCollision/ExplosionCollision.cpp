@@ -7,8 +7,8 @@
 
 namespace Game
 {
-	ExplosionCollision::ExplosionCollision() :
-		CollisionBase(EXPLOSION_COLLISION_ID)
+	ExplosionCollision::ExplosionCollision(int _id) :
+		CollisionBase(_id)
 	{
 	}
 

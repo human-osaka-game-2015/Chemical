@@ -63,6 +63,9 @@ namespace Title
 		bool m_IsMenuDown;		//!< メニュー降下フラグ.
 		bool m_IsDown;			//!< 降下フラグ.
 
+		int m_SelectSEIndex;
+		int m_EnterSEIndex;
+
 	};
 }
 

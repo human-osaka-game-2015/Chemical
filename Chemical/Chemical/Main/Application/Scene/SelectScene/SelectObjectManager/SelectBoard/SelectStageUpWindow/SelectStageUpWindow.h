@@ -77,6 +77,10 @@ namespace Select
 		ScoreRanking*		 m_pScoreRanking;
 		RankingWindow*		 m_pRankingWindow;
 		RankingReturnButton* m_pRankingButton;
+
+		int m_LeftTime;
+		int m_RightTime;
+
 	};
 }
 

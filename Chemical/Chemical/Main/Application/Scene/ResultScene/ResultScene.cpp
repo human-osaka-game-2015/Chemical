@@ -16,6 +16,7 @@
 #include "InputDeviceManager\InputDeviceManager.h"
 #include "SoundDevice\SoundDevice.h"
 #include "SoundManager\SoundManager.h"
+#include "SoundManager\Sound\Sound.h"
 #include "TaskManager\TaskBase\UpdateTask\UpdateTask.h"
 #include "TaskManager\TaskBase\DrawTask\DrawTask.h"
 #include "EventManager\EventManager.h"
@@ -83,6 +84,15 @@ namespace Result
 
 		SINGLETON_CREATE(Lib::EventManager);
 
+		SINGLETON_INSTANCE(Lib::SoundManager)->LoadSound(
+			"Resource\\ResultScene\\Sound\\MainBGM.wav",
+			&m_MainSoundIndex);
+
+		SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_MainSoundIndex)->SoundOperation(
+			Lib::SoundManager::STOP_RESET);
+		SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_MainSoundIndex)->SoundOperation(
+			Lib::SoundManager::PLAY_LOOP);
+
 		m_pObjectManager = new ResultObjectManager();
 		if (!m_pObjectManager->Initialize())
 		{
@@ -108,6 +118,10 @@ namespace Result
 		SafeDelete(m_pEventListener);
 		m_pObjectManager->Finalize();
 		SafeDelete(m_pObjectManager);
+
+		SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_MainSoundIndex)->SoundOperation(
+			Lib::SoundManager::STOP_RESET);
+		SINGLETON_INSTANCE(Lib::SoundManager)->ReleaseSound(m_MainSoundIndex);
 
 		SINGLETON_DELETE(Lib::EventManager);
 
@@ -150,7 +164,7 @@ namespace Result
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_LEFTARROW);
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_RIGHTARROW);
 		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_DOWNARROW);
-		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_RETURN);
+		SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_SPACE);
 
 		SINGLETON_INSTANCE(JoyconManager)->CheckButton(Joycon::RIGHT_CONTROLLER, Joycon::A_BUTTON);
 

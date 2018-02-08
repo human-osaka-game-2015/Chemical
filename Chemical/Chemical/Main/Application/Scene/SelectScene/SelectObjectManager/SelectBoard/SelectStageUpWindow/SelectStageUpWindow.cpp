@@ -17,6 +17,7 @@
 #include "DirectX11\GraphicsDevice\Dx11GraphicsDevice.h"
 #include "TaskManager\TaskManager.h"
 #include "InputDeviceManager\InputDeviceManager.h"
+#include "JoyconManager\JoyconManager.h"
 
 namespace Select
 {
@@ -25,7 +26,9 @@ namespace Select
 		m_StageNum(_stageNum),
 		m_Alpha(0),
 		m_IsRankingDraw(false),
-		m_ButtonState(NONE_BUTTON)
+		m_ButtonState(NONE_BUTTON),
+		m_LeftTime(0),
+		m_RightTime(0)
 	{
 		m_Size = D3DXVECTOR2(1920, 1080);
 		m_Pos = D3DXVECTOR2(960, 540);
@@ -107,6 +110,10 @@ namespace Select
 	{
 		if (!m_IsEnable) return;
 		const Lib::KeyDevice::KEYSTATE* KeyState = SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState();
+		const Joycon::BUTTON_STATE* pRightButtonState =
+			SINGLETON_INSTANCE(JoyconManager)->GetJoycon(Joycon::RIGHT_CONTROLLER)->GetButtonState();
+		const Joycon* pLeftJoycon =
+			SINGLETON_INSTANCE(JoyconManager)->GetJoycon(Joycon::LEFT_CONTROLLER);
 
 		m_Alpha += 0.009f;
 		if (m_Alpha > 1) m_Alpha = 1;
@@ -114,6 +121,31 @@ namespace Select
 
 		if (m_ButtonState != NONE_BUTTON) m_pButtons[m_ButtonState]->OnCusor();
 		
+		if (pLeftJoycon->GetAnalogStick().x > 0.5f)
+		{
+			m_RightTime++;
+			if (m_RightTime > 4)
+			{
+				m_RightTime = 0;
+			}
+		}
+		else
+		{
+			m_RightTime = 0;
+		}
+
+		if (pLeftJoycon->GetAnalogStick().x < -0.5f)
+		{
+			m_LeftTime++;
+			if (m_LeftTime > 4)
+			{
+				m_LeftTime = 0;
+			}
+		}
+		else
+		{
+			m_LeftTime = 0;
+		}
 
 		for (auto itr : m_pButtons)
 		{
@@ -122,7 +154,7 @@ namespace Select
 
 		if (m_IsRankingDraw)
 		{
-			if (KeyState[DIK_RETURN] == Lib::KeyDevice::KEY_PUSH)
+			if (KeyState[DIK_SPACE] == Lib::KeyDevice::KEY_PUSH || pRightButtonState[Joycon::A_BUTTON] == Joycon::PUSH_BUTTON)
 			{
 				m_IsRankingDraw = false;
 			}
@@ -132,19 +164,19 @@ namespace Select
 		}
 		else
 		{
-			if (KeyState[DIK_LEFT] == Lib::KeyDevice::KEY_PUSH)
+			if (KeyState[DIK_LEFT] == Lib::KeyDevice::KEY_PUSH || m_LeftTime >= 4)
 			{
 				if (m_ButtonState > 0) m_ButtonState--;
 				else m_ButtonState = RETURN_BUTTON;
 			}
 
-			if (KeyState[DIK_RIGHT] == Lib::KeyDevice::KEY_PUSH)
+			if (KeyState[DIK_RIGHT] == Lib::KeyDevice::KEY_PUSH || m_RightTime >= 4)
 			{
 				if (m_ButtonState < RETURN_BUTTON) m_ButtonState++;
 				else m_ButtonState = RANKING_BUTTON;
 			}
 
-			if (KeyState[DIK_RETURN] == Lib::KeyDevice::KEY_PUSH &&
+			if ((KeyState[DIK_SPACE] == Lib::KeyDevice::KEY_PUSH || pRightButtonState[Joycon::A_BUTTON] == Joycon::PUSH_BUTTON)&&
 				!m_IsRankingDraw)
 			{
 				switch (m_ButtonState)

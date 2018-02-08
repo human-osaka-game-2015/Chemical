@@ -8,8 +8,10 @@
 #include "Application\Scene\GameScene\CollisionManager\CollisionManager.h"
 
 #include "DirectX11\TextureManager\Dx11TextureManager.h"
+#include "GameDefine.h"
 
 #include <algorithm>
+
 
 namespace Game
 {
@@ -38,6 +40,8 @@ namespace Game
 		if (!CreateVertex2D()) return false;
 		m_pVertex->SetUV(&D3DXVECTOR2(0.f, 0.f), &D3DXVECTOR2(1.f, 1.f));
 		m_pVertex->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
+
+		m_pDrawTask->SetPriority(GAME_DRAW_EXPLOSION);
 
 		SINGLETON_INSTANCE(Lib::Draw2DTaskManager)->RemoveTask(m_pDrawTask);
 		SINGLETON_INSTANCE(Lib::UpdateTaskManager)->RemoveTask(m_pUpdateTask);
@@ -103,11 +107,11 @@ namespace Game
 	void ChemicalBase::Sprinkle(const D3DXVECTOR2& _pos, bool _isLeft)
 	{
 		if (m_IsSprinkle) return;
-		m_ChemicalData.Remain -= 10;
-		m_ChemicalData.Remain = (std::max)(0.f, m_ChemicalData.Remain);
 
-		if (m_ChemicalData.Remain > 0)
+		if (m_ChemicalData.Remain >= 10)
 		{
+			m_ChemicalData.Remain -= 10;
+			m_ChemicalData.Remain = (std::max)(0.f, m_ChemicalData.Remain);
 			m_IsLeft = _isLeft;
 			m_Pos = _pos;
 			m_Acceleration = -7;
@@ -128,16 +132,16 @@ namespace Game
 	{
 		m_ShakeFrame++;
 
-		if (m_ShakeFrame > 270)
+		if (m_ShakeFrame > 180)
 		{
 			m_ChemicalData.Grade = GRADE_BAD;
 			m_ShakeFrame = 360;
 		}
-		else if (m_ShakeFrame > 180)
+		else if (m_ShakeFrame > 120)
 		{
 			m_ChemicalData.Grade = GRADE_GREAT;
 		}
-		else if (m_ShakeFrame > 90)
+		else if (m_ShakeFrame > 60)
 		{
 			m_ChemicalData.Grade = GRADE_GOOD;
 		}

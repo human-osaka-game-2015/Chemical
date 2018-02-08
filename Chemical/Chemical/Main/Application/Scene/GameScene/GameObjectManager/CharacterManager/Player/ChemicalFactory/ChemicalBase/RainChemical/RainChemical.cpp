@@ -46,9 +46,9 @@ namespace Game
 
 	RainChemical::RainChemical(int _textureIndex) :
 		ChemicalBase(_textureIndex, CHEMICAL_RAIN),
-		m_ParticleNum(60)
+		m_ParticleNum(1)
 	{
-		m_Size = D3DXVECTOR2(25,25);
+		m_Size = D3DXVECTOR2(40,40);
 	}
 
 	RainChemical::~RainChemical()
@@ -181,21 +181,16 @@ namespace Game
 	void RainChemical::Sprinkle(const D3DXVECTOR2& _pos, bool _isLeft)
 	{
 		if (m_IsSprinkle) return;
+		if (m_ChemicalData.Remain <= 0) return;
 
 		m_ChemicalData.Remain -= 10;
 		m_ChemicalData.Remain = (std::max)(0.f, m_ChemicalData.Remain);
 
-		if (m_ChemicalData.Remain < 0) return;
-
-		std::mt19937 RandomGenerator(static_cast<unsigned>(time(nullptr)));
-		std::uniform_real_distribution<float> RandomDistribution(7, 10);
-		std::uniform_real_distribution<float> RandomDistribution2(-9, -7);
-
 		for (int i = 0; i < m_ParticleNum; i++)
 		{
-			m_Speeds[i] = RandomDistribution(RandomGenerator);
+			m_Speeds[i] = 8;
 			m_Positions[i] = _pos;
-			m_Accelerations[i] = RandomDistribution2(RandomGenerator);
+			m_Accelerations[i] = -8;
 		}
 
 		m_Acceleration = -7;

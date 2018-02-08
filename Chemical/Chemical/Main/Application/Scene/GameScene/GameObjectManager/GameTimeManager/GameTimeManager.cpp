@@ -21,7 +21,7 @@ namespace Game
 	// Static Private Variables
 	//----------------------------------------------------------------------
 	const int TimeManager::m_FrameMax = 60;
-	const int TimeManager::m_SecondsMax = 99;
+	const int TimeManager::m_SecondsMax = 60;
 	const int TimeManager::m_MinuteMax = 99;
 
 

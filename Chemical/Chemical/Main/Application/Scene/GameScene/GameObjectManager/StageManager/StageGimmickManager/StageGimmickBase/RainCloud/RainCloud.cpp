@@ -161,6 +161,8 @@ namespace Game
 	void RainCloud::Draw()
 	{
 		if (m_GimmickNum == 0) return;
+		m_pMultipleVertexUV->SetVertex(&m_Size);
+		m_pMultipleVertexUV->WriteVertexBuffer();
 		m_pMultipleVertexUV->SetTexture(SINGLETON_INSTANCE(Lib::Dx11::TextureManager)->GetTexture(m_TextureIndex));
 		m_pMultipleVertexUV->DefaultDraw(&m_Positions[0], &m_GimmickUV[0], m_GimmickMax);
 	}
@@ -223,6 +225,7 @@ namespace Game
 
 			X = m_LowSize.x;
 			Y = m_LowSize.y;
+			m_Size = m_LowSize;
 			break;
 		case ChemicalBase::GRADE_GOOD:
 			m_pRains[ID] = new Rain(D3DXVECTOR2(pEvent->GetRainPos().x, 300), Rain::NORMAL_GRADE);
@@ -230,6 +233,7 @@ namespace Game
 
 			X = m_GoodSize.x;
 			Y = m_GoodSize.y;
+			m_Size = m_GoodSize;
 			break;
 		case ChemicalBase::GRADE_GREAT:
 			m_pRains[ID] = new Rain(D3DXVECTOR2(pEvent->GetRainPos().x, 300), Rain::HIGH_GRADE);
@@ -237,6 +241,7 @@ namespace Game
 
 			X = m_GreatSize.x;
 			Y = m_GreatSize.y;
+			m_Size = m_GreatSize;
 			break;
 		default:
 			OutputErrorLog("薬品のグレードが不正です");

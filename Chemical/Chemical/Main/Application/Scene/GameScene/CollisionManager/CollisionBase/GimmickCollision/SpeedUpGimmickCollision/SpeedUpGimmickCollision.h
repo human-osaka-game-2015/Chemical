@@ -40,6 +40,7 @@ namespace Game
 
 	private:
 		std::vector<ChemicalBase::GRADE> m_Grade;
+
 	};
 }
 

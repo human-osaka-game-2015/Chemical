@@ -57,6 +57,9 @@ namespace Result
 
 		bool m_IsSelected;	//!< trueの場合バックボタンが選択.
 
+		int m_SelectSEIndex;
+		int m_EnterSEIndex;
+
 	};
 }
 

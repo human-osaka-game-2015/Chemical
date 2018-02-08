@@ -38,7 +38,7 @@ namespace Game
 	SpeedUpChemical::SpeedUpChemical(int _textureIndex) :
 		ChemicalBase(_textureIndex, CHEMICAL_SPEEDUP)
 	{
-		m_Size = D3DXVECTOR2(80,80);
+		m_Size = D3DXVECTOR2(40,40);
 	}
 
 	SpeedUpChemical::~SpeedUpChemical()
